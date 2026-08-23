@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Afaq Ahmad — AI &amp; Full Stack Developer | Peshawar</title>
+  <meta name="description" content="Afaq Ahmad — AI &amp; Full Stack Developer based in Peshawar, Pakistan. Building modern web experiences and intelligent applications."/>
+  <meta name="author" content="Afaq Ahmad"/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://afaqahmadcs.github.io/AFAQ-Portfolio-Website/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Afaq Ahmad — AI &amp; Full Stack Developer"/>
+  <meta property="og:description" content="AI &amp; Full Stack Developer based in Peshawar, Pakistan."/>
+  <meta property="og:url" content="https://afaqahmadcs.github.io/AFAQ-Portfolio-Website/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Afaq Ahmad — AI &amp; Full Stack Developer"/>
+  <meta name="twitter:description" content="AI &amp; Full Stack Developer based in Peshawar, Pakistan."/>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/tokens.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+</head>
+<body>
+<!-- Scroll Progress -->
+<div id="scroll-progress" aria-hidden="true"></div>
+<!-- Custom Cursor -->
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
+<div id="loader" role="status" aria-label="Loading">
+  <div class="ldr-inner">
+    <div class="ldr-logo-wrap">
+      <svg class="ldr-logo-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="ldg" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs>
+        <rect width="60" height="60" rx="16" fill="url(#ldg)"/>
+        <path d="M9 44 L20 16 L25.5 30 L14 30 Z" fill="white" opacity="0.95"/>
+        <path d="M20 16 L31 44 L26.5 44 L17 22 Z" fill="white" opacity="0.70"/>
+        <path d="M29 44 L40 16 L45.5 30 L34 30 Z" fill="white" opacity="0.95"/>
+        <path d="M40 16 L51 44 L46.5 44 L37 22 Z" fill="white" opacity="0.70"/>
+      </svg>
+      <div class="ldr-ring"></div>
+    </div>
+    <div class="ldr-text">
+      <span class="ldr-name">AFAQ AHMAD</span>
+      <span class="ldr-title">AI &amp; Full Stack Developer</span>
+    </div>
+    <div class="ldr-bar"><div class="ldr-fill" id="ldr-fill"></div></div>
+    <div class="ldr-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+<header role="banner">
+<nav id="navbar" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo" aria-label="Afaq Ahmad home">
+    <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="nlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#nlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg>
+    <span class="nav-logo-name">Afaq Ahmad</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="about.html#skills">Skills</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume.html">Resume</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-icon" id="theme-btn" aria-label="Toggle theme">
+      <svg id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg id="ic-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+    <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" class="nav-icon" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    </a>
+    <a href="contact.html" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Let's Talk
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+</header>
+
+<div id="mmenu" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true">
+  <div class="mm-head">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="mlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#mlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg>
+      <span class="nav-logo-name">Afaq Ahmad</span>
+    </a>
+    <button class="mm-close" id="mm-close" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="mm-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="#services">Services</a>
+    <a href="about.html#skills">Skills</a>
+    <a href="#blog">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+  <div class="mm-foot">
+    <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" class="nav-icon" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    </a>
+    <a href="contact.html" class="btn btn--primary btn--sm">Let's Talk</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-blob" aria-hidden="true"></div>
+    <div class="hero-blob" aria-hidden="true"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <!-- Left: Text Content -->
+      <div class="hero-content">
+        <div class="hero-status" role="status">
+          <span class="status-dot"></span>
+          Available for freelance &amp; collaborations
+        </div>
+        <p class="hero-greet">Hi there, I'm</p>
+        <h1 class="hero-name"><span class="grad-txt text-reveal">AFAQ AHMAD</span></h1>
+        <p class="hero-title">AI &amp; Full Stack Developer</p>
+        <p class="hero-bio">
+        AI &amp; Full Stack Developer from Peshawar, Pakistan, building modern, responsive, and user-focused web applications while continuously exploring the future of artificial intelligence.
+        </p>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn--primary btn--lg">View My Work</a>
+          <a href="contact.html" class="btn btn--secondary btn--lg">Get in Touch</a>
+          <a href="resume.html" class="btn btn--ghost btn--lg">Download CV</a>
+        </div>
+        <div class="hero-socials">
+          <span style="font-size:.75rem;color:var(--fg3);font-weight:600;letter-spacing:.08em;text-transform:uppercase;">Connect</span>
+          <div class="hero-div"></div>
+          <a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener noreferrer" class="hero-soc" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener noreferrer" class="hero-soc" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Right: Visual -->
+      <div class="hero-visual">
+        <div class="hero-frame float-anim">
+        <div class="hero-photo" style="background:var(--bg3);border-radius:var(--r2xl);min-height:380px;overflow:hidden;">
+  <img
+    src="./assets/images/Frot page.png"
+    alt="Afaq Ahmad — AI &amp; Full Stack Developer"
+    style="width:100%;height:100%;min-height:380px;object-fit:cover;object-position:center center;display:block;"
+  />
+</div>
+          <div class="hero-glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" id="hero-scroll" aria-hidden="true">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span>Scroll down</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     STATS
+════════════════════════════════════════════════════ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid stagger">
+      <div class="stat-card">
+        <div class="stat-icon">🚀</div>
+        <div class="stat-num grad-txt" data-target="4" data-suffix="+">4+</div>
+        <div class="stat-label">Projects Launched</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🛠️</div>
+        <div class="stat-num grad-txt" data-target="12" data-suffix="+">12+</div>
+        <div class="stat-label">Technologies Used</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📁</div>
+        <div class="stat-num grad-txt" data-target="4" data-suffix="+">4+</div>
+        <div class="stat-label">GitHub Repositories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-num grad-txt">∞</div>
+        <div class="stat-label">Always Learning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     ABOUT PREVIEW
+════════════════════════════════════════════════════ -->
+<section class="section" id="about-prev">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal left">
+        <!-- Replace with profile image -->
+       <!-- Profile Image -->
+<div style="width:100%;height:100%;min-height:420px;overflow:hidden;border-radius:inherit;background:var(--bg3);">
+  <img
+    src="./assets/images/ChatGPT Image Jul 26, 2026, 12_46_55 PM.png"
+    alt="Afaq Ahmad - AI & Full Stack Developer"
+    loading="lazy"
+    decoding="async"
+    style="
+      width:100%;
+      height:100%;
+      min-height:420px;
+      object-fit:cover;
+      object-position:top center;
+      display:block;
+    "
+  >
+</div>
+      </div>
+      <div class="about-text reveal up">
+        <div>
+          <div class="section__tag">About Me</div>
+          <h2 class="section__title" style="text-align:left;margin-bottom:var(--s4)">Turning Ideas into Digital Reality</h2>
+          <p style="color:var(--fg2);line-height:var(--lhr);margin-bottom:var(--s5)">
+          I'm an AI &amp; Full Stack Developer from Peshawar, Pakistan, who enjoys transforming ideas into fast, responsive, and visually engaging digital experiences. From business websites to personal projects, I focus on building modern solutions that combine clean design, practical functionality, and continuous innovation.
+          </p>
+        </div>
+        <div class="chips">
+          <span class="chip">🎓 FSc Computer Science</span>
+          <span class="chip">📍 Peshawar, Pakistan</span>
+          <span class="chip">🤖 AI Enthusiast</span>
+          <span class="chip">💻 Full Stack Dev</span>
+          <span class="chip">🌐 Open to Remote</span>
+        </div>
+        <div class="tl-mini">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-yr">2025–Present</div>
+            <div class="tl-ttl">FSc Computer Science</div>
+            <div class="tl-dsc">The Superior Group of Colleges, Peshawar</div>
+          </div>
+        </div>
+        <div><a href="about.html" class="btn btn--primary">More About Me →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FEATURED PROJECTS
+════════════════════════════════════════════════════ -->
+<section class="section" id="projects-feat" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section__hd reveal up">
+      <div class="section__tag">Featured Work</div>
+      <h2 class="section__title">Projects I've Built</h2>
+      <p class="section__sub">A selection of real-world projects demonstrating my skills in web development and design.</p>
+    </div>
+
+    <!-- Project 1 -->
+    <div class="pf reveal up">
+      <div class="pf-vis">
+        <div class="pf-img-in">
+          <img src="assets/images/thumb-real-estate.svg" alt="AFAQ AHMAD Real Estate — luxury property listing website" loading="lazy"/>
+        </div>
+        <div class="pf-ov">
+          <a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
+        </div>
+      </div>
+      <div class="pf-cnt">
+        <div class="pf-num">01 / 05</div>
+        <h3 class="pf-title">AFAQ AHMAD Real Estate</h3>
+        <p class="pf-desc">A modern real estate platform showcasing property listings with elegant design, responsive layouts, and intuitive user experience.</p>
+        <div class="pf-tags"><span class="tag tag-b">Real Estate</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+        <div class="pf-acts">
+          <a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a>
+          <a href="https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="pf pf-rev reveal up">
+      <div class="pf-vis">
+        <div class="pf-img-in">
+          <img src="assets/images/thumb-luxury-car.svg" alt="Luxury Car Business Website — premium automotive dark UI" loading="lazy"/>
+        </div>
+        <div class="pf-ov">
+          <a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
+        </div>
+      </div>
+      <div class="pf-cnt">
+        <div class="pf-num">02 / 05</div>
+        <h3 class="pf-title">Luxury Car Business Website</h3>
+        <p class="pf-desc">A sleek luxury automotive business website featuring premium car showcases, elegant animations, and a sophisticated dark aesthetic.</p>
+        <div class="pf-tags"><span class="tag tag-b">Automotive</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+        <div class="pf-acts">
+          <a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a>
+          <a href="https://github.com/afaqahmadcs/Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="pf reveal up">
+      <div class="pf-vis">
+        <div class="pf-img-in">
+          <img src="assets/images/thumb-business.svg" alt="Business Website — modern corporate website UI" loading="lazy"/>
+        </div>
+        <div class="pf-ov">
+          <a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
+        </div>
+      </div>
+      <div class="pf-cnt">
+        <div class="pf-num">03 / 05</div>
+        <h3 class="pf-title">Business Website</h3>
+        <p class="pf-desc">A clean, professional business website built to establish strong brand presence online with modern design principles and responsive layouts.</p>
+        <div class="pf-tags"><span class="tag tag-b">Business</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+        <div class="pf-acts">
+          <a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a>
+          <a href="https://github.com/afaqahmadcs/Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="pf pf-rev reveal up">
+      <div class="pf-vis">
+        <div class="pf-img-in">
+          <img src="assets/images/thumb-premium.svg" alt="Premium Luxury Business Website — elegant dark premium UI" loading="lazy"/>
+        </div>
+        <div class="pf-ov">
+          <a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
+        </div>
+      </div>
+      <div class="pf-cnt">
+        <div class="pf-num">04 / 05</div>
+        <h3 class="pf-title">Premium Luxury Car Business Website</h3>
+        <p class="pf-desc">An elevated premium automotive brand experience with rich visual design, smooth interactions, and a luxury feel from first load.</p>
+        <div class="pf-tags"><span class="tag tag-b">Automotive</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+        <div class="pf-acts">
+          <a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a>
+          <a href="https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="pf reveal up">
+      <div class="pf-vis">
+        <div class="pf-img-in">
+          <img src="assets/images/thumb-gemstone.svg" alt="Gemstone / Blue Sapphire Website — premium luxury gemstone catalog website" loading="lazy"/>
+        </div>
+        <div class="pf-ov">
+          <a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
+        </div>
+      </div>
+      <div class="pf-cnt">
+        <div class="pf-num">05 / 05</div>
+        <h3 class="pf-title">Gemstone / Blue Sapphire Website</h3>
+        <p class="pf-desc">A premium luxury product showcase and catalog for exquisite blue sapphires and high-end gemstones, featuring an elegant dark interface and responsive visual design.</p>
+        <div class="pf-tags"><span class="tag tag-b">Business</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+        <div class="pf-acts">
+          <a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" style="padding-top:var(--s8)">
+      <a href="projects.html" class="btn btn--secondary btn--lg">View All Projects →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     TECH STACK
+════════════════════════════════════════════════════ -->
+<section class="section" id="tech">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">Skills</div>
+      <h2 class="section__title">Tech Stack</h2>
+      <p class="section__sub">Tools and technologies I use to bring ideas to life.</p>
+    </div>
+    <div class="tech-tabs" role="tablist">
+      <button class="tech-tab on" data-cat="all" role="tab" aria-selected="true">All</button>
+      <button class="tech-tab" data-cat="frontend" role="tab">Frontend</button>
+      <button class="tech-tab" data-cat="backend" role="tab">Backend</button>
+      <button class="tech-tab" data-cat="ai" role="tab">AI / ML</button>
+      <button class="tech-tab" data-cat="tools" role="tab">Tools</button>
+    </div>
+    <div class="tech-grid stagger">
+      <div class="tech-badge" data-cat="frontend"><div class="tb-icon">🌐</div><div class="tb-name">HTML5</div><div class="tb-tip">HTML5</div></div>
+      <div class="tech-badge" data-cat="frontend"><div class="tb-icon">🎨</div><div class="tb-name">CSS3</div><div class="tb-tip">CSS3</div></div>
+      <div class="tech-badge" data-cat="frontend"><div class="tb-icon">⚡</div><div class="tb-name">JavaScript</div><div class="tb-tip">JavaScript ES2024</div></div>
+      <div class="tech-badge" data-cat="frontend"><div class="tb-icon">⚛️</div><div class="tb-name">React</div><div class="tb-tip">React 18</div></div>
+      <div class="tech-badge" data-cat="frontend"><div class="tb-icon">💨</div><div class="tb-name">Tailwind</div><div class="tb-tip">Tailwind CSS</div></div>
+      <div class="tech-badge" data-cat="backend"><div class="tb-icon">🐍</div><div class="tb-name">Python</div><div class="tb-tip">Python 3.x</div></div>
+      <div class="tech-badge" data-cat="backend"><div class="tb-icon">🟩</div><div class="tb-name">Node.js</div><div class="tb-tip">Node.js</div></div>
+      <div class="tech-badge" data-cat="backend"><div class="tb-icon">🚀</div><div class="tb-name">Express</div><div class="tb-tip">Express.js</div></div>
+      <div class="tech-badge" data-cat="backend"><div class="tb-icon">🗄️</div><div class="tb-name">MongoDB</div><div class="tb-tip">MongoDB</div></div>
+      <div class="tech-badge" data-cat="backend"><div class="tb-icon">🐘</div><div class="tb-name">SQL</div><div class="tb-tip">SQL / PostgreSQL</div></div>
+      <div class="tech-badge" data-cat="ai"><div class="tb-icon">🤖</div><div class="tb-name">TensorFlow</div><div class="tb-tip">TensorFlow</div></div>
+      <div class="tech-badge" data-cat="ai"><div class="tb-icon">🧠</div><div class="tb-name">OpenAI</div><div class="tb-tip">OpenAI API</div></div>
+      <div class="tech-badge" data-cat="ai"><div class="tb-icon">🔬</div><div class="tb-name">Scikit-learn</div><div class="tb-tip">Scikit-learn</div></div>
+      <div class="tech-badge" data-cat="tools"><div class="tb-icon">📦</div><div class="tb-name">Git</div><div class="tb-tip">Git & GitHub</div></div>
+      <div class="tech-badge" data-cat="tools"><div class="tb-icon">🐳</div><div class="tb-name">Docker</div><div class="tb-tip">Docker</div></div>
+      <div class="tech-badge" data-cat="tools"><div class="tb-icon">☁️</div><div class="tb-name">GitHub Pages</div><div class="tb-tip">GitHub Pages</div></div>
+      <div class="tech-badge" data-cat="tools"><div class="tb-icon">💻</div><div class="tb-name">VS Code</div><div class="tb-tip">Visual Studio Code</div></div>
+      <div class="tech-badge" data-cat="tools"><div class="tb-icon">🎭</div><div class="tb-name">Figma</div><div class="tb-tip">Figma Design</div></div>
+      <div class="tech-badge" data-cat="frontend"><div class="tb-icon">🔷</div><div class="tb-name">TypeScript</div><div class="tb-tip">TypeScript</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2)" id="services">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">What I Do</div>
+      <h2 class="section__title">Services I Offer</h2>
+      <p class="section__sub">From concept to deployment — I bring full-spectrum development expertise to your projects.</p>
+    </div>
+    <div class="svc-grid stagger">
+      <div class="svc-card">
+        <div class="svc-icon">🌐</div>
+        <h3 class="svc-title">Web Development</h3>
+        <p class="svc-desc">Building responsive, performant websites and web applications using modern HTML, CSS, and JavaScript.</p>
+        <a href="contact.html" class="svc-link">Get started →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">⚛️</div>
+        <h3 class="svc-title">Frontend Engineering</h3>
+        <p class="svc-desc">Crafting pixel-perfect UIs with React, smooth animations, and exceptional user experiences.</p>
+        <a href="contact.html" class="svc-link">Get started →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🔧</div>
+        <h3 class="svc-title">Backend Development</h3>
+        <p class="svc-desc">Building robust APIs and server-side logic with Node.js, Python, and scalable database design.</p>
+        <a href="contact.html" class="svc-link">Get started →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🤖</div>
+        <h3 class="svc-title">AI Integration</h3>
+        <p class="svc-desc">Integrating AI/ML capabilities — chatbots, recommendation engines, and intelligent features into products.</p>
+        <a href="contact.html" class="svc-link">Get started →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">🎨</div>
+        <h3 class="svc-title">UI/UX Design</h3>
+        <p class="svc-desc">Designing clean, accessible, and visually compelling interfaces with strong design system foundations.</p>
+        <a href="contact.html" class="svc-link">Get started →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">📱</div>
+        <h3 class="svc-title">Responsive Design</h3>
+        <p class="svc-desc">Ensuring your product looks and works flawlessly on every screen — from mobile to ultrawide desktop.</p>
+        <a href="contact.html" class="svc-link">Get started →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════════════════ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">How I Work</div>
+      <h2 class="section__title">My Development Process</h2>
+      <p class="section__sub">A structured, transparent approach to delivering quality products every time.</p>
+    </div>
+    <div class="proc-grid stagger">
+      <div class="proc-step"><div class="proc-num">Step 01</div><div class="proc-icon">💬</div><h3 class="proc-title">Discovery</h3><p class="proc-desc">Understanding your goals, audience, and requirements through in-depth conversations.</p></div>
+      <div class="proc-step"><div class="proc-num">Step 02</div><div class="proc-icon">🎯</div><h3 class="proc-title">Planning</h3><p class="proc-desc">Creating a clear roadmap, defining scope, and architecting the technical solution.</p></div>
+      <div class="proc-step"><div class="proc-num">Step 03</div><div class="proc-icon">🎨</div><h3 class="proc-title">Design</h3><p class="proc-desc">Designing wireframes, UI components, and the overall visual language of the product.</p></div>
+      <div class="proc-step"><div class="proc-num">Step 04</div><div class="proc-icon">💻</div><h3 class="proc-title">Development</h3><p class="proc-desc">Writing clean, maintainable code with regular updates and transparent communication.</p></div>
+      <div class="proc-step"><div class="proc-num">Step 05</div><div class="proc-icon">🧪</div><h3 class="proc-title">Testing</h3><p class="proc-desc">Rigorous testing across devices, browsers, and edge cases to ensure a bug-free release.</p></div>
+      <div class="proc-step"><div class="proc-num">Step 06</div><div class="proc-icon">🚀</div><h3 class="proc-title">Launch</h3><p class="proc-desc">Deploying to production and providing documentation and post-launch support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     WHY WORK WITH ME
+════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2)" id="why">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">Why Choose Me</div>
+      <h2 class="section__title">Why Work With Me</h2>
+      <p class="section__sub">I bring dedication, clarity, and craft to every project I take on.</p>
+    </div>
+    <div class="why-grid stagger">
+      <div class="why-card"><div class="why-icon">✨</div><h3 class="why-title">Clean Code</h3><p class="why-desc">Readable, maintainable, and well-documented code you can build on.</p></div>
+      <div class="why-card"><div class="why-icon">📱</div><h3 class="why-title">Mobile-First</h3><p class="why-desc">Every project is designed and built to shine on all screen sizes.</p></div>
+      <div class="why-card"><div class="why-icon">⚡</div><h3 class="why-title">Performance</h3><p class="why-desc">Optimized for speed — fast loads, smooth animations, snappy UX.</p></div>
+      <div class="why-card"><div class="why-icon">♿</div><h3 class="why-title">Accessible</h3><p class="why-desc">Built with web accessibility best practices for inclusive experiences.</p></div>
+      <div class="why-card"><div class="why-icon">🎨</div><h3 class="why-title">Eye for Detail</h3><p class="why-desc">Pixel-precise UI with thoughtful design decisions throughout.</p></div>
+      <div class="why-card"><div class="why-icon">🤝</div><h3 class="why-title">Collaborative</h3><p class="why-desc">Open communication, regular updates, and genuine partnership.</p></div>
+      <div class="why-card"><div class="why-icon">📚</div><h3 class="why-title">Always Learning</h3><p class="why-desc">Staying current with the latest tech to bring modern solutions.</p></div>
+      <div class="why-card"><div class="why-icon">🏃</div><h3 class="why-title">On-Time Delivery</h3><p class="why-desc">Committed to deadlines with transparent progress tracking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CURRENTLY LEARNING
+════════════════════════════════════════════════════ -->
+<section class="section" id="learning">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">Growth</div>
+      <h2 class="section__title">Currently Learning</h2>
+      <p class="section__sub">Investing in skills that will define tomorrow's web and AI landscape.</p>
+    </div>
+    <div class="learn-inner reveal scale">
+      <div class="learn-grid">
+        <div class="learn-item">
+          <div class="learn-lbl">Machine Learning</div>
+          <div class="learn-title">Deep Learning &amp; Neural Networks</div>
+          <div class="learn-bar"><div class="learn-fill" data-width="65%"></div></div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-lbl">Backend</div>
+          <div class="learn-title">FastAPI &amp; Microservices</div>
+          <div class="learn-bar"><div class="learn-fill" data-width="55%"></div></div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-lbl">DevOps</div>
+          <div class="learn-title">Docker &amp; Cloud Deployment</div>
+          <div class="learn-bar"><div class="learn-fill" data-width="45%"></div></div>
+        </div>
+        <div class="learn-item">
+          <div class="learn-lbl">Frontend</div>
+          <div class="learn-title">Next.js &amp; Advanced React</div>
+          <div class="learn-bar"><div class="learn-fill" data-width="70%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     BLOG PREVIEW
+════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2)" id="blog">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">Writing</div>
+      <h2 class="section__title">Blog &amp; Articles</h2>
+      <p class="section__sub">Thoughts on web development, AI, and building things on the internet.</p>
+    </div>
+    <div class="blog-grid stagger">
+      <article class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,var(--brandbg),var(--accbg));display:flex;align-items:center;justify-content:center;font-size:2rem;">📝</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-cat">Coming Soon</span></div>
+          <h3 class="blog-title">Building Modern UIs with Vanilla CSS</h3>
+          <p class="blog-exc">Exploring how far you can push CSS without any frameworks — design tokens, animations, and more.</p>
+          <span class="blog-rd">Coming soon →</span>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,var(--accbg),var(--brandbg));display:flex;align-items:center;justify-content:center;font-size:2rem;">🤖</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-cat">Coming Soon</span></div>
+          <h3 class="blog-title">Getting Started with the OpenAI API</h3>
+          <p class="blog-exc">A beginner-friendly guide to integrating AI capabilities into your web projects using OpenAI's API.</p>
+          <span class="blog-rd">Coming soon →</span>
+        </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#eef2ff,#d1fae5);display:flex;align-items:center;justify-content:center;font-size:2rem;">⚡</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-cat">Coming Soon</span></div>
+          <h3 class="blog-title">Web Performance in 2025</h3>
+          <p class="blog-exc">Core Web Vitals, resource hints, and modern techniques to make your sites blazing fast.</p>
+          <span class="blog-rd">Coming soon →</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     TESTIMONIALS PLACEHOLDER
+════════════════════════════════════════════════════ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">Feedback</div>
+      <h2 class="section__title">Testimonials</h2>
+    </div>
+    <div class="testi-ph reveal fade">
+      <div style="font-size:2.5rem;margin-bottom:var(--s4)">💬</div>
+      <p style="font-size:var(--base);font-weight:var(--wm)">Client testimonials coming soon.</p>
+      <p style="font-size:var(--sm);margin-top:var(--s2)">After completing client projects, reviews will appear here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════════════════ -->
+<section class="section--sm" id="cta">
+  <div class="container">
+    <div class="cta-banner reveal scale">
+      <div class="cta-dots"></div>
+      <div class="cta-inner">
+        <h2 class="cta-title">Ready to Build Something Great?</h2>
+        <p class="cta-sub">Let's collaborate on your next project. I'm available for freelance work and open to exciting opportunities.</p>
+        <div class="cta-acts">
+          <a href="contact.html" class="btn btn--white btn--lg">Start a Project →</a>
+          <a href="projects.html" class="btn btn--outline-white btn--lg">View My Work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="ft-top">
+      <div>
+        <div class="ft-brand-logo">
+          <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="flg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#flg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg>
+          <span class="nav-logo-name">Afaq Ahmad</span>
+        </div>
+        <p class="ft-tag">AI &amp; Full Stack Developer based in Peshawar, Pakistan. Building modern web experiences.</p>
+        <div class="ft-socs">
+          <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/afaqahmadcs/" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://x.com/afaqahmadcs" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@afaqahmadcs" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.525.02c1.31-.03 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.52-4.06-1.42-.45-.34-.85-.75-1.2-1.22-.08 1.83-.02 3.67-.03 5.5 0 2.44-.54 4.97-2.12 6.84-1.67 2-4.32 2.91-6.87 2.81-2.58-.1-5.15-1.42-6.52-3.61-1.53-2.43-1.63-5.71-.24-8.23 1.25-2.28 3.73-3.8 6.33-3.96.11 0 .22 0 .32.01v4.16c-1.12.1-2.23.63-2.88 1.55-.74 1.05-.72 2.58-.02 3.65.65 1.01 1.93 1.57 3.12 1.48 1.11-.08 2.12-.86 2.43-1.92.21-.73.17-1.51.18-2.26V.02z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@afaqahmadcs" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ft-nav"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="resume.html">Resume</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="ft-col"><h4>Projects</h4><ul><li><a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener">Real Estate</a></li><li><a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener">Luxury Cars</a></li><li><a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener">Business Site</a></li><li><a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener">Premium Cars</a></li></ul></div>
+      <div class="ft-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener">GitHub</a></li><li><a href="contact.html">Contact Me</a></li><li><a href="resume.html">Download CV</a></li></ul></div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-copy">© <span id="yr"></span> Afaq Ahmad. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:var(--s4)">
+        <span class="ft-copy">Made with ❤️ in Peshawar</span>
+        <button class="ft-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

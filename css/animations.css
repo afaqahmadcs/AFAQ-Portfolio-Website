@@ -1,0 +1,610 @@
+/* ================================================================
+   ANIMATIONS.CSS — AFAQ AHMAD PORTFOLIO
+   Premium motion design system. GPU-accelerated. 60fps.
+   Every animation is intentional. Nothing is decorative noise.
+   ================================================================ */
+
+/* ── Page fade-in ───────────────────────────────────────────────── */
+body { animation: pgIn .55s var(--esm) both; }
+@keyframes pgIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Page transition overlay ────────────────────────────────────── */
+#page-transition {
+  position: fixed; inset: 0; z-index: 9996;
+  background: var(--brand);
+  transform: scaleY(0); transform-origin: bottom;
+  pointer-events: none;
+}
+#page-transition.out {
+  animation: ptOut .45s var(--esp) forwards;
+}
+#page-transition.in {
+  transform: scaleY(1); transform-origin: top;
+  animation: ptIn .4s var(--esm) forwards;
+}
+@keyframes ptOut { to { transform: scaleY(1); transform-origin: bottom; } }
+@keyframes ptIn  { to { transform: scaleY(0); transform-origin: top; } }
+
+/* ── Scroll Reveal — base ───────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity var(--tsl) var(--esm),
+    transform var(--tsl) var(--esm);
+  transition-delay: var(--delay, 0s);
+}
+.reveal.up    { transform: translateY(36px); }
+.reveal.fade  { transform: none; }
+.reveal.scale { transform: scale(.91) translateY(20px); }
+.reveal.left  { transform: translateX(-36px); }
+.reveal.right { transform: translateX(36px); }
+.reveal.blur  { transform: translateY(16px); filter: blur(8px); }
+.reveal.vis   {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Stagger children */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+  transition:
+    opacity var(--tsl) var(--esm),
+    transform var(--tsl) var(--esm);
+}
+.stagger.vis > * { opacity: 1; transform: none; }
+.stagger.vis > *:nth-child(1)  { transition-delay: .04s; }
+.stagger.vis > *:nth-child(2)  { transition-delay: .10s; }
+.stagger.vis > *:nth-child(3)  { transition-delay: .16s; }
+.stagger.vis > *:nth-child(4)  { transition-delay: .22s; }
+.stagger.vis > *:nth-child(5)  { transition-delay: .28s; }
+.stagger.vis > *:nth-child(6)  { transition-delay: .34s; }
+.stagger.vis > *:nth-child(7)  { transition-delay: .40s; }
+.stagger.vis > *:nth-child(8)  { transition-delay: .46s; }
+.stagger.vis > *:nth-child(n+9){ transition-delay: .52s; }
+
+/* ── Text Reveal — word-by-word ─────────────────────────────────── */
+.text-reveal-wrap {
+  overflow: hidden; display: inline-block;
+}
+.text-reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(110%);
+  transition:
+    opacity .55s var(--esm),
+    transform .55s var(--esp);
+  will-change: transform, opacity;
+}
+.text-reveal-word.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Fallback: if JS hasn't fired, keep text visible */
+.text-reveal:not(.text-reveal-ready) {
+  opacity: 1 !important;
+  visibility: visible !important;
+  color: inherit !important;
+}
+.text-reveal:not(.text-reveal-ready) * {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ── Char reveal ────────────────────────────────────────────────── */
+.char-reveal .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60%) rotate(3deg);
+  transition:
+    opacity .4s var(--esm),
+    transform .4s var(--esp);
+  will-change: transform, opacity;
+}
+.char-reveal.vis .char { opacity: 1; transform: none; }
+
+/* ── Mask reveal (images) ───────────────────────────────────────── */
+.mask-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path .8s var(--esp);
+}
+.mask-reveal.vis { clip-path: inset(0 0% 0 0); }
+
+/* ── 3D card tilt ───────────────────────────────────────────────── */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform .15s var(--esm), box-shadow .15s var(--esm);
+  will-change: transform;
+}
+.tilt-card:hover { box-shadow: var(--shxl); }
+
+/* ── Magnetic button ────────────────────────────────────────────── */
+.magnetic {
+  position: relative;
+  display: inline-flex;
+  transition: transform .3s var(--esp);
+  will-change: transform;
+}
+.magnetic-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  transition: transform .3s var(--esp);
+  will-change: transform;
+}
+
+/* ── Button micro-interactions ──────────────────────────────────── */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Ripple */
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.3);
+  transform: scale(0);
+  animation: rippleAnim .6s var(--esm) forwards;
+  pointer-events: none;
+}
+@keyframes rippleAnim {
+  to { transform: scale(4); opacity: 0; }
+}
+/* Shine sweep */
+.btn--primary::before, .btn--white::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  transition: left .5s var(--esm);
+  pointer-events: none;
+}
+.btn--primary:hover::before, .btn--white:hover::before { left: 150%; }
+
+/* ── Link underline ─────────────────────────────────────────────── */
+.ul-link { position: relative; }
+.ul-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1.5px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--tn) var(--esm);
+}
+.ul-link:hover::after { transform: scaleX(1); }
+
+/* ── Nav active indicator ───────────────────────────────────────── */
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--brandbg);
+  border-radius: var(--rsm);
+  opacity: 0;
+  transform: scale(.85);
+  transition: opacity var(--tf), transform var(--tf) var(--esp);
+}
+.nav-links a:hover::before, .nav-links a.active::before {
+  opacity: 1; transform: scale(1);
+}
+
+/* ── Stat counter ───────────────────────────────────────────────── */
+.stat-num { will-change: contents; }
+.stat-card {
+  transition:
+    transform var(--ts) var(--esp),
+    box-shadow var(--ts),
+    border-color var(--tf);
+}
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* ── Project card 3D ────────────────────────────────────────────── */
+.pf-vis, .proj-card-img {
+  transition: transform var(--ts) var(--esp), box-shadow var(--ts);
+  will-change: transform;
+}
+
+/* ── Image parallax container ───────────────────────────────────── */
+.parallax-img { will-change: transform; }
+
+/* ── Gradient text animation ────────────────────────────────────── */
+.grad-txt {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--acc) 50%, var(--brand) 100%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--brand); /* fallback so text never disappears */
+  animation: gradMove 6s ease-in-out infinite;
+}
+/* Ensure text is always visible even if clip fails */
+@supports not (-webkit-background-clip: text) {
+  .grad-txt {
+    -webkit-text-fill-color: unset;
+    color: var(--brand);
+    background: none;
+    animation: none;
+  }
+}
+@keyframes gradMove {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ── Aurora background ──────────────────────────────────────────── */
+#aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: .55;
+}
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  animation: auroraFloat 18s ease-in-out infinite;
+}
+.aurora-orb:nth-child(1) {
+  width: 700px; height: 700px;
+  top: -200px; left: -150px;
+  background: radial-gradient(circle, rgba(99,102,241,.22), transparent 70%);
+  animation-delay: 0s; animation-duration: 20s;
+}
+.aurora-orb:nth-child(2) {
+  width: 500px; height: 500px;
+  top: 30%; right: -100px;
+  background: radial-gradient(circle, rgba(16,185,129,.18), transparent 70%);
+  animation-delay: -7s; animation-duration: 16s;
+}
+.aurora-orb:nth-child(3) {
+  width: 400px; height: 400px;
+  bottom: -100px; left: 30%;
+  background: radial-gradient(circle, rgba(99,102,241,.12), transparent 70%);
+  animation-delay: -12s; animation-duration: 24s;
+}
+@keyframes auroraFloat {
+  0%   { transform: translate(0,0) scale(1) rotate(0deg); }
+  25%  { transform: translate(40px,-60px) scale(1.06) rotate(5deg); }
+  50%  { transform: translate(-30px,40px) scale(.95) rotate(-3deg); }
+  75%  { transform: translate(60px,20px) scale(1.04) rotate(8deg); }
+  100% { transform: translate(0,0) scale(1) rotate(0deg); }
+}
+
+/* ── Floating particles ─────────────────────────────────────────── */
+#particles {
+  position: fixed; inset: 0; z-index: -1;
+  pointer-events: none; overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: var(--brand);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleRise linear infinite;
+  will-change: transform, opacity;
+}
+@keyframes particleRise {
+  0%   { opacity: 0; transform: translateY(0) scale(0); }
+  10%  { opacity: .6; }
+  90%  { opacity: .2; }
+  100% { opacity: 0; transform: translateY(-100vh) scale(1.5); }
+}
+
+/* ── Cursor upgrade ─────────────────────────────────────────────── */
+#cur-dot {
+  width: 6px; height: 6px;
+  background: var(--brand);
+  mix-blend-mode: normal;
+  transition: transform .1s var(--esm), width .2s var(--esp), height .2s var(--esp);
+}
+#cur-ring {
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--brand);
+  opacity: .35;
+  transition:
+    width .4s var(--esp),
+    height .4s var(--esp),
+    opacity .3s,
+    border-color .3s;
+}
+#cur-ring.on     { width: 52px; height: 52px; opacity: .18; }
+#cur-ring.click  { width: 20px; height: 20px; opacity: .8; }
+#cur-ring.text   { width: 3px; height: 28px; border-radius: 2px; opacity: .7; }
+#cur-label {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--brand);
+  padding: 4px 10px;
+  border-radius: var(--rfull);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.8);
+  transition: opacity .2s, transform .2s var(--esp);
+  white-space: nowrap;
+}
+#cur-label.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+/* ── Smooth scroll momentum (Lenis-style CSS support) ───────────── */
+html.lenis { scroll-behavior: auto; }
+html.lenis, html.lenis body { height: auto; }
+
+/* ── Service card hover shine ───────────────────────────────────── */
+.svc-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -60%;
+  width: 40%; height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.08),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left .6s var(--esm);
+  pointer-events: none;
+}
+.svc-card:hover::after { left: 120%; }
+
+/* ── Tech badge glow pulse ──────────────────────────────────────── */
+.tech-badge:hover {
+  box-shadow:
+    var(--shbr),
+    0 0 20px rgba(99,102,241,.15);
+}
+
+/* ── Blog card image zoom ───────────────────────────────────────── */
+.blog-img { overflow: hidden; }
+.blog-img > * { transition: transform var(--ts) var(--esm); }
+.blog-card:hover .blog-img > * { transform: scale(1.05); }
+
+/* ── Form focus ─────────────────────────────────────────────────── */
+.finp, .ftxt {
+  transition:
+    border-color var(--tf),
+    box-shadow var(--tf),
+    transform var(--tf);
+}
+.finp:focus, .ftxt:focus {
+  transform: translateY(-1px);
+}
+.fg { position: relative; }
+.flbl {
+  transition: color var(--tf), transform var(--tf);
+}
+.finp:focus ~ .flbl, .ftxt:focus ~ .flbl,
+.finp:not(:placeholder-shown) ~ .flbl {
+  color: var(--brand);
+}
+
+/* ── Timeline animated line ─────────────────────────────────────── */
+.timeline-full::before {
+  transform-origin: top;
+  animation: timelineGrow 1.2s var(--esm) forwards;
+  animation-play-state: paused;
+}
+.timeline-full.vis::before {
+  animation-play-state: running;
+}
+@keyframes timelineGrow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* ── Progress / learn bar ───────────────────────────────────────── */
+.learn-fill {
+  transition: width 1.4s cubic-bezier(.16,1,.3,1);
+}
+
+/* ── Navbar scroll-shrink ───────────────────────────────────────── */
+#navbar {
+  transition:
+    transform var(--ts) var(--esm),
+    height var(--tn) var(--esm),
+    padding var(--tn) var(--esm),
+    box-shadow var(--ts);
+}
+#navbar.scrolled {
+  height: 52px;
+  box-shadow: var(--shmd), 0 1px 0 rgba(255,255,255,.05) inset;
+}
+
+/* ── Loader ─────────────────────────────────────────────────────── */
+.ldr-logo-svg {
+  animation: ldrLogoReveal .6s var(--esp) both, ldrPulse 2s ease-in-out 1s infinite;
+}
+@keyframes ldrLogoReveal {
+  from { opacity: 0; transform: scale(.6) rotate(-10deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+.ldr-name {
+  animation: ldrTextReveal .5s var(--esm) .3s both;
+}
+.ldr-title {
+  animation: ldrTextReveal .5s var(--esm) .45s both;
+}
+@keyframes ldrTextReveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Section divider shimmer ────────────────────────────────────── */
+.divider {
+  position: relative; overflow: hidden;
+}
+.divider::after {
+  content: '';
+  position: absolute; top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, var(--brand), transparent);
+  animation: shimmerLine 3s var(--esm) infinite;
+}
+@keyframes shimmerLine {
+  to { left: 200%; }
+}
+
+/* ── Noise texture overlay ──────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ── Float badge ────────────────────────────────────────────────── */
+.float-anim { animation: floatbadge 4s ease-in-out infinite; }
+@keyframes floatbadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+/* ── Status dot ─────────────────────────────────────────────────── */
+@keyframes sdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.6)} }
+
+/* ── Scroll wheel ───────────────────────────────────────────────── */
+@keyframes swheel { 0%{opacity:1;transform:translateY(0)} 100%{opacity:0;transform:translateY(9px)} }
+
+/* ── Blob float (hero) ──────────────────────────────────────────── */
+@keyframes blobf { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(20px,-28px) scale(1.04)} 66%{transform:translate(-14px,14px) scale(.97)} }
+
+/* ── Reduced motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal, .stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  #aurora, #particles, body::after { display: none; }
+}
+
+/* ── Theme switch flash ──────────────────────────────────────────── */
+html.theme-transitioning * {
+  transition: background .35s var(--esm), color .35s var(--esm), border-color .35s var(--esm) !important;
+}
+
+/* ── Section entry — subtle slide-up for headings ───────────────── */
+.section__title  { transition: opacity var(--tsl) var(--esm), transform var(--tsl) var(--esm); }
+.section__sub    { transition: opacity var(--tsl) var(--esm) .08s, transform var(--tsl) var(--esm) .08s; }
+.section__tag    { transition: opacity var(--ts)  var(--esm), transform var(--ts) var(--esm); }
+
+/* ── Nav link hover fill ─────────────────────────────────────────── */
+.nav-links a {
+  transition: color var(--tf), background var(--tf);
+  overflow: hidden;
+}
+
+/* ── Scroll-triggered counter flash ─────────────────────────────── */
+@keyframes numFlash {
+  0%  { opacity: .4; transform: scale(.9); }
+  50% { opacity: 1;  transform: scale(1.06); }
+  100%{ opacity: 1;  transform: scale(1); }
+}
+.stat-num.counting { animation: numFlash .3s var(--esp); }
+
+/* ── Card reveal on hover — gradient border ─────────────────────── */
+.proj-card {
+  background-clip: padding-box;
+  transition:
+    transform var(--ts) var(--esp),
+    box-shadow var(--ts),
+    border-color var(--tf);
+}
+.proj-card:hover {
+  box-shadow: var(--shxl), 0 0 0 1px var(--brand);
+}
+
+/* ── Focus input glow ────────────────────────────────────────────── */
+.finp:focus, .ftxt:focus {
+  box-shadow: 0 0 0 3px rgba(99,102,241,.22), 0 2px 8px rgba(99,102,241,.12);
+}
+
+/* ── CTA banner entrance ─────────────────────────────────────────── */
+.cta-banner .cta-title {
+  transition: opacity var(--tsl) var(--esm), transform var(--tsl) var(--esm);
+}
+.cta-banner .cta-sub {
+  transition: opacity var(--tsl) var(--esm) .1s, transform var(--tsl) var(--esm) .1s;
+}
+
+/* ── Back-to-top button ──────────────────────────────────────────── */
+.ft-top-btn {
+  transition: color var(--tf), transform var(--tf) var(--esp);
+}
+.ft-top-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ── Image hover zoom ────────────────────────────────────────────── */
+.about-img, .hero-photo {
+  transition: transform var(--ts) var(--esp);
+  will-change: transform;
+}
+.about-img:hover, .hero-photo:hover {
+  transform: scale(1.02) translateY(-4px);
+}
+
+/* ── Testimonials placeholder pulse ─────────────────────────────── */
+.testi-ph {
+  animation: tPlaceholderBreath 4s ease-in-out infinite;
+}
+@keyframes tPlaceholderBreath {
+  0%,100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
+  50%     { box-shadow: 0 0 24px 0 rgba(99,102,241,.08); }
+}
+
+/* ── 404 code float ──────────────────────────────────────────────── */
+.nf-code {
+  animation: floatbadge 5s ease-in-out infinite;
+}
+
+/* ── Success message slide in ────────────────────────────────────── */
+.form-ok.show {
+  animation: formOkIn .45s var(--esp) both;
+}
+@keyframes formOkIn {
+  from { opacity: 0; transform: translateY(-8px) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Text reveal gradient webkit fix ────────────────────────────── */
+.grad-txt.text-reveal-ready {
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+}
+.grad-txt.text-reveal-ready .text-reveal-word {
+  background: linear-gradient(135deg, var(--brand), var(--acc)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<link rel="stylesheet" href="css/tokens.css"/><link rel="stylesheet" href="css/main.css"/><link rel="stylesheet" href="css/animations.css"/>
+<title>404 — Page Not Found | Afaq Ahmad</title>
+</head>
+<body>
+<div id="cur-dot" aria-hidden="true"></div><div id="cur-ring" aria-hidden="true"></div>
+<div id="loader" role="status" aria-label="Loading">
+  <div class="ldr-inner">
+    <div class="ldr-logo-wrap">
+      <svg class="ldr-logo-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="ldg" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs>
+        <rect width="60" height="60" rx="16" fill="url(#ldg)"/>
+        <path d="M9 44 L20 16 L25.5 30 L14 30 Z" fill="white" opacity="0.95"/>
+        <path d="M20 16 L31 44 L26.5 44 L17 22 Z" fill="white" opacity="0.70"/>
+        <path d="M29 44 L40 16 L45.5 30 L34 30 Z" fill="white" opacity="0.95"/>
+        <path d="M40 16 L51 44 L46.5 44 L37 22 Z" fill="white" opacity="0.70"/>
+      </svg>
+      <div class="ldr-ring"></div>
+    </div>
+    <div class="ldr-text">
+      <span class="ldr-name">AFAQ AHMAD</span>
+      <span class="ldr-title">AI &amp; Full Stack Developer</span>
+    </div>
+    <div class="ldr-bar"><div class="ldr-fill" id="ldr-fill"></div></div>
+    <div class="ldr-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- Minimal nav -->
+<header role="banner">
+<nav id="navbar" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo"><svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="nlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#nlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg><span class="nav-logo-name">Afaq Ahmad</span></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <div class="nav-actions">
+    <button class="nav-icon" id="theme-btn" aria-label="Toggle theme"><svg id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg id="ic-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+    <a href="contact.html" class="nav-cta">Let's Talk</a>
+  </div>
+</nav>
+</header>
+
+<main id="main">
+<div class="nf" style="flex-direction:column">
+  <!-- Subtle background blobs -->
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:-1;overflow:hidden">
+    <div style="position:absolute;width:500px;height:500px;top:-100px;right:-100px;background:radial-gradient(circle,var(--brand),transparent 70%);filter:blur(80px);opacity:.08;border-radius:50%;animation:blob 14s ease-in-out infinite"></div>
+    <div style="position:absolute;width:400px;height:400px;bottom:-80px;left:-80px;background:radial-gradient(circle,var(--acc),transparent 70%);filter:blur(80px);opacity:.08;border-radius:50%;animation:blob 10s ease-in-out infinite reverse"></div>
+  </div>
+  <div class="nf-code" aria-hidden="true">404</div>
+  <h1 class="nf-title">Page Not Found</h1>
+  <p class="nf-desc">The page you're looking for doesn't exist, was moved, or the URL might be misspelled. Let's get you back on track.</p>
+  <div class="nf-acts">
+    <a href="index.html" class="btn btn--primary btn--lg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Go Home
+    </a>
+    <a href="projects.html" class="btn btn--secondary btn--lg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      View Projects
+    </a>
+  </div>
+</div>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

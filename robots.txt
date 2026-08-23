@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://afaqahmadcs.github.io/AFAQ-Portfolio-Website/sitemap.xml

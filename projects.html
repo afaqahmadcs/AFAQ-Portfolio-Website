@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Projects by Afaq Ahmad — Real estate, automotive, and business websites built with HTML5, CSS3, and JavaScript."/>
+<meta property="og:title" content="Projects — Afaq Ahmad"/><meta property="og:description" content="A curated collection of projects demonstrating modern engineering and thoughtful design."/>
+<link rel="canonical" href="https://afaqahmadcs.github.io/AFAQ-Portfolio-Website/projects.html"/>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<link rel="stylesheet" href="css/tokens.css"/><link rel="stylesheet" href="css/main.css"/><link rel="stylesheet" href="css/animations.css"/>
+<title>Projects — Afaq Ahmad</title>
+</head>
+<body>
+<div id="scroll-progress"></div><div id="cur-dot" aria-hidden="true"></div><div id="cur-ring" aria-hidden="true"></div>
+<div id="loader" role="status" aria-label="Loading">
+  <div class="ldr-inner">
+    <div class="ldr-logo-wrap">
+      <svg class="ldr-logo-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="ldg" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs>
+        <rect width="60" height="60" rx="16" fill="url(#ldg)"/>
+        <path d="M9 44 L20 16 L25.5 30 L14 30 Z" fill="white" opacity="0.95"/>
+        <path d="M20 16 L31 44 L26.5 44 L17 22 Z" fill="white" opacity="0.70"/>
+        <path d="M29 44 L40 16 L45.5 30 L34 30 Z" fill="white" opacity="0.95"/>
+        <path d="M40 16 L51 44 L46.5 44 L37 22 Z" fill="white" opacity="0.70"/>
+      </svg>
+      <div class="ldr-ring"></div>
+    </div>
+    <div class="ldr-text">
+      <span class="ldr-name">AFAQ AHMAD</span>
+      <span class="ldr-title">AI &amp; Full Stack Developer</span>
+    </div>
+    <div class="ldr-bar"><div class="ldr-fill" id="ldr-fill"></div></div>
+    <div class="ldr-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+<header role="banner">
+<nav id="navbar" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo" aria-label="Afaq Ahmad home"><svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="nlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#nlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg><span class="nav-logo-name">Afaq Ahmad</span></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html" class="active" aria-current="page">Projects</a></li><li><a href="index.html#services">Services</a></li><li><a href="about.html#skills">Skills</a></li><li><a href="index.html#blog">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="resume.html">Resume</a></li></ul>
+  <div class="nav-actions">
+    <button class="nav-icon" id="theme-btn" aria-label="Toggle theme"><svg id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg id="ic-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+    <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" class="nav-icon" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+    <a href="contact.html" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Let's Talk</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</header>
+
+<div id="mmenu" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true">
+  <div class="mm-head"><a href="index.html" class="nav-logo"><svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="nlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#nlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg><span class="nav-logo-name">Afaq Ahmad</span></a><button class="mm-close" id="mm-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+  <nav class="mm-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html" class="active">Projects</a><a href="index.html#services">Services</a><a href="about.html#skills">Skills</a><a href="index.html#blog">Blog</a><a href="contact.html">Contact</a><a href="resume.html">Resume</a></nav>
+  <div class="mm-foot"><a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" class="nav-icon" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a><a href="contact.html" class="btn btn--primary btn--sm">Let's Talk</a></div>
+</div>
+<main id="main">
+<div class="page-hd"><div class="page-hd-bg" aria-hidden="true"></div><div class="container page-hd-in">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg><span>Projects</span></nav>
+  <h1 class="page-hd-title reveal up text-reveal">Projects</h1>
+  <p class="page-hd-sub reveal up" style="--delay:.1s">A curated collection of live websites demonstrating modern engineering, thoughtful design, and attention to detail.</p>
+</div></div>
+
+<section class="section" aria-labelledby="pg-h">
+<div class="container">
+<h2 class="sr-only" id="pg-h">All Projects</h2>
+<div class="proj-filters reveal up" role="group" aria-label="Filter by category">
+  <button class="flt-btn on" data-filter="all">All Projects</button>
+  <button class="flt-btn" data-filter="real-estate">Real Estate</button>
+  <button class="flt-btn" data-filter="automotive">Automotive</button>
+  <button class="flt-btn" data-filter="business">Business</button>
+</div>
+<div class="proj-search reveal up" style="--delay:.05s">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+  <input type="search" id="proj-search-inp" placeholder="Search projects…" aria-label="Search projects"/>
+</div>
+<div class="proj-grid" id="proj-grid">
+
+  <article class="proj-card reveal up" data-cat="real-estate" data-title="afaq ahmad real estate">
+    <div class="proj-card-img">
+      <img src="assets/images/thumb-real-estate.svg" alt="AFAQ AHMAD Real Estate — luxury property listing website preview" loading="lazy"/>
+      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+    </div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta"><span class="proj-card-badge">🟢 Live</span><span class="proj-card-cat">Real Estate</span></div>
+      <h3 class="proj-card-title">AFAQ AHMAD Real Estate</h3>
+      <p class="proj-card-desc">Premium real estate platform with modern property listings, clean navigation, and a conversion-focused layout.</p>
+      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
+      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+    </div>
+  </article>
+
+  <article class="proj-card reveal up" style="--delay:.08s" data-cat="automotive" data-title="luxury car business website">
+    <div class="proj-card-img">
+      <img src="assets/images/thumb-luxury-car.svg" alt="Luxury Car Business Website — premium automotive dark UI preview" loading="lazy"/>
+      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+    </div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta"><span class="proj-card-badge">🟢 Live</span><span class="proj-card-cat">Automotive</span></div>
+      <h3 class="proj-card-title">Luxury Car Business Website</h3>
+      <p class="proj-card-desc">Elegant automotive website communicating premium brand identity with sophisticated visual language and smooth interactions.</p>
+      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Dark Theme</span></div>
+      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+    </div>
+  </article>
+
+  <article class="proj-card reveal up" style="--delay:.12s" data-cat="business" data-title="business website">
+    <div class="proj-card-img">
+      <img src="assets/images/thumb-business.svg" alt="Business Website — modern corporate website preview" loading="lazy"/>
+      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/Business-Website" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+    </div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta"><span class="proj-card-badge">🟢 Live</span><span class="proj-card-cat">Business</span></div>
+      <h3 class="proj-card-title">Business Website</h3>
+      <p class="proj-card-desc">Professional multi-section business website with clean layout, structured information architecture, and responsive design principles.</p>
+      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
+      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+    </div>
+  </article>
+
+  <article class="proj-card reveal up" style="--delay:.16s" data-cat="automotive" data-title="premium luxury car business website">
+    <div class="proj-card-img">
+      <img src="assets/images/thumb-premium.svg" alt="Premium Luxury Car Business Website — elegant dark luxury UI preview" loading="lazy"/>
+      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+    </div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta"><span class="proj-card-badge">🟢 Live</span><span class="proj-card-cat">Automotive</span></div>
+      <h3 class="proj-card-title">Premium Luxury Car Business</h3>
+      <p class="proj-card-desc">Elevated automotive experience — refined typography, dark premium aesthetics, and a polished user journey from first impression to inquiry.</p>
+      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Premium UI</span></div>
+      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+    </div>
+  </article>
+
+  <article class="proj-card reveal up" data-cat="business" data-title="gemstone blue sapphire website">
+    <div class="proj-card-img">
+      <img src="assets/images/thumb-gemstone.svg" alt="Gemstone / Blue Sapphire Website — premium luxury gemstone catalog preview" loading="lazy"/>
+      <div class="proj-card-ov" aria-hidden="true"><a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a></div>
+    </div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta"><span class="proj-card-badge">🟢 Live</span><span class="proj-card-cat">Business</span></div>
+      <h3 class="proj-card-title">Gemstone / Blue Sapphire Website</h3>
+      <p class="proj-card-desc">A premium luxury product showcase and catalog for exquisite blue sapphires and high-end gemstones, featuring an elegant dark interface and responsive visual design.</p>
+      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Premium UI</span></div>
+      <div class="proj-card-actions"><a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a></div>
+    </div>
+  </article>
+
+</div>
+<div id="no-results" style="display:none;text-align:center;padding:var(--s16);color:var(--fg3)">
+  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="margin:0 auto var(--s4)"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+  <p>No projects found matching your search.</p>
+</div>
+</div>
+</section>
+<section class="cta-banner"><div class="cta-dots" aria-hidden="true"></div><div class="container"><div class="cta-inner reveal up"><h2 class="cta-title">Have a project in mind?</h2><p class="cta-sub">Let's discuss how I can help bring your idea to life.</p><div class="cta-acts"><a href="contact.html" class="btn btn--white btn--lg">Start a Conversation</a></div></div></div></section>
+<footer aria-label="Site footer"><div class="container"><div class="ft-top"><div><div class="ft-brand-logo"><svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="ftlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#ftlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg><span>Afaq Ahmad</span></div><p class="ft-tag">AI &amp; Full Stack Developer based in Peshawar, Pakistan.</p></div><nav class="ft-nav" aria-label="Footer navigation"><div><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="resume.html">Resume</a></li></ul></div><div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div></nav></div><div class="ft-bot"><p class="ft-copy">&copy; <span id="yr"></span> Afaq Ahmad.</p><div class="ft-socs"><a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a><a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener" class="ft-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://www.instagram.com/afaqahmadcs/" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://x.com/afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="https://www.tiktok.com/@afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12.525.02c1.31-.03 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.52-4.06-1.42-.45-.34-.85-.75-1.2-1.22-.08 1.83-.02 3.67-.03 5.5 0 2.44-.54 4.97-2.12 6.84-1.67 2-4.32 2.91-6.87 2.81-2.58-.1-5.15-1.42-6.52-3.61-1.53-2.43-1.63-5.71-.24-8.23 1.25-2.28 3.73-3.8 6.33-3.96.11 0 .22 0 .32.01v4.16c-1.12.1-2.23.63-2.88 1.55-.74 1.05-.72 2.58-.02 3.65.65 1.01 1.93 1.57 3.12 1.48 1.11-.08 2.12-.86 2.43-1.92.21-.73.17-1.51.18-2.26V.02z"/></svg></a><a href="https://www.youtube.com/@afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div><button class="ft-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">Back to Top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="18 15 12 9 6 15"/></svg></button></div></div></footer>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

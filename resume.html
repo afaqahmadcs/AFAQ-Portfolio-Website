@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Resume of Afaq Ahmad — AI &amp; Full Stack Developer. Education, skills, and projects."/>
+<link rel="canonical" href="https://afaqahmadcs.github.io/AFAQ-Portfolio-Website/resume.html"/>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"/>
+<link rel="stylesheet" href="css/tokens.css"/><link rel="stylesheet" href="css/main.css"/><link rel="stylesheet" href="css/animations.css"/>
+<title>Resume — Afaq Ahmad</title>
+</head>
+<body>
+<div id="scroll-progress"></div><div id="cur-dot" aria-hidden="true"></div><div id="cur-ring" aria-hidden="true"></div>
+<div id="loader" role="status" aria-label="Loading">
+  <div class="ldr-inner">
+    <div class="ldr-logo-wrap">
+      <svg class="ldr-logo-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="ldg" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs>
+        <rect width="60" height="60" rx="16" fill="url(#ldg)"/>
+        <path d="M9 44 L20 16 L25.5 30 L14 30 Z" fill="white" opacity="0.95"/>
+        <path d="M20 16 L31 44 L26.5 44 L17 22 Z" fill="white" opacity="0.70"/>
+        <path d="M29 44 L40 16 L45.5 30 L34 30 Z" fill="white" opacity="0.95"/>
+        <path d="M40 16 L51 44 L46.5 44 L37 22 Z" fill="white" opacity="0.70"/>
+      </svg>
+      <div class="ldr-ring"></div>
+    </div>
+    <div class="ldr-text">
+      <span class="ldr-name">AFAQ AHMAD</span>
+      <span class="ldr-title">AI &amp; Full Stack Developer</span>
+    </div>
+    <div class="ldr-bar"><div class="ldr-fill" id="ldr-fill"></div></div>
+    <div class="ldr-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+<header role="banner">
+<nav id="navbar" aria-label="Main navigation">
+  <a href="index.html" class="nav-logo"><svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="nlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#nlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg><span class="nav-logo-name">Afaq Ahmad</span></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="index.html#services">Services</a></li><li><a href="about.html#skills">Skills</a></li><li><a href="index.html#blog">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="resume.html" class="active" aria-current="page">Resume</a></li></ul>
+  <div class="nav-actions">
+    <button class="nav-icon" id="theme-btn" aria-label="Toggle theme"><svg id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg id="ic-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+    <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" class="nav-icon" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+    <a href="contact.html" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Let's Talk</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+</header>
+<div id="mmenu" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true"><div class="mm-head"><a href="index.html" class="nav-logo"><svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="nlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#nlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg><span class="nav-logo-name">Afaq Ahmad</span></a><button class="mm-close" id="mm-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><nav class="mm-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="index.html#services">Services</a><a href="about.html#skills">Skills</a><a href="index.html#blog">Blog</a><a href="contact.html">Contact</a><a href="resume.html" class="active">Resume</a></nav><div class="mm-foot"><a href="contact.html" class="btn btn--primary btn--sm">Let's Talk</a></div></div>
+<main id="main">
+<div class="page-hd"><div class="page-hd-bg" aria-hidden="true"></div><div class="container page-hd-in">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="9 18 15 12 9 6"/></svg>
+    <span>Resume</span>
+  </nav>
+  <h1 class="page-hd-title reveal up text-reveal">Resume</h1>
+  <p class="page-hd-sub reveal up" style="--delay:.1s">A structured overview of my education, skills, and projects.</p>
+  <div style="margin-top:var(--s6)" class="reveal up" style="--delay:.2s">
+    <!-- Pointed href to assets/resume.pdf -->
+    <a href="assets/resume.pdf" class="btn btn--primary btn--lg" download aria-label="Download PDF resume">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </a>
+    <!-- Replace with real resume PDF link -->
+  </div>
+</div></div>
+
+<section class="section" aria-labelledby="res-h">
+<div class="container">
+<h2 class="sr-only" id="res-h">Resume Content</h2>
+<div class="res-layout">
+<!-- SIDEBAR -->
+<aside class="res-sidebar reveal up">
+  <!-- Profile -->
+  <div class="res-box">
+    <div style="text-align:center;margin-bottom:var(--s5)">
+
+      <!-- PROFILE IMAGE -->
+      <div style="width:80px;height:80px;border-radius:50%;overflow:hidden;margin:0 auto var(--s3);border:2px solid var(--bd);background:var(--bg3);">
+        <img
+          src="./assets/images/ChatGPT Image Jul 26, 2026, 12_14_45 PM.png"
+          alt="Afaq Ahmad - AI & Full Stack Developer"
+          loading="lazy"
+          decoding="async"
+          style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;"
+        >
+      </div>
+
+      <h2 style="font-size:var(--lg);font-weight:var(--wb);color:var(--fg)">
+        Afaq Ahmad
+      </h2>
+
+      <p style="font-size:var(--sm);color:var(--fg2);margin-top:4px">
+        AI &amp; Full Stack Developer
+      </p>
+
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--s3)">
+      <div style="display:flex;align-items:center;gap:var(--s2);font-size:var(--xs);color:var(--fg2)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        Peshawar, Pakistan
+      </div>
+        <div style="display:flex;align-items:center;gap:var(--s2);font-size:var(--xs);color:var(--fg2)">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </svg>
+
+  <a href="mailto:afaqahmad.contact@gmail.com"
+     style="color:inherit;text-decoration:none;">
+    afaqahmad.contact@gmail.com
+  </a>
+</div>
+        <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:var(--s2);font-size:var(--xs);color:var(--fg2);transition:color var(--tf)">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/afaqahmadcs
+        </a>
+        <a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:var(--s2);font-size:var(--xs);color:var(--fg2);transition:color var(--tf)">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/afaqahmadcs
+        </a>
+        <a href="https://www.youtube.com/@afaqahmadcs" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:var(--s2);font-size:var(--xs);color:var(--fg2);transition:color var(--tf)">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          youtube.com/@afaqahmadcs
+        </a>
+        <a href="index.html" style="display:flex;align-items:center;gap:var(--s2);font-size:var(--xs);color:var(--fg2);transition:color var(--tf)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="14" height="14"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Portfolio Website
+        </a>
+      </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="res-box">
+      <div class="res-box-title">Technical Skills</div>
+      <div style="display:flex;flex-direction:column;gap:var(--s4)">
+        <div>
+          <div style="font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;font-weight:600">Programming</div>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)">
+            <span class="tag tag-b">JavaScript</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;font-weight:600">Frontend</div>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)">
+            <span class="tag tag-b">HTML5</span>
+            <span class="tag tag-b">CSS3</span>
+            <span class="tag tag-b">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Tailwind CSS</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;font-weight:600">Backend</div>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)">
+            <span class="tag tag-b">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;font-weight:600">Tools &amp; Workflows</div>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)">
+            <span class="tag">Git &amp; GitHub</span>
+            <span class="tag tag-b">Figma</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Hosting</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;font-weight:600">AI Integration</div>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)">
+            <span class="tag">ChatGPT API</span>
+            <span class="tag">Google Dialogflow</span>
+            <span class="tag">Prompt Eng.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="res-box">
+      <div class="res-box-title">Languages</div>
+      <div style="display:flex;flex-direction:column;gap:var(--s3)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:var(--sm);color:var(--fg)">English</span>
+          <span style="font-size:var(--xs);color:var(--fg2)">Professional</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:var(--sm);color:var(--fg)">Urdu</span>
+          <span style="font-size:var(--xs);color:var(--fg2)">Native</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:var(--sm);color:var(--fg)">Pashto</span>
+          <span style="font-size:var(--xs);color:var(--fg2)">Native</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Availability -->
+    <div class="res-box" style="background:var(--brandbg);border-color:rgba(99,102,241,.2)">
+      <div class="res-box-title" style="color:var(--brand)">Status</div>
+      <div style="display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s2)">
+        <span style="width:8px;height:8px;background:var(--acc);border-radius:50%;flex-shrink:0;animation:sdot 2s ease-in-out infinite"></span>
+        <span style="font-size:var(--sm);font-weight:var(--wb);color:var(--fg)">Available</span>
+      </div>
+      <p style="font-size:var(--xs);color:var(--fg2);line-height:var(--lhr)">Open to remote work, freelance projects, and full-time opportunities.</p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="res-main reveal up" style="--delay:.1s">
+
+    <!-- Profile Summary -->
+    <div class="res-sec">
+      <h3 class="res-sec-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Professional Summary
+      </h3>
+      <p style="color:var(--fg2);line-height:var(--lhr);font-size:var(--base)">AI &amp; Full-Stack Developer with hands-on experience building modern, responsive user interfaces and integrating AI APIs in real-world projects. Currently pursuing FSc Computer Science while actively refining development workflows through client projects, SMIT web training, and internships. Passionate about writing clean code, building accessible user interfaces, and deploying optimized client solutions.</p>
+    </div>
+
+    <!-- Education -->
+    <div class="res-sec">
+      <h3 class="res-sec-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+        Education
+      </h3>
+      <div style="display:flex;flex-direction:column;gap:var(--s6)">
+        <div style="display:flex;gap:var(--s4)">
+          <div style="width:42px;height:42px;flex-shrink:0;background:var(--brandbg);border-radius:var(--rmd);display:flex;align-items:center;justify-content:center;color:var(--brand)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+          </div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+              <div>
+                <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">FSc Computer Science</h4>
+                <p style="font-size:var(--sm);color:var(--fg2)">The Superior Group of Colleges, Peshawar — Hayatabad Campus</p>
+              </div>
+              <span style="font-size:var(--xs);font-weight:var(--ws);color:var(--brand);background:var(--brandbg);padding:3px 10px;border-radius:var(--rfull);white-space:nowrap">2025 – 2027</span>
+            </div>
+            <p style="font-size:var(--sm);color:var(--fg2);line-height:var(--lhr)">Currently pursuing computer science studies. Relevant areas of study include Computer Science, Programming, Mathematics, Physics, and Computer Science fundamentals.</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:var(--s4)">
+          <div style="width:42px;height:42px;flex-shrink:0;background:var(--brandbg);border-radius:var(--rmd);display:flex;align-items:center;justify-content:center;color:var(--brand)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
+          </div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+              <div>
+                <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">Secondary School Certificate (Matriculation)</h4>
+                <p style="font-size:var(--sm);color:var(--fg2)">Iqra Huffaz Secondary Education, Peshawar</p>
+              </div>
+              <span style="font-size:var(--xs);font-weight:var(--ws);color:var(--brand);background:var(--brandbg);padding:3px 10px;border-radius:var(--rfull);white-space:nowrap">Completed 2024</span>
+            </div>
+            <p style="font-size:var(--sm);color:var(--fg2);line-height:var(--lhr)">Completed secondary education in 2024. Grade improvement examination successfully completed in 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="res-sec">
+      <h3 class="res-sec-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Projects
+      </h3>
+      <div style="display:flex;flex-direction:column;gap:var(--s6)">
+
+        <div style="padding-bottom:var(--s6);border-bottom:1px solid var(--bd)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+            <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">Blue Sapphire / Gemstone E-commerce Website</h4>
+            <div style="display:flex;gap:var(--s2)">
+              <a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--brand);display:flex;align-items:center;gap:4px">Live <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
+          <p style="font-size:var(--sm);color:var(--fg2);margin-bottom:var(--s2);line-height:var(--lhr)">Client project demonstrating premium luxury collection presentation, fully responsive interface, GitHub + Vercel deployment workflow, and custom domain/search-engine optimizations.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)"><span class="tag tag-b">Client Project</span><span class="tag">E-commerce</span><span class="tag">Vercel</span><span class="tag">Responsive</span></div>
+        </div>
+
+        <div style="padding-bottom:var(--s6);border-bottom:1px solid var(--bd)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+            <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">AFAQ AHMAD Real Estate</h4>
+            <div style="display:flex;gap:var(--s2)">
+              <a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--brand);display:flex;align-items:center;gap:4px">Live <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              <a href="https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--fg2);display:flex;align-items:center;gap:4px">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
+          <p style="font-size:var(--sm);color:var(--fg2);margin-bottom:var(--s2);line-height:var(--lhr)">Premium real estate website featuring property listings, responsive design, and a professional layout optimised for lead conversion.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
+        </div>
+
+        <div style="padding-bottom:var(--s6);border-bottom:1px solid var(--bd)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+            <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">Luxury Car Business Website</h4>
+            <div style="display:flex;gap:var(--s2)">
+              <a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--brand);display:flex;align-items:center;gap:4px">Live <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              <a href="https://github.com/afaqahmadcs/Luxury-Car-Business-Website" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--fg2);display:flex;align-items:center;gap:4px">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
+          <p style="font-size:var(--sm);color:var(--fg2);margin-bottom:var(--s2);line-height:var(--lhr)">Elegant automotive website designed to communicate premium brand identity with sophisticated visual language.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Premium UI</span></div>
+        </div>
+
+        <div style="padding-bottom:var(--s6);border-bottom:1px solid var(--bd)">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+            <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">Business Website</h4>
+            <div style="display:flex;gap:var(--s2)">
+              <a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--brand);display:flex;align-items:center;gap:4px">Live <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              <a href="https://github.com/afaqahmadcs/Business-Website" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--fg2);display:flex;align-items:center;gap:4px">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
+          <p style="font-size:var(--sm);color:var(--fg2);margin-bottom:var(--s2);line-height:var(--lhr)">Professional multi-section business website with clean layout and structured information architecture.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+        </div>
+
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+            <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">Premium Luxury Car Business Website</h4>
+            <div style="display:flex;gap:var(--s2)">
+              <a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--brand);display:flex;align-items:center;gap:4px">Live <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+              <a href="https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website" target="_blank" rel="noopener" style="font-size:var(--xs);color:var(--fg2);display:flex;align-items:center;gap:4px">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
+          <p style="font-size:var(--sm);color:var(--fg2);margin-bottom:var(--s2);line-height:var(--lhr)">Elevated automotive experience with refined typography, dark premium aesthetics, and a polished user journey.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--s2)"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Dark Theme</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="res-sec">
+      <h3 class="res-sec-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        Professional Experience
+      </h3>
+      <div style="display:flex;flex-direction:column;gap:var(--s6)">
+        <div style="display:flex;gap:var(--s4)">
+          <div style="width:42px;height:42px;flex-shrink:0;background:var(--brandbg);border-radius:var(--rmd);display:flex;align-items:center;justify-content:center;color:var(--brand)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          </div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+              <div>
+                <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">Web Development Intern</h4>
+                <p style="font-size:var(--sm);color:var(--fg2)">Software Development Firm</p>
+              </div>
+              <span style="font-size:var(--xs);font-weight:var(--ws);color:var(--brand);background:var(--brandbg);padding:3px 10px;border-radius:var(--rfull);white-space:nowrap">June 2026 – Present</span>
+            </div>
+            <p style="font-size:var(--sm);color:var(--fg2);line-height:var(--lhr)">Gained hands-on experience developing real-world web applications and interfaces. Built responsive frontends, implemented layout architectures, and worked within structured Git/GitHub workflows, handling deployments and project lifecycles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Training & Courses -->
+    <div class="res-sec">
+      <h3 class="res-sec-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        Training &amp; Courses
+      </h3>
+      <div style="display:flex;flex-direction:column;gap:var(--s6)">
+        <div style="display:flex;gap:var(--s4)">
+          <div style="width:42px;height:42px;flex-shrink:0;background:var(--brandbg);border-radius:var(--rmd);display:flex;align-items:center;justify-content:center;color:var(--brand)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s2)">
+              <div>
+                <h4 style="font-size:var(--base);font-weight:var(--wb);color:var(--fg)">Modern Web &amp; App Development</h4>
+                <p style="font-size:var(--sm);color:var(--fg2)">Saylani Mass IT Training (SMIT)</p>
+              </div>
+              <span style="font-size:var(--xs);font-weight:var(--ws);color:var(--brand);background:var(--brandbg);padding:3px 10px;border-radius:var(--rfull);white-space:nowrap">April 2026 – Present</span>
+            </div>
+            <p style="font-size:var(--sm);color:var(--fg2);line-height:var(--lhr)">Acquiring advanced developer competencies through professional training. Core curriculum spans HTML5, CSS3, Bootstrap, Figma, core and modern JavaScript, Git &amp; GitHub version control, hosting, and production deployment workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end res-main -->
+</div><!-- end res-layout -->
+</div></section>
+
+<!-- CTA -->
+<section class="cta-banner" aria-labelledby="res-cta-h">
+  <div class="cta-dots" aria-hidden="true"></div>
+  <div class="container"><div class="cta-inner reveal up">
+    <h2 class="cta-title" id="res-cta-h">Want to work together?</h2>
+    <p class="cta-sub">I'm open to remote roles, freelance projects, and collaborations. Let's talk.</p>
+    <div class="cta-acts">
+      <a href="contact.html" class="btn btn--white btn--lg">Get In Touch</a>
+      <a href="assets/resume.pdf" class="btn btn--outline-white btn--lg" download>Download PDF Resume</a>
+    </div>
+  </div></div>
+</section>
+
+<footer aria-label="Site footer"><div class="container">
+  <div class="ft-top">
+    <div>
+      <div class="ft-brand-logo">
+        <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="ftlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#ftlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="white" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="white" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="white" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="white" opacity="0.72"/></svg>
+        <span>Afaq Ahmad</span>
+      </div>
+      <p class="ft-tag">AI &amp; Full Stack Developer based in Peshawar, Pakistan.</p>
+    </div>
+    <nav class="ft-nav" aria-label="Footer navigation">
+      <div><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="resume.html">Resume</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+    </nav>
+  </div>
+  <div class="ft-bot">
+    <p class="ft-copy">&copy; <span id="yr"></span> Afaq Ahmad. All rights reserved.</p>
+    <div class="ft-socs">
+      <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener" class="ft-soc" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://www.instagram.com/afaqahmadcs/" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://x.com/afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12.525.02c1.31-.03 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.52-4.06-1.42-.45-.34-.85-.75-1.2-1.22-.08 1.83-.02 3.67-.03 5.5 0 2.44-.54 4.97-2.12 6.84-1.67 2-4.32 2.91-6.87 2.81-2.58-.1-5.15-1.42-6.52-3.61-1.53-2.43-1.63-5.71-.24-8.23 1.25-2.28 3.73-3.8 6.33-3.96.11 0 .22 0 .32.01v4.16c-1.12.1-2.23.63-2.88 1.55-.74 1.05-.72 2.58-.02 3.65.65 1.01 1.93 1.57 3.12 1.48 1.11-.08 2.12-.86 2.43-1.92.21-.73.17-1.51.18-2.26V.02z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@afaqahmadcs" target="_blank" rel="noopener" class="ft-soc" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+    <button class="ft-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+      Back to Top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </div>
+</div></footer>
+</main>
+<script src="js/main.js"></script>
+</body>
+</html>

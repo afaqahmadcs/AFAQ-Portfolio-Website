@@ -1,0 +1,88 @@
+/* ================================================================
+   DESIGN TOKENS — AFAQ AHMAD PORTFOLIO
+   ================================================================ */
+:root {
+  --c-p50:#eef2ff;--c-p100:#e0e7ff;--c-p200:#c7d2fe;--c-p300:#a5b4fc;
+  --c-p400:#818cf8;--c-p500:#6366f1;--c-p600:#4f46e5;--c-p700:#4338ca;
+  --c-p800:#3730a3;--c-p900:#312e81;
+  --c-a400:#34d399;--c-a500:#10b981;--c-a600:#059669;
+  --c-n0:#fff;--c-n50:#f9fafb;--c-n100:#f3f4f6;--c-n200:#e5e7eb;
+  --c-n300:#d1d5db;--c-n400:#9ca3af;--c-n500:#6b7280;--c-n600:#4b5563;
+  --c-n700:#374151;--c-n800:#1f2937;--c-n900:#111827;
+
+  /* Light Semantics */
+  --bg:#fff;--bg2:#f9fafb;--bg3:#f3f4f6;
+  --sf:#fff;--sf2:#f9fafb;
+  --fg:#111827;--fg2:#4b5563;--fg3:#9ca3af;--fgi:#fff;
+  --bd:#e5e7eb;--bd2:#d1d5db;--bd3:#f3f4f6;
+  --brand:#4f46e5;--brandh:#4338ca;--brandbg:#eef2ff;
+  --acc:#10b981;--accbg:rgba(16,185,129,.10);
+  --glass:rgba(255,255,255,.82);--glassb:rgba(255,255,255,.55);
+  --glassf:saturate(180%) blur(20px);
+  --sh1:rgba(0,0,0,.07);--sh2:rgba(0,0,0,.11);--sh3:rgba(0,0,0,.16);
+  --selbg:#c7d2fe;--selfg:#312e81;
+  --sbt:#f3f4f6;--sbth:#d1d5db;--sbhv:#818cf8;
+
+  /* Spacing */
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;
+  --s8:32px;--s10:40px;--s12:48px;--s16:64px;--s20:80px;--s24:96px;--s32:128px;
+  --spy:96px;--spys:64px;--cpx:24px;--cmax:1280px;
+
+  /* Typography */
+  --ff:'Inter',system-ui,-apple-system,sans-serif;
+  --ffm:'JetBrains Mono','Fira Code',monospace;
+  --xs:.75rem;--sm:.875rem;--base:1rem;--lg:1.125rem;--xl:1.25rem;
+  --x2:1.5rem;--x3:1.875rem;--x4:2.25rem;--x5:3rem;--x6:3.75rem;--x7:4.5rem;
+  --wn:400;--wm:500;--ws:600;--wb:700;--wx:800;
+  --lht:1.15;--lhs:1.35;--lhn:1.55;--lhr:1.70;
+  --lst:-0.03em;--lsn:0em;--lsw:0.03em;--lswi:0.06em;--lswst:0.12em;
+
+  /* Radius */
+  --rxs:4px;--rsm:6px;--rmd:10px;--rlg:16px;--rxl:20px;--r2xl:28px;--rfull:9999px;
+
+  /* Shadows */
+  --shxs:0 1px 2px var(--sh1);--shsm:0 2px 6px var(--sh1);
+  --shmd:0 4px 16px var(--sh2);--shlg:0 8px 32px var(--sh2);
+  --shxl:0 16px 48px var(--sh3);
+  --shbr:0 8px 32px rgba(99,102,241,.22);
+  --shbrl:0 16px 48px rgba(99,102,241,.30);
+
+  /* Z */
+  --z0:0;--z1:10;--z2:100;--znav:200;--zover:300;--zmod:400;--ztop:9999;
+
+  /* Timing */
+  --tf:150ms;--tn:250ms;--ts:400ms;--tsl:600ms;
+  --eo:cubic-bezier(0,.55,.45,1);--eio:cubic-bezier(.45,0,.55,1);
+  --esp:cubic-bezier(.34,1.30,.64,1);--esm:cubic-bezier(.25,.46,.45,.94);
+  --ebo:cubic-bezier(.34,1.56,.64,1);
+
+  --navh:72px;
+  --focus:0 0 0 3px rgba(99,102,241,.40);
+  --focusoff:0 0 0 2px var(--bg),0 0 0 5px rgba(99,102,241,.40);
+}
+
+/* Dark */
+[data-theme="dark"]{
+  --bg:#09090f;--bg2:#0e0e18;--bg3:#13131f;--sf:#0e0e18;--sf2:#13131f;
+  --fg:#f1f1f6;--fg2:#8888a0;--fg3:#505068;--fgi:#09090f;
+  --bd:rgba(255,255,255,.08);--bd2:rgba(255,255,255,.14);--bd3:rgba(255,255,255,.04);
+  --brand:#818cf8;--brandh:#a5b4fc;--brandbg:rgba(99,102,241,.12);
+  --acc:#34d399;--accbg:rgba(52,211,153,.12);
+  --glass:rgba(14,14,24,.86);--glassb:rgba(255,255,255,.08);
+  --sh1:rgba(0,0,0,.45);--sh2:rgba(0,0,0,.55);--sh3:rgba(0,0,0,.65);
+  --selbg:rgba(99,102,241,.30);--selfg:#f1f1f6;
+  --sbt:#0e0e18;--sbth:#2a2a40;--sbhv:#6366f1;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#09090f;--bg2:#0e0e18;--bg3:#13131f;--sf:#0e0e18;--sf2:#13131f;
+    --fg:#f1f1f6;--fg2:#8888a0;--fg3:#505068;--fgi:#09090f;
+    --bd:rgba(255,255,255,.08);--bd2:rgba(255,255,255,.14);--bd3:rgba(255,255,255,.04);
+    --brand:#818cf8;--brandh:#a5b4fc;--brandbg:rgba(99,102,241,.12);
+    --acc:#34d399;--accbg:rgba(52,211,153,.12);
+    --glass:rgba(14,14,24,.86);--glassb:rgba(255,255,255,.08);
+    --sh1:rgba(0,0,0,.45);--sh2:rgba(0,0,0,.55);--sh3:rgba(0,0,0,.65);
+    --selbg:rgba(99,102,241,.30);--selfg:#f1f1f6;
+    --sbt:#0e0e18;--sbth:#2a2a40;--sbhv:#6366f1;
+  }
+}
