@@ -947,3 +947,226 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
     });
   }
 })();
+
+/* ================================================================
+   27. GITHUB REPOSITORIES SHOWCASE (dynamic fetcher & local fallback)
+   ================================================================ */
+(function initGitHubRepos() {
+  const grid = document.getElementById('gh-grid');
+  const loading = document.getElementById('gh-loading');
+  const error = document.getElementById('gh-error');
+  const retryBtn = document.getElementById('gh-retry-btn');
+  
+  if (!grid) return;
+
+  const FALLBACK_REPOS = [
+    {
+      name: "GemStone-Project",
+      description: "Blue Sapphire / Gemstone E-commerce Client Website showcasing luxury gemstone collections.",
+      language: "TypeScript",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-08-17T11:29:09Z",
+      html_url: "https://github.com/afaqahmadcs/GemStone-Project",
+      homepage: "https://www.bluesapphiregemstones.com/"
+    },
+    {
+      name: "AFAQ-Portfolio-Website",
+      description: "Interactive personal developer portfolio website featuring a dark glassmorphic design and zero-gravity timeline.",
+      language: "HTML",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-08-23T18:15:27Z",
+      html_url: "https://github.com/afaqahmadcs/AFAQ-Portfolio-Website",
+      homepage: "https://afaq-portfolio-blush.vercel.app"
+    },
+    {
+      name: "afaqahmad-portfolio",
+      description: "A personal portfolio built with modern frameworks and components.",
+      language: "TypeScript",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-08-17T19:12:57Z",
+      html_url: "https://github.com/afaqahmadcs/afaqahmad-portfolio",
+      homepage: null
+    },
+    {
+      name: "AFAQ-AHMAD-REAL-ESTATE-",
+      description: "Premium real estate platform with modern property listings, clean navigation, and a conversion-focused layout.",
+      language: "HTML",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-07-27T11:52:24Z",
+      html_url: "https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-",
+      homepage: "https://afaq-ahmad-real-estate.vercel.app"
+    },
+    {
+      name: "Personal-Project",
+      description: "Personal web development project showcasing advanced frontend capabilities.",
+      language: "TypeScript",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-08-21T10:49:31Z",
+      html_url: "https://github.com/afaqahmadcs/Personal-Project",
+      homepage: "https://afaqahmad-portfolio.vercel.app"
+    },
+    {
+      name: "Premium-Luxury-Car-Business-Website",
+      description: "Premium automotive website with sophisticated dark theme and animations.",
+      language: "HTML",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-07-20T18:17:01Z",
+      html_url: "https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website",
+      homepage: null
+    },
+    {
+      name: "Luxury-Car-Business-Website",
+      description: "Elegant automotive business website with a premium dark user interface.",
+      language: "CSS",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-07-20T19:21:18Z",
+      html_url: "https://github.com/afaqahmadcs/Luxury-Car-Business-Website",
+      homepage: null
+    },
+    {
+      name: "Business-Website",
+      description: "Modern multi-section business website with clean responsive layout.",
+      language: "HTML",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-07-20T12:55:20Z",
+      html_url: "https://github.com/afaqahmadcs/Business-Website",
+      homepage: null
+    },
+    {
+      name: "github-repository",
+      description: "GitHub repository interface project showcasing clean CSS layout.",
+      language: "HTML",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-06-22T11:57:08Z",
+      html_url: "https://github.com/afaqahmadcs/github-repository",
+      homepage: null
+    },
+    {
+      name: "push-repository",
+      description: "Git helper tools and push testing repository.",
+      language: "HTML",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2026-06-23T12:00:28Z",
+      html_url: "https://github.com/afaqahmadcs/push-repository",
+      homepage: null
+    }
+  ];
+
+  async function fetchRepos() {
+    showStatus('loading');
+    try {
+      const response = await fetch('https://api.github.com/users/afaqahmadcs/repos?per_page=100');
+      if (!response.ok) throw new Error('API Request failed');
+      const data = await response.json();
+      
+      // Filter out forks and sort by pushed/updated date, then take top 10
+      let filtered = data
+        .filter(r => !r.fork)
+        .sort((a, b) => new Date(b.pushed_at || b.updated_at) - new Date(a.pushed_at || a.updated_at))
+        .slice(0, 10);
+      
+      // If we don't get exactly 10, fill with fallbacks
+      if (filtered.length < 10) {
+        const existingNames = new Set(filtered.map(r => r.name.toLowerCase()));
+        for (const item of FALLBACK_REPOS) {
+          if (filtered.length >= 10) break;
+          if (!existingNames.has(item.name.toLowerCase())) {
+            filtered.push(item);
+          }
+        }
+      }
+      
+      render(filtered);
+    } catch (err) {
+      console.warn('GitHub API fetch failed. Using local fallback data.', err);
+      render(FALLBACK_REPOS);
+    }
+  }
+
+  function showStatus(state) {
+    loading.style.display = state === 'loading' ? 'block' : 'none';
+    error.style.display = state === 'error' ? 'block' : 'none';
+    grid.style.display = state === 'success' ? 'grid' : 'none';
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  function render(repos) {
+    grid.innerHTML = '';
+    repos.forEach((repo, idx) => {
+      const card = document.createElement('article');
+      card.className = 'gh-card reveal up';
+      card.style.setProperty('--delay', `${idx * 0.05}s`);
+      
+      const langClass = (repo.language || 'html').toLowerCase();
+      const updatedDate = formatDate(repo.pushed_at || repo.updated_at);
+      
+      card.innerHTML = `
+        <div class="gh-card-head">
+          <h3 class="gh-card-title">${repo.name}</h3>
+          <div class="gh-card-stats">
+            <span class="gh-stat" title="Stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span>${repo.stargazers_count || 0}</span>
+            </span>
+            <span class="gh-stat" title="Forks">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 15V9a4 4 0 00-4-4H9M6 9v6"/></svg>
+              <span>${repo.forks_count || 0}</span>
+            </span>
+          </div>
+        </div>
+        <p class="gh-card-desc">${repo.description || 'No description provided.'}</p>
+        <div class="gh-card-footer">
+          <span class="gh-card-lang">
+            <span class="gh-lang-dot ${langClass}"></span>
+            <span>${repo.language || 'HTML'}</span>
+          </span>
+          ${updatedDate ? `<span>Updated ${updatedDate}</span>` : ''}
+        </div>
+        <div class="gh-card-links">
+          <a href="${repo.html_url}" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">GitHub Code</a>
+          ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a>` : ''}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    
+    showStatus('success');
+    
+    // Trigger scroll animations on newly rendered cards
+    if (window.IntersectionObserver) {
+      const cards = grid.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('vis');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      cards.forEach(c => observer.observe(c));
+    } else {
+      grid.querySelectorAll('.reveal').forEach(c => c.classList.add('vis'));
+    }
+  }
+
+  if (retryBtn) {
+    retryBtn.addEventListener('click', fetchRepos);
+  }
+  
+  fetchRepos();
+})();
