@@ -916,7 +916,10 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
   animate();
 
   // Resize handler
+  let lastWidth = window.innerWidth;
   window.addEventListener('resize', () => {
+    if (window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
     w = canvas.width = canvas.offsetWidth;
     h = canvas.height = canvas.offsetHeight;
   });
