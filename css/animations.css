@@ -313,28 +313,48 @@ body { animation: pgIn .55s var(--esm) both; }
   width: 6px; height: 6px;
   background: var(--brand);
   mix-blend-mode: normal;
-  transition: transform .1s var(--esm), width .2s var(--esp), height .2s var(--esp);
+  transition:
+    width 0.25s var(--esp),
+    height 0.25s var(--esp),
+    background-color 0.25s ease,
+    mix-blend-mode 0.25s ease;
+}
+#cur-dot.invert {
+  width: 24px;
+  height: 24px;
+  background: #ffffff !important;
+  mix-blend-mode: difference;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 #cur-ring {
-  width: 32px; height: 32px;
+  width: 32px;
+  height: 32px;
   border: 1.5px solid var(--brand);
+  background: transparent;
   opacity: .35;
   transition:
-    width .4s var(--esp),
-    height .4s var(--esp),
-    opacity .3s,
-    border-color .3s;
+    opacity 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
-#cur-ring.on     { width: 52px; height: 52px; opacity: .18; }
-#cur-ring.click  { width: 20px; height: 20px; opacity: .8; }
-#cur-ring.text   { width: 3px; height: 28px; border-radius: 2px; opacity: .7; }
+#cur-ring.on {
+  opacity: .22;
+  background: rgba(99, 102, 241, 0.05);
+}
+#cur-ring.click {
+  opacity: .8;
+}
+#cur-ring.text {
+  opacity: 0; /* Ring fades out completely during text selection, letting the lens dot handle it */
+}
 #cur-label {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .1em;
+  font-family: var(--ffm);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: #fff;
   background: var(--brand);
@@ -344,6 +364,7 @@ body { animation: pgIn .55s var(--esm) both; }
   transform: translate(-50%, -50%) scale(.8);
   transition: opacity .2s, transform .2s var(--esp);
   white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
 }
 #cur-label.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 

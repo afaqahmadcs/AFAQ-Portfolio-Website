@@ -486,10 +486,24 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
    17. PREMIUM CURSOR — magnetic, label, lerp ring
    ================================================================ */
 (function initCursor() {
-  if (isTouch || prefersReduced) return;
-  const dot   = $('#cur-dot');
-  const ring  = $('#cur-ring');
-  if (!dot || !ring) return;
+  if (isTouch) return;
+
+  // Auto-inject cursor markup if not present, ensuring global plug-and-play functionality
+  let dot = $('#cur-dot');
+  let ring = $('#cur-ring');
+  
+  if (!dot) {
+    dot = document.createElement('div');
+    dot.id = 'cur-dot';
+    dot.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(dot);
+  }
+  if (!ring) {
+    ring = document.createElement('div');
+    ring.id = 'cur-ring';
+    ring.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(ring);
+  }
 
   // Create label element
   const label = document.createElement('div');
@@ -500,68 +514,261 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
   let rx = -200, ry = -200;
   let isVisible = false;
 
-  // Instant dot follow
-  on(document, 'mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top  = my + 'px';
-    if (!isVisible) {
-      dot.style.opacity = '1';
-      ring.style.opacity = '.35';
-      isVisible = true;
-    }
-  });
+  let activeSnapEl = null;
+  let snapRect = null;
+  let isHovered = false;
+  let isTextHovered = false;
+  let isPressed = false;
+  let labelText = '';
 
-  // Lerp ring
-  function lerpRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    label.style.left = mx + 'px';
-    label.style.top  = (my - 36) + 'px';
-    raf(lerpRing);
-  }
-  lerpRing();
+  let currW = 32;
+  let currH = 32;
+  let currR = 16;
+  let currScale = 1.0;
 
-  // Press effect
-  on(document, 'mousedown', () => ring.classList.add('click'));
-  on(document, 'mouseup',   () => ring.classList.remove('click'));
-
-  // Hover states
+  const snapSel = '.btn, .nav-cta, .nav-burger, .tech-tab, .flt-btn, .ft-top-btn, .acc-lbl, .magnetic';
   const hoverSel = 'a, button, .tech-badge, .svc-card, .proj-card, .pf-img, .pf-vis, .blog-card, .val-card, .why-card, .proc-step, .stat-card';
   const textSel  = 'p, h1, h2, h3, h4, li, span, input, textarea';
   const projSel  = '.proj-card, .pf-vis';
 
-  on(document, 'mouseover', e => {
+  // Instant dot and state tracker on mousemove
+  on(document, 'mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (!isVisible) {
+      dot.style.opacity = '1';
+      ring.style.opacity = '.35';
+      isVisible = true;
+      rx = mx; ry = my;
+      currW = 32; currH = 32; currR = 16;
+    }
+
     const el = e.target;
-    if (!el || typeof el.closest !== 'function') return;
-    if (el.closest(projSel)) {
-      ring.classList.add('on');
-      label.textContent = 'View';
-      label.classList.add('show');
-    } else if (el.closest(hoverSel)) {
-      ring.classList.add('on');
-      ring.style.borderColor = 'var(--acc)';
-    } else if (el.closest(textSel)) {
-      ring.classList.add('text');
+    if (el && typeof el.closest === 'function') {
+      // 1. Check Snapping Elements (Disabled in reduced motion)
+      const snapEl = !prefersReduced ? el.closest(snapSel) : null;
+      if (snapEl) {
+        if (activeSnapEl !== snapEl) {
+          activeSnapEl = snapEl;
+          snapRect = activeSnapEl.getBoundingClientRect();
+          ring.classList.add('on');
+          ring.style.borderColor = 'var(--acc)';
+        }
+      } else {
+        if (activeSnapEl) {
+          activeSnapEl = null;
+          snapRect = null;
+          ring.classList.remove('on');
+          ring.style.borderColor = '';
+        }
+      }
+
+      // Reset contextual text label
+      labelText = '';
+
+      // 2. Project card / Image checks
+      const projEl = el.closest(projSel);
+      if (projEl) {
+        ring.classList.add('on');
+        const imgEl = el.tagName === 'IMG' ? el : el.querySelector('img');
+        if (imgEl && (el === imgEl || el.closest('.proj-img, .pf-img, .pf-vis'))) {
+          labelText = 'EXPLORE';
+        } else {
+          labelText = 'VIEW';
+        }
+      }
+
+      // 3. Social / Contact / External Link check
+      const aEl = el.closest('a');
+      if (aEl && !projEl) {
+        const href = aEl.getAttribute('href') || '';
+        const isSocial = href.includes('linkedin.com') || href.includes('github.com') || href.includes('instagram.com') || href.includes('twitter.com') || href.includes('x.com') || href.includes('youtube.com') || href.includes('tiktok.com');
+        const isContact = href.includes('contact.html') || href.startsWith('mailto:') || href.startsWith('tel:');
+        
+        if (isContact) {
+          labelText = "LET'S TALK";
+        } else if (isSocial) {
+          labelText = 'FOLLOW';
+        } else if (href.startsWith('http') || aEl.target === '_blank') {
+          labelText = 'OPEN';
+        }
+      }
+
+      // 4. Update label state
+      if (labelText && !prefersReduced) {
+        label.textContent = labelText;
+        label.classList.add('show');
+      } else {
+        label.classList.remove('show');
+      }
+
+      // 5. General hover sizing (for normal links, buttons, interactive cards)
+      const normalHoverEl = el.closest(hoverSel);
+      if (normalHoverEl && !snapEl) {
+        isHovered = true;
+        ring.classList.add('on');
+        ring.style.borderColor = 'var(--acc)';
+      } else {
+        isHovered = false;
+        if (!snapEl && !projEl) {
+          ring.classList.remove('on');
+          ring.style.borderColor = '';
+        }
+      }
+
+      // 6. Text selection hover (inverting lens mode)
+      const txtEl = el.closest(textSel);
+      if (txtEl && !normalHoverEl && !snapEl && !projEl) {
+        isTextHovered = true;
+        dot.classList.add('invert');
+        ring.classList.add('text');
+      } else {
+        isTextHovered = false;
+        dot.classList.remove('invert');
+        ring.classList.remove('text');
+      }
     }
   });
 
-  on(document, 'mouseout', e => {
-    const el = e.target;
-    if (!el || typeof el.closest !== 'function') return;
-    if (el.closest(projSel)) {
-      label.classList.remove('show');
+  // Keep snap coordinates updated on viewport scroll
+  on(window, 'scroll', () => {
+    if (activeSnapEl) {
+      snapRect = activeSnapEl.getBoundingClientRect();
     }
-    if (el.closest(hoverSel)) {
-      ring.classList.remove('on');
-      ring.style.borderColor = '';
+  }, { passive: true });
+
+  // Click Particle Burst Effect (Disabled in reduced motion)
+  function createClickParticles(x, y) {
+    if (prefersReduced) return;
+    const particleCount = 5;
+    const colors = ['var(--brand)', 'var(--acc)', '#ffffff'];
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('div');
+      p.className = 'cursor-particle';
+      const angle = Math.random() * Math.PI * 2;
+      const velocity = Math.random() * 40 + 20;
+      const size = Math.random() * 2.5 + 1.5;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      
+      p.style.cssText = `
+        position: fixed;
+        left: ${x}px;
+        top: ${y}px;
+        width: ${size}px;
+        height: ${size}px;
+        border-radius: 50%;
+        background: ${color};
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+        transition: transform 0.4s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.4s ease-out;
+      `;
+      
+      document.body.appendChild(p);
+      
+      raf(() => {
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity;
+        p.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`;
+        p.style.opacity = '0';
+      });
+      
+      setTimeout(() => p.remove(), 400);
     }
-    if (el.closest(textSel)) {
-      ring.classList.remove('text');
-    }
+  }
+
+  on(document, 'mousedown', e => {
+    isPressed = true;
+    ring.classList.add('click');
+    createClickParticles(e.clientX, e.clientY);
   });
+
+  on(document, 'mouseup', () => {
+    isPressed = false;
+    ring.classList.remove('click');
+  });
+
+  // Lerp loop
+  function lerpRing() {
+    let tx = mx;
+    let ty = my;
+    let tw = 32;
+    let th = 32;
+    let tr = 16;
+
+    if (activeSnapEl && snapRect) {
+      const cx = snapRect.left + snapRect.width / 2;
+      const cy = snapRect.top + snapRect.height / 2;
+      tx = cx;
+      ty = cy;
+      tw = snapRect.width + 12;
+      th = snapRect.height + 12;
+      
+      const style = window.getComputedStyle(activeSnapEl);
+      const br = style.borderRadius;
+      if (br.includes('%')) {
+        tr = (tw / 100) * parseFloat(br);
+      } else {
+        tr = parseFloat(br) || 0;
+      }
+    } else {
+      if (isHovered) {
+        tw = 52;
+        th = 52;
+        tr = 26;
+      } else if (isTextHovered) {
+        tw = 0;
+        th = 0;
+        tr = 0;
+      }
+    }
+
+    // Lerp factors: 1.0 (instant follow) if reduced motion is preferred, 0.15 normal trail
+    const lerpFactor = prefersReduced ? 1.0 : 0.15;
+    const targetScale = isPressed ? 0.65 : 1.0;
+
+    rx += (tx - rx) * lerpFactor;
+    ry += (ty - ry) * lerpFactor;
+    currW += (tw - currW) * lerpFactor;
+    currH += (th - currH) * lerpFactor;
+    currR += (tr - currR) * lerpFactor;
+    currScale += (targetScale - currScale) * (prefersReduced ? 1.0 : 0.2);
+
+    // Apply values to ring
+    ring.style.width = currW + 'px';
+    ring.style.height = currH + 'px';
+    ring.style.borderRadius = currR + 'px';
+
+    if (activeSnapEl) {
+      // Static transform when snapped to prevent rotational warping
+      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) scale(${currScale})`;
+    } else {
+      // Liquid stretching based on velocity (disabled if prefersReduced)
+      const dx = mx - rx;
+      const dy = my - ry;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const angle = Math.atan2(dy, dx);
+      const stretch = prefersReduced ? 0 : Math.min(dist * 0.008, 0.4);
+      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%) rotate(${angle}rad) scale(${currScale * (1 + stretch)}, ${currScale * (1 - stretch)})`;
+    }
+
+    // Dot positioning: tethered snapping offset (disabled if prefersReduced)
+    let dotX = mx;
+    let dotY = my;
+    if (activeSnapEl && snapRect && !prefersReduced) {
+      const cx = snapRect.left + snapRect.width / 2;
+      const cy = snapRect.top + snapRect.height / 2;
+      dotX = mx + (cx - mx) * 0.25;
+      dotY = my + (cy - my) * 0.25;
+    }
+    dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+
+    // Follow label
+    label.style.transform = `translate3d(${mx}px, ${my - 36}px, 0) translate(-50%, -50%)`;
+
+    raf(lerpRing);
+  }
+  lerpRing();
 })();
 
 /* ================================================================
@@ -570,12 +777,14 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
 (function initMagnetic() {
   if (isTouch || prefersReduced) return;
 
-  $$('.btn--primary, .btn--white, .nav-cta').forEach(btn => {
+  $$('.btn--primary, .btn--secondary, .btn--white, .btn--ghost, .nav-cta').forEach(btn => {
     btn.classList.add('magnetic');
+    
     // Wrap content in magnetic-inner if not already
     if (!btn.querySelector('.magnetic-inner')) {
       const inner = document.createElement('span');
       inner.className = 'magnetic-inner';
+      inner.style.display = 'inline-block';
       inner.innerHTML = btn.innerHTML;
       btn.innerHTML = '';
       btn.appendChild(inner);
@@ -586,14 +795,25 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
       const r  = btn.getBoundingClientRect();
       const x  = e.clientX - r.left - r.width  / 2;
       const y  = e.clientY - r.top  - r.height / 2;
-      const mag = .28;
-      btn.style.transform   = `translate(${x * mag}px, ${y * mag}px)`;
-      if (inner) inner.style.transform = `translate(${x * .12}px, ${y * .12}px)`;
+      const mag = 0.15; // subtle magnetic displacement (max offset 7.5px)
+      
+      btn.style.transform = `translate(${x * mag}px, ${y * mag}px)`;
+      if (inner) inner.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
     });
 
     on(btn, 'mouseleave', () => {
-      btn.style.transform   = '';
+      // Add reset transition properties on leave
+      btn.style.transition = 'transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)';
+      if (inner) inner.style.transition = 'transform 0.3s cubic-bezier(0.25, 1, 0.5, 1)';
+      
+      btn.style.transform = '';
       if (inner) inner.style.transform = '';
+      
+      // Clear reset transitions once animation completes to prevent lag during hover tracking
+      setTimeout(() => {
+        btn.style.transition = '';
+        if (inner) inner.style.transition = '';
+      }, 300);
     });
   });
 })();
