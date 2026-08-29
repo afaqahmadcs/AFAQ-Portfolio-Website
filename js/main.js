@@ -526,7 +526,6 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
   let activeSnapEl = null;
   let snapRect = null;
   let isHovered = false;
-  let isTextHovered = false;
   let isPressed = false;
   let labelText = '';
 
@@ -537,7 +536,6 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
   const snapSel = '.btn, .nav-cta, .nav-burger, .tech-tab, .flt-btn, .ft-top-btn, .acc-lbl, .magnetic';
   const hoverSel = 'a, button, .tech-badge, .svc-card, .proj-card, .pf-img, .pf-vis, .blog-card, .val-card, .why-card, .proc-step, .stat-card';
-  const textSel  = 'p, h1, h2, h3, h4, li, span, input, textarea';
   const projSel  = '.proj-card, .pf-vis';
 
   // Instant dot and state tracker on mousemove
@@ -622,18 +620,6 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
           ring.classList.remove('on');
           ring.style.borderColor = '';
         }
-      }
-
-      // 6. Text selection hover (inverting lens mode)
-      const txtEl = el.closest(textSel);
-      if (txtEl && !normalHoverEl && !snapEl && !projEl) {
-        isTextHovered = true;
-        dot.classList.add('invert');
-        ring.classList.add('text');
-      } else {
-        isTextHovered = false;
-        dot.classList.remove('invert');
-        ring.classList.remove('text');
       }
     }
   });
@@ -725,10 +711,6 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
         tw = 52;
         th = 52;
         tr = 26;
-      } else if (isTextHovered) {
-        tw = 0;
-        th = 0;
-        tr = 0;
       }
     }
 
