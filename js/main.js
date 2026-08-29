@@ -488,27 +488,36 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
 (function initCursor() {
   if (isTouch) return;
 
-  // Auto-inject cursor markup if not present, ensuring global plug-and-play functionality
+  // Auto-inject and mount cursor markup to document.documentElement (root viewport level)
+  // This completely bypasses any parent containing block/transform clipping from body or other elements
   let dot = $('#cur-dot');
   let ring = $('#cur-ring');
   
-  if (!dot) {
+  if (dot) {
+    document.documentElement.appendChild(dot);
+  } else {
     dot = document.createElement('div');
     dot.id = 'cur-dot';
     dot.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(dot);
+    document.documentElement.appendChild(dot);
   }
-  if (!ring) {
+  
+  if (ring) {
+    document.documentElement.appendChild(ring);
+  } else {
     ring = document.createElement('div');
     ring.id = 'cur-ring';
     ring.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(ring);
+    document.documentElement.appendChild(ring);
   }
 
-  // Create label element
+  // Create and mount label element at viewport level
   const label = document.createElement('div');
   label.id = 'cur-label';
-  document.body.appendChild(label);
+  document.documentElement.appendChild(label);
+
+  // Add active custom cursor class to html root to trigger native cursor hiding on desktop
+  document.documentElement.classList.add('custom-cursor-active');
 
   let mx = -200, my = -200;
   let rx = -200, ry = -200;
@@ -636,7 +645,7 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
     }
   }, { passive: true });
 
-  // Click Particle Burst Effect (Disabled in reduced motion)
+  // Click Particle Burst Effect (Disabled in reduced motion, mounted at viewport root level)
   function createClickParticles(x, y) {
     if (prefersReduced) return;
     const particleCount = 5;
@@ -658,13 +667,13 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
         border-radius: 50%;
         background: ${color};
         pointer-events: none;
-        z-index: 9999;
+        z-index: 999999;
         transform: translate(-50%, -50%);
         opacity: 0.8;
         transition: transform 0.4s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.4s ease-out;
       `;
       
-      document.body.appendChild(p);
+      document.documentElement.appendChild(p);
       
       raf(() => {
         const tx = Math.cos(angle) * velocity;

@@ -350,7 +350,7 @@ body { animation: pgIn .55s var(--esm) both; }
 #cur-label {
   position: fixed;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999;
   font-family: var(--ffm);
   font-size: 9px;
   font-weight: 600;
@@ -361,12 +361,12 @@ body { animation: pgIn .55s var(--esm) both; }
   padding: 4px 10px;
   border-radius: var(--rfull);
   opacity: 0;
-  transform: translate(-50%, -50%) scale(.8);
+  transform: translate3d(-50%, -50%, 0) scale(.8);
   transition: opacity .2s, transform .2s var(--esp);
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
 }
-#cur-label.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+#cur-label.show { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1); }
 
 /* ── Smooth scroll momentum (Lenis-style CSS support) ───────────── */
 html.lenis { scroll-behavior: auto; }
