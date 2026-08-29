@@ -488,33 +488,32 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
 (function initCursor() {
   if (isTouch) return;
 
-  // Auto-inject and mount cursor markup to document.documentElement (root viewport level)
-  // This completely bypasses any parent containing block/transform clipping from body or other elements
+  // Auto-inject and mount cursor markup to document.body
   let dot = $('#cur-dot');
   let ring = $('#cur-ring');
   
   if (dot) {
-    document.documentElement.appendChild(dot);
+    document.body.appendChild(dot);
   } else {
     dot = document.createElement('div');
     dot.id = 'cur-dot';
     dot.setAttribute('aria-hidden', 'true');
-    document.documentElement.appendChild(dot);
+    document.body.appendChild(dot);
   }
   
   if (ring) {
-    document.documentElement.appendChild(ring);
+    document.body.appendChild(ring);
   } else {
     ring = document.createElement('div');
     ring.id = 'cur-ring';
     ring.setAttribute('aria-hidden', 'true');
-    document.documentElement.appendChild(ring);
+    document.body.appendChild(ring);
   }
 
-  // Create and mount label element at viewport level
+  // Create and mount label element inside body
   const label = document.createElement('div');
   label.id = 'cur-label';
-  document.documentElement.appendChild(label);
+  document.body.appendChild(label);
 
   // Add active custom cursor class to html root to trigger native cursor hiding on desktop
   document.documentElement.classList.add('custom-cursor-active');
@@ -631,7 +630,7 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
     }
   }, { passive: true });
 
-  // Click Particle Burst Effect (Disabled in reduced motion, mounted at viewport root level)
+  // Click Particle Burst Effect (Disabled in reduced motion)
   function createClickParticles(x, y) {
     if (prefersReduced) return;
     const particleCount = 5;
@@ -659,7 +658,7 @@ const isTouch = window.matchMedia('(pointer: coarse)').matches;
         transition: transform 0.4s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.4s ease-out;
       `;
       
-      document.documentElement.appendChild(p);
+      document.body.appendChild(p);
       
       raf(() => {
         const tx = Math.cos(angle) * velocity;
