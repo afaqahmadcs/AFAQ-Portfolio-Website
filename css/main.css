@@ -963,3 +963,49 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
   animation: ldrSpin 1s linear infinite;
   margin: 0 auto var(--s4);
 }
+
+/* ── Print Media Styles ────────────────────────────────────────────── */
+@media print {
+  header, #mmenu, #scroll-progress, .nav-actions, .cta-banner, footer, .ft-top-btn,
+  .page-hd-bg, .btn, .breadcrumb, [aria-label="Toggle theme"], .nav-burger, .ft-socs {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+  }
+  .page-hd {
+    padding-block: 8px 12px !important;
+    border-bottom: 2px solid #e5e7eb !important;
+    margin-bottom: 16px !important;
+  }
+  .res-layout {
+    display: grid !important;
+    grid-template-columns: 220px 1fr !important;
+    gap: 20px !important;
+  }
+  .res-box {
+    border: 1px solid #e5e7eb !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .res-sec {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 16px !important;
+  }
+  .tag {
+    border: 1px solid #d1d5db !important;
+    background: #f3f4f6 !important;
+    color: #1f2937 !important;
+  }
+  a {
+    color: #1f2937 !important;
+    text-decoration: none !important;
+  }
+}
+
