@@ -367,24 +367,61 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
 #proj-search-inp{width:100%;padding:10px 18px 10px 40px;background:var(--sf);border:1.5px solid var(--bd);border-radius:var(--rfull);color:var(--fg);font-size:var(--sm);transition:border-color var(--tf),box-shadow var(--tf)}
 #proj-search-inp:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(99,102,241,.2)}
 #proj-search-inp::placeholder{color:var(--fg3)}
-.proj-grid{display:grid;gap:var(--s6);grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
-.proj-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rxl);overflow:hidden;display:flex;flex-direction:column;transition:transform var(--ts) var(--esp),box-shadow var(--ts),border-color var(--tf)}
-.proj-card:hover{transform:translateY(-8px);box-shadow:var(--shxl);border-color:var(--brand)}
-.proj-card-img{position:relative;width:100%;aspect-ratio:16/9;background:var(--bg3);overflow:hidden}
-.proj-card-img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform var(--tsl) var(--esm)}
-.proj-card:hover .proj-card-img img{transform:scale(1.05)}
-.proj-card-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.pcf-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.7);font-size:var(--xs);font-weight:var(--wm)}
-.proj-card-ov{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;gap:var(--s3);opacity:0;transition:opacity var(--tn)}
-.proj-card:hover .proj-card-ov{opacity:1}
-.proj-card-body{padding:var(--s6);flex:1;display:flex;flex-direction:column;gap:var(--s3)}
-.proj-card-meta{display:flex;align-items:center;gap:var(--s2)}
-.proj-card-badge{font-size:10px;font-weight:var(--wb);color:var(--acc);background:var(--accbg);padding:2px 8px;border-radius:var(--rfull);border:1px solid rgba(16,185,129,.2)}
-.proj-card-cat{font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:var(--lswi)}
-.proj-card-title{font-size:var(--xl);font-weight:var(--wb);color:var(--fg);line-height:var(--lhs)}
-.proj-card-desc{font-size:var(--sm);color:var(--fg2);line-height:var(--lhr);flex:1}
-.proj-card-tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
-.proj-card-actions{display:flex;gap:var(--s2);flex-wrap:wrap;padding-top:var(--s3);border-top:1px solid var(--bd);margin-top:auto}
+/* ── Case Study Cards & Browser Frames ─────────────────────────── */
+.proj-grid{display:flex;flex-direction:column;gap:var(--s10)}
+
+/* Browser Frame Component */
+.browser-frame{background:var(--sf);border:1px solid var(--bd2);border-radius:var(--rlg);overflow:hidden;box-shadow:var(--shmd);display:flex;flex-direction:column;transition:border-color var(--tf),box-shadow var(--ts)}
+.browser-frame:hover{border-color:var(--brand);box-shadow:var(--shlg)}
+.browser-chrome{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:8px 14px;background:var(--bg3);border-bottom:1px solid var(--bd);user-select:none}
+.browser-dots{display:flex;align-items:center;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.dot--red{background:#ef4444}
+.dot--yellow{background:#f59e0b}
+.dot--green{background:#10b981}
+.browser-url{flex:1;max-width:380px;margin-inline:auto;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rfull);padding:3px 12px;font-family:var(--ffm);font-size:11px;color:var(--fg3);text-decoration:none}
+.browser-url svg{width:11px;height:11px;color:var(--acc);flex-shrink:0}
+.browser-viewport{position:relative;width:100%;aspect-ratio:16/10;background:var(--bg2);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.browser-viewport img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+
+/* Case Study Card Structure */
+.case-study-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2xl);overflow:hidden;padding:var(--s8);display:grid;grid-template-columns:1.1fr 1fr;gap:var(--s8);align-items:start;transition:border-color var(--tf),box-shadow var(--ts)}
+.case-study-card:hover{border-color:var(--bd2);box-shadow:var(--shlg)}
+@media(max-width:1024px){.case-study-card{grid-template-columns:1fr;padding:var(--s6)}}
+
+/* Featured Client Case Study */
+.case-study-card--featured{border-color:rgba(99,102,241,.3);background:linear-gradient(135deg,var(--sf) 0%,var(--bg2) 100%)}
+.case-study-card--featured .browser-frame{box-shadow:var(--shlg)}
+
+.case-body{display:flex;flex-direction:column;gap:var(--s4)}
+.case-header{display:flex;flex-direction:column;gap:var(--s2)}
+.case-eyebrow-row{display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap}
+.case-badge{font-size:10px;font-weight:var(--wb);padding:3px 10px;border-radius:var(--rfull);letter-spacing:var(--lsw)}
+.case-badge--client{background:rgba(16,185,129,.12);color:var(--acc);border:1px solid rgba(16,185,129,.3)}
+.case-badge--concept{background:rgba(99,102,241,.12);color:var(--brand);border:1px solid rgba(99,102,241,.3)}
+.case-type{font-size:var(--xs);color:var(--fg3);text-transform:uppercase;letter-spacing:var(--lswi);font-weight:var(--wm)}
+
+.case-title{font-size:clamp(1.4rem,2.2vw,2rem);font-weight:var(--wx);color:var(--fg);letter-spacing:var(--lst);line-height:var(--lhs)}
+.case-desc{font-size:var(--sm);color:var(--fg2);line-height:var(--lhr)}
+
+/* Metadata Strip */
+.case-meta-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--s3);padding:var(--s3) var(--s4);background:var(--bg2);border:1px solid var(--bd3);border-radius:var(--rmd)}
+.case-meta-item{display:flex;flex-direction:column;gap:2px}
+.case-meta-lbl{font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:var(--lswi);font-weight:var(--wb)}
+.case-meta-val{font-size:var(--xs);color:var(--fg);font-weight:var(--ws)}
+
+/* Case Study Content Blocks */
+.case-sections{display:grid;gap:var(--s4);margin-block:var(--s2)}
+.case-block{display:flex;flex-direction:column;gap:4px}
+.case-block-head{display:flex;align-items:center;gap:6px;font-size:var(--xs);font-weight:var(--wb);color:var(--brand);text-transform:uppercase;letter-spacing:var(--lsw)}
+.case-block-head svg{width:13px;height:13px;flex-shrink:0}
+.case-block-text{font-size:var(--sm);color:var(--fg2);line-height:var(--lhn)}
+
+.case-tags{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s2)}
+.case-actions{display:flex;flex-wrap:wrap;gap:var(--s3);padding-top:var(--s4);border-top:1px solid var(--bd);margin-top:auto}
+
+/* Legacy fallback card for search */
+.proj-card{display:none}
 
 /* ── Contact Page ───────────────────────────────────────────────── */
 .contact-grid{display:grid;gap:var(--s12)}

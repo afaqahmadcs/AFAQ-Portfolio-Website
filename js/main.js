@@ -318,7 +318,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
    ================================================================ */
 (function initProjectFilter() {
   const buttons = $$('.flt-btn');
-  const cards   = $$('.proj-card');
+  const cards   = $$('.case-study-card, .proj-card');
   const searchInput = $('#proj-search-inp');
   const noResults = $('#no-results');
   if (!buttons.length && !searchInput) return;
@@ -348,16 +348,24 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
   }
 
   buttons.forEach(btn => on(btn, 'click', () => {
-    buttons.forEach(b => b.classList.remove('on'));
+    buttons.forEach(b => {
+      b.classList.remove('on');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('on');
+    btn.setAttribute('aria-pressed', 'true');
     currentCategory = (btn.dataset.filter || 'all').toLowerCase();
     applyFilters();
   }));
 
   if (searchInput) {
+    let debounceTimer;
     on(searchInput, 'input', () => {
-      searchQuery = searchInput.value.trim().toLowerCase();
-      applyFilters();
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        searchQuery = searchInput.value.trim().toLowerCase();
+        applyFilters();
+      }, 120);
     });
   }
 })();
@@ -746,4 +754,69 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
     if (timerId) clearInterval(timerId);
   });
 })();
+
+/* ================================================================
+   13. PROJECT CASE STUDY FILTER & SEARCH (projects.html)
+   Handles category filtering (All / Client / Concept) and debounced search
+   ================================================================ */
+(function initProjectFilters() {
+  const filterBtns = $$('.flt-btn');
+  const searchInp = $('#proj-search-inp');
+  const cards = $$('.case-study-card');
+  const noResults = $('#no-results');
+
+  if (!cards.length) return;
+
+  let currentCategory = 'all';
+  let searchQuery = '';
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const cat = card.dataset.cat || 'concept';
+      const title = (card.dataset.title || '').toLowerCase();
+      const content = card.textContent.toLowerCase();
+
+      const matchesCategory = (currentCategory === 'all') || (cat === currentCategory);
+      const matchesSearch = !searchQuery || title.includes(searchQuery) || content.includes(searchQuery);
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    on(btn, 'click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('on');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('on');
+      btn.setAttribute('aria-pressed', 'true');
+      currentCategory = btn.dataset.filter || 'all';
+      applyFilters();
+    });
+  });
+
+  if (searchInp) {
+    let debounceTimer;
+    on(searchInp, 'input', (e) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        searchQuery = e.target.value.trim().toLowerCase();
+        applyFilters();
+      }, 150);
+    });
+  }
+})();
+
 

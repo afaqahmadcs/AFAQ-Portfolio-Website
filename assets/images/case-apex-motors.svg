@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="apexBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080c14"/>
+      <stop offset="100%" stop-color="#0e1524"/>
+    </linearGradient>
+    <linearGradient id="amberAcc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="carBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#apexBg)"/>
+
+  <!-- Top Nav -->
+  <rect width="1200" height="70" fill="#04060a" opacity="0.95"/>
+  <line x1="0" y1="70" x2="1200" y2="70" stroke="rgba(255,255,255,0.08)"/>
+  
+  <g transform="translate(60, 24)">
+    <circle cx="12" cy="12" r="10" fill="url(#amberAcc)"/>
+    <text x="32" y="18" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="16" font-weight="700" letter-spacing="1">APEX <tspan fill="#f59e0b">MOTORS</tspan></text>
+  </g>
+
+  <g fill="#94a3b8" font-family="'Poppins', sans-serif" font-size="13">
+    <text x="740" y="42">Inventory</text>
+    <text x="830" y="42">Financing</text>
+    <text x="920" y="42">Certified Pre-Owned</text>
+  </g>
+  <rect x="1050" y="20" width="90" height="32" rx="4" fill="url(#amberAcc)"/>
+  <text x="1095" y="41" fill="#000000" font-family="'Poppins', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Test Drive</text>
+
+  <!-- Hero Text -->
+  <g transform="translate(60, 130)">
+    <text x="0" y="20" fill="#f59e0b" font-family="'Poppins', sans-serif" font-size="12" font-weight="700" letter-spacing="2">PREMIUM CERTIFIED INVENTORY</text>
+    <text x="0" y="70" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="44" font-weight="800">Experience Luxury<br/>On Every Drive.</text>
+    <text x="0" y="160" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15" max-width="500">
+      Hand-selected luxury performance vehicles rigorously inspected across 150 points with nationwide concierge delivery.
+    </text>
+
+    <!-- Key Stats -->
+    <g transform="translate(0, 210)">
+      <rect width="140" height="70" rx="8" fill="#141c2c" stroke="rgba(255,255,255,0.08)"/>
+      <text x="20" y="32" fill="#ffffff" font-family="system-ui, sans-serif" font-size="22" font-weight="700">500+</text>
+      <text x="20" y="52" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Vehicles Sold</text>
+
+      <rect x="160" y="0" width="140" height="70" rx="8" fill="#141c2c" stroke="rgba(255,255,255,0.08)"/>
+      <text x="180" y="32" fill="#ffffff" font-family="system-ui, sans-serif" font-size="22" font-weight="700">100%</text>
+      <text x="180" y="52" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Clean Carfax</text>
+
+      <rect x="320" y="0" width="140" height="70" rx="8" fill="#141c2c" stroke="rgba(255,255,255,0.08)"/>
+      <text x="340" y="32" fill="#ffffff" font-family="system-ui, sans-serif" font-size="22" font-weight="700">18 Yrs</text>
+      <text x="340" y="52" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Dealership Trust</text>
+    </g>
+  </g>
+
+  <!-- Right Visual: Performance Vehicle Silhouette & Spec Card -->
+  <g transform="translate(580, 130)">
+    <rect width="560" height="540" rx="16" fill="#111827" stroke="rgba(255,255,255,0.1)"/>
+    
+    <!-- Car Graphic Silhouette -->
+    <g transform="translate(40, 60)">
+      <path d="M40 180 Q100 120 220 90 Q340 70 420 120 L480 180 Z" fill="url(#carBody)"/>
+      <path d="M120 120 L220 95 L320 100 L390 140 Z" fill="#0f172a" opacity="0.8"/>
+      <!-- Wheels -->
+      <circle cx="110" cy="190" r="35" fill="#020617" stroke="#64748b" stroke-width="6"/>
+      <circle cx="400" cy="190" r="35" fill="#020617" stroke="#64748b" stroke-width="6"/>
+      <line x1="0" y1="225" x2="500" y2="225" stroke="#334155" stroke-width="2"/>
+    </g>
+
+    <!-- Specs Grid -->
+    <g transform="translate(40, 320)">
+      <text x="0" y="24" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="20" font-weight="700">BMW M4 Competition Coupe</text>
+      <text x="0" y="46" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="13" font-weight="600">$84,900 MSRP · Certified Pre-Owned</text>
+
+      <!-- Badges -->
+      <g transform="translate(0, 65)">
+        <rect width="110" height="48" rx="6" fill="#1e293b"/>
+        <text x="16" y="22" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">503 HP</text>
+        <text x="16" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">Twin-Turbo I6</text>
+
+        <rect x="125" width="110" height="48" rx="6" fill="#1e293b"/>
+        <text x="141" y="22" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">3.4 Sec</text>
+        <text x="141" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">0–60 MPH</text>
+
+        <rect x="250" width="110" height="48" rx="6" fill="#1e293b"/>
+        <text x="266" y="22" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">180 MPH</text>
+        <text x="266" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">Top Speed</text>
+
+        <rect x="375" width="105" height="48" rx="6" fill="#1e293b"/>
+        <text x="391" y="22" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">AWD</text>
+        <text x="391" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">M xDrive</text>
+      </g>
+
+      <rect x="0" y="130" width="480" height="44" rx="8" fill="url(#amberAcc)"/>
+      <text x="240" y="157" fill="#000000" font-family="'Poppins', sans-serif" font-size="13" font-weight="700" text-anchor="middle">Schedule VIP Test Drive</text>
+    </g>
+  </g>
+</svg>

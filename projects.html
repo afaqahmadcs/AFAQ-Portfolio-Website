@@ -42,95 +42,562 @@
 <div class="container">
 <h2 class="sr-only" id="pg-h">All Projects</h2>
 <div class="proj-filters reveal up" role="group" aria-label="Filter by category">
-  <button class="flt-btn on" data-filter="all">All Projects</button>
-  <button class="flt-btn" data-filter="client">Client Work</button>
-  <button class="flt-btn" data-filter="practice">Practice &amp; Concept</button>
+  <button class="flt-btn on" data-filter="all" aria-pressed="true">All Projects (5)</button>
+  <button class="flt-btn" data-filter="client" aria-pressed="false">Client Work (1)</button>
+  <button class="flt-btn" data-filter="concept" aria-pressed="false">Concept Projects (4)</button>
 </div>
 <div class="proj-search reveal up" style="--delay:.05s">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-  <input type="search" id="proj-search-inp" placeholder="Search by name, topic, or keyword…" aria-label="Search projects"/>
+  <input type="search" id="proj-search-inp" placeholder="Search by name, problem, or technology…" aria-label="Search case studies"/>
 </div>
+
 <div class="proj-grid" id="proj-grid">
 
-  <!-- CARD 1: BLUE SAPPHIRE (Client Work) -->
-  <article class="proj-card reveal up" data-cat="client" data-title="gemstone blue sapphire website client project showcase">
-    <div class="proj-card-img">
-      <img src="assets/images/thumb-gemstone.svg" alt="Blue Sapphire Gem Stones — client website showcase preview" width="800" height="500" loading="lazy" decoding="async"/>
-      <div class="proj-card-ov" aria-hidden="true"><a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a></div>
+  <!-- ============================================================
+       CASE STUDY 1: BLUE SAPPHIRE GEM STONES (Verified Client Project)
+       ============================================================ -->
+  <article class="case-study-card case-study-card--featured reveal up" id="proj-blue-sapphire" data-cat="client" data-title="blue sapphire gemstones client website commercial showcase e-commerce ceylon kashmir whatsapp vercel">
+    <!-- Browser Frame Visual -->
+    <div class="browser-frame">
+      <div class="browser-chrome">
+        <div class="browser-dots" aria-hidden="true">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <div class="browser-url">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>bluesapphiregemstones.com</span>
+        </div>
+        <div class="case-type" style="font-size:10px;">Client Site</div>
+      </div>
+      <div class="browser-viewport">
+        <img src="assets/images/case-blue-sapphire.svg" alt="Blue Sapphire Gem Stones live client product catalog website preview" width="1200" height="750" loading="eager" fetchpriority="high" decoding="async"/>
+      </div>
     </div>
-    <div class="proj-card-body">
-      <div class="proj-card-meta"><span class="proj-card-badge" style="background:var(--prim-light);color:var(--prim)">Client Work</span><span class="proj-card-cat">Business Showcase</span></div>
-      <h3 class="proj-card-title">Blue Sapphire Gem Stones</h3>
-      <p class="proj-card-desc">A commercial website developed for a gemstone business, showcasing sapphire collections, detailed stone specifications, and direct WhatsApp inquiry integration.</p>
-      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Client Project</span><span class="tag">Responsive</span></div>
-      <div class="proj-card-actions"><a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Website ↗</a></div>
+
+    <!-- Case Study Content -->
+    <div class="case-body">
+      <div class="case-header">
+        <div class="case-eyebrow-row">
+          <span class="case-badge case-badge--client">Client Project</span>
+          <span class="case-type">Commercial Showcase · Verified Live</span>
+        </div>
+        <h3 class="case-title">Blue Sapphire Gem Stones</h3>
+        <p class="case-desc">
+          An active commercial showcase website developed for a gemstone business in Peshawar, presenting certified natural sapphires and routing customer inquiries directly into private WhatsApp sales conversations.
+        </p>
+      </div>
+
+      <!-- Metadata Strip -->
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Role &amp; Contribution</span>
+          <span class="case-meta-val">Frontend Architecture &amp; UI</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Intended Audience</span>
+          <span class="case-meta-val">Collectors &amp; Luxury Buyers</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Core Stack</span>
+          <span class="case-meta-val">React SPA, Modern CSS, Vercel</span>
+        </div>
+      </div>
+
+      <!-- 4 Structured Case Study Blocks -->
+      <div class="case-sections">
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            01 · The Problem &amp; Business Need
+          </span>
+          <p class="case-block-text">
+            High-value natural gemstones cannot be sold like conventional commodities; buyers need stone provenance, carat weight, cut accuracy, and lab certification details before initiating contact. The business lacked an organized digital presence to display inventory and instead handled inquiries through scattered photos.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            02 · Approach &amp; Implementation
+          </span>
+          <p class="case-block-text">
+            Implemented a dark luxury aesthetic (sapphire navy with warm gold accents) that emphasizes gemstone color. Designed responsive inventory cards displaying carat, cut, clarity, and origin, paired with one-click WhatsApp routing that pre-populates the specific gemstone reference in the conversation.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            03 · What Was Built (Verified Features)
+          </span>
+          <p class="case-block-text">
+            Live catalog with responsive image optimization, mobile-friendly navigation, modal stone specifications, and WhatsApp lead routing. Deployed and verified on Vercel with HTTPS and zero console errors.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            04 · Technical Reflection
+          </span>
+          <p class="case-block-text">
+            Taught me how to work directly with an active business owner to prioritize features: replacing hypothetical checkout carts with direct WhatsApp communication matched the actual buying behavior of high-ticket gem clients.
+          </p>
+        </div>
+      </div>
+
+      <div class="case-tags">
+        <span class="tag tag-b">Commercial Client Work</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">Modern CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Responsive UI</span>
+        <span class="tag">Vercel</span>
+      </div>
+
+      <div class="case-actions">
+        <a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Client Website ↗</a>
+      </div>
     </div>
   </article>
 
-  <!-- CARD 2: REAL ESTATE (Practice) -->
-  <article class="proj-card reveal up" style="--delay:.08s" data-cat="practice" data-title="afaq ahmad real estate practice project property listings">
-    <div class="proj-card-img">
-      <img src="assets/images/thumb-real-estate.svg" alt="AFAQ AHMAD Real Estate — property listing practice project preview" width="800" height="500" loading="lazy" decoding="async"/>
-      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+  <!-- ============================================================
+       CASE STUDY 2: AFAQ AHMAD REAL ESTATE (Concept Project)
+       ============================================================ -->
+  <article class="case-study-card reveal up" id="proj-real-estate" data-cat="concept" data-title="afaq ahmad real estate luxury properties concept multi-page architecture filters css grid">
+    <div class="browser-frame">
+      <div class="browser-chrome">
+        <div class="browser-dots" aria-hidden="true">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <div class="browser-url">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/</span>
+        </div>
+        <div class="case-type" style="font-size:10px;">Concept</div>
+      </div>
+      <div class="browser-viewport">
+        <img src="assets/images/case-real-estate.svg" alt="Afaq Ahmad Real Estate concept property advisory interface preview" width="1200" height="750" loading="lazy" decoding="async"/>
+      </div>
     </div>
-    <div class="proj-card-body">
-      <div class="proj-card-meta"><span class="proj-card-badge">Practice Project</span><span class="proj-card-cat">Real Estate Concept</span></div>
-      <h3 class="proj-card-title">Real Estate Showcase</h3>
-      <p class="proj-card-desc">A frontend practice project exploring property listing cards, responsive CSS grid layouts, and a clean search/filter interface for residential listings.</p>
-      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Practice Project</span><span class="tag">CSS Grid</span></div>
-      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+
+    <div class="case-body">
+      <div class="case-header">
+        <div class="case-eyebrow-row">
+          <span class="case-badge case-badge--concept">Concept Project</span>
+          <span class="case-type">Architecture Study · Multi-Page</span>
+        </div>
+        <h3 class="case-title">Afaq Ahmad Real Estate</h3>
+        <p class="case-desc">
+          A multi-page property advisory concept exploring complex document architecture, property parameter cards, and persistent theme toggling for luxury real estate.
+        </p>
+      </div>
+
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Role &amp; Contribution</span>
+          <span class="case-meta-val">Full Design &amp; Frontend Code</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Intended Audience</span>
+          <span class="case-meta-val">Luxury Property Investors</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Core Stack</span>
+          <span class="case-meta-val">Vanilla HTML5, CSS3, JavaScript</span>
+        </div>
+      </div>
+
+      <div class="case-sections">
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            01 · Design Goal &amp; Challenge
+          </span>
+          <p class="case-block-text">
+            Real estate interfaces often break down when displaying multiple parameters (beds, baths, square footage, price, location badges) across small screens. The goal was to build a clean editorial hierarchy with modular CSS variables across 9 structured pages.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            02 · Approach &amp; Implementation
+          </span>
+          <p class="case-block-text">
+            Separated CSS into decoupled modules (`layout.css`, `cards.css`, `forms.css`, `variables.css`). Built property cards using CSS Grid with auto-fit columns and added local storage-backed dark/light theme switching.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            03 · What This Demonstrates
+          </span>
+          <p class="case-block-text">
+            Demonstrates multi-page routing structure, keyboard-accessible navigation, client-side consultation booking forms, and responsive property metadata cards without framework overhead.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            04 · Technical Reflection
+          </span>
+          <p class="case-block-text">
+            Organizing CSS variables into semantic tokens beforehand made updating the typography scale and color contrast straightforward across all 9 pages without regressions.
+          </p>
+        </div>
+      </div>
+
+      <div class="case-tags">
+        <span class="tag tag-b">Concept Project</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">Modular CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">CSS Grid</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+
+      <div class="case-actions">
+        <a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo ↗</a>
+        <a href="https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Source Code (GitHub)</a>
+      </div>
     </div>
   </article>
 
-  <!-- CARD 3: LUXURY CAR (Practice) -->
-  <article class="proj-card reveal up" style="--delay:.12s" data-cat="practice" data-title="luxury car automotive brand website practice project">
-    <div class="proj-card-img">
-      <img src="assets/images/thumb-luxury-car.svg" alt="Luxury Car Business Website — automotive dark UI practice preview" width="800" height="500" loading="lazy" decoding="async"/>
-      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+  <!-- ============================================================
+       CASE STUDY 3: APEX MOTORS (Concept Project)
+       ============================================================ -->
+  <article class="case-study-card reveal up" id="proj-apex-motors" data-cat="concept" data-title="apex motors luxury car dealership automotive inventory search dark ui bmw m4">
+    <div class="browser-frame">
+      <div class="browser-chrome">
+        <div class="browser-dots" aria-hidden="true">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <div class="browser-url">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>afaqahmadcs.github.io/Luxury-Car-Business-Website/</span>
+        </div>
+        <div class="case-type" style="font-size:10px;">Concept</div>
+      </div>
+      <div class="browser-viewport">
+        <img src="assets/images/case-apex-motors.svg" alt="Apex Motors luxury dealership vehicle inventory concept preview" width="1200" height="750" loading="lazy" decoding="async"/>
+      </div>
     </div>
-    <div class="proj-card-body">
-      <div class="proj-card-meta"><span class="proj-card-badge">Practice Project</span><span class="proj-card-cat">Automotive Concept</span></div>
-      <h3 class="proj-card-title">Automotive Brand Website</h3>
-      <p class="proj-card-desc">A frontend practice website exploring dark-theme styling, typography hierarchy, and product showcase sections for luxury vehicle presentation.</p>
-      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Dark Theme</span><span class="tag">Practice Project</span></div>
-      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+
+    <div class="case-body">
+      <div class="case-header">
+        <div class="case-eyebrow-row">
+          <span class="case-badge case-badge--concept">Concept Project</span>
+          <span class="case-type">Interface Study · Automotive</span>
+        </div>
+        <h3 class="case-title">Apex Motors</h3>
+        <p class="case-desc">
+          A high-contrast automotive dealership landing page focused on vehicle inventory presentation, interactive search filtering, and specification card comparisons.
+        </p>
+      </div>
+
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Role &amp; Contribution</span>
+          <span class="case-meta-val">UI Design &amp; Frontend Code</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Intended Audience</span>
+          <span class="case-meta-val">Performance Car Buyers</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Core Stack</span>
+          <span class="case-meta-val">HTML5, CSS3, Vanilla JS, AOS</span>
+        </div>
+      </div>
+
+      <div class="case-sections">
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            01 · Design Goal &amp; Challenge
+          </span>
+          <p class="case-block-text">
+            Automotive dealership websites often feature cluttered interfaces and slow image sliders. The goal was to build a dark-theme layout that keeps horsepower, acceleration, and transmission specs easily scannable on mobile screens.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            02 · Approach &amp; Implementation
+          </span>
+          <p class="case-block-text">
+            Engineered inventory cards with unified specification grids, a live client-side search bar for models and makes, and a test drive booking modal. Added subtle entrance transitions that respect prefers-reduced-motion.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            03 · What This Demonstrates
+          </span>
+          <p class="case-block-text">
+            Demonstrates real-time search filtering in vanilla JavaScript, responsive vehicle comparison grids, dark/light theme switching, and accessible modal dialogs.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            04 · Technical Reflection
+          </span>
+          <p class="case-block-text">
+            Provided valuable practice in maintaining high text contrast and legibility across dark background layers while managing DOM event listeners without library bloat.
+          </p>
+        </div>
+      </div>
+
+      <div class="case-tags">
+        <span class="tag tag-b">Concept Project</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Dark Theme</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+
+      <div class="case-actions">
+        <a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo ↗</a>
+        <a href="https://github.com/afaqahmadcs/Luxury-Car-Business-Website" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Source Code (GitHub)</a>
+      </div>
     </div>
   </article>
 
-  <!-- CARD 4: BUSINESS WEBSITE (Practice) -->
-  <article class="proj-card reveal up" style="--delay:.16s" data-cat="practice" data-title="business website corporate practice project">
-    <div class="proj-card-img">
-      <img src="assets/images/thumb-business.svg" alt="Business Website — multi-section corporate layout preview" width="800" height="500" loading="lazy" decoding="async"/>
-      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/Business-Website" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+  <!-- ============================================================
+       CASE STUDY 4: VELOCE AUTOMOTIVE (Concept Project)
+       ============================================================ -->
+  <article class="case-study-card reveal up" id="proj-veloce" data-cat="concept" data-title="veloce automotive luxury supercar electric hypercars showroom search overlay">
+    <div class="browser-frame">
+      <div class="browser-chrome">
+        <div class="browser-dots" aria-hidden="true">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <div class="browser-url">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/</span>
+        </div>
+        <div class="case-type" style="font-size:10px;">Concept</div>
+      </div>
+      <div class="browser-viewport">
+        <img src="assets/images/case-veloce.svg" alt="Veloce luxury automotive electric supercar showroom preview" width="1200" height="750" loading="lazy" decoding="async"/>
+      </div>
     </div>
-    <div class="proj-card-body">
-      <div class="proj-card-meta"><span class="proj-card-badge">Practice Project</span><span class="proj-card-cat">Corporate Layout</span></div>
-      <h3 class="proj-card-title">Multi-Section Corporate Site</h3>
-      <p class="proj-card-desc">A multi-section corporate layout built for practice, focusing on clear content hierarchy, service cards, and flexible CSS grid layouts across viewports.</p>
-      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Practice Project</span><span class="tag">Responsive</span></div>
-      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+
+    <div class="case-body">
+      <div class="case-header">
+        <div class="case-eyebrow-row">
+          <span class="case-badge case-badge--concept">Concept Project</span>
+          <span class="case-type">Showroom Study · Supercars</span>
+        </div>
+        <h3 class="case-title">Veloce Automotive Showroom</h3>
+        <p class="case-desc">
+          An automotive concept exploring full-width showcase sections, electric vehicle performance metrics, and a fullscreen search overlay for luxury vehicle shoppers.
+        </p>
+      </div>
+
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Role &amp; Contribution</span>
+          <span class="case-meta-val">Frontend Implementation</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Intended Audience</span>
+          <span class="case-meta-val">Exotic Car Connoisseurs</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Core Stack</span>
+          <span class="case-meta-val">HTML5, CSS3, Vanilla JavaScript</span>
+        </div>
+      </div>
+
+      <div class="case-sections">
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            01 · Design Goal &amp; Challenge
+          </span>
+          <p class="case-block-text">
+            Supercar presentation demands high visual impact while maintaining fast page load speeds. The objective was to design a clean dark showroom layout with key performance indicators (0–60 mph, horsepower, range) highlighted through clean typographic hierarchy.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            02 · Approach &amp; Implementation
+          </span>
+          <p class="case-block-text">
+            Built an accessible fullscreen search overlay with keyboard Esc key dismissal, tabbed inventory categories (Hypercars, Grand Tourers, Sport SUVs), and responsive test drive booking forms.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            03 · What This Demonstrates
+          </span>
+          <p class="case-block-text">
+            Demonstrates accessible overlay management, touch-optimized mobile navigation drawer, CSS Grid automotive cards, and zero-dependency vanilla DOM scripts.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            04 · Technical Reflection
+          </span>
+          <p class="case-block-text">
+            Helped solidify techniques for locking body scroll when full-screen search modals are open, preventing jarring background scroll shifts on touch devices.
+          </p>
+        </div>
+      </div>
+
+      <div class="case-tags">
+        <span class="tag tag-b">Concept Project</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Search Overlay</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+
+      <div class="case-actions">
+        <a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo ↗</a>
+        <a href="https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Source Code (GitHub)</a>
+      </div>
     </div>
   </article>
 
-  <!-- CARD 5: PREMIUM LUXURY CAR (Practice) -->
-  <article class="proj-card reveal up" style="--delay:.20s" data-cat="practice" data-title="premium luxury car vehicle showcase practice project">
-    <div class="proj-card-img">
-      <img src="assets/images/thumb-premium.svg" alt="Premium Luxury Car Business Website — dark luxury vehicle concept preview" width="800" height="500" loading="lazy" decoding="async"/>
-      <div class="proj-card-ov" aria-hidden="true"><a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live</a><a href="https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--outline-white btn--sm">Code</a></div>
+  <!-- ============================================================
+       CASE STUDY 5: NEXORA LABS (Concept Project)
+       ============================================================ -->
+  <article class="case-study-card reveal up" id="proj-nexora-labs" data-cat="concept" data-title="nexora labs digital agency product studio saas cloud engineering business website">
+    <div class="browser-frame">
+      <div class="browser-chrome">
+        <div class="browser-dots" aria-hidden="true">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <div class="browser-url">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>afaqahmadcs.github.io/Business-Website/</span>
+        </div>
+        <div class="case-type" style="font-size:10px;">Concept</div>
+      </div>
+      <div class="browser-viewport">
+        <img src="assets/images/case-nexora-labs.svg" alt="Nexora Labs digital product agency and cloud engineering interface preview" width="1200" height="750" loading="lazy" decoding="async"/>
+      </div>
     </div>
-    <div class="proj-card-body">
-      <div class="proj-card-meta"><span class="proj-card-badge">Practice Project</span><span class="proj-card-cat">Vehicle Showcase</span></div>
-      <h3 class="proj-card-title">Premium Vehicle Showcase</h3>
-      <p class="proj-card-desc">An automotive landing page study focusing on high-contrast dark layout, vehicle specification cards, and mobile-responsive navigation.</p>
-      <div class="proj-card-tags"><span class="tag tag-b">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Dark UI</span><span class="tag">Practice Project</span></div>
-      <div class="proj-card-actions"><a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--primary btn--sm">Live Demo</a><a href="https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website" target="_blank" rel="noopener" class="btn btn--secondary btn--sm">Source Code</a></div>
+
+    <div class="case-body">
+      <div class="case-header">
+        <div class="case-eyebrow-row">
+          <span class="case-badge case-badge--concept">Concept Project</span>
+          <span class="case-type">Corporate Study · Agency UI</span>
+        </div>
+        <h3 class="case-title">Nexora Labs</h3>
+        <p class="case-desc">
+          A multi-section corporate agency landing page designed to present complex software services, process milestones, and pricing tiers with clean visual rhythm.
+        </p>
+      </div>
+
+      <div class="case-meta-strip">
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Role &amp; Contribution</span>
+          <span class="case-meta-val">Frontend Engineering</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Intended Audience</span>
+          <span class="case-meta-val">Tech Startups &amp; Founders</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="case-meta-lbl">Core Stack</span>
+          <span class="case-meta-val">HTML5, CSS3, Vanilla JS, Lucide</span>
+        </div>
+      </div>
+
+      <div class="case-sections">
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            01 · Design Goal &amp; Challenge
+          </span>
+          <p class="case-block-text">
+            Structuring extensive business service offerings without overwhelming the user. The goal was to build clear information hierarchy across service cards, pricing tiers, FAQs, and contact pathways.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            02 · Approach &amp; Implementation
+          </span>
+          <p class="case-block-text">
+            Utilized CSS custom properties for theme coherence, subtle aurora ambient lighting with pure CSS gradients, searchable insight boxes, and interactive pricing tier cards.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            03 · What This Demonstrates
+          </span>
+          <p class="case-block-text">
+            Demonstrates structured corporate landing page design, Lucide SVG iconography integration, interactive FAQ accordions, and clean cross-browser layout stability.
+          </p>
+        </div>
+
+        <div class="case-block">
+          <span class="case-block-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            04 · Technical Reflection
+          </span>
+          <p class="case-block-text">
+            Reinforced how consistent spacing scales (using CSS custom properties `--s4`, `--s8`, `--s12`) create visual harmony across multi-section corporate pages.
+          </p>
+        </div>
+      </div>
+
+      <div class="case-tags">
+        <span class="tag tag-b">Concept Project</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">Vanilla JS</span>
+        <span class="tag">Lucide Icons</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+
+      <div class="case-actions">
+        <a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo ↗</a>
+        <a href="https://github.com/afaqahmadcs/Business-Website" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Source Code (GitHub)</a>
+      </div>
     </div>
   </article>
 
 </div>
+
+<!-- Empty State for Filter/Search -->
 <div id="no-results" style="display:none;text-align:center;padding:var(--s16);color:var(--fg3)">
-  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="margin:0 auto var(--s4)"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-  <p>No projects found matching your search. Try searching for "client", "real estate", "automotive", or "practice".</p>
+  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="margin:0 auto var(--s4)" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+  <p style="font-size:var(--base);color:var(--fg2);margin-bottom:var(--s2);font-weight:var(--ws)">No case studies found</p>
+  <p style="font-size:var(--sm);">Try adjusting your search terms or selecting "All Projects".</p>
 </div>
 </div>
 </section>
