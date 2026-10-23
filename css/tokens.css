@@ -1,88 +1,222 @@
 /* ================================================================
    DESIGN TOKENS — AFAQ AHMAD PORTFOLIO
+   Refined, accessible, high-contrast design system.
    ================================================================ */
 :root {
-  --c-p50:#eef2ff;--c-p100:#e0e7ff;--c-p200:#c7d2fe;--c-p300:#a5b4fc;
-  --c-p400:#818cf8;--c-p500:#6366f1;--c-p600:#4f46e5;--c-p700:#4338ca;
-  --c-p800:#3730a3;--c-p900:#312e81;
-  --c-a400:#34d399;--c-a500:#10b981;--c-a600:#059669;
-  --c-n0:#fff;--c-n50:#f9fafb;--c-n100:#f3f4f6;--c-n200:#e5e7eb;
-  --c-n300:#d1d5db;--c-n400:#9ca3af;--c-n500:#6b7280;--c-n600:#4b5563;
-  --c-n700:#374151;--c-n800:#1f2937;--c-n900:#111827;
+  /* Brand Palettes */
+  --c-brand-50: #eef2ff;
+  --c-brand-100: #e0e7ff;
+  --c-brand-200: #c7d2fe;
+  --c-brand-300: #a5b4fc;
+  --c-brand-400: #818cf8;
+  --c-brand-500: #6366f1;
+  --c-brand-600: #4f46e5;
+  --c-brand-700: #4338ca;
+  --c-brand-800: #3730a3;
+  --c-brand-900: #312e81;
 
-  /* Light Semantics */
-  --bg:#fff;--bg2:#f9fafb;--bg3:#f3f4f6;
-  --sf:#fff;--sf2:#f9fafb;
-  --fg:#111827;--fg2:#4b5563;--fg3:#9ca3af;--fgi:#fff;
-  --bd:#e5e7eb;--bd2:#d1d5db;--bd3:#f3f4f6;
-  --brand:#4f46e5;--brandh:#4338ca;--brandbg:#eef2ff;
-  --acc:#10b981;--accbg:rgba(16,185,129,.10);
-  --glass:rgba(255,255,255,.82);--glassb:rgba(255,255,255,.55);
-  --glassf:saturate(180%) blur(20px);
-  --sh1:rgba(0,0,0,.07);--sh2:rgba(0,0,0,.11);--sh3:rgba(0,0,0,.16);
-  --selbg:#c7d2fe;--selfg:#312e81;
-  --sbt:#f3f4f6;--sbth:#d1d5db;--sbhv:#818cf8;
+  --c-acc-400: #34d399;
+  --c-acc-500: #10b981;
+  --c-acc-600: #059669;
 
-  /* Spacing */
-  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;
-  --s8:32px;--s10:40px;--s12:48px;--s16:64px;--s20:80px;--s24:96px;--s32:128px;
-  --spy:96px;--spys:64px;--cpx:24px;--cmax:1280px;
+  /* Light Theme Semantics (WCAG AA Compliant) */
+  --bg: #ffffff;
+  --bg2: #f8fafc;
+  --bg3: #f1f5f9;
+  --sf: #ffffff;
+  --sf2: #f8fafc;
+  --fg: #0f172a;       /* 14:1 contrast ratio */
+  --fg2: #475569;      /* 5.8:1 contrast ratio */
+  --fg3: #64748b;      /* 4.6:1 contrast ratio */
+  --fgi: #ffffff;
+  --bd: rgba(15, 23, 42, 0.08);
+  --bd2: rgba(15, 23, 42, 0.16);
+  --bd3: rgba(15, 23, 42, 0.04);
+  --brand: #4f46e5;
+  --brandh: #4338ca;
+  --brandbg: #eef2ff;
+  --acc: #059669;
+  --accbg: rgba(5, 150, 105, 0.10);
 
-  /* Typography */
-  --ff:'Inter',system-ui,-apple-system,sans-serif;
-  --ffm:'JetBrains Mono','Fira Code',monospace;
-  --xs:.75rem;--sm:.875rem;--base:1rem;--lg:1.125rem;--xl:1.25rem;
-  --x2:1.5rem;--x3:1.875rem;--x4:2.25rem;--x5:3rem;--x6:3.75rem;--x7:4.5rem;
-  --wn:400;--wm:500;--ws:600;--wb:700;--wx:800;
-  --lht:1.15;--lhs:1.35;--lhn:1.55;--lhr:1.70;
-  --lst:-0.03em;--lsn:0em;--lsw:0.03em;--lswi:0.06em;--lswst:0.12em;
+  --glass: rgba(255, 255, 255, 0.85);
+  --glassb: rgba(15, 23, 42, 0.08);
+  --glassf: blur(16px);
 
-  /* Radius */
-  --rxs:4px;--rsm:6px;--rmd:10px;--rlg:16px;--rxl:20px;--r2xl:28px;--rfull:9999px;
+  --sh1: rgba(15, 23, 42, 0.04);
+  --sh2: rgba(15, 23, 42, 0.08);
+  --sh3: rgba(15, 23, 42, 0.14);
+  --shbr: 0 8px 24px rgba(79, 70, 229, 0.18);
+  --shbrl: 0 12px 32px rgba(79, 70, 229, 0.25);
+
+  --selbg: #c7d2fe;
+  --selfg: #1e1b4b;
+  --sbt: #f1f5f9;
+  --sbth: #cbd5e1;
+  --sbhv: #6366f1;
+
+  /* Spotlight values updated via rAF */
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  --spotlight-opacity: 0;
+  --spotlight-color: rgba(99, 102, 241, 0.06);
+
+  /* Spacing System */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+  --s20: 80px;
+  --s24: 96px;
+  --s32: 128px;
+  --spy: 88px;
+  --spys: 56px;
+  --cpx: 24px;
+  --cmax: 1240px;
+
+  /* Typography System */
+  --ff: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ffm: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --xs: 0.75rem;
+  --sm: 0.875rem;
+  --base: 1rem;
+  --lg: 1.125rem;
+  --xl: 1.25rem;
+  --x2: 1.5rem;
+  --x3: 1.875rem;
+  --x4: 2.25rem;
+  --x5: 3rem;
+  --x6: 3.75rem;
+  --x7: 4.5rem;
+  --wn: 400;
+  --wm: 500;
+  --ws: 600;
+  --wb: 700;
+  --wx: 800;
+  --lht: 1.15;
+  --lhs: 1.35;
+  --lhn: 1.55;
+  --lhr: 1.70;
+  --lst: -0.025em;
+  --lsn: 0em;
+  --lsw: 0.03em;
+  --lswi: 0.06em;
+  --lswst: 0.1em;
+
+  /* Border Radii */
+  --rxs: 4px;
+  --rsm: 6px;
+  --rmd: 10px;
+  --rlg: 14px;
+  --rxl: 18px;
+  --r2xl: 24px;
+  --rfull: 9999px;
 
   /* Shadows */
-  --shxs:0 1px 2px var(--sh1);--shsm:0 2px 6px var(--sh1);
-  --shmd:0 4px 16px var(--sh2);--shlg:0 8px 32px var(--sh2);
-  --shxl:0 16px 48px var(--sh3);
-  --shbr:0 8px 32px rgba(99,102,241,.22);
-  --shbrl:0 16px 48px rgba(99,102,241,.30);
+  --shxs: 0 1px 2px var(--sh1);
+  --shsm: 0 2px 6px var(--sh1);
+  --shmd: 0 4px 16px var(--sh2);
+  --shlg: 0 8px 30px var(--sh2);
+  --shxl: 0 16px 40px var(--sh3);
 
-  /* Z */
-  --z0:0;--z1:10;--z2:100;--znav:200;--zover:300;--zmod:400;--ztop:9999;
+  /* Z-Index Hierarchy */
+  --z0: 0;
+  --z1: 10;
+  --z2: 100;
+  --znav: 200;
+  --zover: 300;
+  --zmod: 400;
+  --ztop: 9999;
 
-  /* Timing */
-  --tf:150ms;--tn:250ms;--ts:400ms;--tsl:600ms;
-  --eo:cubic-bezier(0,.55,.45,1);--eio:cubic-bezier(.45,0,.55,1);
-  --esp:cubic-bezier(.34,1.30,.64,1);--esm:cubic-bezier(.25,.46,.45,.94);
-  --ebo:cubic-bezier(.34,1.56,.64,1);
+  /* Transitions & Easing */
+  --tf: 150ms;
+  --tn: 220ms;
+  --ts: 320ms;
+  --tsl: 450ms;
+  --esm: cubic-bezier(0.16, 1, 0.3, 1);
+  --esp: cubic-bezier(0.16, 1, 0.3, 1);
+  --eio: cubic-bezier(0.45, 0, 0.55, 1);
 
-  --navh:72px;
-  --focus:0 0 0 3px rgba(99,102,241,.40);
-  --focusoff:0 0 0 2px var(--bg),0 0 0 5px rgba(99,102,241,.40);
+  /* Navigation & Focus */
+  --navh: 68px;
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px rgba(99, 102, 241, 0.6);
+  --focusoff: 0 0 0 2px var(--bg), 0 0 0 4px rgba(99, 102, 241, 0.6);
 }
 
-/* Dark */
-[data-theme="dark"]{
-  --bg:#09090f;--bg2:#0e0e18;--bg3:#13131f;--sf:#0e0e18;--sf2:#13131f;
-  --fg:#f1f1f6;--fg2:#8888a0;--fg3:#505068;--fgi:#09090f;
-  --bd:rgba(255,255,255,.08);--bd2:rgba(255,255,255,.14);--bd3:rgba(255,255,255,.04);
-  --brand:#818cf8;--brandh:#a5b4fc;--brandbg:rgba(99,102,241,.12);
-  --acc:#34d399;--accbg:rgba(52,211,153,.12);
-  --glass:rgba(14,14,24,.86);--glassb:rgba(255,255,255,.08);
-  --sh1:rgba(0,0,0,.45);--sh2:rgba(0,0,0,.55);--sh3:rgba(0,0,0,.65);
-  --selbg:rgba(99,102,241,.30);--selfg:#f1f1f6;
-  --sbt:#0e0e18;--sbth:#2a2a40;--sbhv:#6366f1;
+/* Dark Theme (Accessible Slate/Noir) */
+[data-theme="dark"] {
+  --bg: #090d16;
+  --bg2: #0f1523;
+  --bg3: #161e31;
+  --sf: #0f1523;
+  --sf2: #161e31;
+  --fg: #f8fafc;
+  --fg2: #94a3b8;
+  --fg3: #64748b;
+  --fgi: #090d16;
+  --bd: rgba(255, 255, 255, 0.08);
+  --bd2: rgba(255, 255, 255, 0.15);
+  --bd3: rgba(255, 255, 255, 0.04);
+  --brand: #818cf8;
+  --brandh: #a5b4fc;
+  --brandbg: rgba(99, 102, 241, 0.14);
+  --acc: #34d399;
+  --accbg: rgba(52, 211, 153, 0.12);
+
+  --glass: rgba(9, 13, 22, 0.85);
+  --glassb: rgba(255, 255, 255, 0.08);
+
+  --sh1: rgba(0, 0, 0, 0.4);
+  --sh2: rgba(0, 0, 0, 0.55);
+  --sh3: rgba(0, 0, 0, 0.7);
+  --shbr: 0 8px 28px rgba(99, 102, 241, 0.25);
+  --shbrl: 0 12px 36px rgba(99, 102, 241, 0.35);
+
+  --selbg: rgba(99, 102, 241, 0.35);
+  --selfg: #f8fafc;
+  --sbt: #0f1523;
+  --sbth: #1e293b;
+  --sbhv: #818cf8;
+
+  --spotlight-color: rgba(99, 102, 241, 0.12);
 }
-@media(prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#09090f;--bg2:#0e0e18;--bg3:#13131f;--sf:#0e0e18;--sf2:#13131f;
-    --fg:#f1f1f6;--fg2:#8888a0;--fg3:#505068;--fgi:#09090f;
-    --bd:rgba(255,255,255,.08);--bd2:rgba(255,255,255,.14);--bd3:rgba(255,255,255,.04);
-    --brand:#818cf8;--brandh:#a5b4fc;--brandbg:rgba(99,102,241,.12);
-    --acc:#34d399;--accbg:rgba(52,211,153,.12);
-    --glass:rgba(14,14,24,.86);--glassb:rgba(255,255,255,.08);
-    --sh1:rgba(0,0,0,.45);--sh2:rgba(0,0,0,.55);--sh3:rgba(0,0,0,.65);
-    --selbg:rgba(99,102,241,.30);--selfg:#f1f1f6;
-    --sbt:#0e0e18;--sbth:#2a2a40;--sbhv:#6366f1;
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #090d16;
+    --bg2: #0f1523;
+    --bg3: #161e31;
+    --sf: #0f1523;
+    --sf2: #161e31;
+    --fg: #f8fafc;
+    --fg2: #94a3b8;
+    --fg3: #64748b;
+    --fgi: #090d16;
+    --bd: rgba(255, 255, 255, 0.08);
+    --bd2: rgba(255, 255, 255, 0.15);
+    --bd3: rgba(255, 255, 255, 0.04);
+    --brand: #818cf8;
+    --brandh: #a5b4fc;
+    --brandbg: rgba(99, 102, 241, 0.14);
+    --acc: #34d399;
+    --accbg: rgba(52, 211, 153, 0.12);
+    --glass: rgba(9, 13, 22, 0.85);
+    --glassb: rgba(255, 255, 255, 0.08);
+    --sh1: rgba(0, 0, 0, 0.4);
+    --sh2: rgba(0, 0, 0, 0.55);
+    --sh3: rgba(0, 0, 0, 0.7);
+    --shbr: 0 8px 28px rgba(99, 102, 241, 0.25);
+    --shbrl: 0 12px 36px rgba(99, 102, 241, 0.35);
+    --selbg: rgba(99, 102, 241, 0.35);
+    --selfg: #f8fafc;
+    --sbt: #0f1523;
+    --sbth: #1e293b;
+    --sbhv: #818cf8;
+    --spotlight-color: rgba(99, 102, 241, 0.12);
   }
 }

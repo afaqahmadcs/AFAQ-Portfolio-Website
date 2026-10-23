@@ -18,7 +18,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/tokens.css"/>
   <link rel="stylesheet" href="css/main.css"/>
   <link rel="stylesheet" href="css/animations.css"/>
@@ -27,30 +27,6 @@
 <body>
 <!-- Scroll Progress -->
 <div id="scroll-progress" aria-hidden="true"></div>
-<!-- Custom Cursor -->
-<div id="cur-dot" aria-hidden="true"></div>
-<div id="cur-ring" aria-hidden="true"></div>
-<div id="loader" role="status" aria-label="Loading">
-  <div class="ldr-inner">
-    <div class="ldr-logo-wrap">
-      <svg class="ldr-logo-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="ldg" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs>
-        <rect width="60" height="60" rx="16" fill="url(#ldg)"/>
-        <path d="M9 44 L20 16 L25.5 30 L14 30 Z" fill="white" opacity="0.95"/>
-        <path d="M20 16 L31 44 L26.5 44 L17 22 Z" fill="white" opacity="0.70"/>
-        <path d="M29 44 L40 16 L45.5 30 L34 30 Z" fill="white" opacity="0.95"/>
-        <path d="M40 16 L51 44 L46.5 44 L37 22 Z" fill="white" opacity="0.70"/>
-      </svg>
-      <div class="ldr-ring"></div>
-    </div>
-    <div class="ldr-text">
-      <span class="ldr-name">AFAQ AHMAD</span>
-      <span class="ldr-title">AI &amp; Full Stack Developer</span>
-    </div>
-    <div class="ldr-bar"><div class="ldr-fill" id="ldr-fill"></div></div>
-    <div class="ldr-dots"><span></span><span></span><span></span></div>
-  </div>
-</div>
 <header role="banner">
 <nav id="navbar" aria-label="Main navigation">
   <a href="index.html" class="nav-logo" aria-label="Afaq Ahmad home">
@@ -132,10 +108,10 @@
           Available for freelance &amp; collaborations
         </div>
         <p class="hero-greet">Hi there, I'm</p>
-        <h1 class="hero-name"><span class="grad-txt text-reveal">AFAQ AHMAD</span></h1>
+        <h1 class="hero-name"><span class="grad-txt">AFAQ AHMAD</span></h1>
         <p class="hero-title">AI &amp; Full Stack Developer</p>
         <p class="hero-bio">
-        AI &amp; Full Stack Developer from Peshawar, Pakistan, building modern, responsive, and user-focused web applications while continuously exploring the future of artificial intelligence.
+         From Peshawar, Pakistan, building modern, responsive, and user-focused web applications while continuously exploring the future of artificial intelligence.
         </p>
         <div class="hero-cta">
           <a href="projects.html" class="btn btn--primary btn--lg">View My Work</a>
@@ -155,14 +131,19 @@
       </div>
       <!-- Right: Visual -->
       <div class="hero-visual">
-        <div class="hero-frame float-anim">
-        <div class="hero-photo" style="background:var(--bg3);border-radius:var(--r2xl);min-height:380px;overflow:hidden;">
-  <img
-    src="./assets/images/Frot page.png"
-    alt="Afaq Ahmad — AI &amp; Full Stack Developer"
-    style="width:100%;height:100%;min-height:380px;object-fit:cover;object-position:center center;display:block;"
-  />
-</div>
+        <div class="hero-frame">
+          <div class="hero-photo" style="background:var(--bg3);border-radius:var(--r2xl);max-width:420px;aspect-ratio:1/1;overflow:hidden;box-shadow:var(--shlg);">
+            <img
+              src="./assets/images/Frot page.png"
+              alt="Afaq Ahmad — AI &amp; Full Stack Developer"
+              width="420"
+              height="420"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
+            />
+          </div>
           <div class="hero-glow"></div>
         </div>
       </div>
@@ -192,7 +173,7 @@
       </div>
       <div class="stat-card">
         <div class="stat-icon">📁</div>
-        <div class="stat-num grad-txt" data-target="4" data-suffix="+">4+</div>
+        <div class="stat-num grad-txt" data-target="14" data-suffix="+">14+</div>
         <div class="stat-label">GitHub Repositories</div>
       </div>
       <div class="stat-card">
@@ -217,6 +198,8 @@
   <img
     src="./assets/images/ChatGPT Image Jul 26, 2026, 12_46_55 PM.png"
     alt="Afaq Ahmad - AI & Full Stack Developer"
+    width="420"
+    height="420"
     loading="lazy"
     decoding="async"
     style="
@@ -274,7 +257,7 @@
     <div class="pf reveal up">
       <div class="pf-vis">
         <div class="pf-img-in">
-          <img src="assets/images/thumb-real-estate.svg" alt="AFAQ AHMAD Real Estate — luxury property listing website" loading="lazy"/>
+          <img src="assets/images/thumb-real-estate.svg" alt="AFAQ AHMAD Real Estate — luxury property listing website" width="800" height="500" loading="lazy" decoding="async"/>
         </div>
         <div class="pf-ov">
           <a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
@@ -296,7 +279,7 @@
     <div class="pf pf-rev reveal up">
       <div class="pf-vis">
         <div class="pf-img-in">
-          <img src="assets/images/thumb-luxury-car.svg" alt="Luxury Car Business Website — premium automotive dark UI" loading="lazy"/>
+          <img src="assets/images/thumb-luxury-car.svg" alt="Luxury Car Business Website — premium automotive dark UI" width="800" height="500" loading="lazy" decoding="async"/>
         </div>
         <div class="pf-ov">
           <a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
@@ -318,7 +301,7 @@
     <div class="pf reveal up">
       <div class="pf-vis">
         <div class="pf-img-in">
-          <img src="assets/images/thumb-business.svg" alt="Business Website — modern corporate website UI" loading="lazy"/>
+          <img src="assets/images/thumb-business.svg" alt="Business Website — modern corporate website UI" width="800" height="500" loading="lazy" decoding="async"/>
         </div>
         <div class="pf-ov">
           <a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
@@ -340,7 +323,7 @@
     <div class="pf pf-rev reveal up">
       <div class="pf-vis">
         <div class="pf-img-in">
-          <img src="assets/images/thumb-premium.svg" alt="Premium Luxury Business Website — elegant dark premium UI" loading="lazy"/>
+          <img src="assets/images/thumb-premium.svg" alt="Premium Luxury Business Website — elegant dark premium UI" width="800" height="500" loading="lazy" decoding="async"/>
         </div>
         <div class="pf-ov">
           <a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
@@ -362,7 +345,7 @@
     <div class="pf reveal up">
       <div class="pf-vis">
         <div class="pf-img-in">
-          <img src="assets/images/thumb-gemstone.svg" alt="Gemstone / Blue Sapphire Website — premium luxury gemstone catalog website" loading="lazy"/>
+          <img src="assets/images/thumb-gemstone.svg" alt="Gemstone / Blue Sapphire Website — premium luxury gemstone catalog website" width="800" height="500" loading="lazy" decoding="async"/>
         </div>
         <div class="pf-ov">
           <a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener" class="btn btn--white btn--sm">↗ Live Site</a>
