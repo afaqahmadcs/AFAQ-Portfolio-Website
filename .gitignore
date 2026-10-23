@@ -1,0 +1,32 @@
+# Sensitive Supabase Configuration (Local Only)
+# Contains active project credentials. Public repo uses js/supabase-config.example.js
+js/supabase-config.js
+
+# Internal Setup Guides & Private Documentation
+SETUP-REVIEWS.md
+
+# Environment variables & local secrets
+.env
+.env.local
+.env.*.local
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor & IDE directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Scratch and media drafts
+website intro video example/
