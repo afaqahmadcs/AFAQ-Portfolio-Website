@@ -27,70 +27,83 @@
 </head>
 <body>
 <!-- ═══════════════════════════════════════════════════
-     CINEMATIC DEVELOPER INTRO & PRELOADER
+     EXACT DEVELOPER PORTFOLIO INTRO ANIMATION
+     (Faithfully recreated from reference video)
 ════════════════════════════════════════════════════ -->
 <aside id="portfolio-intro" role="dialog" aria-modal="true" aria-label="Developer Portfolio Intro Animation">
+  <!-- Original soundtrack audio from reference video -->
+  <audio id="intro-bg-audio" src="assets/intro-sound.mp4" preload="auto"></audio>
+
   <!-- Dual Shutter Curtains for Cinematic Split -->
   <div class="intro-shutter intro-shutter--top" aria-hidden="true"></div>
   <div class="intro-shutter intro-shutter--bottom" aria-hidden="true"></div>
 
-  <!-- 3D Starfield & Shockwave Particle Canvas -->
+  <!-- 3D Starfield Particle Canvas -->
   <canvas id="intro-canvas" aria-hidden="true"></canvas>
 
-  <!-- Floating HUD Controls -->
+  <!-- Top Navigation Header (Frame 00:05 in video) -->
+  <header class="intro-header" id="intro-header">
+    <div class="intro-nav-name">AFAQ AHMAD</div>
+    <nav class="intro-nav-links">
+      <a href="#hero">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="resume.html">RESUME</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- Floating HUD Controls: Sound & Skip -->
   <div class="intro-hud">
-    <button id="intro-sound" class="intro-sound-btn" aria-label="Toggle sound" title="Sound On / Off">
+    <button id="intro-sound" class="intro-hud-btn" aria-label="Toggle sound" title="Sound On / Off">
       <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+      <span id="intro-sound-text">Sound</span>
     </button>
-    <button id="intro-skip" class="intro-skip-btn" aria-label="Skip intro animation">
+    <button id="intro-skip" class="intro-hud-btn" aria-label="Skip intro animation">
       <span>Skip</span>
       <span aria-hidden="true">✕</span>
     </button>
   </div>
 
-  <!-- Main Visual Stage -->
-  <div class="intro-content">
-    <!-- Phase 1: Glowing Core Orb -->
-    <div class="intro-core-wrap" aria-hidden="true">
-      <div id="intro-core-dot" class="intro-core-dot"></div>
-      <div class="intro-core-ring"></div>
+  <!-- Central Visual Stage -->
+  <div class="intro-stage" id="intro-stage">
+    <!-- Digital Halftone / Particle Portrait of Afaq Ahmad (Frame 00:05) -->
+    <div class="intro-portrait-wrap" id="intro-portrait-wrap">
+      <img src="assets/images/Frot page.png" alt="Afaq Ahmad" class="intro-portrait-img" id="intro-portrait-img" />
+      <div class="intro-portrait-overlay"></div>
     </div>
 
-    <!-- Phase 2 & 3: Kinetic Stage -->
-    <div class="intro-letters-stage">
-      <!-- Developer Name (Kinetic Magnetic Snap) -->
-      <div id="intro-name-wrap" class="intro-name-wrapper" aria-label="Afaq Ahmad">
-        <span class="intro-letter">A</span>
-        <span class="intro-letter">F</span>
-        <span class="intro-letter">A</span>
-        <span class="intro-letter">Q</span>
-        <span class="intro-space"></span>
-        <span class="intro-letter">A</span>
-        <span class="intro-letter">H</span>
-        <span class="intro-letter">M</span>
-        <span class="intro-letter">A</span>
-        <span class="intro-letter">D</span>
-      </div>
+    <!-- Phase 1: White Bouncing Ball in center void -->
+    <div class="intro-ball" id="intro-ball"></div>
 
-      <!-- Morphs to "PORTFOLIO" with Badges -->
-      <div id="intro-portfolio-wrap" class="intro-portfolio-wrapper">
-        <h1 class="intro-portfolio-title">PORTFOLIO</h1>
-        <div class="intro-meta-box">
-          <span class="intro-tag">
-            <span class="intro-tag-dot" aria-hidden="true"></span>
-            Frontend Engineer &amp; CS
-          </span>
-          <span class="intro-role-text">Peshawar, Pakistan</span>
-        </div>
+    <!-- Phase 2: 3D Bouncing Letters (AFAQ) -->
+    <div class="intro-letters-container" id="intro-letters-box" aria-label="Afaq">
+      <span class="intro-bouncing-letter" data-char="A">A</span>
+      <span class="intro-bouncing-letter" data-char="F">F</span>
+      <span class="intro-bouncing-letter" data-char="A">A</span>
+      <span class="intro-bouncing-letter" data-char="Q">Q</span>
+    </div>
+
+    <!-- Phase 3: "PORTFOLIO" with Subtitle & Contact (Frame 00:03) -->
+    <div class="intro-portfolio-box" id="intro-portfolio-box">
+      <h1 class="intro-3d-portfolio">PORTFOLIO</h1>
+      <div class="intro-sub-row">
+        <span class="intro-sub-role">Web Developer</span>
+        <a href="contact.html" class="intro-sub-contact">Contact</a>
       </div>
     </div>
   </div>
 
-  <!-- Bottom Progress Bar & Hint -->
-  <div class="intro-progress-bar" aria-hidden="true">
-    <div id="intro-progress-fill" class="intro-progress-fill"></div>
+  <!-- Scroll / Explore Prompt (bottom center after intro finishes) -->
+  <div class="intro-explore-prompt" id="intro-explore-prompt" title="Click or Scroll to Explore">
+    <span>Scroll to Explore</span>
+    <svg class="intro-explore-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
   </div>
-  <div class="intro-bottom-hint" aria-hidden="true">Press [ESC] or [SPACE] to Skip</div>
+
+  <!-- Timeline progress bar along the bottom -->
+  <div class="intro-timeline-bar" aria-hidden="true">
+    <div class="intro-timeline-fill" id="intro-timeline-fill"></div>
+  </div>
 </aside>
 
 <!-- Scroll Progress -->
