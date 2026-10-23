@@ -405,7 +405,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   // 2. Scroll Spy for Homepage Sections
   if (isHome && typeof IntersectionObserver !== 'undefined') {
-    const sectionIds = ['hero', 'services', 'blog'];
+    const sectionIds = ['hero', 'about-prev', 'projects-feat', 'tech', 'services', 'principles', 'notes'];
     const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
     const spyObserver = new IntersectionObserver((entries) => {
@@ -422,7 +422,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
             if (isMatch) {
               a.classList.add('active');
               a.setAttribute('aria-current', 'page');
-            } else if (href === 'index.html' || href === '/' || href === '#services' || href === '#blog') {
+            } else if (href === 'index.html' || href === '/' || href === '#services' || href === '#principles' || href === '#notes' || href === '#blog') {
               a.classList.remove('active');
               a.removeAttribute('aria-current');
             }
@@ -495,27 +495,70 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
       submitBtn.textContent = 'Sending…';
     }
 
+    // EmailJS credentials configuration
+    // To enable automatic browser sending via EmailJS, insert your keys below:
     const SERVICE_ID  = 'YOUR_SERVICE_ID';
     const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
     const PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
 
+    const isEmailJSConfigured = Boolean(
+      window.emailjs &&
+      SERVICE_ID !== 'YOUR_SERVICE_ID' &&
+      TEMPLATE_ID !== 'YOUR_TEMPLATE_ID' &&
+      PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'
+    );
+
+    const nameVal    = fields.name.el?.value.trim() || '';
+    const emailVal   = fields.email.el?.value.trim() || '';
+    const subjectVal = fields.subject.el?.value.trim() || '';
+    const messageVal = fields.message.el?.value.trim() || '';
+
     try {
-      if (window.emailjs && SERVICE_ID !== 'YOUR_SERVICE_ID') {
+      if (isEmailJSConfigured) {
         await window.emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-          from_name:  fields.name.el?.value.trim(),
-          from_email: fields.email.el?.value.trim(),
-          subject:    fields.subject.el?.value.trim(),
-          message:    fields.message.el?.value.trim()
+          from_name:  nameVal,
+          from_email: emailVal,
+          subject:    subjectVal,
+          message:    messageVal
         }, PUBLIC_KEY);
+
+        if (formOk) {
+          formOk.textContent = "Thank you! Your message was delivered successfully. I'll get back to you within 24 hours.";
+          formOk.classList.remove('err-msg');
+          formOk.classList.add('show');
+        }
+        form.reset();
+        Object.keys(fields).forEach(k => { if (fields[k].el) fields[k].el.style.borderColor = ''; });
+      } else {
+        // Honest fallback when EmailJS keys are not yet configured:
+        // Construct mailto link with all field data prefilled so zero user input is lost!
+        const mailtoSubject = encodeURIComponent(`[Website Inquiry] ${subjectVal}`);
+        const mailtoBody = encodeURIComponent(
+          `Hi Afaq,\n\nName: ${nameVal}\nEmail: ${emailVal}\n\nProject Details:\n${messageVal}\n\n---\nSent from Portfolio Contact Form`
+        );
+        const mailtoUrl = `mailto:afaqahmad.contact@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+        if (formOk) {
+          formOk.innerHTML = `<strong>Opening your email client…</strong> If your email application does not open automatically, please send your message directly to <a href="${mailtoUrl}" style="text-decoration:underline;color:inherit;font-weight:bold;">afaqahmad.contact@gmail.com</a>.`;
+          formOk.classList.remove('err-msg');
+          formOk.classList.add('show');
+        }
+
+        window.location.href = mailtoUrl;
       }
-      if (formOk) {
-        formOk.classList.add('show');
-      }
-      form.reset();
-      Object.keys(fields).forEach(k => { if (fields[k].el) fields[k].el.style.borderColor = ''; });
     } catch (err) {
       console.error('Contact form submission error:', err);
-      alert('Unable to send message automatically. Please reach out directly at afaqahmad.contact@gmail.com');
+      const mailtoSubject = encodeURIComponent(`[Website Inquiry] ${subjectVal}`);
+      const mailtoBody = encodeURIComponent(
+        `Hi Afaq,\n\nName: ${nameVal}\nEmail: ${emailVal}\n\nProject Details:\n${messageVal}\n\n---\nSent from Portfolio Contact Form`
+      );
+      const mailtoUrl = `mailto:afaqahmad.contact@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+      if (formOk) {
+        formOk.innerHTML = `Unable to send via automated service. <a href="${mailtoUrl}" style="text-decoration:underline;color:inherit;font-weight:bold;">Click here to send directly via email (afaqahmad.contact@gmail.com)</a>.`;
+        formOk.classList.add('err-msg');
+        formOk.classList.add('show');
+      }
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
