@@ -84,9 +84,9 @@
   font-weight: var(--ws);
   padding: 2px 8px;
   border-radius: var(--rfull);
-  background: rgba(99, 102, 241, 0.12);
+  background: var(--brandbg);
   color: var(--brand);
-  border: 1px solid rgba(99, 102, 241, 0.25);
+  border: 1px solid var(--brand-border);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -430,7 +430,7 @@
 
 .admin-input:focus {
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+  box-shadow: var(--focus);
 }
 
 .admin-form-error {
@@ -565,9 +565,9 @@
   height: 100%;
 }
 
-.metric-pending::before { background: #f59e0b; }
-.metric-approved::before { background: #10b981; }
-.metric-rejected::before { background: #64748b; }
+.metric-pending::before { background: var(--acc-display); }
+.metric-approved::before { background: var(--brand); }
+.metric-rejected::before { background: var(--fg3); }
 .metric-total::before { background: var(--brand); }
 
 .metric-label {
@@ -731,15 +731,15 @@
 }
 
 .admin-rev-card.card-pending {
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid var(--acc-display);
 }
 
 .admin-rev-card.card-approved {
-  border-left: 4px solid #10b981;
+  border-left: 4px solid var(--brand);
 }
 
 .admin-rev-card.card-rejected {
-  border-left: 4px solid #64748b;
+  border-left: 4px solid var(--fg3);
   opacity: 0.88;
 }
 
@@ -797,33 +797,21 @@
 }
 
 .badge-status-pending {
-  background: rgba(245, 158, 11, 0.12);
-  color: #b45309;
-  border: 1px solid rgba(245, 158, 11, 0.25);
-}
-
-[data-theme="dark"] .badge-status-pending {
-  color: #fbbf24;
+  background: var(--accbg);
+  color: var(--acc);
+  border: 1px solid var(--acc-border);
 }
 
 .badge-status-approved {
-  background: rgba(16, 185, 129, 0.12);
-  color: #047857;
-  border: 1px solid rgba(16, 185, 129, 0.25);
-}
-
-[data-theme="dark"] .badge-status-approved {
-  color: #34d399;
+  background: var(--brandbg);
+  color: var(--brand);
+  border: 1px solid var(--brand-border);
 }
 
 .badge-status-rejected {
-  background: rgba(100, 116, 139, 0.12);
-  color: #475569;
-  border: 1px solid rgba(100, 116, 139, 0.25);
-}
-
-[data-theme="dark"] .badge-status-rejected {
-  color: #94a3b8;
+  background: rgba(137, 147, 141, 0.14);
+  color: var(--fg3);
+  border: 1px solid var(--bd2);
 }
 
 /* Star Rating Visual */
@@ -835,7 +823,7 @@
 }
 
 .admin-stars {
-  color: #f59e0b;
+  color: var(--acc-display);
   display: inline-flex;
   gap: 2px;
 }

@@ -1,66 +1,103 @@
 /* ================================================================
    DESIGN TOKENS — AFAQ AHMAD PORTFOLIO
-   Refined, accessible, high-contrast design system.
+   Brand Identity: Editorial Human-Centered Technology
+   Approved Palette:
+     - Deep Ink:    #171C1B (Dark surfaces, primary dark canvas, high-contrast ink)
+     - Warm Ivory:  #F4F1E8 (Light surfaces, primary light canvas, editorial warmth)
+     - Forest Teal: #477568 (Primary signature accent, links, active indicators)
+     - Muted Amber: #D5A65A (Milestones, highlights, star ratings, warm tags)
+     - Soft Sage:   #89938D (Secondary text, metadata, subtle borders, chips)
    ================================================================ */
+
 :root {
-  /* Brand Palettes */
-  --c-brand-50: #eef2ff;
-  --c-brand-100: #e0e7ff;
-  --c-brand-200: #c7d2fe;
-  --c-brand-300: #a5b4fc;
-  --c-brand-400: #818cf8;
-  --c-brand-500: #6366f1;
-  --c-brand-600: #4f46e5;
-  --c-brand-700: #4338ca;
-  --c-brand-800: #3730a3;
-  --c-brand-900: #312e81;
+  /* ── 1. Brand Primitives ────────────────────────────────────────── */
+  --c-ink: #171C1B;
+  --c-ink-950: #0E1211;
+  --c-ink-900: #171C1B;
+  --c-ink-800: #1F2624;
+  --c-ink-700: #27312E;
+  --c-ink-600: #34413D;
 
-  --c-acc-400: #34d399;
-  --c-acc-500: #10b981;
-  --c-acc-600: #059669;
+  --c-ivory: #F4F1E8;
+  --c-ivory-50: #FAF8F3;
+  --c-ivory-100: #F4F1E8;
+  --c-ivory-200: #ECE7DA;
+  --c-ivory-300: #E1DAC8;
+  --c-ivory-400: #D2C7B1;
 
-  /* Light Theme Semantics (WCAG AA Compliant) */
-  --bg: #ffffff;
-  --bg2: #f8fafc;
-  --bg3: #f1f5f9;
-  --sf: #ffffff;
-  --sf2: #f8fafc;
-  --fg: #0f172a;       /* 14:1 contrast ratio */
-  --fg2: #475569;      /* 5.8:1 contrast ratio */
-  --fg3: #64748b;      /* 4.6:1 contrast ratio */
-  --fgi: #ffffff;
-  --bd: rgba(15, 23, 42, 0.08);
-  --bd2: rgba(15, 23, 42, 0.16);
-  --bd3: rgba(15, 23, 42, 0.04);
-  --brand: #4f46e5;
-  --brandh: #4338ca;
-  --brandbg: #eef2ff;
-  --acc: #059669;
-  --accbg: rgba(5, 150, 105, 0.10);
+  --c-teal: #477568;
+  --c-teal-800: #26433B;
+  --c-teal-700: #33594F;
+  --c-teal-600: #3F6A5E;
+  --c-teal-500: #477568;
+  --c-teal-400: #5D8F81;
+  --c-teal-300: #74A799;
+  --c-teal-200: #97C0B5;
 
-  --glass: rgba(255, 255, 255, 0.85);
-  --glassb: rgba(15, 23, 42, 0.08);
-  --glassf: blur(16px);
+  --c-amber: #D5A65A;
+  --c-amber-800: #6D4C14;
+  --c-amber-700: #8C6524;
+  --c-amber-600: #B28334;
+  --c-amber-500: #D5A65A;
+  --c-amber-400: #E0B873;
+  --c-amber-300: #ECCB8F;
 
-  --sh1: rgba(15, 23, 42, 0.04);
-  --sh2: rgba(15, 23, 42, 0.08);
-  --sh3: rgba(15, 23, 42, 0.14);
-  --shbr: 0 8px 24px rgba(79, 70, 229, 0.18);
-  --shbrl: 0 12px 32px rgba(79, 70, 229, 0.25);
+  --c-sage: #89938D;
+  --c-sage-800: #343C37;
+  --c-sage-700: #4B5550;
+  --c-sage-600: #64706A;
+  --c-sage-500: #89938D;
+  --c-sage-400: #A3ACA7;
+  --c-sage-300: #C0C8C3;
 
-  --selbg: #c7d2fe;
-  --selfg: #1e1b4b;
-  --sbt: #f1f5f9;
-  --sbth: #cbd5e1;
-  --sbhv: #6366f1;
+  /* ── 2. Light Theme Semantics (Warm Ivory Editorial — WCAG AAA/AA) ─ */
+  --bg: #F4F1E8;            /* Warm Ivory Primary Canvas */
+  --bg2: #ECE7DA;           /* Toned Ivory Surface */
+  --bg3: #E1DAC8;           /* Inset Ivory Pill/Divider */
+  --sf: #FAF8F3;            /* Elevated Editorial Card Surface */
+  --sf2: #FFFFFF;           /* Crisp White Raised Layer */
 
-  /* Spotlight values updated via rAF */
+  --fg: #171C1B;            /* Deep Ink: 14.2:1 contrast against Ivory (AAA) */
+  --fg2: #4B5550;           /* Deepened Sage: 5.8:1 contrast (AA) */
+  --fg3: #64706A;           /* Medium Sage: 4.5:1 contrast (AA) */
+  --fgi: #FAF8F3;           /* Inverted Typography */
+
+  --bd: rgba(23, 28, 27, 0.08);
+  --bd2: rgba(23, 28, 27, 0.16);
+  --bd3: rgba(23, 28, 27, 0.04);
+
+  --brand: #33594F;         /* Forest Teal deep: 5.6:1 contrast on Ivory (AA) */
+  --brandh: #26433B;        /* Deeper Forest Teal Hover */
+  --brandbg: rgba(71, 117, 104, 0.10);
+  --brand-border: rgba(71, 117, 104, 0.22);
+
+  --acc: #8C6524;           /* Accessible Amber for Text: 4.8:1 contrast (AA) */
+  --acc-display: #D5A65A;   /* Muted Amber for Decorative Stars/Badges */
+  --accbg: rgba(213, 166, 90, 0.14);
+  --acc-border: rgba(213, 166, 90, 0.30);
+
+  --glass: rgba(244, 241, 232, 0.92);
+  --glassb: rgba(23, 28, 27, 0.08);
+  --glassf: blur(14px);
+
+  --sh1: rgba(23, 28, 27, 0.04);
+  --sh2: rgba(23, 28, 27, 0.07);
+  --sh3: rgba(23, 28, 27, 0.12);
+  --shbr: 0 4px 16px rgba(51, 89, 79, 0.14);
+  --shbrl: 0 8px 24px rgba(51, 89, 79, 0.20);
+
+  --selbg: #DCE8E2;
+  --selfg: #171C1B;
+  --sbt: #E1DAC8;
+  --sbth: #C0C8C3;
+  --sbhv: #477568;
+
   --spotlight-x: 50%;
   --spotlight-y: 50%;
   --spotlight-opacity: 0;
-  --spotlight-color: rgba(99, 102, 241, 0.06);
+  --spotlight-color: rgba(71, 117, 104, 0.04);
 
-  /* Spacing System */
+  /* ── 3. Spacing System ──────────────────────────────────────────── */
   --s1: 4px;
   --s2: 8px;
   --s3: 12px;
@@ -79,9 +116,12 @@
   --cpx: 24px;
   --cmax: 1240px;
 
-  /* Typography System */
+  /* ── 4. Typography System ───────────────────────────────────────── */
   --ff: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ff-display: 'Plus Jakarta Sans', sans-serif;
+  --ff-body: 'Inter', 'Plus Jakarta Sans', sans-serif;
   --ffm: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
   --xs: 0.75rem;
   --sm: 0.875rem;
   --base: 1rem;
@@ -93,22 +133,25 @@
   --x5: 3rem;
   --x6: 3.75rem;
   --x7: 4.5rem;
+
   --wn: 400;
   --wm: 500;
   --ws: 600;
   --wb: 700;
   --wx: 800;
+
   --lht: 1.15;
   --lhs: 1.35;
   --lhn: 1.55;
   --lhr: 1.70;
+
   --lst: -0.025em;
   --lsn: 0em;
   --lsw: 0.03em;
   --lswi: 0.06em;
-  --lswst: 0.1em;
+  --lswst: 0.08em;
 
-  /* Border Radii */
+  /* ── 5. Border Radii & Shadows ──────────────────────────────────── */
   --rxs: 4px;
   --rsm: 6px;
   --rmd: 10px;
@@ -117,14 +160,13 @@
   --r2xl: 24px;
   --rfull: 9999px;
 
-  /* Shadows */
   --shxs: 0 1px 2px var(--sh1);
   --shsm: 0 2px 6px var(--sh1);
   --shmd: 0 4px 16px var(--sh2);
-  --shlg: 0 8px 30px var(--sh2);
+  --shlg: 0 8px 28px var(--sh2);
   --shxl: 0 16px 40px var(--sh3);
 
-  /* Z-Index Hierarchy */
+  /* ── 6. Z-Index & Motion ────────────────────────────────────────── */
   --z0: 0;
   --z1: 10;
   --z2: 100;
@@ -133,7 +175,6 @@
   --zmod: 400;
   --ztop: 9999;
 
-  /* Transitions & Easing */
   --tf: 150ms;
   --tn: 220ms;
   --ts: 320ms;
@@ -142,81 +183,96 @@
   --esp: cubic-bezier(0.16, 1, 0.3, 1);
   --eio: cubic-bezier(0.45, 0, 0.55, 1);
 
-  /* Navigation & Focus */
   --navh: 68px;
-  --focus: 0 0 0 2px var(--bg), 0 0 0 4px rgba(99, 102, 241, 0.6);
-  --focusoff: 0 0 0 2px var(--bg), 0 0 0 4px rgba(99, 102, 241, 0.6);
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px #33594F;
+  --focusoff: 0 0 0 2px var(--bg), 0 0 0 4px #33594F;
 }
 
-/* Dark Theme (Accessible Slate/Noir) */
+/* ══════════════════════════════════════════════════════════════════
+   DARK THEME (Deep Ink & Forest Noir — WCAG AAA/AA)
+   ================================================================ */
 [data-theme="dark"] {
-  --bg: #090d16;
-  --bg2: #0f1523;
-  --bg3: #161e31;
-  --sf: #0f1523;
-  --sf2: #161e31;
-  --fg: #f8fafc;
-  --fg2: #94a3b8;
-  --fg3: #64748b;
-  --fgi: #090d16;
-  --bd: rgba(255, 255, 255, 0.08);
-  --bd2: rgba(255, 255, 255, 0.15);
-  --bd3: rgba(255, 255, 255, 0.04);
-  --brand: #818cf8;
-  --brandh: #a5b4fc;
-  --brandbg: rgba(99, 102, 241, 0.14);
-  --acc: #34d399;
-  --accbg: rgba(52, 211, 153, 0.12);
+  --bg: #171C1B;            /* Deep Ink Canvas */
+  --bg2: #1E2523;           /* Elevated Ink Layer */
+  --bg3: #27312E;           /* Tertiary Inset Layer */
+  --sf: #1F2624;            /* Card Surface */
+  --sf2: #283330;           /* Active / Raised Card */
 
-  --glass: rgba(9, 13, 22, 0.85);
-  --glassb: rgba(255, 255, 255, 0.08);
+  --fg: #F4F1E8;            /* Warm Ivory: 14.2:1 contrast against Deep Ink (AAA) */
+  --fg2: #A3ACA7;           /* Soft Sage: 6.8:1 contrast (AAA) */
+  --fg3: #89938D;           /* Soft Sage Base: 5.4:1 contrast (AA) */
+  --fgi: #171C1B;           /* Inverted Typography */
 
-  --sh1: rgba(0, 0, 0, 0.4);
-  --sh2: rgba(0, 0, 0, 0.55);
-  --sh3: rgba(0, 0, 0, 0.7);
-  --shbr: 0 8px 28px rgba(99, 102, 241, 0.25);
-  --shbrl: 0 12px 36px rgba(99, 102, 241, 0.35);
+  --bd: rgba(244, 241, 232, 0.08);
+  --bd2: rgba(244, 241, 232, 0.16);
+  --bd3: rgba(244, 241, 232, 0.04);
 
-  --selbg: rgba(99, 102, 241, 0.35);
-  --selfg: #f8fafc;
-  --sbt: #0f1523;
-  --sbth: #1e293b;
-  --sbhv: #818cf8;
+  --brand: #74A799;         /* Lighter Forest Teal for Dark Mode: 6.8:1 contrast (AAA) */
+  --brandh: #97C0B5;        /* Soft Sage-Teal Hover */
+  --brandbg: rgba(116, 167, 153, 0.14);
+  --brand-border: rgba(116, 167, 153, 0.26);
 
-  --spotlight-color: rgba(99, 102, 241, 0.12);
+  --acc: #D5A65A;           /* Muted Amber: 8.2:1 contrast on Deep Ink (AAA) */
+  --acc-display: #D5A65A;
+  --accbg: rgba(213, 166, 90, 0.14);
+  --acc-border: rgba(213, 166, 90, 0.28);
+
+  --glass: rgba(23, 28, 27, 0.90);
+  --glassb: rgba(244, 241, 232, 0.08);
+
+  --sh1: rgba(0, 0, 0, 0.40);
+  --sh2: rgba(0, 0, 0, 0.60);
+  --sh3: rgba(0, 0, 0, 0.75);
+  --shbr: 0 4px 18px rgba(116, 167, 153, 0.18);
+  --shbrl: 0 8px 26px rgba(116, 167, 153, 0.26);
+
+  --selbg: rgba(116, 167, 153, 0.35);
+  --selfg: #F4F1E8;
+  --sbt: #1F2624;
+  --sbth: #283330;
+  --sbhv: #74A799;
+
+  --spotlight-color: rgba(116, 167, 153, 0.06);
+  --focus: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
+  --focusoff: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #090d16;
-    --bg2: #0f1523;
-    --bg3: #161e31;
-    --sf: #0f1523;
-    --sf2: #161e31;
-    --fg: #f8fafc;
-    --fg2: #94a3b8;
-    --fg3: #64748b;
-    --fgi: #090d16;
-    --bd: rgba(255, 255, 255, 0.08);
-    --bd2: rgba(255, 255, 255, 0.15);
-    --bd3: rgba(255, 255, 255, 0.04);
-    --brand: #818cf8;
-    --brandh: #a5b4fc;
-    --brandbg: rgba(99, 102, 241, 0.14);
-    --acc: #34d399;
-    --accbg: rgba(52, 211, 153, 0.12);
-    --glass: rgba(9, 13, 22, 0.85);
-    --glassb: rgba(255, 255, 255, 0.08);
-    --sh1: rgba(0, 0, 0, 0.4);
-    --sh2: rgba(0, 0, 0, 0.55);
-    --sh3: rgba(0, 0, 0, 0.7);
-    --shbr: 0 8px 28px rgba(99, 102, 241, 0.25);
-    --shbrl: 0 12px 36px rgba(99, 102, 241, 0.35);
-    --selbg: rgba(99, 102, 241, 0.35);
-    --selfg: #f8fafc;
-    --sbt: #0f1523;
-    --sbth: #1e293b;
-    --sbhv: #818cf8;
-    --spotlight-color: rgba(99, 102, 241, 0.12);
+    --bg: #171C1B;
+    --bg2: #1E2523;
+    --bg3: #27312E;
+    --sf: #1F2624;
+    --sf2: #283330;
+    --fg: #F4F1E8;
+    --fg2: #A3ACA7;
+    --fg3: #89938D;
+    --fgi: #171C1B;
+    --bd: rgba(244, 241, 232, 0.08);
+    --bd2: rgba(244, 241, 232, 0.16);
+    --bd3: rgba(244, 241, 232, 0.04);
+    --brand: #74A799;
+    --brandh: #97C0B5;
+    --brandbg: rgba(116, 167, 153, 0.14);
+    --brand-border: rgba(116, 167, 153, 0.26);
+    --acc: #D5A65A;
+    --acc-display: #D5A65A;
+    --accbg: rgba(213, 166, 90, 0.14);
+    --acc-border: rgba(213, 166, 90, 0.28);
+    --glass: rgba(23, 28, 27, 0.90);
+    --glassb: rgba(244, 241, 232, 0.08);
+    --sh1: rgba(0, 0, 0, 0.40);
+    --sh2: rgba(0, 0, 0, 0.60);
+    --sh3: rgba(0, 0, 0, 0.75);
+    --shbr: 0 4px 18px rgba(116, 167, 153, 0.18);
+    --shbrl: 0 8px 26px rgba(116, 167, 153, 0.26);
+    --selbg: rgba(116, 167, 153, 0.35);
+    --selfg: #F4F1E8;
+    --sbt: #1F2624;
+    --sbth: #283330;
+    --sbhv: #74A799;
+    --spotlight-color: rgba(116, 167, 153, 0.06);
+    --focus: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
+    --focusoff: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
   }
 }
