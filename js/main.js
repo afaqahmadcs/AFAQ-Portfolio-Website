@@ -405,7 +405,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   // 2. Scroll Spy for Homepage Sections
   if (isHome && typeof IntersectionObserver !== 'undefined') {
-    const sectionIds = ['hero', 'about-prev', 'projects-feat', 'tech', 'services', 'principles', 'notes'];
+    const sectionIds = ['hero', 'about-prev', 'projects-feat', 'tech', 'services', 'principles', 'notes', 'reviews'];
     const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
     const spyObserver = new IntersectionObserver((entries) => {
@@ -422,7 +422,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
             if (isMatch) {
               a.classList.add('active');
               a.setAttribute('aria-current', 'page');
-            } else if (href === 'index.html' || href === '/' || href === '#services' || href === '#principles' || href === '#notes' || href === '#blog') {
+            } else if (href === 'index.html' || href === '/' || href === '#services' || href === '#principles' || href === '#notes' || href === '#reviews' || href === '#blog') {
               a.classList.remove('active');
               a.removeAttribute('aria-current');
             }

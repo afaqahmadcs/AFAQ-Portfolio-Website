@@ -40,6 +40,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#principles">Principles</a></li>
     <li><a href="#notes">Notes</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="resume.html">Resume</a></li>
   </ul>
@@ -79,6 +80,7 @@
     <a href="#services">Services</a>
     <a href="#principles">Principles</a>
     <a href="#notes">Notes</a>
+    <a href="#reviews">Reviews</a>
     <a href="contact.html">Contact</a>
     <a href="resume.html">Resume</a>
   </nav>
@@ -993,6 +995,29 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════
+     CLIENT REVIEWS (AUTHENTIC FEEDBACK)
+════════════════════════════════════════════════════ -->
+<section class="section" id="reviews" aria-labelledby="reviews-h">
+  <div class="container">
+    <div class="section__hd reveal fade">
+      <div class="section__tag">Client Feedback</div>
+      <h2 class="section__title" id="reviews-h">Client Reviews</h2>
+      <p class="section__sub">Genuine feedback from commercial engagements and technical collaborations. Only client-authorized, approved reviews are published.</p>
+      <div class="section__hd-action">
+        <span class="bento-badge" id="reviews-count-badge">Loading...</span>
+        <button class="btn btn--primary btn--sm" id="open-review-modal-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Leave Client Feedback
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Reviews Container (Populated via safe DOM in js/reviews.js) -->
+    <div id="reviews-list" class="reveal up" style="--delay:.1s"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
      CTA BANNER
 ════════════════════════════════════════════════════ -->
 <section class="section--sm" id="cta">
@@ -1044,7 +1069,7 @@
           </a>
         </div>
       </div>
-      <div class="ft-nav"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="resume.html">Resume</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="ft-nav"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="#reviews">Reviews</a></li><li><a href="resume.html">Resume</a></li><li><a href="contact.html">Contact</a></li><li><a href="admin/index.html">Admin Login</a></li></ul></div>
       <div class="ft-col"><h4>Projects</h4><ul><li><a href="https://www.bluesapphiregemstones.com/" target="_blank" rel="noopener">Blue Sapphire Gems</a></li><li><a href="https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/" target="_blank" rel="noopener">Real Estate</a></li><li><a href="https://afaqahmadcs.github.io/Luxury-Car-Business-Website/" target="_blank" rel="noopener">Luxury Cars</a></li><li><a href="https://afaqahmadcs.github.io/Business-Website/" target="_blank" rel="noopener">Business Site</a></li><li><a href="https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/" target="_blank" rel="noopener">Premium Cars</a></li></ul></div>
       <div class="ft-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener">GitHub</a></li><li><a href="contact.html">Contact Me</a></li><li><a href="resume.html">Download CV</a></li></ul></div>
     </div>
@@ -1060,6 +1085,122 @@
   </div>
 </footer>
 
+<!-- ═══════════════════════════════════════════════════
+     CLIENT REVIEW SUBMISSION MODAL
+════════════════════════════════════════════════════ -->
+<div class="rev-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title" aria-hidden="true">
+  <div class="rev-modal-backdrop" aria-hidden="true"></div>
+  <div class="rev-modal-card">
+    <div class="rev-modal-header">
+      <div>
+        <h3 class="rev-modal-title" id="review-modal-title">Share Your Experience</h3>
+        <p class="rev-modal-sub">Your feedback builds trust through transparency. Reviews are held for moderation prior to publication.</p>
+      </div>
+      <button class="rev-modal-close" id="review-modal-close" aria-label="Close review dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <form id="review-submission-form" class="rev-form" novalidate>
+      <!-- Anti-spam honeypot (bots fill this, real users never see it) -->
+      <div class="rev-hp-field" aria-hidden="true">
+        <label for="review-website-hp">Website URL</label>
+        <input type="text" id="review-website-hp" name="website_hp" tabindex="-1" autocomplete="off"/>
+      </div>
+
+      <!-- Rating Picker -->
+      <div class="rev-form-group">
+        <label class="rev-form-label">
+          Overall Rating <span class="req">*</span>
+        </label>
+        <div class="star-picker-wrap">
+          <div class="star-rating-btns" role="radiogroup" aria-label="Star rating out of 5">
+            <button type="button" class="star-rating-btn" data-rating="1" role="radio" aria-checked="false" aria-label="1 star">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+            <button type="button" class="star-rating-btn" data-rating="2" role="radio" aria-checked="false" aria-label="2 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+            <button type="button" class="star-rating-btn" data-rating="3" role="radio" aria-checked="false" aria-label="3 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+            <button type="button" class="star-rating-btn" data-rating="4" role="radio" aria-checked="false" aria-label="4 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+            <button type="button" class="star-rating-btn selected" data-rating="5" role="radio" aria-checked="true" aria-label="5 stars">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+          </div>
+          <span class="rating-live-desc" id="rating-live-desc">5 stars — Exceptional</span>
+          <input type="hidden" id="review-rating" name="rating" value="5"/>
+        </div>
+      </div>
+
+      <div class="rev-form-row">
+        <!-- Client Name -->
+        <div class="rev-form-group">
+          <label for="review-client-name" class="rev-form-label">
+            Your Name <span class="req">*</span>
+          </label>
+          <input type="text" id="review-client-name" class="rev-form-input" placeholder="e.g. Tariq Khan" required maxlength="100"/>
+        </div>
+
+        <!-- Company / Org -->
+        <div class="rev-form-group">
+          <label for="review-company" class="rev-form-label">
+            Company / Organization <span class="opt">(Optional)</span>
+          </label>
+          <input type="text" id="review-company" class="rev-form-input" placeholder="e.g. Blue Sapphire Gems" maxlength="100"/>
+        </div>
+      </div>
+
+      <!-- Project Reference -->
+      <div class="rev-form-group">
+        <label for="review-project" class="rev-form-label">
+          Project or Collaboration <span class="opt">(Optional)</span>
+        </label>
+        <select id="review-project" class="rev-form-select">
+          <option value="">Select project reference…</option>
+          <option value="Blue Sapphire Gem Stones Showcase">Blue Sapphire Gem Stones Showcase</option>
+          <option value="Real Estate Web Architecture">Real Estate Web Architecture</option>
+          <option value="Custom Frontend Development">Custom Frontend Development</option>
+          <option value="Responsive Website Optimization">Responsive Website Optimization</option>
+          <option value="Other Collaboration">Other Collaboration</option>
+        </select>
+      </div>
+
+      <!-- Written Feedback -->
+      <div class="rev-form-group">
+        <label for="review-text" class="rev-form-label">
+          Written Feedback <span class="req">*</span>
+        </label>
+        <textarea id="review-text" class="rev-form-textarea" placeholder="Describe the working process, communication, turnaround time, or code quality…" required minlength="10" maxlength="1000"></textarea>
+        <div class="rev-char-count" id="review-char-count">0 / 1,000</div>
+      </div>
+
+      <!-- Consent Checkbox -->
+      <label class="rev-consent-label">
+        <input type="checkbox" id="review-consent" class="rev-consent-checkbox" required/>
+        <span>I authorize publication of this display name, company, and review text on this portfolio website upon moderation approval.</span>
+      </label>
+
+      <!-- Alert Message Box -->
+      <div id="review-form-feedback" class="rev-form-alert" role="alert"></div>
+
+      <!-- Actions -->
+      <div class="rev-form-actions">
+        <button type="button" class="btn btn--secondary btn--sm" id="review-cancel-btn" onclick="document.getElementById('review-modal-close').click()">Cancel</button>
+        <button type="submit" class="btn btn--primary btn--sm" id="review-submit-btn">
+          <span>Submit Review for Approval</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
 <script src="js/main.js"></script>
+<script src="js/reviews.js"></script>
 </body>
 </html>

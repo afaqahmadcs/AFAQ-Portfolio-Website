@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Review Moderation | Afaq Ahmad</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Protected client review moderation portal for Afaq Ahmad's portfolio.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <!-- Skip Link -->
+  <a href="#admin-main" class="skip-link">Skip to moderation panel</a>
+
+  <!-- Admin Navigation Bar -->
+  <header class="admin-header" role="banner">
+    <div class="admin-header-inner">
+      <div class="admin-brand">
+        <a href="../index.html" class="admin-back-link" title="Return to Portfolio">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          <span>Portfolio</span>
+        </a>
+        <span class="admin-divider" aria-hidden="true">/</span>
+        <h1 class="admin-title">Review Moderation</h1>
+        <span id="env-badge" class="badge-env" aria-label="Environment: Supabase Protected">Supabase RLS</span>
+      </div>
+
+      <div class="admin-header-actions">
+        <!-- Theme toggle button -->
+        <button id="theme-btn" class="admin-btn-icon" type="button" aria-label="Toggle theme">
+          <svg id="ic-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <svg id="ic-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- User profile & Sign out (visible when authenticated) -->
+        <div id="admin-user-menu" class="admin-user-menu" style="display: none;">
+          <span id="admin-user-email" class="admin-user-email" aria-label="Current admin user"></span>
+          <button id="admin-signout-btn" class="admin-btn admin-btn-secondary admin-btn-sm" type="button">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="admin-main" class="admin-main" tabindex="-1">
+    <!-- Configuration Missing Banner -->
+    <div id="admin-config-alert" class="admin-alert admin-alert-warning" role="alert" style="display: none;">
+      <div class="admin-alert-icon" aria-hidden="true">⚠️</div>
+      <div class="admin-alert-content">
+        <h2 class="admin-alert-title">Supabase Credentials Required</h2>
+        <p>Frontend configuration is currently unconfigured. Set your project URL and publishable anon key in <code>js/supabase-config.js</code> to connect the administration console.</p>
+        <p class="text-xs text-muted">Refer to <code>SETUP-REVIEWS.md</code> for full database setup and administrator enrollment instructions.</p>
+      </div>
+    </div>
+
+    <!-- Notification Toast / Banner -->
+    <div id="admin-notification" class="admin-notification" role="status" aria-live="polite" style="display: none;">
+      <span id="admin-notif-message"></span>
+      <button id="admin-notif-dismiss" class="admin-notif-close" aria-label="Dismiss notification">×</button>
+    </div>
+
+    <!-- View 1: Auth Loading Screen -->
+    <section id="view-loading" class="admin-section-loading" aria-label="Loading authentication status">
+      <div class="admin-spinner" aria-hidden="true"></div>
+      <p>Verifying admin authorization...</p>
+    </section>
+
+    <!-- View 2: Sign In Screen -->
+    <section id="view-signin" class="admin-section-signin" style="display: none;" aria-labelledby="signin-heading">
+      <div class="admin-card admin-signin-card">
+        <div class="admin-signin-header">
+          <div class="admin-lock-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h2 id="signin-heading" class="admin-signin-title">Administrator Sign In</h2>
+          <p class="admin-signin-desc">Enter your Supabase administrator credentials to manage public client reviews.</p>
+        </div>
+
+        <form id="admin-signin-form" class="admin-form" novalidate>
+          <div id="signin-error" class="admin-form-error" role="alert" style="display: none;"></div>
+
+          <div class="admin-field">
+            <label for="signin-email">Admin Email</label>
+            <input type="email" id="signin-email" name="email" required autocomplete="username" placeholder="admin@example.com" class="admin-input">
+          </div>
+
+          <div class="admin-field">
+            <label for="signin-password">Password</label>
+            <input type="password" id="signin-password" name="password" required autocomplete="current-password" placeholder="••••••••" class="admin-input">
+          </div>
+
+          <button type="submit" id="signin-submit-btn" class="admin-btn admin-btn-primary admin-btn-block">
+            <span class="btn-text">Sign In to Dashboard</span>
+            <span class="btn-spinner" aria-hidden="true" style="display: none;"></span>
+          </button>
+        </form>
+
+        <div class="admin-signin-footer">
+          <p class="text-xs text-muted">
+            Security boundary is strictly enforced by PostgreSQL Row Level Security (RLS). Direct API calls by non-admin accounts or anonymous visitors are denied.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 3: Unauthorized Screen (Authenticated but not in admin_users) -->
+    <section id="view-unauthorized" class="admin-section-unauthorized" style="display: none;" aria-labelledby="unauth-heading">
+      <div class="admin-card admin-unauth-card">
+        <div class="admin-unauth-icon" aria-hidden="true">🚫</div>
+        <h2 id="unauth-heading" class="admin-unauth-title">Admin Privileges Required</h2>
+        <p>You are signed in as <strong id="unauth-user-email"></strong>, but this Supabase account is not registered in the <code>public.admin_users</code> allowlist.</p>
+        <p class="text-sm text-muted">Row Level Security rejects all review management operations for non-allowlisted users.</p>
+        
+        <div class="admin-setup-hint">
+          <p class="text-xs">To grant this account administrative rights, run this SQL statement in your Supabase SQL Editor:</p>
+          <pre><code id="admin-grant-sql">INSERT INTO public.admin_users (user_id, role)
+VALUES ('<span id="unauth-user-id">YOUR-USER-UUID</span>', 'admin')
+ON CONFLICT (user_id) DO NOTHING;</code></pre>
+        </div>
+
+        <div class="admin-unauth-actions">
+          <button id="unauth-retry-btn" class="admin-btn admin-btn-primary" type="button">Check Permissions Again</button>
+          <button id="unauth-signout-btn" class="admin-btn admin-btn-secondary" type="button">Sign Out</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 4: Protected Moderation Dashboard -->
+    <section id="view-dashboard" class="admin-section-dashboard" style="display: none;" aria-labelledby="dashboard-heading">
+      <header class="dashboard-header">
+        <div>
+          <h2 id="dashboard-heading" class="dashboard-title">Review Management Console</h2>
+          <p class="dashboard-subtitle">Moderate submitted client testimonials. Only approved reviews appear publicly on the portfolio.</p>
+        </div>
+        <div class="dashboard-controls">
+          <button id="admin-refresh-btn" class="admin-btn admin-btn-secondary admin-btn-sm" type="button" title="Reload queue from database">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+            <span>Refresh</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Dashboard Metric Counters -->
+      <div class="admin-metrics-grid" role="region" aria-label="Review metrics summary">
+        <div class="metric-card metric-pending">
+          <span class="metric-label">Pending Review</span>
+          <span id="metric-pending-count" class="metric-value">0</span>
+          <span class="metric-sub">Requires moderation</span>
+        </div>
+        <div class="metric-card metric-approved">
+          <span class="metric-label">Approved (Public)</span>
+          <span id="metric-approved-count" class="metric-value">0</span>
+          <span class="metric-sub">Live on portfolio</span>
+        </div>
+        <div class="metric-card metric-rejected">
+          <span class="metric-label">Rejected</span>
+          <span id="metric-rejected-count" class="metric-value">0</span>
+          <span class="metric-sub">Hidden from visitors</span>
+        </div>
+        <div class="metric-card metric-total">
+          <span class="metric-label">Total Submissions</span>
+          <span id="metric-total-count" class="metric-value">0</span>
+          <span class="metric-sub">Lifetime records</span>
+        </div>
+      </div>
+
+      <!-- Moderation Filter Tabs -->
+      <div class="queue-toolbar">
+        <nav class="queue-tabs" role="tablist" aria-label="Review status filters">
+          <button id="tab-pending" class="queue-tab is-active" role="tab" aria-selected="true" aria-controls="queue-panel" data-filter="pending">
+            Pending Queue <span id="badge-tab-pending" class="tab-badge">0</span>
+          </button>
+          <button id="tab-approved" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="approved">
+            Approved <span id="badge-tab-approved" class="tab-badge">0</span>
+          </button>
+          <button id="tab-rejected" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="rejected">
+            Rejected <span id="badge-tab-rejected" class="tab-badge">0</span>
+          </button>
+          <button id="tab-all" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="all">
+            All Records <span id="badge-tab-all" class="tab-badge">0</span>
+          </button>
+        </nav>
+
+        <div class="queue-search">
+          <label for="queue-search-input" class="sr-only">Search reviews</label>
+          <input type="search" id="queue-search-input" placeholder="Search by name, company, or text..." class="admin-search-input">
+        </div>
+      </div>
+
+      <!-- Review Cards Queue Panel -->
+      <div id="queue-panel" class="queue-panel" role="tabpanel" aria-labelledby="tab-pending">
+        <!-- Loading State -->
+        <div id="queue-loading" class="queue-state-loading" style="display: none;">
+          <div class="admin-spinner" aria-hidden="true"></div>
+          <p>Fetching review queue from Supabase...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div id="queue-empty" class="queue-state-empty" style="display: none;">
+          <div class="queue-empty-icon" aria-hidden="true">📭</div>
+          <h3 id="queue-empty-title" class="queue-empty-title">Queue is empty</h3>
+          <p id="queue-empty-desc" class="queue-empty-desc">There are currently no reviews matching this filter.</p>
+        </div>
+
+        <!-- Review Cards List Container -->
+        <div id="queue-list" class="queue-list" role="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Delete Confirmation Modal Dialog -->
+  <div id="delete-modal" class="admin-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title" style="display: none;">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <h3 id="delete-modal-title" class="admin-modal-title">Confirm Permanent Deletion</h3>
+        <button id="delete-modal-close" class="admin-modal-dismiss" aria-label="Cancel deletion">✕</button>
+      </div>
+      <div class="admin-modal-body">
+        <p>Are you sure you want to delete the review submitted by <strong id="delete-target-name"></strong>?</p>
+        <p class="text-sm text-danger mt-2">
+          <strong>Warning:</strong> This permanently deletes the record from the database. This action cannot be undone.
+        </p>
+      </div>
+      <div class="admin-modal-actions">
+        <button id="delete-cancel-btn" type="button" class="admin-btn admin-btn-secondary">Cancel</button>
+        <button id="delete-confirm-btn" type="button" class="admin-btn admin-btn-danger">
+          <span class="btn-text">Permanently Delete</span>
+          <span class="btn-spinner" aria-hidden="true" style="display: none;"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dependencies: Supabase JS Library & Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="../js/supabase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
