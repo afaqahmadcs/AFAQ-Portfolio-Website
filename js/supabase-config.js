@@ -2,16 +2,14 @@
  * ==============================================================================
  * SUPABASE CONFIGURATION (AFAQ AHMAD PORTFOLIO)
  * ==============================================================================
- * Replace these placeholder values with your Supabase credentials:
- * 1. Go to https://supabase.com/dashboard/project/_/settings/api
- * 2. Copy "Project URL" into `url`
- * 3. Copy "anon public" key into `anonKey`
+ * Public Supabase client configuration for client reviews & moderation.
+ * Protected by PostgreSQL Row Level Security (RLS).
  *
  * DO NOT put your `service_role` secret key here!
  * ==============================================================================
  */
 
 window.SUPABASE_CONFIG = {
-  url: 'https://YOUR_PROJECT_ID.supabase.co',
-  anonKey: 'YOUR_SUPABASE_ANON_PUBLIC_KEY'
+  url: 'https://qlgqvseeajdhlbufuisv.supabase.co',
+  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsZ3F2c2VlYWpkaGxidWZ1aXN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI3NTY3NDAsImV4cCI6MjEwODMzMjc0MH0.ZEC9cTu45VBSX0llT-Guow8x4mDuIXARuOegQIJljNI'
 };

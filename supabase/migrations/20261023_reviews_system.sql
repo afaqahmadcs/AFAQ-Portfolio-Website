@@ -223,3 +223,11 @@ $$;
 -- Grant execution permission for RPC to both public (anon) and authenticated users
 GRANT EXECUTE ON FUNCTION public.submit_client_review TO anon, authenticated;
 GRANT EXECUTE ON FUNCTION public.is_admin TO anon, authenticated;
+
+-- 7. Grant schema & table permissions to anon and authenticated roles
+-- Note: Row Level Security (RLS) policies above strictly enforce row-level access control!
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+GRANT SELECT, INSERT ON public.reviews TO anon, authenticated;
+GRANT UPDATE, DELETE ON public.reviews TO authenticated;
+GRANT SELECT ON public.admin_users TO authenticated;
+
