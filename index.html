@@ -91,157 +91,306 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════
-     HERO SECTION
+     BENTO GRID HERO SECTION
 ════════════════════════════════════════════════════ -->
-<section class="hero" id="hero">
+<section class="hero bento-hero" id="hero">
   <div class="hero-bg">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-blob" aria-hidden="true"></div>
     <div class="hero-blob" aria-hidden="true"></div>
   </div>
   <div class="container">
-    <div class="hero-inner">
-      <!-- Left: Text Content -->
-      <div class="hero-content">
-        <div class="hero-status" role="status">
-          <span class="status-dot"></span>
-          Available for freelance projects &amp; junior roles
-        </div>
-        <p class="hero-greet">Hi, I'm</p>
-        <h1 class="hero-name"><span class="grad-txt">AFAQ AHMAD</span></h1>
-        <p class="hero-title">Web Developer &amp; CS Student</p>
-        <p class="hero-bio">
-          I build websites that make sense for the people using them. Based in Peshawar, I focus on responsive interfaces, solid frontend foundations, and shipping real projects as I grow toward full-stack development.
-        </p>
-        <div class="hero-cta">
-          <a href="projects.html" class="btn btn--primary btn--lg">View Projects</a>
-          <a href="contact.html" class="btn btn--secondary btn--lg">Get in Touch</a>
-          <a href="resume.html" class="btn btn--ghost btn--lg">Download Resume</a>
-        </div>
-        <div class="hero-socials">
-          <span style="font-size:.75rem;color:var(--fg3);font-weight:600;letter-spacing:.08em;text-transform:uppercase;">Connect</span>
-          <div class="hero-div"></div>
-          <a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener noreferrer" class="hero-soc" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener noreferrer" class="hero-soc" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          </a>
-        </div>
-      </div>
-      <!-- Right: Visual -->
-      <div class="hero-visual">
-        <div class="hero-frame">
-          <div class="hero-photo" style="background:var(--bg3);border-radius:var(--r2xl);max-width:420px;aspect-ratio:1/1;overflow:hidden;box-shadow:var(--shlg);">
-            <img
-              src="./assets/images/Frot page.png"
-              alt="Afaq Ahmad — Web Developer &amp; CS Student"
-              width="420"
-              height="420"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
-            />
+    <div class="bento-grid">
+      <!-- 1. Dominant Intro Card (8 cols) -->
+      <article class="bento-card bento-card--intro" aria-label="Introduction">
+        <div>
+          <div class="bento-card-header">
+            <span class="bento-eyebrow">
+              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Peshawar, Pakistan · Web Developer &amp; CS Student
+            </span>
+            <span class="bento-badge">
+              <span class="status-dot"></span>
+              Available for freelance &amp; junior roles
+            </span>
           </div>
-          <div class="hero-glow"></div>
+          <h1 class="bento-headline">
+            I build websites that <span class="grad-txt">make sense</span> for the people using them.
+          </h1>
+          <p class="bento-narrative">
+            I'm Afaq Ahmad, a Computer Science student at Superior College and web developer training at SMIT in Peshawar. I specialize in responsive, accessible interfaces built with clean vanilla HTML, CSS, and modern JavaScript—focusing on speed, clarity, and practical business utility as I expand into backend development.
+          </p>
         </div>
-      </div>
+        <div class="bento-actions">
+          <a href="projects.html" class="btn btn--primary btn--md">View my work →</a>
+          <a href="contact.html" class="btn btn--secondary btn--md">Get in touch</a>
+          <a href="resume.html" class="btn btn--ghost btn--md">View Résumé</a>
+          <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener noreferrer" class="bento-badge" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/afaqahmadcs/" target="_blank" rel="noopener noreferrer" class="bento-badge" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. Portrait / Identity Card (4 cols) -->
+      <article class="bento-card bento-card--portrait" aria-label="Afaq Ahmad photograph">
+        <img
+          src="./assets/images/Frot page.png"
+          alt="Afaq Ahmad — Web Developer &amp; CS Student in Peshawar"
+          class="bento-portrait-img"
+          width="420"
+          height="420"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="bento-portrait-overlay">
+          <span class="bento-portrait-name">Afaq Ahmad</span>
+          <span class="bento-portrait-title">Frontend Builder · SMIT Backend Trainee</span>
+        </div>
+      </article>
+
+      <!-- 3. Location & Live Time Card (4 cols) -->
+      <article class="bento-card bento-card--time" aria-label="Current local time in Peshawar, Pakistan">
+        <div class="bento-card-header">
+          <span class="bento-eyebrow">
+            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Peshawar, Pakistan
+          </span>
+          <span class="bento-live-badge">
+            <span class="bento-pulse-dot" aria-hidden="true"></span>
+            Live Local Time
+          </span>
+        </div>
+        <div class="bento-time-display">
+          <span class="bento-time-val" id="bento-local-time">--:--:-- --</span>
+          <span class="bento-time-meta" id="bento-local-date">Peshawar, PK · Asia/Karachi (UTC+5)</span>
+        </div>
+        <p class="bento-card-note">
+          Working in Pakistan Standard Time (Asia/Karachi). Tabular-clock updates with zero layout shift.
+        </p>
+      </article>
+
+      <!-- 4. Current Focus Card (4 cols) -->
+      <article class="bento-card bento-card--focus" aria-label="Current technical focus and learning">
+        <div class="bento-card-header">
+          <span class="bento-eyebrow">Active Direction</span>
+          <span class="bento-badge">Q4 2026</span>
+        </div>
+        <h2 class="bento-card-title">Current Focus</h2>
+        <ul class="bento-focus-list">
+          <li class="bento-focus-item">
+            <span class="bento-marker" aria-hidden="true"></span>
+            <div class="bento-focus-text">
+              <strong>Backend Fundamentals:</strong> Learning Node.js, Express, MongoDB, and RESTful APIs at SMIT.
+            </div>
+          </li>
+          <li class="bento-focus-item">
+            <span class="bento-marker" aria-hidden="true"></span>
+            <div class="bento-focus-text">
+              <strong>Frontend Craft:</strong> Strengthening semantic HTML, CSS Grid architectures, and DOM-driven JavaScript.
+            </div>
+          </li>
+          <li class="bento-focus-item">
+            <span class="bento-marker" aria-hidden="true"></span>
+            <div class="bento-focus-text">
+              <strong>Real-World Application:</strong> Building and shipping practical website solutions for real clients and users.
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- 5. Academic & Practical Context Card (4 cols) -->
+      <article class="bento-card bento-card--personal" aria-label="Education and academic context">
+        <div class="bento-card-header">
+          <span class="bento-eyebrow">Education &amp; Training</span>
+          <span class="bento-badge">Peshawar</span>
+        </div>
+        <h2 class="bento-card-title">Theory &amp; Code</h2>
+        <p class="bento-prose">
+          Balancing FSc Computer Science studies with structured evening web development training at SMIT. My objective is to connect fundamental computer science concepts with the practical discipline of writing clean, shippable web software.
+        </p>
+        <div class="bento-edu-meta">
+          <div class="bento-edu-line">
+            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+            <span><strong>FSc Computer Science:</strong> Superior College (2025–Present)</span>
+          </div>
+          <div class="bento-edu-line">
+            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span><strong>Web &amp; App Development:</strong> SMIT Peshawar (2026–Present)</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Build Principles Card (6 cols) -->
+      <article class="bento-card bento-card--principles" aria-label="Build principles and standards">
+        <div class="bento-card-header">
+          <span class="bento-eyebrow">Standards &amp; Approach</span>
+          <span class="bento-badge">How I Approach a Build</span>
+        </div>
+        <h2 class="bento-card-title">What I Pay Attention To</h2>
+        <div class="bento-principles-grid">
+          <div class="bento-principle-item">
+            <div class="bento-principle-head">
+              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              <span>Responsive by Default</span>
+            </div>
+            <p class="bento-principle-desc">Layouts designed to adapt gracefully from 360px phones to wide desktop viewports without broken overflow.</p>
+          </div>
+          <div class="bento-principle-item">
+            <div class="bento-principle-head">
+              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+              <span>Accessible &amp; Clear</span>
+            </div>
+            <p class="bento-principle-desc">Semantic HTML markup, deliberate color contrast, and keyboard navigation as standard practice.</p>
+          </div>
+          <div class="bento-principle-item">
+            <div class="bento-principle-head">
+              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>Performance First</span>
+            </div>
+            <p class="bento-principle-desc">Clean vanilla HTML, CSS, and JS implementations without heavy framework overhead or unnecessary assets.</p>
+          </div>
+          <div class="bento-principle-item">
+            <div class="bento-principle-head">
+              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span>Honest Communication</span>
+            </div>
+            <p class="bento-principle-desc">Transparent discussions on project scope, delivery timelines, and technical boundaries.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Tech Stack Card (6 cols) -->
+      <article class="bento-card bento-card--stack" aria-label="Technical stack and learning trajectory">
+        <div class="bento-card-header">
+          <span class="bento-eyebrow">Technical Grounding</span>
+          <span class="bento-badge">Demonstrated vs Learning</span>
+        </div>
+        <h2 class="bento-card-title">Tech Stack &amp; Trajectory</h2>
+        <div class="bento-stack-groups">
+          <div class="bento-stack-group">
+            <span class="bento-stack-label">Building with (Demonstrated)</span>
+            <div class="bento-stack-tags">
+              <span class="bento-tag bento-tag--brand">HTML5</span>
+              <span class="bento-tag bento-tag--brand">CSS3 (Grid / Flexbox)</span>
+              <span class="bento-tag bento-tag--brand">JavaScript (ES6+)</span>
+              <span class="bento-tag bento-tag--brand">Responsive UI</span>
+              <span class="bento-tag">Git &amp; GitHub</span>
+              <span class="bento-tag">Chrome DevTools</span>
+            </div>
+          </div>
+          <div class="bento-stack-group">
+            <span class="bento-stack-label">Learning now (SMIT Coursework)</span>
+            <div class="bento-stack-tags">
+              <span class="bento-tag bento-tag--learning">Node.js</span>
+              <span class="bento-tag bento-tag--learning">Express.js</span>
+              <span class="bento-tag bento-tag--learning">MongoDB Basics</span>
+              <span class="bento-tag bento-tag--learning">RESTful APIs</span>
+            </div>
+          </div>
+          <div class="bento-stack-group">
+            <span class="bento-stack-label">Exploring &amp; Next</span>
+            <div class="bento-stack-tags">
+              <span class="bento-tag">Practical AI API Integration</span>
+              <span class="bento-tag">Modern Web Tooling</span>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
-  </div>
-  <div class="hero-scroll" id="hero-scroll" aria-hidden="true">
-    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-    <span>Scroll down</span>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════
-     STATS
-════════════════════════════════════════════════════ -->
-<section class="stats">
-  <div class="container">
-    <div class="stats-grid stagger">
-      <div class="stat-card">
-        <div class="stat-icon">🚀</div>
-        <div class="stat-num grad-txt" data-target="5" data-suffix="+">5+</div>
-        <div class="stat-label">Completed Projects</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">⏱️</div>
-        <div class="stat-num grad-txt" data-target="6" data-suffix="+">6+</div>
-        <div class="stat-label">Months Active Coding</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">📁</div>
-        <div class="stat-num grad-txt" data-target="14" data-suffix="+">14+</div>
-        <div class="stat-label">GitHub Repositories</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🎓</div>
-        <div class="stat-num grad-txt" style="font-size:1.6rem">SMIT</div>
-        <div class="stat-label">Web &amp; App Trainee</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════
-     ABOUT PREVIEW
+     ABOUT EDITORIAL SECTION
 ════════════════════════════════════════════════════ -->
 <section class="section" id="about-prev">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-img reveal left">
-        <!-- Profile Image -->
-        <div style="width:100%;height:100%;min-height:420px;overflow:hidden;border-radius:inherit;background:var(--bg3);">
-          <img
-            src="./assets/images/ChatGPT Image Jul 26, 2026, 12_46_55 PM.png"
-            alt="Afaq Ahmad — Web Developer &amp; CS Student"
-            width="420"
-            height="420"
-            loading="lazy"
-            decoding="async"
-            style="
-              width:100%;
-              height:100%;
-              min-height:420px;
-              object-fit:cover;
-              object-position:top center;
-              display:block;
-            "
-          >
-        </div>
-      </div>
-      <div class="about-text reveal up">
-        <div>
-          <div class="section__tag">Background</div>
-          <h2 class="section__title" style="text-align:left;margin-bottom:var(--s4)">Learning by Building, Debugging, and Shipping</h2>
-          <p style="color:var(--fg2);line-height:var(--lhr);margin-bottom:var(--s5)">
-            My progress has come from building, getting stuck, and figuring things out one problem at a time. I'm an FSc Computer Science student at Superior College and enrolled in Web &amp; App Development at SMIT in Peshawar. Over the past six months, I've focused on solid frontend foundations—writing clean HTML, understanding CSS layouts, and working through JavaScript logic. Now, I'm beginning backend coursework to understand what it takes to build beyond the browser.
+    <div class="section__hd reveal up">
+      <div class="section__tag">Background &amp; Approach</div>
+      <h2 class="section__title">From Academic Foundations to Real-World Shipping</h2>
+      <p class="section__sub">A transparent look at how I learn, build, and work through problems.</p>
+    </div>
+
+    <div class="about-editorial-grid">
+      <!-- Left: Narrative & Context -->
+      <div class="about-editorial-col reveal left">
+        <div class="about-editorial-prose">
+          <p>
+            My journey in web development began with writing basic HTML on a smartphone code editor before saving up to purchase my own laptop. That constraint taught me early on to appreciate clean structure and efficient code over flashy shortcuts.
+          </p>
+          <p>
+            Over the past six months at Saylani Mass IT Training (SMIT), I have paired daily practice with structured coursework—progressing from styling layouts with CSS Grid to handling application state and API requests in vanilla JavaScript. Building the client website for <em>Blue Sapphire Gem Stones</em> grounded that learning into real business needs: managing image assets, creating clean product displays, and routing customer leads directly to WhatsApp.
+          </p>
+          <p>
+            Studying Computer Science at Superior College complements my coding with theoretical foundations in algorithms and logic. I am currently beginning backend studies to understand server-side architecture and data flow beyond the client.
           </p>
         </div>
-        <div class="chips">
-          <span class="chip">🎓 FSc Computer Science</span>
-          <span class="chip">📍 Peshawar, Pakistan</span>
-          <span class="chip">💻 SMIT Web Trainee</span>
-          <span class="chip">🛠️ HTML5 · CSS3 · Vanilla JS</span>
-          <span class="chip">🌱 Learning Backend</span>
+
+        <div class="about-editorial-badges">
+          <span class="about-editorial-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+            Superior College (FSc CS)
+          </span>
+          <span class="about-editorial-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            SMIT Peshawar Trainee
+          </span>
+          <span class="about-editorial-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Vanilla Implementation
+          </span>
+          <span class="about-editorial-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            Active Backend Learning
+          </span>
         </div>
-        <div class="tl-mini">
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-yr">2026–Present</div>
-            <div class="tl-ttl">Web &amp; App Development</div>
-            <div class="tl-dsc">Saylani Mass IT Training (SMIT), Peshawar</div>
+
+        <div style="margin-top:var(--s4)">
+          <a href="about.html" class="btn btn--primary">Read My Full Journey &amp; Story →</a>
+        </div>
+      </div>
+
+      <!-- Right: Milestone Chapters -->
+      <div class="about-editorial-col reveal right">
+        <div class="about-milestones">
+          <div class="about-milestone-card">
+            <span class="about-milestone-num">01</span>
+            <div class="about-milestone-content">
+              <h3 class="about-milestone-title">Frontend Foundations &amp; Responsive Layouts</h3>
+              <p class="about-milestone-desc">Mastering semantic HTML5 and modern CSS3 (Flexbox &amp; CSS Grid) to build resilient layouts without relying on heavy frameworks.</p>
+            </div>
           </div>
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-yr">2025–Present</div>
-            <div class="tl-ttl">FSc Computer Science</div>
-            <div class="tl-dsc">The Superior Group of Colleges, Peshawar</div>
+
+          <div class="about-milestone-card">
+            <span class="about-milestone-num">02</span>
+            <div class="about-milestone-content">
+              <h3 class="about-milestone-title">DOM Manipulation &amp; Logic (JavaScript)</h3>
+              <p class="about-milestone-desc">Six months of structured JavaScript coursework at SMIT: managing events, array algorithms, asynchronous fetch calls, and client-side state.</p>
+            </div>
+          </div>
+
+          <div class="about-milestone-card">
+            <span class="about-milestone-num">03</span>
+            <div class="about-milestone-content">
+              <h3 class="about-milestone-title">Real Client Shipping (Blue Sapphire Gem Stones)</h3>
+              <p class="about-milestone-desc">Delivering an active commercial showcase site with responsive product catalogs, optimized gemstone photography, and direct WhatsApp customer inquiries.</p>
+            </div>
+          </div>
+
+          <div class="about-milestone-card">
+            <span class="about-milestone-num">04</span>
+            <div class="about-milestone-content">
+              <h3 class="about-milestone-title">Backend Expansion (SMIT Coursework)</h3>
+              <p class="about-milestone-desc">Stepping beyond the browser: currently studying Node.js, Express, MongoDB, and REST API design to build full-stack web applications.</p>
+            </div>
           </div>
         </div>
-        <div><a href="about.html" class="btn btn--primary">Read My Full Story →</a></div>
       </div>
     </div>
   </div>
@@ -252,7 +401,6 @@
 ════════════════════════════════════════════════════ -->
 <section class="section" id="projects-feat" style="background:var(--bg2)">
   <div class="container">
-    <div class="section__hd reveal up">
     <div class="section__hd reveal up">
       <div class="section__tag">Selected Work</div>
       <h2 class="section__title">Recent Projects &amp; Practice</h2>

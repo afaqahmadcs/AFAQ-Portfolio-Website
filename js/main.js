@@ -678,3 +678,72 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   fetchRepos();
 })();
+
+/* ================================================================
+   12. PESHAWAR LOCAL TIME (Bento Card Live Clock)
+   Uses Intl.DateTimeFormat with IANA timezone 'Asia/Karachi'.
+   No geolocation, tabular numbers, rAF/visibility cleanup, zero layout shift.
+   ================================================================ */
+(function initLocalTime() {
+  const timeEl = document.getElementById('bento-local-time');
+  const dateEl = document.getElementById('bento-local-date');
+  if (!timeEl) return;
+
+  let timeFormatter;
+  let dateFormatter;
+
+  try {
+    timeFormatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Karachi',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+
+    dateFormatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Karachi',
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric'
+    });
+  } catch (err) {
+    // If Intl or Asia/Karachi timezone is unsupported, preserve HTML fallback
+    return;
+  }
+
+  function update() {
+    try {
+      const now = new Date();
+      timeEl.textContent = timeFormatter.format(now);
+      if (dateEl) {
+        dateEl.textContent = `${dateFormatter.format(now)} · PKT (UTC+5)`;
+      }
+    } catch (e) {
+      // Keep static markup intact
+    }
+  }
+
+  update();
+  let timerId = setInterval(update, 1000);
+
+  // Pause interval when user switches tabs to save CPU/battery, resume immediately on return
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+    } else {
+      update();
+      if (!timerId) {
+        timerId = setInterval(update, 1000);
+      }
+    }
+  });
+
+  window.addEventListener('beforeunload', () => {
+    if (timerId) clearInterval(timerId);
+  });
+})();
+
