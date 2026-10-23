@@ -137,8 +137,8 @@
         
         <div class="admin-setup-hint">
           <p class="text-xs">To grant this account administrative rights, run this SQL statement in your Supabase SQL Editor:</p>
-          <pre><code id="admin-grant-sql">INSERT INTO public.admin_users (user_id, role)
-VALUES ('<span id="unauth-user-id">YOUR-USER-UUID</span>', 'admin')
+          <pre><code id="admin-grant-sql">INSERT INTO public.admin_users (user_id)
+VALUES ('<span id="unauth-user-id">YOUR-USER-UUID</span>')
 ON CONFLICT (user_id) DO NOTHING;</code></pre>
         </div>
 

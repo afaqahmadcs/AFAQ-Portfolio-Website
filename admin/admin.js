@@ -187,11 +187,11 @@
     try {
       const { data, error } = await supabaseClient
         .from('admin_users')
-        .select('role')
+        .select('user_id')
         .eq('user_id', userId)
         .maybeSingle();
 
-      if (!error && data && data.role === 'admin') {
+      if (!error && data && data.user_id) {
         return true;
       }
     } catch (_) {}
