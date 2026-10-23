@@ -22,9 +22,77 @@
   <link rel="stylesheet" href="css/tokens.css"/>
   <link rel="stylesheet" href="css/main.css"/>
   <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/intro.css"/>
   <meta name="google-site-verification" content="Y3Ne6oOPcDv4czMkCWoOGI-kegAgsi-O6K3cbX9wllg" />
 </head>
 <body>
+<!-- ═══════════════════════════════════════════════════
+     CINEMATIC DEVELOPER INTRO & PRELOADER
+════════════════════════════════════════════════════ -->
+<aside id="portfolio-intro" role="dialog" aria-modal="true" aria-label="Developer Portfolio Intro Animation">
+  <!-- Dual Shutter Curtains for Cinematic Split -->
+  <div class="intro-shutter intro-shutter--top" aria-hidden="true"></div>
+  <div class="intro-shutter intro-shutter--bottom" aria-hidden="true"></div>
+
+  <!-- 3D Starfield & Shockwave Particle Canvas -->
+  <canvas id="intro-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating HUD Controls -->
+  <div class="intro-hud">
+    <button id="intro-sound" class="intro-sound-btn" aria-label="Toggle sound" title="Sound On / Off">
+      <svg viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+    </button>
+    <button id="intro-skip" class="intro-skip-btn" aria-label="Skip intro animation">
+      <span>Skip</span>
+      <span aria-hidden="true">✕</span>
+    </button>
+  </div>
+
+  <!-- Main Visual Stage -->
+  <div class="intro-content">
+    <!-- Phase 1: Glowing Core Orb -->
+    <div class="intro-core-wrap" aria-hidden="true">
+      <div id="intro-core-dot" class="intro-core-dot"></div>
+      <div class="intro-core-ring"></div>
+    </div>
+
+    <!-- Phase 2 & 3: Kinetic Stage -->
+    <div class="intro-letters-stage">
+      <!-- Developer Name (Kinetic Magnetic Snap) -->
+      <div id="intro-name-wrap" class="intro-name-wrapper" aria-label="Afaq Ahmad">
+        <span class="intro-letter">A</span>
+        <span class="intro-letter">F</span>
+        <span class="intro-letter">A</span>
+        <span class="intro-letter">Q</span>
+        <span class="intro-space"></span>
+        <span class="intro-letter">A</span>
+        <span class="intro-letter">H</span>
+        <span class="intro-letter">M</span>
+        <span class="intro-letter">A</span>
+        <span class="intro-letter">D</span>
+      </div>
+
+      <!-- Morphs to "PORTFOLIO" with Badges -->
+      <div id="intro-portfolio-wrap" class="intro-portfolio-wrapper">
+        <h1 class="intro-portfolio-title">PORTFOLIO</h1>
+        <div class="intro-meta-box">
+          <span class="intro-tag">
+            <span class="intro-tag-dot" aria-hidden="true"></span>
+            Frontend Engineer &amp; CS
+          </span>
+          <span class="intro-role-text">Peshawar, Pakistan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Progress Bar & Hint -->
+  <div class="intro-progress-bar" aria-hidden="true">
+    <div id="intro-progress-fill" class="intro-progress-fill"></div>
+  </div>
+  <div class="intro-bottom-hint" aria-hidden="true">Press [ESC] or [SPACE] to Skip</div>
+</aside>
+
 <!-- Scroll Progress -->
 <div id="scroll-progress" aria-hidden="true"></div>
 <header role="banner">
@@ -45,6 +113,10 @@
     <li><a href="resume.html">Resume</a></li>
   </ul>
   <div class="nav-actions">
+    <button class="nav-replay-intro" onclick="window.replayIntro()" title="Replay Entrance Animation" aria-label="Replay intro animation">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>Intro</span>
+    </button>
     <button class="nav-icon" id="theme-btn" aria-label="Toggle theme">
       <svg id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       <svg id="ic-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -1200,6 +1272,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase-config.js"></script>
+<script src="js/intro.js"></script>
 <script src="js/main.js"></script>
 <script src="js/reviews.js"></script>
 </body>

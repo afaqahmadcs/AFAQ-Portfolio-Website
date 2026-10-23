@@ -1,0 +1,482 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CINEMATIC DEVELOPER INTRO & ENTRANCE ANIMATION
+   Client: Afaq Ahmad Portfolio (Peshawar, Pakistan)
+   Palette: Deep Ink #171C1B | Warm Ivory #F4F1E8 | Forest Teal #477568
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --intro-bg: #0c100f;
+  --intro-deep: #171c1b;
+  --intro-ivory: #f4f1e8;
+  --intro-teal: #477568;
+  --intro-teal-glow: #5ca392;
+  --intro-amber: #d5a65a;
+  --intro-sage: #89938d;
+}
+
+/* Fullscreen Overlay Container */
+#portfolio-intro {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 999999;
+  background: var(--intro-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+}
+
+/* Dismissed / Hidden State */
+#portfolio-intro.intro-dismissed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Shutter Curtain Split (Cinematic Exit) */
+#portfolio-intro .intro-shutter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50.5%;
+  background: radial-gradient(circle at 50% 50%, #171c1b 0%, #0a0d0c 100%);
+  z-index: 1;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+#portfolio-intro .intro-shutter--top {
+  top: 0;
+  transform-origin: top center;
+  border-bottom: 1px solid rgba(71, 117, 104, 0.25);
+}
+
+#portfolio-intro .intro-shutter--bottom {
+  bottom: 0;
+  transform-origin: bottom center;
+  border-top: 1px solid rgba(71, 117, 104, 0.25);
+}
+
+#portfolio-intro.intro-opening .intro-shutter--top {
+  transform: translateY(-102%);
+}
+
+#portfolio-intro.intro-opening .intro-shutter--bottom {
+  transform: translateY(102%);
+}
+
+#portfolio-intro.intro-opening .intro-content {
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background Canvas for Starfield & Shockwave */
+#intro-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Central Stage Content */
+.intro-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1.5rem;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PHASE 1: THE CORE (GLOWING ORB)
+   ───────────────────────────────────────────────────────────────────────── */
+.intro-core-wrap {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.intro-core-dot {
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow:
+    0 0 12px 2px #ffffff,
+    0 0 24px 6px rgba(71, 117, 104, 0.9),
+    0 0 48px 12px rgba(92, 163, 146, 0.6),
+    0 0 80px 24px rgba(213, 166, 90, 0.35);
+  animation: introCorePulse 1.8s ease-in-out infinite;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+}
+
+.intro-core-ring {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px dashed rgba(244, 241, 232, 0.4);
+  animation: introCoreSpin 8s linear infinite;
+}
+
+@keyframes introCorePulse {
+  0%, 100% {
+    transform: scale(0.9);
+    box-shadow:
+      0 0 10px 2px #ffffff,
+      0 0 20px 4px rgba(71, 117, 104, 0.8),
+      0 0 40px 8px rgba(92, 163, 146, 0.4);
+  }
+  50% {
+    transform: scale(1.25);
+    box-shadow:
+      0 0 18px 4px #ffffff,
+      0 0 32px 8px rgba(71, 117, 104, 1),
+      0 0 65px 16px rgba(92, 163, 146, 0.7),
+      0 0 100px 30px rgba(213, 166, 90, 0.5);
+  }
+}
+
+@keyframes introCoreSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PHASE 2: KINETIC LETTER PARTICLES & SNAP
+   ───────────────────────────────────────────────────────────────────────── */
+.intro-letters-stage {
+  position: relative;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.intro-name-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.08em;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-name-wrapper.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.intro-name-wrapper.is-hidden {
+  opacity: 0;
+  transform: scale(1.15);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.intro-letter {
+  display: inline-block;
+  font-size: clamp(2.8rem, 8vw, 6.4rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--intro-ivory);
+  background: linear-gradient(135deg, #ffffff 0%, #f4f1e8 45%, #9fb6af 70%, #d5a65a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 20px rgba(71, 117, 104, 0.45));
+  will-change: transform, opacity;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.intro-space {
+  display: inline-block;
+  width: clamp(0.8rem, 2vw, 1.8rem);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PHASE 3: MORPH TO "PORTFOLIO"
+   ───────────────────────────────────────────────────────────────────────── */
+.intro-portfolio-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.9) translateY(10px);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.intro-portfolio-wrapper.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.intro-portfolio-title {
+  font-size: clamp(3rem, 9vw, 7.2rem);
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: linear-gradient(180deg, #ffffff 20%, #d7e0dd 50%, #477568 85%, #d5a65a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 30px rgba(71, 117, 104, 0.6)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.25));
+  margin: 0;
+  line-height: 1.1;
+  position: relative;
+}
+
+.intro-portfolio-title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 140%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+  transform: skewX(-25deg) translateX(-100%);
+  animation: introShine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes introShine {
+  0% { transform: skewX(-25deg) translateX(-120%); }
+  40%, 100% { transform: skewX(-25deg) translateX(120%); }
+}
+
+/* Sub-badges & Role description */
+.intro-meta-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 1rem;
+  margin-top: 1.25rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease 0.2s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.intro-portfolio-wrapper.is-visible .intro-meta-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(23, 28, 27, 0.7);
+  border: 1px solid rgba(71, 117, 104, 0.35);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.72rem, 1.4vw, 0.85rem);
+  font-weight: 500;
+  color: var(--intro-ivory);
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(10px);
+}
+
+.intro-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  animation: introDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes introDotPulse {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.intro-role-text {
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  color: var(--intro-sage);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FLOATING HUD CONTROLS (SKIP & AUDIO TOGGLE)
+   ───────────────────────────────────────────────────────────────────────── */
+.intro-hud {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.intro-skip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: rgba(23, 28, 27, 0.6);
+  border: 1px solid rgba(244, 241, 232, 0.2);
+  border-radius: 999px;
+  color: var(--intro-ivory);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.intro-skip-btn:hover,
+.intro-skip-btn:focus-visible {
+  background: rgba(71, 117, 104, 0.35);
+  border-color: var(--intro-teal-glow);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.intro-sound-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(23, 28, 27, 0.6);
+  border: 1px solid rgba(244, 241, 232, 0.2);
+  color: var(--intro-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.intro-sound-btn:hover {
+  background: rgba(71, 117, 104, 0.35);
+  border-color: var(--intro-teal-glow);
+}
+
+.intro-sound-btn svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+/* Progress bar along the very bottom of the intro */
+.intro-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(244, 241, 232, 0.08);
+  z-index: 15;
+}
+
+.intro-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #477568, #d5a65a, #5ca392);
+  transition: width 0.1s linear;
+}
+
+/* Hint text on bottom */
+.intro-bottom-hint {
+  position: absolute;
+  bottom: 1.25rem;
+  color: rgba(137, 147, 141, 0.6);
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* Navbar "Replay Intro" button styling */
+.nav-replay-intro {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 0.25rem;
+}
+
+.nav-replay-intro:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-subtle);
+}
+
+.nav-replay-intro svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   REDUCED MOTION ACCESSIBILITY
+   ───────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #portfolio-intro {
+    display: none !important;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+  .intro-hud {
+    top: 1rem;
+    right: 1rem;
+  }
+  .intro-letter {
+    letter-spacing: 0.06em;
+  }
+  .intro-portfolio-title {
+    letter-spacing: 0.14em;
+  }
+  .intro-bottom-hint {
+    display: none;
+  }
+}
