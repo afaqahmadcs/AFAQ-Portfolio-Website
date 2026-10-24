@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="visaBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1728"/>
+      <stop offset="50%" stop-color="#12243d"/>
+      <stop offset="100%" stop-color="#070f1c"/>
+    </linearGradient>
+    <linearGradient id="blueSecurity" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="greenVerified" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#visaBg)"/>
+  <circle cx="1050" cy="200" r="280" fill="#2563eb" opacity="0.12" filter="blur(80px)"/>
+  <circle cx="200" cy="580" r="220" fill="#10b981" opacity="0.08" filter="blur(70px)"/>
+
+  <!-- Top Gov Portal Header -->
+  <rect width="1200" height="72" fill="#08101d" opacity="0.95"/>
+  <line x1="0" y1="72" x2="1200" y2="72" stroke="rgba(255,255,255,0.08)"/>
+
+  <g transform="translate(60, 22)">
+    <rect width="32" height="32" rx="6" fill="url(#blueSecurity)"/>
+    <path d="M16 6 L25 10 V17 C25 22 16 26 16 26 C16 26 7 22 7 17 V10 Z" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <text x="44" y="22" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Official Document <tspan fill="#38bdf8">Authenticity Validator</tspan></text>
+  </g>
+
+  <g fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">
+    <text x="760" y="42">Public Inquiry</text>
+    <text x="860" y="42">QR Scanner</text>
+    <text x="965" y="42">Security Keys</text>
+  </g>
+  <rect x="1075" y="20" width="70" height="32" rx="4" fill="url(#blueSecurity)"/>
+  <text x="1110" y="41" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Verify</text>
+
+  <!-- Title / Introduction -->
+  <g transform="translate(60, 110)">
+    <text x="0" y="24" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">INTERNATIONAL VISA &amp; PASSPORT VALIDATION</text>
+    <text x="0" y="65" fill="#ffffff" font-family="system-ui, sans-serif" font-size="34" font-weight="800">Secure Document Authentication Portal</text>
+    <text x="0" y="98" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15">Cryptographically verifies document serial numbers, consular stamps, and biometric QR certificates.</text>
+  </g>
+
+  <!-- Certificate Verification Card Mockup -->
+  <g transform="translate(60, 240)">
+    <rect width="700" height="440" rx="12" fill="#0d1b2e" stroke="rgba(56,189,248,0.2)"/>
+    
+    <!-- Verified Header Banner -->
+    <rect x="0" y="0" width="700" height="60" rx="12" fill="url(#greenVerified)"/>
+    <rect x="0" y="40" width="700" height="20" fill="url(#greenVerified)"/>
+    
+    <g transform="translate(24, 18)">
+      <circle cx="12" cy="12" r="12" fill="#ffffff"/>
+      <path d="M7 12 L11 16 L17 8" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="36" y="17" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">DOCUMENT STATUS: AUTHENTIC &amp; ACTIVE</text>
+    </g>
+
+    <!-- Details Grid -->
+    <g transform="translate(32, 90)">
+      <!-- Item 1 -->
+      <text x="0" y="16" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="600">DOCUMENT PROTOCOL NO.</text>
+      <text x="0" y="38" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">BR-DPF-2026-98124401</text>
+
+      <!-- Item 2 -->
+      <text x="340" y="16" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="600">ISSUING AUTHORITY</text>
+      <text x="340" y="38" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Consular Immigration Division</text>
+
+      <line x1="0" y1="60" x2="636" y2="60" stroke="rgba(255,255,255,0.08)"/>
+
+      <!-- Item 3 -->
+      <text x="0" y="90" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="600">VALIDITY PERIOD</text>
+      <text x="0" y="112" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="15" font-weight="600">12 Oct 2026 – 12 Oct 2031</text>
+
+      <!-- Item 4 -->
+      <text x="340" y="90" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="600">SECURITY CHECKSUM</text>
+      <text x="340" y="112" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="13">SHA256: 7f8a9e...4c21b</text>
+
+      <line x1="0" y1="135" x2="636" y2="135" stroke="rgba(255,255,255,0.08)"/>
+
+      <!-- Item 5 -->
+      <text x="0" y="165" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="600">BIOMETRIC INTEGRITY</text>
+      <text x="0" y="187" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="600">100% Cryptographic Match Verified</text>
+    </g>
+
+    <!-- Digital Seal Stamp -->
+    <g transform="translate(530, 250)">
+      <circle cx="60" cy="60" r="54" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,3"/>
+      <circle cx="60" cy="60" r="46" fill="rgba(56,189,248,0.08)"/>
+      <text x="60" y="55" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">OFFICIAL</text>
+      <text x="60" y="70" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">VALIDATED</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Real-Time Scanner Status -->
+  <g transform="translate(790, 240)">
+    <rect width="350" height="440" rx="12" fill="#0d1b2e" stroke="rgba(255,255,255,0.06)"/>
+    <text x="24" y="38" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Audit &amp; Security Specs</text>
+
+    <g transform="translate(24, 70)">
+      <rect width="302" height="75" rx="8" fill="#08101d"/>
+      <text x="16" y="30" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="22" font-weight="800">256-Bit</text>
+      <text x="16" y="54" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">End-to-End SSL Encryption</text>
+    </g>
+
+    <g transform="translate(24, 160)">
+      <rect width="302" height="75" rx="8" fill="#08101d"/>
+      <text x="16" y="30" fill="#10b981" font-family="system-ui, sans-serif" font-size="22" font-weight="800">&lt; 150ms</text>
+      <text x="16" y="54" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Real-Time Validation Response</text>
+    </g>
+
+    <g transform="translate(24, 250)">
+      <rect width="302" height="150" rx="8" fill="#08101d"/>
+      <text x="16" y="30" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="600">Stack Architecture</text>
+      <text x="16" y="56" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Vanilla JavaScript ES6+,</text>
+      <text x="16" y="76" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">PDF Parser &amp; QR Matrix Decoders,</text>
+      <text x="16" y="96" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Zero Dependency Edge Hosting,</text>
+      <text x="16" y="116" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">WCAG 2.1 AA Accessibility Compliant.</text>
+    </g>
+  </g>
+</svg>

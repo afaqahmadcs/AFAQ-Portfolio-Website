@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="tfBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+    <linearGradient id="violetAcc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="cyanAcc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="cardGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(139,92,246,0.15)"/>
+      <stop offset="100%" stop-color="rgba(30,41,59,0.5)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#tfBg)"/>
+  <circle cx="1000" cy="180" r="280" fill="#6366f1" opacity="0.12" filter="blur(80px)"/>
+  <circle cx="200" cy="550" r="220" fill="#06b6d4" opacity="0.08" filter="blur(70px)"/>
+
+  <!-- Top Nav -->
+  <rect width="1200" height="72" fill="#060911" opacity="0.95"/>
+  <line x1="0" y1="72" x2="1200" y2="72" stroke="rgba(255,255,255,0.08)"/>
+
+  <g transform="translate(60, 22)">
+    <rect width="32" height="32" rx="8" fill="url(#violetAcc)"/>
+    <path d="M9 16 L14 21 L23 11" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="44" y="22" fill="#ffffff" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" font-weight="700">Afaq <tspan fill="#8b5cf6">TaskFlow</tspan></text>
+  </g>
+
+  <g fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">
+    <text x="760" y="42">Boards</text>
+    <text x="840" y="42">Analytics</text>
+    <text x="930" y="42">Sprint Planner</text>
+  </g>
+  <rect x="1050" y="20" width="95" height="32" rx="6" fill="url(#violetAcc)"/>
+  <text x="1097" y="41" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">+ New Task</text>
+
+  <!-- Main Content Layout: Kanban Board -->
+  <!-- Header Strip -->
+  <g transform="translate(60, 110)">
+    <text x="0" y="24" fill="#a78bfa" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">HIGH-PERFORMANCE PRODUCTIVITY</text>
+    <text x="0" y="65" fill="#ffffff" font-family="system-ui, sans-serif" font-size="34" font-weight="800">Sprint Execution &amp; Task Pipeline</text>
+    <text x="0" y="98" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15">Full-featured task management suite with priority tags, status filtering, and local storage state.</text>
+  </g>
+
+  <!-- 3 Kanban Columns -->
+  <!-- Column 1: In Progress -->
+  <g transform="translate(60, 240)">
+    <rect width="340" height="450" rx="12" fill="#0f172a" stroke="rgba(255,255,255,0.06)"/>
+    <circle cx="24" cy="28" r="5" fill="#f59e0b"/>
+    <text x="40" y="32" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">In Progress</text>
+    <rect x="290" y="18" width="28" height="20" rx="10" fill="rgba(245,158,11,0.2)"/>
+    <text x="304" y="32" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">3</text>
+
+    <!-- Card 1 -->
+    <rect x="16" y="55" width="308" height="115" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="28" y="72" width="60" height="18" rx="4" fill="rgba(139,92,246,0.2)"/>
+    <text x="34" y="85" fill="#c4b5fd" font-family="system-ui, sans-serif" font-size="10" font-weight="700">FRONTEND</text>
+    <text x="28" y="112" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="600">TypeScript API Integration</text>
+    <line x1="28" y1="130" x2="280" y2="130" stroke="rgba(255,255,255,0.06)"/>
+    <text x="28" y="152" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Priority: High · Due Today</text>
+
+    <!-- Card 2 -->
+    <rect x="16" y="185" width="308" height="115" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="28" y="202" width="55" height="18" rx="4" fill="rgba(6,182,212,0.2)"/>
+    <text x="34" y="215" fill="#67e8f9" font-family="system-ui, sans-serif" font-size="10" font-weight="700">DATABASE</text>
+    <text x="28" y="242" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="600">Supabase Schema &amp; Triggers</text>
+    <line x1="28" y1="260" x2="280" y2="260" stroke="rgba(255,255,255,0.06)"/>
+    <text x="28" y="282" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Priority: Medium · Due Oct 26</text>
+  </g>
+
+  <!-- Column 2: Completed -->
+  <g transform="translate(430, 240)">
+    <rect width="340" height="450" rx="12" fill="#0f172a" stroke="rgba(255,255,255,0.06)"/>
+    <circle cx="24" cy="28" r="5" fill="#10b981"/>
+    <text x="40" y="32" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Completed</text>
+    <rect x="290" y="18" width="28" height="20" rx="10" fill="rgba(16,185,129,0.2)"/>
+    <text x="304" y="32" fill="#10b981" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">5</text>
+
+    <!-- Card 1 -->
+    <rect x="16" y="55" width="308" height="115" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="28" y="72" width="50" height="18" rx="4" fill="rgba(16,185,129,0.2)"/>
+    <text x="34" y="85" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="10" font-weight="700">DEPLOY</text>
+    <text x="28" y="112" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="600">Vercel Production Release</text>
+    <line x1="28" y1="130" x2="280" y2="130" stroke="rgba(255,255,255,0.06)"/>
+    <text x="28" y="152" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Verified Live · 100% Core Vitals</text>
+  </g>
+
+  <!-- Column 3: Stats & Metrics -->
+  <g transform="translate(800, 240)">
+    <rect width="340" height="450" rx="12" fill="url(#cardGlow)" stroke="rgba(139,92,246,0.3)"/>
+    <text x="24" y="36" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Sprint Analytics</text>
+    
+    <g transform="translate(24, 70)">
+      <rect width="135" height="90" rx="8" fill="#1e293b"/>
+      <text x="16" y="35" fill="#8b5cf6" font-family="system-ui, sans-serif" font-size="28" font-weight="800">94%</text>
+      <text x="16" y="62" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Completion Rate</text>
+    </g>
+
+    <g transform="translate(175, 70)">
+      <rect width="135" height="90" rx="8" fill="#1e293b"/>
+      <text x="16" y="35" fill="#06b6d4" font-family="system-ui, sans-serif" font-size="28" font-weight="800">0.4s</text>
+      <text x="16" y="62" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Sync Latency</text>
+    </g>
+
+    <g transform="translate(24, 180)">
+      <rect width="292" height="100" rx="8" fill="#1e293b"/>
+      <text x="16" y="32" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="600">TypeScript Architecture</text>
+      <text x="16" y="58" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Strict mode, Zero runtime dependencies,</text>
+      <text x="16" y="78" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Optimistic UI updates.</text>
+    </g>
+  </g>
+</svg>

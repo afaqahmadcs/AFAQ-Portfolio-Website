@@ -855,74 +855,146 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   function getRepoMeta(repo) {
     const name = (repo.name || '').toLowerCase();
+    
+    // 1. TaskFlow / Todo App
+    if (name.includes('todo') || name.includes('taskflow')) {
+      return {
+        image: 'assets/images/case-taskflow.svg',
+        urlDisplay: 'afaqtaskflow.vercel.app',
+        badge: 'Productivity Suite',
+        displayName: 'Afaq TaskFlow',
+        description: 'High-performance personal productivity suite with task pipelines, priority tags, and modern TypeScript UI.',
+        demoUrl: repo.homepage || 'https://afaqtaskflow.vercel.app'
+      };
+    }
+    // 2. StudyFlow AI Learning
+    if (name.includes('studyflow')) {
+      return {
+        image: 'assets/images/case-studyflow.svg',
+        urlDisplay: 'studyflow-afaq12.vercel.app',
+        badge: 'EdTech Platform',
+        displayName: 'StudyFlow AI Learning',
+        description: 'Smart student learning dashboard with adaptive spaced repetition, focus cycles, and course management.',
+        demoUrl: repo.homepage || 'https://studyflow-afaq12.vercel.app'
+      };
+    }
+    // 3. Visa & Document Authenticity Validator
+    if (name.includes('visa') || name.includes('document') || name.includes('verification') || name.includes('validator')) {
+      return {
+        image: 'assets/images/case-visa-validator.svg',
+        urlDisplay: 'servicosdpfgovbr.vercel.app',
+        badge: 'Security Portal',
+        displayName: 'Document Authenticity Validator',
+        description: 'Government visa and official document security verification portal with real-time biometric and cryptographic checks.',
+        demoUrl: repo.homepage || 'https://servicosdpfgovbr.vercel.app'
+      };
+    }
+    // 4. Ember & Grain Restaurant
+    if (name.includes('restaurant') || name.includes('ember') || name.includes('kitchen')) {
+      return {
+        image: 'assets/images/case-restaurant.svg',
+        urlDisplay: 'emberkitchen-omega.vercel.app',
+        badge: 'Culinary Showcase',
+        displayName: 'Ember & Grain Restaurant',
+        description: 'Gourmet culinary dining experience featuring artisanal menus, table booking system, and luxury dark theme.',
+        demoUrl: repo.homepage || 'https://emberkitchen-omega.vercel.app'
+      };
+    }
+    // 5. Full JavaScript Practice Suite
+    if (name.includes('practise') || name.includes('practice') || name.includes('assignment')) {
+      return {
+        image: 'assets/images/case-js-practise.svg',
+        urlDisplay: 'github.com/afaqahmadcs',
+        badge: 'Algorithms & DOM',
+        displayName: 'Full JavaScript Practice Suite',
+        description: 'Core JavaScript ES6+, Asynchronous patterns, Event Loop, DOM engineering, and algorithmic challenge drills.',
+        demoUrl: repo.html_url
+      };
+    }
+    // 6. Blue Sapphire Gem Stones
     if (name.includes('gemstone') || name.includes('sapphire')) {
       return {
         image: 'assets/images/case-blue-sapphire.jpg',
         urlDisplay: 'bluesapphiregemstones.com',
         badge: 'Verified Client',
         displayName: 'Blue Sapphire Gem Stones',
+        description: 'Blue Sapphire / Gemstone client website showcasing luxury gemstone collections with direct WhatsApp lead routing.',
         demoUrl: repo.homepage || 'https://www.bluesapphiregemstones.com/'
       };
     }
-    if (name.includes('portfolio')) {
+    // 7. Developer Portfolio
+    if (name.includes('portfolio') || name.includes('afaqahmad-portfolio') || name.includes('my-portfolio')) {
       return {
         image: 'assets/images/case-portfolio.jpg',
         urlDisplay: 'afaqahmadcs.vercel.app',
         badge: 'Live Portfolio',
         displayName: 'Personal Developer Portfolio',
+        description: 'Personal developer portfolio website featuring a clean, responsive layout, dark/light theme, and bento hero.',
         demoUrl: repo.homepage || 'https://afaqahmadcs.vercel.app'
       };
     }
+    // 8. Real Estate
     if (name.includes('estate') || name.includes('real')) {
       return {
         image: 'assets/images/case-real-estate.jpg',
         urlDisplay: 'primeestates.app',
         badge: 'Commercial UI',
         displayName: 'PrimeEstates Real Estate',
+        description: 'Modern real estate platform with curated property listings, clean navigation, and responsive design.',
         demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/'
       };
     }
+    // 9. Apex Motors
     if (name.includes('premium') || name.includes('apex')) {
       return {
         image: 'assets/images/case-apex-motors.jpg',
         urlDisplay: 'apexmotors.app',
         badge: 'Showcase UI',
         displayName: 'Apex Motors Dealership',
+        description: 'Premium automotive dealership website with a sophisticated dark theme and responsive vehicle catalog.',
         demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/'
       };
     }
+    // 10. Veloce Supercar Showroom
     if (name.includes('luxury') || name.includes('veloce') || name.includes('car')) {
       return {
         image: 'assets/images/case-veloce.jpg',
         urlDisplay: 'velocemotors.app',
         badge: 'Automotive UI',
         displayName: 'Veloce Supercar Showroom',
+        description: 'Elegant electric supercar automotive business website with a refined user interface.',
         demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/Luxury-Car-Business-Website/'
       };
     }
+    // 11. Nexora Labs Agency
     if (name.includes('business') || name.includes('nexora') || name.includes('agency')) {
       return {
         image: 'assets/images/case-nexora-labs.jpg',
         urlDisplay: 'nexoralabs.app',
         badge: 'Agency Platform',
         displayName: 'Nexora Labs Digital Agency',
+        description: 'Modern digital product agency and multi-section business website built with responsive layout principles.',
         demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/Business-Website/'
       };
     }
+    // 12. Client Engagement
     if (name.includes('client') || name.includes('international')) {
       return {
         image: 'assets/images/case-international.jpg',
         urlDisplay: 'client-engagement.app',
         badge: 'In Progress',
         displayName: 'International Client Engagement',
+        description: 'A confirmed international client opportunity focused on translating client requirements into lightweight UI.',
         demoUrl: repo.homepage || null
       };
     }
+    // Default fallback
     return {
-      image: repo.image || 'assets/images/case-nexora-labs.jpg',
+      image: repo.image || 'assets/images/case-portfolio.jpg',
       urlDisplay: repo.homepage ? repo.homepage.replace(/^https?:\/\//, '').replace(/\/$/, '') : (repo.name + '.git'),
       badge: 'Public Repo',
       displayName: repo.name.replace(/[-_]/g, ' '),
+      description: 'Modern web application built with clean architecture, responsive layout, and vanilla performance.',
       demoUrl: repo.homepage || null
     };
   }
@@ -977,6 +1049,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
       const updatedDate = formatDate(repo.pushed_at || repo.updated_at);
       const meta = getRepoMeta(repo);
       const targetUrl = meta.demoUrl || repo.html_url;
+      const displayDesc = repo.description || meta.description || 'Modern web application developed with clean code principles.';
 
       card.innerHTML = `
         <div class="gh-card-frame">
@@ -993,12 +1066,12 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
             <span class="gh-card-badge">${meta.badge}</span>
           </div>
           <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="gh-card-viewport" aria-label="View ${meta.displayName} preview">
-            <img src="${meta.image}" alt="${meta.displayName} repository preview mockup" width="600" height="375" loading="lazy" decoding="async" class="gh-card-thumb-img"/>
+            <img src="${meta.image}" alt="${meta.displayName} repository preview mockup" width="600" height="375" loading="lazy" decoding="async" class="gh-card-thumb-img" onerror="this.onerror=null;this.src='assets/images/case-portfolio.jpg';"/>
           </a>
         </div>
         <div class="gh-card-body">
           <div class="gh-card-head">
-            <h3 class="gh-card-title">${repo.name}</h3>
+            <h3 class="gh-card-title">${meta.displayName || repo.name}</h3>
             <div class="gh-card-stats">
               <span class="gh-stat" title="Stars">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -1010,7 +1083,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
               </span>
             </div>
           </div>
-          <p class="gh-card-desc">${repo.description || 'No description provided.'}</p>
+          <p class="gh-card-desc">${displayDesc}</p>
           <div class="gh-card-footer">
             <span class="gh-card-lang">
               <span class="gh-lang-dot ${langClass}"></span>
