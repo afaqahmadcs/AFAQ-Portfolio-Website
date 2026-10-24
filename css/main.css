@@ -204,10 +204,15 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 .about-milestones{display:flex;flex-direction:column;gap:var(--s3)}
 .about-milestone-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rlg);padding:var(--s5);display:flex;gap:var(--s4);align-items:flex-start;transition:border-color var(--tf),box-shadow var(--ts)}
 .about-milestone-card:hover{border-color:var(--bd2);box-shadow:var(--shsm)}
+.about-milestone-card--active{border-color:var(--brand-border);background:var(--bg2)}
 .about-milestone-num{font-family:var(--ffm);font-size:var(--xs);font-weight:var(--wb);color:var(--brand);background:var(--brandbg);padding:4px 8px;border-radius:var(--rsm);flex-shrink:0;line-height:1}
-.about-milestone-content{display:flex;flex-direction:column;gap:4px}
+.about-milestone-card--active .about-milestone-num{background:rgba(213,166,90,0.18);color:var(--acc-display);border:1px solid rgba(213,166,90,0.35)}
+.about-milestone-content{display:flex;flex-direction:column;gap:6px}
 .about-milestone-title{font-size:var(--base);font-weight:var(--ws);color:var(--fg)}
 .about-milestone-desc{font-size:var(--sm);color:var(--fg2);line-height:var(--lhn)}
+.about-status-tag{font-size:11px;font-weight:var(--wb);padding:2px 9px;border-radius:var(--rfull);letter-spacing:0.02em;line-height:1.4}
+.about-status-tag--done{background:var(--brandbg);color:var(--brand);border:1px solid var(--brand-border)}
+.about-status-tag--learning{background:rgba(213,166,90,0.18);color:var(--acc-display);border:1px solid rgba(213,166,90,0.35)}
 
 /* ── Featured Projects ──────────────────────────────────────────── */
 .pf{display:grid;grid-template-columns:1fr 1fr;gap:var(--s12);align-items:center;padding-block:var(--s12);border-bottom:1px solid var(--bd)}
