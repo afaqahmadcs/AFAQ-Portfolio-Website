@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="intBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111615"/>
+      <stop offset="50%" stop-color="#171C1B"/>
+      <stop offset="100%" stop-color="#0E1211"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5E9686"/>
+      <stop offset="100%" stop-color="#3B6358"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E5BA6E"/>
+      <stop offset="100%" stop-color="#C29342"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(244, 241, 232, 0.06)"/>
+      <stop offset="100%" stop-color="rgba(244, 241, 232, 0.02)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Ink Background -->
+  <rect width="1200" height="750" fill="url(#intBg)"/>
+
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.06" stroke="#F4F1E8" stroke-width="1">
+    <line x1="0" y1="72" x2="1200" y2="72"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="460" x2="1200" y2="460"/>
+    <line x1="280" y1="0" x2="280" y2="750"/>
+    <line x1="600" y1="0" x2="600" y2="750"/>
+    <line x1="920" y1="0" x2="920" y2="750"/>
+  </g>
+
+  <!-- Top App Chrome -->
+  <rect x="0" y="0" width="1200" height="64" fill="#0D1110" opacity="0.95"/>
+  <line x1="0" y1="64" x2="1200" y2="64" stroke="rgba(244, 241, 232, 0.08)" stroke-width="1"/>
+
+  <!-- Logo Mark & Title -->
+  <g transform="translate(60, 20)">
+    <rect width="24" height="24" rx="6" fill="url(#tealGrad)"/>
+    <text x="36" y="17" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" letter-spacing="1">CLIENT ENGAGEMENT</text>
+    <text x="215" y="17" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500">· International Web Development</text>
+  </g>
+
+  <!-- Status Pill in Chrome -->
+  <g transform="translate(980, 18)">
+    <rect width="160" height="28" rx="14" fill="rgba(213, 166, 90, 0.12)" stroke="rgba(213, 166, 90, 0.35)"/>
+    <circle cx="18" cy="14" r="4" fill="#E5BA6E"/>
+    <text x="30" y="18" fill="#E5BA6E" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">IN DEVELOPMENT</text>
+  </g>
+
+  <!-- Hero Banner Area -->
+  <g transform="translate(60, 100)">
+    <!-- Stage Pill -->
+    <rect x="0" y="0" width="220" height="26" rx="13" fill="rgba(71, 117, 104, 0.15)" stroke="rgba(71, 117, 104, 0.35)"/>
+    <text x="110" y="17" fill="#5E9686" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle" letter-spacing="1">CONFIRMED CLIENT MILESTONE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="65" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="700" letter-spacing="-0.5">International Client Web Platform</text>
+    <text x="0" y="98" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="15">Translating international client requirements into a lightweight, accessible, and responsive interface.</text>
+  </g>
+
+  <!-- Architecture Wireframe Layout (3 Mock Columns) -->
+  <g transform="translate(60, 240)">
+    <!-- Card 1: Layout & Semantic Hierarchy -->
+    <rect x="0" y="0" width="340" height="420" rx="16" fill="url(#cardGrad)" stroke="rgba(244, 241, 232, 0.08)"/>
+    <rect x="24" y="24" width="48" height="22" rx="11" fill="rgba(71, 117, 104, 0.2)"/>
+    <text x="48" y="39" fill="#5E9686" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" text-anchor="middle">MODULE 01</text>
+    <text x="24" y="75" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600">Frontend Structure</text>
+    <text x="24" y="100" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="12">Semantic HTML5 architecture with strict ARIA standards and fluid typography.</text>
+
+    <!-- Wireframe Lines -->
+    <rect x="24" y="130" width="292" height="14" rx="4" fill="rgba(244, 241, 232, 0.12)"/>
+    <rect x="24" y="154" width="220" height="10" rx="3" fill="rgba(244, 241, 232, 0.06)"/>
+    <rect x="24" y="172" width="260" height="10" rx="3" fill="rgba(244, 241, 232, 0.06)"/>
+    <rect x="24" y="200" width="292" height="180" rx="10" fill="#141918" stroke="rgba(71, 117, 104, 0.18)"/>
+    <!-- Wireframe elements inside -->
+    <rect x="40" y="220" width="80" height="12" rx="4" fill="url(#tealGrad)" opacity="0.8"/>
+    <rect x="40" y="244" width="160" height="8" rx="2" fill="rgba(244, 241, 232, 0.15)"/>
+    <rect x="40" y="260" width="200" height="8" rx="2" fill="rgba(244, 241, 232, 0.08)"/>
+    <rect x="40" y="280" width="120" height="32" rx="16" fill="rgba(244, 241, 232, 0.05)" stroke="rgba(244, 241, 232, 0.15)"/>
+    <text x="100" y="300" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Interactive State</text>
+
+    <!-- Card 2: Performance & Token Systems -->
+    <rect x="370" y="0" width="340" height="420" rx="16" fill="url(#cardGrad)" stroke="rgba(244, 241, 232, 0.08)"/>
+    <rect x="394" y="24" width="48" height="22" rx="11" fill="rgba(213, 166, 90, 0.2)"/>
+    <text x="418" y="39" fill="#E5BA6E" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" text-anchor="middle">MODULE 02</text>
+    <text x="394" y="75" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600">Cross-Device Adaptability</text>
+    <text x="394" y="100" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="12">Mobile-first layout design tokens tested across viewports with zero layout shift.</text>
+
+    <!-- Wireframe Grid -->
+    <g transform="translate(394, 130)">
+      <rect x="0" y="0" width="140" height="110" rx="8" fill="#141918" stroke="rgba(244, 241, 232, 0.06)"/>
+      <rect x="15" y="15" width="40" height="40" rx="8" fill="rgba(71, 117, 104, 0.2)"/>
+      <rect x="15" y="65" width="80" height="8" rx="2" fill="rgba(244, 241, 232, 0.15)"/>
+      <rect x="15" y="80" width="100" height="8" rx="2" fill="rgba(244, 241, 232, 0.06)"/>
+
+      <rect x="152" y="0" width="140" height="110" rx="8" fill="#141918" stroke="rgba(244, 241, 232, 0.06)"/>
+      <rect x="167" y="15" width="40" height="40" rx="8" fill="rgba(213, 166, 90, 0.2)"/>
+      <rect x="167" y="65" width="80" height="8" rx="2" fill="rgba(244, 241, 232, 0.15)"/>
+      <rect x="167" y="80" width="100" height="8" rx="2" fill="rgba(244, 241, 232, 0.06)"/>
+
+      <rect x="0" y="125" width="292" height="125" rx="8" fill="#141918" stroke="rgba(244, 241, 232, 0.06)"/>
+      <text x="20" y="160" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600">ENGINEERING PRINCIPLES</text>
+      <text x="20" y="185" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="12">✓ Zero framework runtime dependencies</text>
+      <text x="20" y="208" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="12">✓ Lightweight bundle &amp; fast asset loading</text>
+      <text x="20" y="231" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="12">✓ Documented git version control</text>
+    </g>
+
+    <!-- Card 3: Milestone & Privacy Notice -->
+    <rect x="740" y="0" width="340" height="420" rx="16" fill="url(#cardGrad)" stroke="rgba(244, 241, 232, 0.08)"/>
+    <rect x="764" y="24" width="48" height="22" rx="11" fill="rgba(71, 117, 104, 0.2)"/>
+    <text x="788" y="39" fill="#5E9686" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" text-anchor="middle">STATUS</text>
+    <text x="764" y="75" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600">Client Confidentiality</text>
+    <text x="764" y="100" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="12">Work is active in development. Full case study published after client approval.</text>
+
+    <!-- Lock & Privacy Graphic -->
+    <g transform="translate(764, 130)">
+      <rect x="0" y="0" width="292" height="250" rx="12" fill="#141918" stroke="rgba(244, 241, 232, 0.08)"/>
+      <circle cx="146" cy="70" r="32" fill="rgba(71, 117, 104, 0.15)"/>
+      <!-- Lock Icon -->
+      <path d="M141 62 V56 A5 5 0 0 1 151 56 V62 M138 62 H154 V74 H138 Z" fill="none" stroke="#5E9686" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="146" y="130" fill="#F4F1E8" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Protected Engagement</text>
+      <text x="146" y="155" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">Proprietary assets, live client URLs,</text>
+      <text x="146" y="173" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">and company brand identity remain</text>
+      <text x="146" y="191" fill="#89938D" font-family="system-ui, -apple-system, sans-serif" font-size="11" text-anchor="middle">confidential during active implementation.</text>
+
+      <rect x="46" y="210" width="200" height="26" rx="13" fill="rgba(244, 241, 232, 0.05)"/>
+      <text x="146" y="227" fill="#E5BA6E" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" text-anchor="middle">MILESTONE: IN PROGRESS</text>
+    </g>
+  </g>
+</svg>
