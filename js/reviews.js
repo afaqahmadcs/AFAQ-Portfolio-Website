@@ -69,11 +69,26 @@
   ];
 
   /**
+   * Helper: Get active Supabase configuration (config file or localStorage fallback)
+   */
+  function getEffectiveConfig() {
+    let url = (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url) || localStorage.getItem('aa_supabase_url') || '';
+    let anonKey = (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.anonKey) || localStorage.getItem('aa_supabase_anon_key') || '';
+
+    url = (typeof url === 'string') ? url.trim() : '';
+    anonKey = (typeof anonKey === 'string') ? anonKey.trim() : '';
+
+    if (url && anonKey && !url.includes('YOUR_PROJECT_ID')) {
+      return { url, anonKey };
+    }
+    return null;
+  }
+
+  /**
    * Helper: Check if Supabase configuration is present and configured
    */
   function isConfigured() {
-    const cfg = window.SUPABASE_CONFIG;
-    return !!(cfg && cfg.url && cfg.anonKey && !cfg.url.includes('YOUR_PROJECT_ID'));
+    return !!getEffectiveConfig();
   }
 
   /**
@@ -81,12 +96,13 @@
    */
   function getClient() {
     if (supabaseClient) return supabaseClient;
-    if (!isConfigured()) return null;
+    const cfg = getEffectiveConfig();
+    if (!cfg) return null;
 
     if (window.supabase && typeof window.supabase.createClient === 'function') {
       supabaseClient = window.supabase.createClient(
-        window.SUPABASE_CONFIG.url,
-        window.SUPABASE_CONFIG.anonKey
+        cfg.url,
+        cfg.anonKey
       );
       return supabaseClient;
     }
@@ -97,8 +113,9 @@
    * Direct REST fetch fallback if CDN is blocked or unavailable
    */
   async function restQuery(endpoint, options = {}) {
-    if (!isConfigured()) throw new Error('Supabase not configured');
-    const { url, anonKey } = window.SUPABASE_CONFIG;
+    const cfg = getEffectiveConfig();
+    if (!cfg) throw new Error('Supabase not configured');
+    const { url, anonKey } = cfg;
     const res = await fetch(`${url}/rest/v1/${endpoint}`, {
       ...options,
       headers: {

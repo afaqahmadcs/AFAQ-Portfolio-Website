@@ -97,15 +97,102 @@
     });
   }
 
-  /* ── 4. SUPABASE INITIALIZATION ───────────────────────────────── */
+  /* ── 4. SUPABASE INITIALIZATION & CONFIGURATION ──────────────── */
+  function getEffectiveConfig() {
+    let url = (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url) || localStorage.getItem('aa_supabase_url') || '';
+    let anonKey = (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.anonKey) || localStorage.getItem('aa_supabase_anon_key') || '';
+
+    url = (typeof url === 'string') ? url.trim() : '';
+    anonKey = (typeof anonKey === 'string') ? anonKey.trim() : '';
+
+    if (url && anonKey && !url.includes('YOUR_PROJECT_ID')) {
+      return {
+        url,
+        anonKey,
+        source: (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url) ? 'config-file' : 'local-storage'
+      };
+    }
+    return null;
+  }
+
+  function setupConnectForm() {
+    const connectBtn = $('#admin-connect-btn');
+    const connectUrlInput = $('#admin-connect-url');
+    const connectKeyInput = $('#admin-connect-key');
+
+    if (connectBtn && !connectBtn.dataset.bound) {
+      connectBtn.dataset.bound = 'true';
+
+      if (connectUrlInput && !connectUrlInput.value && localStorage.getItem('aa_supabase_url')) {
+        connectUrlInput.value = localStorage.getItem('aa_supabase_url');
+      }
+
+      connectBtn.addEventListener('click', () => {
+        const u = connectUrlInput ? connectUrlInput.value.trim() : '';
+        const k = connectKeyInput ? connectKeyInput.value.trim() : '';
+
+        if (!u || !k) {
+          showNotification('Please enter both Supabase Project URL and anon public key.', 'error');
+          return;
+        }
+
+        if (!u.startsWith('https://')) {
+          showNotification('Project URL must start with https://', 'error');
+          return;
+        }
+
+        localStorage.setItem('aa_supabase_url', u);
+        localStorage.setItem('aa_supabase_anon_key', k);
+        showNotification('Credentials saved in browser! Connecting to Supabase...', 'success');
+        setTimeout(() => window.location.reload(), 400);
+      });
+    }
+
+    const clearStorageBtn = $('#admin-clear-storage-btn');
+    const disconnectBtn = $('#admin-disconnect-btn');
+
+    const handleClearStorage = () => {
+      if (confirm('Clear saved Supabase credentials from this browser?')) {
+        localStorage.removeItem('aa_supabase_url');
+        localStorage.removeItem('aa_supabase_anon_key');
+        showNotification('Supabase credentials cleared from browser.', 'info');
+        setTimeout(() => window.location.reload(), 400);
+      }
+    };
+
+    if (clearStorageBtn && !clearStorageBtn.dataset.bound) {
+      clearStorageBtn.dataset.bound = 'true';
+      clearStorageBtn.addEventListener('click', handleClearStorage);
+    }
+    if (disconnectBtn && !disconnectBtn.dataset.bound) {
+      disconnectBtn.dataset.bound = 'true';
+      disconnectBtn.addEventListener('click', handleClearStorage);
+    }
+  }
+
   function initSupabase() {
-    const config = window.SUPABASE_CONFIG;
-    if (!config || !config.url || !config.anonKey || config.url.includes('YOUR_PROJECT_ID')) {
-      const alert = $('#admin-config-alert');
+    setupConnectForm();
+
+    const config = getEffectiveConfig();
+    const alert = $('#admin-config-alert');
+    const storageStatus = $('#admin-storage-status');
+    const disconnectBtn = $('#admin-disconnect-btn');
+
+    if (config && config.source === 'local-storage') {
+      if (storageStatus) storageStatus.style.display = 'flex';
+      if (disconnectBtn) disconnectBtn.style.display = 'inline-block';
+    } else {
+      if (storageStatus) storageStatus.style.display = 'none';
+      if (disconnectBtn) disconnectBtn.style.display = 'none';
+    }
+
+    if (!config) {
       if (alert) alert.style.display = 'flex';
       showView('signin');
       return null;
     }
+
+    if (alert) alert.style.display = 'none';
 
     if (typeof window.supabase === 'undefined' || !window.supabase.createClient) {
       console.error('[Admin] Supabase JS library failed to load.');
@@ -215,8 +302,11 @@
         errEl.textContent = '';
 
         if (!supabaseClient) {
-          errEl.textContent = 'Supabase client is not configured. Update js/supabase-config.js first.';
+          errEl.textContent = 'Supabase credentials are required. Enter your project URL & publishable anon key in the connect box above and click "Save in Browser & Connect".';
           errEl.style.display = 'block';
+          const alert = $('#admin-config-alert');
+          if (alert) alert.style.display = 'flex';
+          $('#admin-connect-url')?.focus();
           return;
         }
 
