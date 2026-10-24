@@ -769,65 +769,163 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
   const FALLBACK_REPOS = [
     {
       name: "GemStone-Project",
-      description: "Blue Sapphire / Gemstone client website showcasing luxury gemstone collections.",
+      displayName: "Blue Sapphire Gem Stones",
+      description: "Blue Sapphire / Gemstone client website showcasing luxury gemstone collections with direct WhatsApp lead routing.",
       language: "TypeScript",
       stargazers_count: 0,
       forks_count: 0,
       updated_at: "2026-08-17T11:29:09Z",
       html_url: "https://github.com/afaqahmadcs/GemStone-Project",
-      homepage: "https://www.bluesapphiregemstones.com/"
+      homepage: "https://www.bluesapphiregemstones.com/",
+      image: "assets/images/case-blue-sapphire.jpg",
+      urlDisplay: "bluesapphiregemstones.com",
+      badge: "Verified Client"
     },
     {
       name: "AFAQ-Portfolio-Website",
-      description: "Personal developer portfolio website featuring a clean, responsive layout and dark mode.",
+      displayName: "Personal Developer Portfolio",
+      description: "Personal developer portfolio website featuring a clean, responsive layout, dark/light theme, and bento hero.",
       language: "HTML",
       stargazers_count: 0,
       forks_count: 0,
-      updated_at: "2026-08-23T18:15:27Z",
+      updated_at: "2026-10-24T18:50:00Z",
       html_url: "https://github.com/afaqahmadcs/AFAQ-Portfolio-Website",
-      homepage: "https://afaq-portfolio-blush.vercel.app"
+      homepage: "https://afaqahmadcs.vercel.app",
+      image: "assets/images/case-portfolio.jpg",
+      urlDisplay: "afaqahmadcs.vercel.app",
+      badge: "Live Portfolio"
     },
     {
       name: "AFAQ-AHMAD-REAL-ESTATE-",
-      description: "Modern real estate platform with property listings, clean navigation, and responsive design.",
+      displayName: "PrimeEstates Real Estate",
+      description: "Modern real estate platform with curated property listings, clean navigation, and responsive design.",
       language: "HTML",
       stargazers_count: 0,
       forks_count: 0,
       updated_at: "2026-07-27T11:52:24Z",
       html_url: "https://github.com/afaqahmadcs/AFAQ-AHMAD-REAL-ESTATE-",
-      homepage: "https://afaq-ahmad-real-estate.vercel.app"
+      homepage: "https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/",
+      image: "assets/images/case-real-estate.jpg",
+      urlDisplay: "primeestates.app",
+      badge: "Commercial UI"
     },
     {
       name: "Premium-Luxury-Car-Business-Website",
-      description: "Premium automotive website with a sophisticated dark theme and responsive catalog.",
+      displayName: "Apex Motors Dealership",
+      description: "Premium automotive dealership website with a sophisticated dark theme and responsive vehicle catalog.",
       language: "HTML",
       stargazers_count: 0,
       forks_count: 0,
       updated_at: "2026-07-20T18:17:01Z",
       html_url: "https://github.com/afaqahmadcs/Premium-Luxury-Car-Business-Website",
-      homepage: null
+      homepage: "https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/",
+      image: "assets/images/case-apex-motors.jpg",
+      urlDisplay: "apexmotors.app",
+      badge: "Showcase UI"
     },
     {
       name: "Luxury-Car-Business-Website",
-      description: "Elegant automotive business website with a refined user interface.",
+      displayName: "Veloce Supercar Showroom",
+      description: "Elegant electric supercar automotive business website with a refined user interface.",
       language: "CSS",
       stargazers_count: 0,
       forks_count: 0,
       updated_at: "2026-07-20T19:21:18Z",
       html_url: "https://github.com/afaqahmadcs/Luxury-Car-Business-Website",
-      homepage: null
+      homepage: "https://afaqahmadcs.github.io/Luxury-Car-Business-Website/",
+      image: "assets/images/case-veloce.jpg",
+      urlDisplay: "velocemotors.app",
+      badge: "Automotive UI"
     },
     {
       name: "Business-Website",
-      description: "Modern multi-section business website built with responsive layout principles.",
+      displayName: "Nexora Labs Agency",
+      description: "Modern digital product agency and multi-section business website built with responsive layout principles.",
       language: "HTML",
       stargazers_count: 0,
       forks_count: 0,
       updated_at: "2026-07-20T12:55:20Z",
       html_url: "https://github.com/afaqahmadcs/Business-Website",
-      homepage: null
+      homepage: "https://afaqahmadcs.github.io/Business-Website/",
+      image: "assets/images/case-nexora-labs.jpg",
+      urlDisplay: "nexoralabs.app",
+      badge: "Agency Platform"
     }
   ];
+
+  function getRepoMeta(repo) {
+    const name = (repo.name || '').toLowerCase();
+    if (name.includes('gemstone') || name.includes('sapphire')) {
+      return {
+        image: 'assets/images/case-blue-sapphire.jpg',
+        urlDisplay: 'bluesapphiregemstones.com',
+        badge: 'Verified Client',
+        displayName: 'Blue Sapphire Gem Stones',
+        demoUrl: repo.homepage || 'https://www.bluesapphiregemstones.com/'
+      };
+    }
+    if (name.includes('portfolio')) {
+      return {
+        image: 'assets/images/case-portfolio.jpg',
+        urlDisplay: 'afaqahmadcs.vercel.app',
+        badge: 'Live Portfolio',
+        displayName: 'Personal Developer Portfolio',
+        demoUrl: repo.homepage || 'https://afaqahmadcs.vercel.app'
+      };
+    }
+    if (name.includes('estate') || name.includes('real')) {
+      return {
+        image: 'assets/images/case-real-estate.jpg',
+        urlDisplay: 'primeestates.app',
+        badge: 'Commercial UI',
+        displayName: 'PrimeEstates Real Estate',
+        demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/AFAQ-AHMAD-REAL-ESTATE-/'
+      };
+    }
+    if (name.includes('premium') || name.includes('apex')) {
+      return {
+        image: 'assets/images/case-apex-motors.jpg',
+        urlDisplay: 'apexmotors.app',
+        badge: 'Showcase UI',
+        displayName: 'Apex Motors Dealership',
+        demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/Premium-Luxury-Car-Business-Website/'
+      };
+    }
+    if (name.includes('luxury') || name.includes('veloce') || name.includes('car')) {
+      return {
+        image: 'assets/images/case-veloce.jpg',
+        urlDisplay: 'velocemotors.app',
+        badge: 'Automotive UI',
+        displayName: 'Veloce Supercar Showroom',
+        demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/Luxury-Car-Business-Website/'
+      };
+    }
+    if (name.includes('business') || name.includes('nexora') || name.includes('agency')) {
+      return {
+        image: 'assets/images/case-nexora-labs.jpg',
+        urlDisplay: 'nexoralabs.app',
+        badge: 'Agency Platform',
+        displayName: 'Nexora Labs Digital Agency',
+        demoUrl: repo.homepage || 'https://afaqahmadcs.github.io/Business-Website/'
+      };
+    }
+    if (name.includes('client') || name.includes('international')) {
+      return {
+        image: 'assets/images/case-international.jpg',
+        urlDisplay: 'client-engagement.app',
+        badge: 'In Progress',
+        displayName: 'International Client Engagement',
+        demoUrl: repo.homepage || null
+      };
+    }
+    return {
+      image: repo.image || 'assets/images/case-nexora-labs.jpg',
+      urlDisplay: repo.homepage ? repo.homepage.replace(/^https?:\/\//, '').replace(/\/$/, '') : (repo.name + '.git'),
+      badge: 'Public Repo',
+      displayName: repo.name.replace(/[-_]/g, ' '),
+      demoUrl: repo.homepage || null
+    };
+  }
 
   async function fetchRepos() {
     showStatus('loading');
@@ -877,32 +975,53 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
       const langClass = (repo.language || 'html').toLowerCase();
       const updatedDate = formatDate(repo.pushed_at || repo.updated_at);
+      const meta = getRepoMeta(repo);
+      const targetUrl = meta.demoUrl || repo.html_url;
 
       card.innerHTML = `
-        <div class="gh-card-head">
-          <h3 class="gh-card-title">${repo.name}</h3>
-          <div class="gh-card-stats">
-            <span class="gh-stat" title="Stars">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <span>${repo.stargazers_count || 0}</span>
-            </span>
-            <span class="gh-stat" title="Forks">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" aria-hidden="true"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 15V9a4 4 0 00-4-4H9M6 9v6"/></svg>
-              <span>${repo.forks_count || 0}</span>
-            </span>
+        <div class="gh-card-frame">
+          <div class="gh-card-chrome">
+            <div class="gh-card-dots" aria-hidden="true">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+            </div>
+            <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="gh-card-url" title="${meta.urlDisplay}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span>${meta.urlDisplay}</span>
+            </a>
+            <span class="gh-card-badge">${meta.badge}</span>
           </div>
+          <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="gh-card-viewport" aria-label="View ${meta.displayName} preview">
+            <img src="${meta.image}" alt="${meta.displayName} repository preview mockup" width="600" height="375" loading="lazy" decoding="async" class="gh-card-thumb-img"/>
+          </a>
         </div>
-        <p class="gh-card-desc">${repo.description || 'No description provided.'}</p>
-        <div class="gh-card-footer">
-          <span class="gh-card-lang">
-            <span class="gh-lang-dot ${langClass}"></span>
-            <span>${repo.language || 'HTML'}</span>
-          </span>
-          ${updatedDate ? `<span>Updated ${updatedDate}</span>` : ''}
-        </div>
-        <div class="gh-card-links">
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">GitHub Code</a>
-          ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo</a>` : ''}
+        <div class="gh-card-body">
+          <div class="gh-card-head">
+            <h3 class="gh-card-title">${repo.name}</h3>
+            <div class="gh-card-stats">
+              <span class="gh-stat" title="Stars">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span>${repo.stargazers_count || 0}</span>
+              </span>
+              <span class="gh-stat" title="Forks">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13" aria-hidden="true"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 15V9a4 4 0 00-4-4H9M6 9v6"/></svg>
+                <span>${repo.forks_count || 0}</span>
+              </span>
+            </div>
+          </div>
+          <p class="gh-card-desc">${repo.description || 'No description provided.'}</p>
+          <div class="gh-card-footer">
+            <span class="gh-card-lang">
+              <span class="gh-lang-dot ${langClass}"></span>
+              <span>${repo.language || 'HTML'}</span>
+            </span>
+            ${updatedDate ? `<span>Updated ${updatedDate}</span>` : ''}
+          </div>
+          <div class="gh-card-links">
+            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">GitHub Code</a>
+            ${meta.demoUrl ? `<a href="${meta.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Live Demo ↗</a>` : ''}
+          </div>
         </div>
       `;
       grid.appendChild(card);
