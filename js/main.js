@@ -610,21 +610,25 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
       }
 
       // Step B: Send Real-Time Email to afaqahmad.contact@gmail.com
-      // Using Web3Forms endpoint (free, static-friendly, direct Gmail delivery)
+      // Using verified Web3Forms endpoint mapped to Afaq Ahmad's Gmail
       try {
-        const formData = new FormData();
-        // Public API endpoint for Afaq Ahmad portfolio
-        formData.append('access_key', 'b75fba18-2fbf-407d-9dc4-839958d55d28');
-        formData.append('name', nameVal);
-        formData.append('email', emailVal);
-        formData.append('replyto', emailVal);
-        formData.append('subject', `[Portfolio Inquiry #${refCode}] ${subjectVal}`);
-        formData.append('message', `Client Name: ${nameVal}\nClient Email: ${emailVal}\nInquiry Reference: ${refCode}\nSubject: ${subjectVal}\n\nProject Scope & Message:\n${messageVal}\n\n---\nSent from Afaq Ahmad Portfolio Contact Pipeline`);
-        formData.append('from_name', 'Afaq Ahmad Portfolio');
+        const payload = {
+          access_key: '7fa00f74-cab2-403d-9b29-cd012857b9fc',
+          name: nameVal,
+          email: emailVal,
+          replyto: emailVal,
+          subject: `[Portfolio Inquiry #${refCode}] ${subjectVal}`,
+          message: `Client Name: ${nameVal}\nClient Email: ${emailVal}\nInquiry Reference: ${refCode}\nSubject: ${subjectVal}\n\nProject Scope & Message:\n${messageVal}\n\n---\nSent from Afaq Ahmad Portfolio Contact Pipeline`,
+          from_name: 'Afaq Ahmad Portfolio'
+        };
 
         const apiRes = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          body: formData
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
         });
 
         if (apiRes.ok) {
