@@ -76,4 +76,11 @@ CREATE POLICY "Admins can delete contact inquiries"
     TO authenticated
     USING (public.is_admin());
 
+-- 5. Grant table-level permissions to roles (Crucial for Supabase anon API access)
+GRANT USAGE ON SCHEMA public TO anon, authenticated;
+GRANT INSERT ON public.contact_inquiries TO anon, authenticated;
+GRANT SELECT, UPDATE, DELETE ON public.contact_inquiries TO authenticated;
+GRANT ALL ON public.contact_inquiries TO service_role;
+
 COMMENT ON TABLE public.contact_inquiries IS 'Stores client contact inquiries submitted from the portfolio website.';
+
