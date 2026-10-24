@@ -233,6 +233,11 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 .pf-tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
 .tag{font-size:var(--xs);font-weight:var(--wm);padding:3px 10px;border-radius:var(--rfull);background:var(--bg3);color:var(--fg2);border:1px solid var(--bd)}
 .tag-b{background:var(--brandbg);color:var(--brand);border-color:var(--brand-border)}
+.pf-case-breakdown{display:grid;gap:var(--s2);padding:var(--s3) var(--s4);background:var(--sf);border:1px solid var(--bd);border-radius:var(--rlg);margin-block:var(--s2)}
+.pf-case-item{display:grid;grid-template-columns:75px 1fr;gap:var(--s2);align-items:baseline}
+.pf-case-k{font-family:var(--ffm);font-size:11px;font-weight:var(--wb);color:var(--brand);text-transform:uppercase;letter-spacing:var(--lsw)}
+.pf-case-v{color:var(--fg2);font-size:var(--sm);line-height:var(--lhn)}
+@media(max-width:480px){.pf-case-item{grid-template-columns:1fr;gap:2px}}
 .pf-acts{display:flex;flex-wrap:wrap;gap:var(--s3)}
 
 /* ── Tech Stack ─────────────────────────────────────────────────── */
