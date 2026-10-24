@@ -201,7 +201,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 })();
 
 /* ================================================================
-   6. SCROLL REVEAL (IntersectionObserver, non-blocking)
+   6. SCROLL REVEAL (IntersectionObserver, non-blocking & hash-safe)
    ================================================================ */
 (function initScrollReveal() {
   const targets = $$('.reveal, .stagger');
@@ -212,27 +212,51 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
     return;
   }
 
+  const revealElement = (el) => {
+    el.classList.add('vis');
+  };
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('vis');
+        revealElement(entry.target);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
+  // 1. Immediately reveal elements already inside or near viewport
+  const vh = window.innerHeight || document.documentElement.clientHeight;
   targets.forEach(el => {
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      el.classList.add('vis');
+    if (rect.top < vh + 50 && rect.bottom > -50) {
+      revealElement(el);
     } else {
       observer.observe(el);
     }
   });
+
+  // 2. Hash-jump safety: if user navigates to an anchor, reveal section instantly
+  const revealHashTarget = () => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    try {
+      const target = document.querySelector(hash);
+      if (target) {
+        if (target.classList.contains('reveal') || target.classList.contains('stagger')) {
+          revealElement(target);
+        }
+        $$('.reveal, .stagger', target).forEach(revealElement);
+      }
+    } catch (e) {}
+  };
+
+  revealHashTarget();
+  window.addEventListener('hashchange', revealHashTarget, { passive: true });
 })();
 
 /* ================================================================
-   7. ANIMATED STAT COUNTERS
+   7. ANIMATED STAT COUNTERS (Restrained 800ms duration)
    ================================================================ */
 (function initCounters() {
   const counters = $$('[data-target]');
@@ -251,7 +275,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
       const suffix = el.dataset.suffix || '';
       if (isNaN(targetVal)) return;
 
-      const duration = 1200;
+      const duration = 800;
       const startTime = performance.now();
 
       const tick = (now) => {
@@ -341,10 +365,12 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
   function applyFilters() {
     let visibleCount = 0;
     cards.forEach(card => {
-      const category = (card.dataset.cat || '').toLowerCase();
+      const category = (card.dataset.cat || 'concept').toLowerCase();
       const title    = (card.dataset.title || '').toLowerCase();
+      const text     = card.textContent.toLowerCase();
+
       const matchesCat   = currentCategory === 'all' || category === currentCategory;
-      const matchesQuery = !searchQuery || title.includes(searchQuery);
+      const matchesQuery = !searchQuery || title.includes(searchQuery) || text.includes(searchQuery);
 
       if (matchesCat && matchesQuery) {
         card.style.display = '';
@@ -372,12 +398,12 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   if (searchInput) {
     let debounceTimer;
-    on(searchInput, 'input', () => {
+    on(searchInput, 'input', (e) => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        searchQuery = searchInput.value.trim().toLowerCase();
+        searchQuery = (e.target.value || '').trim().toLowerCase();
         applyFilters();
-      }, 120);
+      }, 150);
     });
   }
 })();
@@ -960,121 +986,5 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
   });
 })();
 
-/* ================================================================
-   13. PROJECT CASE STUDY FILTER & SEARCH (projects.html)
-   Handles category filtering (All / Client / Concept) and debounced search
-   ================================================================ */
-(function initProjectFilters() {
-  const filterBtns = $$('.flt-btn');
-  const searchInp = $('#proj-search-inp');
-  const cards = $$('.case-study-card');
-  const noResults = $('#no-results');
-
-  if (!cards.length) return;
-
-  let currentCategory = 'all';
-  let searchQuery = '';
-
-  function applyFilters() {
-    let visibleCount = 0;
-
-    cards.forEach(card => {
-      const cat = card.dataset.cat || 'concept';
-      const title = (card.dataset.title || '').toLowerCase();
-      const content = card.textContent.toLowerCase();
-
-      const matchesCategory = (currentCategory === 'all') || (cat === currentCategory);
-      const matchesSearch = !searchQuery || title.includes(searchQuery) || content.includes(searchQuery);
-
-      if (matchesCategory && matchesSearch) {
-        card.style.display = '';
-        visibleCount++;
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    if (noResults) {
-      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-    }
-  }
-
-  filterBtns.forEach(btn => {
-    on(btn, 'click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('on');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('on');
-      btn.setAttribute('aria-pressed', 'true');
-      currentCategory = btn.dataset.filter || 'all';
-      applyFilters();
-    });
-  });
-
-  if (searchInp) {
-    let debounceTimer;
-    on(searchInp, 'input', (e) => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        searchQuery = e.target.value.trim().toLowerCase();
-        applyFilters();
-      }, 150);
-    });
-  }
-})();
-
-/* ================================================================
-   14. TECH STACK FILTER TABS (index.html)
-   Filters technical skill badges by category: All / Comfortable / Backend / Tools / Exploration
-   ================================================================ */
-(function initTechStackTabs() {
-  const tabs = $$('.tech-tab');
-  const badges = $$('.tech-badge');
-  if (!tabs.length || !badges.length) return;
-
-  tabs.forEach(tab => {
-    on(tab, 'click', () => {
-      tabs.forEach(t => {
-        t.classList.remove('on');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('on');
-      tab.setAttribute('aria-selected', 'true');
-
-      const cat = tab.dataset.cat || 'all';
-      badges.forEach(badge => {
-        if (cat === 'all' || badge.dataset.cat === cat) {
-          badge.classList.remove('hide');
-        } else {
-          badge.classList.add('hide');
-        }
-      });
-    });
-  });
-})();
-
-/* ================================================================
-   15. PRE-FILL CONTACT SUBJECT FROM SERVICE QUERY PARAM
-   ================================================================ */
-(function initContactServiceParam() {
-  const subjectInput = $('#cf-subject');
-  if (!subjectInput) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const service = params.get('service');
-  if (!service) return;
-
-  const map = {
-    'responsive-website': 'Responsive Website Development',
-    'design-to-code': 'Design-to-Code Implementation (Figma)',
-    'layout-fixes': 'Layout Refactoring & Mobile Polish',
-    'product-showcase': 'Business Product Showcase Catalog'
-  };
-
-  if (map[service]) {
-    subjectInput.value = map[service];
-  }
-})();
 
 

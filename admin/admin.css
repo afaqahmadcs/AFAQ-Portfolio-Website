@@ -1033,12 +1033,19 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
   .admin-notification,
   .admin-modal-box {
-    animation: none;
+    animation: none !important;
   }
   .admin-spinner,
   .btn-spinner {
-    animation-duration: 2s;
+    animation: none !important;
   }
 }

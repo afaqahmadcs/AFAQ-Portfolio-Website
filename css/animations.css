@@ -1,19 +1,24 @@
 /* ================================================================
    ANIMATIONS.CSS — AFAQ AHMAD PORTFOLIO
-   Restrained, high-performance motion design system.
-   Subtle micro-interactions, zero layout shifts, full a11y support.
+   Centralized, high-performance, purposeful motion system.
+   Principles:
+     1. Calm, precise, human-crafted micro-interactions.
+     2. Hardware-accelerated (transform & opacity only).
+     3. Zero cumulative layout shift (CLS).
+     4. Zero global will-change memory leaks.
+     5. Strict WCAG 2.1 AAA reduced-motion accessibility.
    ================================================================ */
 
-/* ── Page fade-in (Instant & light) ────────────────────────────── */
+/* ── 1. Page Entrance (Light, instant, non-blocking) ─────────────── */
 body {
-  animation: pgIn .3s var(--esm) both;
+  animation: pageFadeIn var(--dur-normal) var(--ease-out) both;
 }
-@keyframes pgIn {
-  from { opacity: 0; transform: translateY(4px); }
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(var(--dist-sm)); }
   to   { opacity: 1; transform: none; }
 }
 
-/* ── Soft Ambient Spotlight (Performance-tuned via rAF pointer) ──── */
+/* ── 2. Soft Ambient Spotlight (Fine pointers only, rAF-throttled) ─ */
 body::before {
   content: '';
   position: fixed;
@@ -26,11 +31,10 @@ body::before {
     transparent 65%
   );
   opacity: var(--spotlight-opacity, 0);
-  transition: opacity 0.35s ease;
-  will-change: background;
+  transition: opacity var(--dur-moderate) var(--ease-out);
 }
 
-/* ── Subtle background grid texture ─────────────────────────────── */
+/* ── 3. Background Hero Grid Texture ─────────────────────────────── */
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -44,166 +48,292 @@ body::before {
   opacity: 0.6;
 }
 
-/* ── Scroll Reveal (Restrained, subtle 14px lift) ─────────────────── */
+/* ── 4. Controlled Hero Entrance Sequence ────────────────────────── */
+.bento-card--intro {
+  animation: heroCardIn var(--dur-moderate) var(--ease-out) both;
+}
+.bento-card--portrait {
+  animation: heroCardIn var(--dur-moderate) var(--ease-out) both;
+  animation-delay: 0.08s;
+}
+@keyframes heroCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--dist-md));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── 5. Purposeful Scroll Reveals (IntersectionObserver) ─────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(var(--dist-lg));
   transition:
-    opacity var(--ts) var(--esm),
-    transform var(--ts) var(--esm);
+    opacity var(--dur-moderate) var(--ease-out),
+    transform var(--dur-moderate) var(--ease-out);
   transition-delay: var(--delay, 0s);
-  will-change: opacity, transform;
 }
 .reveal.fade  { transform: none; }
-.reveal.scale { transform: scale(0.97) translateY(8px); }
-.reveal.left  { transform: translateX(-16px); }
-.reveal.right { transform: translateX(16px); }
+.reveal.scale { transform: scale(0.98) translateY(var(--dist-sm)); }
+.reveal.left  { transform: translateX(-12px); }
+.reveal.right { transform: translateX(12px); }
 
 .reveal.vis {
   opacity: 1 !important;
   transform: none !important;
 }
 
-/* Stagger list items & cards */
+/* Staggered lists & grids */
 .stagger > * {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(var(--dist-lg));
   transition:
-    opacity var(--ts) var(--esm),
-    transform var(--ts) var(--esm);
-  will-change: opacity, transform;
+    opacity var(--dur-moderate) var(--ease-out),
+    transform var(--dur-moderate) var(--ease-out);
 }
-.stagger.vis > * { opacity: 1; transform: none; }
-.stagger.vis > *:nth-child(1)  { transition-delay: .03s; }
-.stagger.vis > *:nth-child(2)  { transition-delay: .07s; }
-.stagger.vis > *:nth-child(3)  { transition-delay: .11s; }
-.stagger.vis > *:nth-child(4)  { transition-delay: .15s; }
-.stagger.vis > *:nth-child(5)  { transition-delay: .19s; }
-.stagger.vis > *:nth-child(6)  { transition-delay: .23s; }
-.stagger.vis > *:nth-child(7)  { transition-delay: .27s; }
-.stagger.vis > *:nth-child(8)  { transition-delay: .31s; }
-.stagger.vis > *:nth-child(n+9){ transition-delay: .35s; }
-
-/* ── Clean Focus-Visible States (Keyboard Navigation) ──────────── */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-[tabindex]:focus-visible {
-  outline: none;
-  box-shadow: var(--focus) !important;
+.stagger.vis > * {
+  opacity: 1;
+  transform: none;
 }
+.stagger.vis > *:nth-child(1)  { transition-delay: 0.03s; }
+.stagger.vis > *:nth-child(2)  { transition-delay: 0.06s; }
+.stagger.vis > *:nth-child(3)  { transition-delay: 0.09s; }
+.stagger.vis > *:nth-child(4)  { transition-delay: 0.12s; }
+.stagger.vis > *:nth-child(5)  { transition-delay: 0.15s; }
+.stagger.vis > *:nth-child(6)  { transition-delay: 0.18s; }
+.stagger.vis > *:nth-child(7)  { transition-delay: 0.21s; }
+.stagger.vis > *:nth-child(8)  { transition-delay: 0.24s; }
+.stagger.vis > *:nth-child(n+9){ transition-delay: 0.27s; }
 
-/* ── Buttons (Subtle tactile transitions) ────────────────────────── */
+/* ── 6. Tactile Button & Link Micro-Interactions ─────────────────── */
 .btn {
   position: relative;
   transition:
-    background var(--tf) var(--esm),
-    color var(--tf) var(--esm),
-    border-color var(--tf) var(--esm),
-    transform var(--tf) var(--esm),
-    box-shadow var(--tf) var(--esm);
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
 }
 .btn:hover {
   transform: translateY(-1px);
 }
 .btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
 }
 
-/* ── Cards (Subtle lift + border highlight) ──────────────────────── */
-.proj-card, .svc-card, .val-card, .why-card, .stat-card, .gh-card {
-  transition:
-    border-color var(--tf) var(--esm),
-    transform var(--tf) var(--esm),
-    box-shadow var(--tf) var(--esm),
-    background var(--tf) var(--esm);
+/* Subtle directional cues on arrows inside interactive elements */
+.btn svg,
+.nav-cta svg,
+.svc-link svg,
+.note-link svg,
+.res-link-btn svg {
+  transition: transform var(--dur-fast) var(--ease-out);
 }
-.proj-card:hover, .svc-card:hover, .val-card:hover, .why-card:hover, .stat-card:hover, .gh-card:hover {
+.btn:hover svg,
+.nav-cta:hover svg,
+.svc-link:hover svg,
+.note-link:hover svg,
+.res-link-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── 7. Card Elevation & Border Feedback ─────────────────────────── */
+.proj-card,
+.case-study-card,
+.bento-card,
+.svc-card,
+.val-card,
+.why-card,
+.stat-card,
+.gh-card,
+.review-card,
+.fact,
+.skill {
+  transition:
+    transform var(--dur-normal) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out),
+    background-color var(--dur-normal) var(--ease-out);
+}
+.proj-card:hover,
+.case-study-card:hover,
+.bento-card:hover,
+.svc-card:hover,
+.val-card:hover,
+.why-card:hover,
+.stat-card:hover,
+.gh-card:hover,
+.review-card:hover,
+.fact:hover,
+.skill:hover {
   border-color: var(--bd2);
   transform: translateY(-2px);
   box-shadow: var(--shmd);
 }
 
-/* ── Gradient text (Editorial & clean) ──────────────────────────── */
-.grad-txt {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--acc) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: var(--brand); /* Accessibility fallback */
+/* Browser frame preview interaction */
+.browser-frame {
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out),
+    transform var(--dur-normal) var(--ease-out);
+}
+.browser-frame:hover {
+  border-color: var(--brand);
+  box-shadow: var(--shlg);
 }
 
-/* ── Status Pulse Dot ────────────────────────────────────────────── */
+.browser-viewport img,
+.pf-img-in img {
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+.browser-frame:hover .browser-viewport img,
+.pf-vis:hover .pf-img-in img {
+  transform: scale(1.02);
+}
+
+/* ── 8. Form Inputs & Interactive Feedback ───────────────────────── */
+input,
+textarea,
+select {
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+/* Validation shake (Restrained 3-frame nudge) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-3px); }
+  75%      { transform: translateX(3px); }
+}
+
+.form-ok.show {
+  animation: formOkIn var(--dur-normal) var(--ease-out) both;
+}
+@keyframes formOkIn {
+  from { opacity: 0; transform: translateY(-var(--dist-sm)); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Filter pills & tabs */
+.tech-tab,
+.flt-btn,
+.subject-pill {
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+.tech-tab:active,
+.flt-btn:active,
+.subject-pill:active {
+  transform: scale(0.97);
+}
+
+/* ── 9. Status Pulse Dot (Restrained, subtle) ────────────────────── */
 .status-dot {
   position: relative;
   display: inline-block;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--acc);
+  background: var(--brand);
 }
 .status-dot::after {
   content: '';
   position: absolute;
   inset: -2px;
   border-radius: 50%;
-  background: var(--acc);
-  opacity: 0.6;
-  animation: sdotPulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: var(--brand);
+  opacity: 0.55;
+  animation: sdotPulse 2.8s var(--ease-in-out) infinite;
 }
 @keyframes sdotPulse {
-  0%   { transform: scale(0.9); opacity: 0.8; }
-  50%  { transform: scale(1.8); opacity: 0; }
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  50%  { transform: scale(1.6); opacity: 0; }
   100% { transform: scale(0.9); opacity: 0; }
 }
 
-/* ── Scroll wheel cue ────────────────────────────────────────────── */
-@keyframes swheel {
-  0%   { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(8px); }
+/* ── 10. Modal Dialog Transitions ────────────────────────────────── */
+.rev-modal-backdrop {
+  animation: modalBackdropFadeIn var(--dur-fast) var(--ease-out);
+}
+@keyframes modalBackdropFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* ── Form validation feedback ────────────────────────────────────── */
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  75% { transform: translateX(4px); }
+.rev-modal-card {
+  animation: modalCardSlideUp var(--dur-normal) var(--ease-out);
 }
-
-.form-ok.show {
-  animation: formOkIn .3s var(--esm) both;
-}
-@keyframes formOkIn {
-  from { opacity: 0; transform: translateY(-4px); }
+@keyframes modalCardSlideUp {
+  from { opacity: 0; transform: translateY(var(--dist-md)) scale(0.99); }
   to   { opacity: 1; transform: none; }
 }
 
-/* ── Theme Switch Transition (Smooth, Accessible, Zero Layout Shifts) ─ */
+/* ── 11. Theme Switch Transition (Layout-Safe, Color Only) ───────── */
 html.theme-transitioning *,
 html.theme-transitioning *::before,
 html.theme-transitioning *::after {
   transition:
-    background-color 240ms cubic-bezier(0.16, 1, 0.3, 1),
-    color 240ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 240ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1),
-    fill 240ms cubic-bezier(0.16, 1, 0.3, 1),
-    stroke 240ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+    background-color var(--dur-normal) var(--ease-out),
+    color var(--dur-normal) var(--ease-out),
+    border-color var(--dur-normal) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out),
+    fill var(--dur-normal) var(--ease-out),
+    stroke var(--dur-normal) var(--ease-out) !important;
 }
 
-/* ── Full Reduced Motion Support (WCAG 2.1 AAA) ──────────────────── */
+/* ── 12. Full Reduced Motion Support (WCAG 2.1 AAA Compliant) ────── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  html { scroll-behavior: auto; }
-  body::before { display: none !important; }
-  .reveal, .stagger > * {
+  html {
+    scroll-behavior: auto !important;
+  }
+  body::before {
+    display: none !important;
+  }
+  .reveal,
+  .reveal.fade,
+  .reveal.scale,
+  .reveal.left,
+  .reveal.right,
+  .stagger > *,
+  .bento-card--intro,
+  .bento-card--portrait {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
-  .status-dot::after { animation: none !important; }
+  .status-dot::after,
+  .live-status-dot,
+  .btn-spinner,
+  .gh-loader {
+    animation: none !important;
+  }
+  .btn:hover,
+  .btn:active,
+  .proj-card:hover,
+  .case-study-card:hover,
+  .bento-card:hover,
+  .svc-card:hover,
+  .val-card:hover,
+  .gh-card:hover,
+  .review-card:hover {
+    transform: none !important;
+  }
 }

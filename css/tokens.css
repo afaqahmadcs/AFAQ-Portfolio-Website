@@ -184,7 +184,7 @@
   --shlg: 0 8px 28px var(--sh2);
   --shxl: 0 16px 40px var(--sh3);
 
-  /* ── 6. Z-Index & Motion ────────────────────────────────────────── */
+  /* ── 6. Z-Index & Motion System ────────────────────────────────── */
   --z0: 0;
   --z1: 10;
   --z2: 100;
@@ -193,13 +193,38 @@
   --zmod: 400;
   --ztop: 9999;
 
-  --tf: 150ms;
-  --tn: 220ms;
-  --ts: 320ms;
-  --tsl: 450ms;
-  --esm: cubic-bezier(0.16, 1, 0.3, 1);
-  --esp: cubic-bezier(0.16, 1, 0.3, 1);
-  --eio: cubic-bezier(0.45, 0, 0.55, 1);
+  /* Durations */
+  --dur-instant: 120ms;
+  --dur-fast: 180ms;
+  --dur-normal: 240ms;
+  --dur-moderate: 350ms;
+  --dur-slow: 480ms;
+
+  /* Easing Curves */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --ease-linear: linear;
+
+  /* Distances */
+  --dist-xs: 2px;
+  --dist-sm: 4px;
+  --dist-md: 8px;
+  --dist-lg: 14px;
+
+  /* Reusable Transition Presets */
+  --transition-interactive: transform var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  --transition-surface: transform var(--dur-normal) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-normal) var(--ease-out), background-color var(--dur-normal) var(--ease-out);
+  --transition-fade: opacity var(--dur-normal) var(--ease-out), transform var(--dur-normal) var(--ease-out);
+
+  /* Backward Compatibility Aliases */
+  --tf: var(--dur-fast);
+  --tn: var(--dur-normal);
+  --ts: var(--dur-moderate);
+  --tsl: var(--dur-slow);
+  --esm: var(--ease-out);
+  --esp: var(--ease-out);
+  --eio: var(--ease-in-out);
 
   --navh: 68px;
   --focus: 0 0 0 2px var(--bg), 0 0 0 4px #345C7A;

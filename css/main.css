@@ -42,9 +42,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 .ph-note{font-size:var(--xs);color:var(--fg3);font-style:italic}
 
 /* ── Buttons ────────────────────────────────────────────────────── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);padding:10px 22px;font-size:var(--sm);font-weight:var(--ws);border-radius:var(--rfull);border:1.5px solid transparent;transition:all var(--tn) var(--esm);white-space:nowrap;cursor:pointer;line-height:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);padding:10px 22px;font-size:var(--sm);font-weight:var(--ws);border-radius:var(--rfull);border:1.5px solid transparent;transition:transform var(--dur-fast) var(--ease-out),background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out);white-space:nowrap;cursor:pointer;line-height:1}
 .btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.btn:active{transform:scale(.97)}
+.btn:active{transform:translateY(0) scale(.98)}
 .btn svg{width:15px;height:15px;flex-shrink:0}
 .btn--sm{padding:7px 16px;font-size:var(--xs)}
 .btn--lg{padding:13px 30px;font-size:var(--base)}
@@ -580,28 +580,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
 @media(min-width:1024px){.g2{grid-template-columns:1fr 1fr}}
 .g2-ac{align-items:center}
 
-/* ── Reveal animations (used by animations.css) ─────────────────── */
-.reveal{opacity:0;transition:opacity var(--tsl) var(--esm),transform var(--tsl) var(--esm);transition-delay:var(--delay,0s)}
-.reveal.up{transform:translateY(28px)}
-.reveal.fade{transform:none}
-.reveal.scale{transform:scale(.93)}
-.reveal.left{transform:translateX(-28px)}
-.reveal.vis{opacity:1!important;transform:none!important}
-.stagger>*{opacity:0;transform:translateY(22px);transition:opacity var(--tsl) var(--esm),transform var(--tsl) var(--esm)}
-.stagger.vis>*{opacity:1;transform:none}
-.stagger.vis>*:nth-child(1){transition-delay:.05s}
-.stagger.vis>*:nth-child(2){transition-delay:.12s}
-.stagger.vis>*:nth-child(3){transition-delay:.19s}
-.stagger.vis>*:nth-child(4){transition-delay:.26s}
-.stagger.vis>*:nth-child(5){transition-delay:.33s}
-.stagger.vis>*:nth-child(n+6){transition-delay:.40s}
-
-/* ── Reduced motion ─────────────────────────────────────────────── */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  html{scroll-behavior:auto}
-  .reveal,.stagger>*{opacity:1!important;transform:none!important}
-}
+/* Motion and scroll-reveal system consolidated in css/animations.css */
 
 /* ================================================================
    ENHANCED PROJECT THUMBNAILS — premium hover system
@@ -658,22 +637,17 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
   transform: translateY(-1px);
 }
 
-/* Tags slide in on hover */
+/* Tags subtle hover feedback */
 .proj-card-tags .tag {
-  transition: transform .3s ease, border-color .3s ease;
-  will-change: transform;
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
-.proj-card:hover .proj-card-tags .tag:nth-child(1) { transform: translateY(-2px); transition-delay: .04s; }
-.proj-card:hover .proj-card-tags .tag:nth-child(2) { transform: translateY(-2px); transition-delay: .08s; }
-.proj-card:hover .proj-card-tags .tag:nth-child(3) { transform: translateY(-2px); transition-delay: .12s; }
-.proj-card:hover .proj-card-tags .tag:nth-child(4) { transform: translateY(-2px); transition-delay: .16s; }
 
-/* Action buttons slide up */
+/* Action buttons */
 .proj-card-actions {
-  transition: transform .3s ease, opacity .3s ease;
+  transition: opacity var(--dur-fast) var(--ease-out);
 }
 .proj-card-actions .btn {
-  transition: all .25s ease;
+  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
 }
 .proj-card:hover .proj-card-actions .btn--primary {
   box-shadow: var(--shbr);
@@ -687,21 +661,20 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform .8s cubic-bezier(.25,.46,.45,.94);
-  will-change: transform;
+  transition: transform var(--dur-slow) var(--ease-out);
 }
 .pf-vis:hover .pf-img-in img {
-  transform: scale(1.05) translateY(-3px);
+  transform: scale(1.02);
 }
 
-/* Blur-up image loading */
+/* Hardware-accelerated image reveal (Zero blur repaints) */
 .proj-card-img img,
 .pf-img-in img {
-  animation: imgFadeIn .6s ease both;
+  animation: imgFadeIn var(--dur-moderate) var(--ease-out) both;
 }
 @keyframes imgFadeIn {
-  from { opacity: 0; filter: blur(8px); transform: scale(1.03); }
-  to   { opacity: 1; filter: blur(0);   transform: scale(1); }
+  from { opacity: 0; transform: scale(1.015); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 /* ==========================================================================
