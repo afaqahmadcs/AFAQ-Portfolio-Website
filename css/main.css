@@ -605,11 +605,16 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
 .luxury-tag:hover{border-color:var(--brand);color:var(--brand);background:var(--brandbg);transform:translateY(-1px)}
 .luxury-tag.featured{background:var(--brandbg);border-color:var(--brand-border);color:var(--brand);font-weight:var(--wb)}
 .res-action-strip{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s6)}
+.res-proj-split{display:grid;gap:var(--s4);margin-top:var(--s3);margin-bottom:var(--s3)}
+@media(min-width:640px){.res-proj-split{grid-template-columns:150px 1fr;align-items:start}}
+.res-proj-thumb-link{display:block;border-radius:var(--rmd);overflow:hidden;border:1px solid var(--bd2);box-shadow:var(--shsm);transition:transform var(--ts) var(--esp),border-color var(--tf);aspect-ratio:16/10;background:var(--bg3);flex-shrink:0}
+.res-proj-thumb-link:hover{transform:scale(1.03);border-color:var(--brand)}
+.res-proj-thumb-img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* Print Styles for Executive CV */
 @media print {
   body { background: #fff !important; color: #111 !important; }
-  header, footer, .page-hd-bg, .beacon-badge, .cta-banner, #theme-btn, .nav-actions, .res-action-strip, #scroll-progress, .marquee-wrap { display: none !important; }
+  header, footer, .page-hd-bg, .beacon-badge, .cta-banner, #theme-btn, .nav-actions, .res-action-strip, #scroll-progress, .marquee-wrap, .res-proj-thumb-link { display: none !important; }
   .page-hd { padding: 0 !important; margin-bottom: 20px !important; }
   .page-hd-title { font-size: 24pt !important; color: #000 !important; }
   .page-hd-sub { color: #444 !important; }
@@ -620,6 +625,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
   .res-item-title { color: #000 !important; }
   .res-bullets { color: #333 !important; }
   .res-link-btn { display: none !important; }
+  .res-proj-split { display: block !important; }
 }
 
 /* ── 404 Page ───────────────────────────────────────────────────── */
