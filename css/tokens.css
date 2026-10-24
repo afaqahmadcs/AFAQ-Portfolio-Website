@@ -68,8 +68,10 @@
 
   --brand: #33594F;         /* Forest Teal deep: 5.6:1 contrast on Ivory (AA) */
   --brandh: #26433B;        /* Deeper Forest Teal Hover */
+  --brand-deep: #1A3E31;    /* Deep Forest Accent */
   --brandbg: rgba(71, 117, 104, 0.10);
   --brand-border: rgba(71, 117, 104, 0.22);
+  --btn-primary-fg: #FFFFFF;/* High contrast white button text on dark teal */
 
   --acc: #8C6524;           /* Accessible Amber for Text: 4.8:1 contrast (AA) */
   --acc-display: #D5A65A;   /* Muted Amber for Decorative Stars/Badges */
@@ -189,90 +191,100 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   DARK THEME (Deep Ink & Forest Noir — WCAG AAA/AA)
+   DARK THEME (Refined Forest Noir — Editorial Depth & Contrast)
    ================================================================ */
 [data-theme="dark"] {
-  --bg: #171C1B;            /* Deep Ink Canvas */
-  --bg2: #1E2523;           /* Elevated Ink Layer */
-  --bg3: #27312E;           /* Tertiary Inset Layer */
-  --sf: #1F2624;            /* Card Surface */
-  --sf2: #283330;           /* Active / Raised Card */
+  /* Surface Hierarchy (Darkest Canvas -> Section -> Elevated Card) */
+  --bg: #101715;            /* Main background: 16.07:1 contrast with Primary Text */
+  --bg2: #18211D;           /* Section surface: Slightly lighter for alternating rhythm */
+  --bg3: #141C18;           /* Recessed inset / pill / divider layer */
+  --sf: #202B25;            /* Elevated cards / navigation container */
+  --sf2: #27362E;           /* Raised card / hover state */
 
-  --fg: #F4F1E8;            /* Warm Ivory: 14.2:1 contrast against Deep Ink (AAA) */
-  --fg2: #A3ACA7;           /* Soft Sage: 6.8:1 contrast (AAA) */
-  --fg3: #89938D;           /* Soft Sage Base: 5.4:1 contrast (AA) */
-  --fgi: #171C1B;           /* Inverted Typography */
+  /* Typography Hierarchy */
+  --fg: #F3F1E9;            /* Primary text (Warm Ivory, 16.07:1 on #101715, 12.95:1 on #202B25) */
+  --fg2: #B0BCB3;           /* Secondary text (Readable Sage, 9.25:1 on #101715, 7.46:1 on #202B25) */
+  --fg3: #8E9E94;           /* Subtle metadata / tertiary labels (5.21:1 on #202B25 — WCAG AA) */
+  --fgi: #101715;           /* Inverted Typography */
 
-  --bd: rgba(244, 241, 232, 0.08);
-  --bd2: rgba(244, 241, 232, 0.16);
-  --bd3: rgba(244, 241, 232, 0.04);
+  /* Subtle Neutral / Green-Gray Borders */
+  --bd: rgba(176, 188, 179, 0.12);
+  --bd2: rgba(176, 188, 179, 0.22);
+  --bd3: rgba(176, 188, 179, 0.06);
 
-  --brand: #74A799;         /* Lighter Forest Teal for Dark Mode: 6.8:1 contrast (AAA) */
-  --brandh: #97C0B5;        /* Soft Sage-Teal Hover */
-  --brandbg: rgba(116, 167, 153, 0.14);
-  --brand-border: rgba(116, 167, 153, 0.26);
+  /* Accents */
+  --brand: #83C5A5;         /* Primary accent (Fresh Teal for buttons, active states, links) */
+  --brandh: #9FE2C2;        /* Fresh Teal hover */
+  --brand-deep: #285E4B;    /* Deep accent for secondary accents & structured highlights */
+  --brandbg: rgba(131, 197, 165, 0.12);
+  --brand-border: rgba(131, 197, 165, 0.28);
+  --btn-primary-fg: #101715; /* High-contrast button text on Fresh Teal: 9.08:1 (AAA) */
 
-  --acc: #D5A65A;           /* Muted Amber: 8.2:1 contrast on Deep Ink (AAA) */
-  --acc-display: #D5A65A;
-  --accbg: rgba(213, 166, 90, 0.14);
-  --acc-border: rgba(213, 166, 90, 0.28);
+  --acc: #D6AD6D;           /* Supporting highlight (Amber reserved for stars/milestones) */
+  --acc-display: #D6AD6D;
+  --accbg: rgba(214, 173, 109, 0.12);
+  --acc-border: rgba(214, 173, 109, 0.28);
 
-  --glass: rgba(23, 28, 27, 0.90);
-  --glassb: rgba(244, 241, 232, 0.08);
+  /* Glass & Chrome */
+  --glass: rgba(16, 23, 21, 0.90);
+  --glassb: rgba(176, 188, 179, 0.14);
 
-  --sh1: rgba(0, 0, 0, 0.40);
-  --sh2: rgba(0, 0, 0, 0.60);
-  --sh3: rgba(0, 0, 0, 0.75);
-  --shbr: 0 4px 18px rgba(116, 167, 153, 0.18);
-  --shbrl: 0 8px 26px rgba(116, 167, 153, 0.26);
+  /* Shadows */
+  --sh1: rgba(0, 0, 0, 0.45);
+  --sh2: rgba(0, 0, 0, 0.65);
+  --sh3: rgba(0, 0, 0, 0.80);
+  --shbr: 0 4px 18px rgba(131, 197, 165, 0.16);
+  --shbrl: 0 8px 26px rgba(131, 197, 165, 0.24);
 
-  --selbg: rgba(116, 167, 153, 0.35);
-  --selfg: #F4F1E8;
-  --sbt: #1F2624;
-  --sbth: #283330;
-  --sbhv: #74A799;
+  --selbg: rgba(131, 197, 165, 0.35);
+  --selfg: #F3F1E9;
+  --sbt: #18211D;
+  --sbth: #202B25;
+  --sbhv: #83C5A5;
 
-  --spotlight-color: rgba(116, 167, 153, 0.06);
-  --focus: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
-  --focusoff: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
+  --spotlight-color: rgba(131, 197, 165, 0.05);
+  --focus: 0 0 0 2px #101715, 0 0 0 4px #83C5A5;
+  --focusoff: 0 0 0 2px #101715, 0 0 0 4px #83C5A5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #171C1B;
-    --bg2: #1E2523;
-    --bg3: #27312E;
-    --sf: #1F2624;
-    --sf2: #283330;
-    --fg: #F4F1E8;
-    --fg2: #A3ACA7;
-    --fg3: #89938D;
-    --fgi: #171C1B;
-    --bd: rgba(244, 241, 232, 0.08);
-    --bd2: rgba(244, 241, 232, 0.16);
-    --bd3: rgba(244, 241, 232, 0.04);
-    --brand: #74A799;
-    --brandh: #97C0B5;
-    --brandbg: rgba(116, 167, 153, 0.14);
-    --brand-border: rgba(116, 167, 153, 0.26);
-    --acc: #D5A65A;
-    --acc-display: #D5A65A;
-    --accbg: rgba(213, 166, 90, 0.14);
-    --acc-border: rgba(213, 166, 90, 0.28);
-    --glass: rgba(23, 28, 27, 0.90);
-    --glassb: rgba(244, 241, 232, 0.08);
-    --sh1: rgba(0, 0, 0, 0.40);
-    --sh2: rgba(0, 0, 0, 0.60);
-    --sh3: rgba(0, 0, 0, 0.75);
-    --shbr: 0 4px 18px rgba(116, 167, 153, 0.18);
-    --shbrl: 0 8px 26px rgba(116, 167, 153, 0.26);
-    --selbg: rgba(116, 167, 153, 0.35);
-    --selfg: #F4F1E8;
-    --sbt: #1F2624;
-    --sbth: #283330;
-    --sbhv: #74A799;
-    --spotlight-color: rgba(116, 167, 153, 0.06);
-    --focus: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
-    --focusoff: 0 0 0 2px #171C1B, 0 0 0 4px #74A799;
+    --bg: #101715;
+    --bg2: #18211D;
+    --bg3: #141C18;
+    --sf: #202B25;
+    --sf2: #27362E;
+    --fg: #F3F1E9;
+    --fg2: #B0BCB3;
+    --fg3: #8E9E94;
+    --fgi: #101715;
+    --bd: rgba(176, 188, 179, 0.12);
+    --bd2: rgba(176, 188, 179, 0.22);
+    --bd3: rgba(176, 188, 179, 0.06);
+    --brand: #83C5A5;
+    --brandh: #9FE2C2;
+    --brand-deep: #285E4B;
+    --brandbg: rgba(131, 197, 165, 0.12);
+    --brand-border: rgba(131, 197, 165, 0.28);
+    --btn-primary-fg: #101715;
+    --acc: #D6AD6D;
+    --acc-display: #D6AD6D;
+    --accbg: rgba(214, 173, 109, 0.12);
+    --acc-border: rgba(214, 173, 109, 0.28);
+    --glass: rgba(16, 23, 21, 0.90);
+    --glassb: rgba(176, 188, 179, 0.14);
+    --sh1: rgba(0, 0, 0, 0.45);
+    --sh2: rgba(0, 0, 0, 0.65);
+    --sh3: rgba(0, 0, 0, 0.80);
+    --shbr: 0 4px 18px rgba(131, 197, 165, 0.16);
+    --shbrl: 0 8px 26px rgba(131, 197, 165, 0.24);
+    --selbg: rgba(131, 197, 165, 0.35);
+    --selfg: #F3F1E9;
+    --sbt: #18211D;
+    --sbth: #202B25;
+    --sbhv: #83C5A5;
+    --spotlight-color: rgba(131, 197, 165, 0.05);
+    --focus: 0 0 0 2px #101715, 0 0 0 4px #83C5A5;
+    --focusoff: 0 0 0 2px #101715, 0 0 0 4px #83C5A5;
   }
 }

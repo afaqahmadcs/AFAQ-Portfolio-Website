@@ -278,11 +278,13 @@
 
 .admin-btn-primary {
   background: var(--brand);
-  color: #ffffff;
+  color: var(--btn-primary-fg, #101715);
+  font-weight: 700;
 }
 
 .admin-btn-primary:hover:not(:disabled) {
   background: var(--brandh);
+  color: var(--btn-primary-fg, #101715);
   box-shadow: var(--shbr);
 }
 
