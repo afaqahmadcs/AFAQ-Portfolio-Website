@@ -651,12 +651,12 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
       let filtered = data
         .filter(r => !r.fork)
         .sort((a, b) => new Date(b.pushed_at || b.updated_at) - new Date(a.pushed_at || a.updated_at))
-        .slice(0, 8);
+        .slice(0, 6);
 
       if (filtered.length < 6) {
         const existingNames = new Set(filtered.map(r => r.name.toLowerCase()));
         for (const item of FALLBACK_REPOS) {
-          if (filtered.length >= 8) break;
+          if (filtered.length >= 6) break;
           if (!existingNames.has(item.name.toLowerCase())) {
             filtered.push(item);
           }

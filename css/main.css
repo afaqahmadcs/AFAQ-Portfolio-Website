@@ -382,6 +382,13 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
 .case-study-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2xl);overflow:hidden;padding:var(--s8);display:grid;grid-template-columns:1.1fr 1fr;gap:var(--s8);align-items:start;transition:border-color var(--tf),box-shadow var(--ts)}
 .case-study-card:hover{border-color:var(--bd2);box-shadow:var(--shlg)}
 @media(max-width:1024px){.case-study-card{grid-template-columns:1fr;padding:var(--s6)}}
+@media(min-width:1025px){
+  .case-study-card .browser-frame{
+    position:sticky;
+    top:calc(var(--navh) + var(--s6));
+    z-index:2;
+  }
+}
 
 /* Featured Client Case Study */
 .case-study-card--featured{border-color:var(--brand-border);background:var(--sf)}
@@ -412,7 +419,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
 .case-block-text{font-size:var(--sm);color:var(--fg2);line-height:var(--lhn)}
 
 .case-tags{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s2)}
-.case-actions{display:flex;flex-wrap:wrap;gap:var(--s3);padding-top:var(--s4);border-top:1px solid var(--bd);margin-top:auto}
+.case-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);padding-top:var(--s4);border-top:1px solid var(--bd);margin-top:auto}
 
 /* Legacy fallback card for search */
 .proj-card{display:none}
