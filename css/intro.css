@@ -337,7 +337,7 @@
 }
 
 .intro-sub-contact:hover {
-  color: #477568;
+  color: var(--brand, #7297B5);
 }
 
 .intro-sub-contact::after {
@@ -352,7 +352,7 @@
 }
 
 .intro-sub-contact:hover::after {
-  background: #477568;
+  background: var(--brand, #7297B5);
   transform: scaleX(1.1);
 }
 
@@ -385,7 +385,7 @@
 
 .intro-explore-prompt:hover {
   opacity: 1;
-  color: #477568;
+  color: var(--brand, #7297B5);
 }
 
 .intro-explore-icon {
