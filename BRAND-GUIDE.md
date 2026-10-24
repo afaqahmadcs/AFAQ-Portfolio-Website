@@ -17,15 +17,23 @@ This visual identity establishes an enduring personal brand for **Afaq Ahmad** (
 
 ## 2. Approved Color Palette & Semantic System
 
-### Primary Core Palette
+### Core Themes
 
-| Swatch | Color Name | Hex Code | HSL | Core Role |
-| :--- | :--- | :--- | :--- | :--- |
-| ![#171C1B](https://via.placeholder.com/18/171C1B/000000?text=+) | **Deep Ink** | `#171C1B` | `170°, 10%, 10%` | Dark canvas, deep cards, high-contrast headline typography in light mode. |
-| ![#F4F1E8](https://via.placeholder.com/18/F4F1E8/000000?text=+) | **Warm Ivory** | `#F4F1E8` | `45°, 29%, 93%` | Light canvas, editorial card surfaces, high-contrast headline typography in dark mode. |
-| ![#477568](https://via.placeholder.com/18/477568/000000?text=+) | **Forest Teal** | `#477568` | `163°, 25%, 37%` | Primary signature accent, navigation active states, links, primary buttons, focal borders. |
-| ![#D5A65A](https://via.placeholder.com/18/D5A65A/000000?text=+) | **Muted Amber** | `#D5A65A` | `37°, 60%, 59%` | Warm highlight, milestone badges, star ratings, subtle attention cues. |
-| ![#89938D](https://via.placeholder.com/18/89938D/000000?text=+) | **Soft Sage** | `#89938D` | `144°, 4%, 56%` | Secondary typography, metadata, muted badges, subtle hairline borders. |
+#### Dark Theme
+- **Background (Main Canvas):** `#111318` (Deep Charcoal)
+- **Elevated Surfaces (Cards & Containers):** `#1C2029` (Slate Surface)
+- **Primary Text:** `#F2F0E9` (Warm Ivory)
+- **Secondary Text:** `#9AA8B8` (Readable Cool Slate Gray)
+- **Primary Accent:** `#7297B5` (Steel Blue)
+- **Supporting Highlight:** `#D3AD72` (Soft Amber)
+
+#### Light Theme
+- **Background (Main Canvas):** `#F5F3ED` (Clean Warm Canvas)
+- **Cards (Elevated Surfaces):** `#FFFFFF` (Crisp White)
+- **Primary Text:** `#242934` (Deep Charcoal)
+- **Secondary Text:** `#555D69` (Cool Gray)
+- **Primary Accent:** `#345C7A` (Dark Steel Blue for AAA contrast)
+- **Supporting Highlight:** `#A7793E` (Soft Amber) / `#875F2B` (Highlight Text)
 
 ---
 
@@ -33,70 +41,75 @@ This visual identity establishes an enduring personal brand for **Afaq Ahmad** (
 
 Every color combination in the portfolio design tokens has been calibrated and verified against WCAG AA (4.5:1 for body text, 3:1 for large text/UI components) and WCAG AAA (7:1 for enhanced body contrast):
 
-| Foreground | Background | Contrast Ratio | WCAG Compliance | Context of Use |
-| :--- | :--- | :--- | :--- | :--- |
-| **Deep Ink** (`#171C1B`) | **Warm Ivory** (`#F4F1E8`) | **14.2 : 1** | **AAA Pass** | Light Theme: Primary headings, body copy, strong labels. |
-| **Warm Ivory** (`#F4F1E8`) | **Deep Ink** (`#171C1B`) | **14.2 : 1** | **AAA Pass** | Dark Theme: Primary headings, dominant titles, inverted buttons. |
-| **Forest Teal Deep** (`#33594F`) | **Warm Ivory** (`#F4F1E8`) | **5.6 : 1** | **AA Pass** | Light Theme: Primary brand accent, active nav links, CTAs. |
-| **Forest Teal Light** (`#74A799`) | **Deep Ink** (`#171C1B`) | **6.8 : 1** | **AAA (Large) / AA** | Dark Theme: Brand accent, links, active indicators. |
-| **Deep Sage** (`#4B5550`) | **Warm Ivory** (`#F4F1E8`) | **5.8 : 1** | **AA Pass** | Light Theme: Secondary body text, descriptions. |
-| **Soft Sage Light** (`#A3ACA7`) | **Deep Ink** (`#171C1B`) | **6.8 : 1** | **AA Pass** | Dark Theme: Secondary descriptions, subheadings. |
-| **Soft Sage** (`#89938D`) | **Deep Ink** (`#171C1B`) | **5.4 : 1** | **AA Pass** | Dark Theme: Technical metadata, dates, breadcrumbs. |
-| **Deep Amber** (`#8C6524`) | **Warm Ivory** (`#F4F1E8`) | **4.8 : 1** | **AA Pass** | Light Theme: Warm tag labels and text highlights. |
-| **Muted Amber** (`#D5A65A`) | **Deep Ink** (`#171C1B`) | **8.2 : 1** | **AAA Pass** | Dark Theme: Warm highlight text, milestone badges. |
-| **Warm Ivory** (`#F4F1E8`) | **Forest Teal** (`#477568`) | **4.64 : 1** | **AA Pass** | Primary button text on Forest Teal background. |
+| Theme | Foreground | Background | Contrast Ratio | WCAG Compliance | Context of Use |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Light** | Primary Text (`#242934`) | Main Canvas (`#F5F3ED`) | **13.13 : 1** | **AAA Pass** | Primary headings, body copy, strong labels. |
+| **Light** | Primary Text (`#242934`) | Card Surface (`#FFFFFF`) | **14.57 : 1** | **AAA Pass** | Headings & copy on elevated cards. |
+| **Light** | Secondary Text (`#555D69`) | Main Canvas (`#F5F3ED`) | **6.00 : 1** | **AAA (Large) / AA** | Secondary body descriptions, captions. |
+| **Light** | Secondary Text (`#555D69`) | Card Surface (`#FFFFFF`) | **6.65 : 1** | **AAA (Large) / AA** | Card secondary descriptions. |
+| **Light** | Tertiary Text (`#626B79`) | Main Canvas (`#F5F3ED`) | **4.85 : 1** | **AA Pass** | Subtle metadata, dates, breadcrumbs. |
+| **Light** | Primary Accent (`#345C7A`) | Main Canvas (`#F5F3ED`) | **6.40 : 1** | **AAA (Large) / AA** | Links, focus rings, tag outlines. |
+| **Light** | Primary Accent (`#345C7A`) | Card Surface (`#FFFFFF`) | **7.10 : 1** | **AAA Pass** | Card action links, badges. |
+| **Light** | Button Text (`#FFFFFF`) | Primary Button (`#345C7A`)| **7.10 : 1** | **AAA Pass** | White text on primary CTA buttons. |
+| **Light** | Muted Teal (`#2C5847`) | Main Canvas (`#F5F3ED`) | **7.30 : 1** | **AAA Pass** | Secondary accents, tags. |
+| **Light** | Highlight Text (`#875F2B`) | Main Canvas (`#F5F3ED`) | **5.11 : 1** | **AA Pass** | Amber highlight text labels. |
+| **Dark** | Primary Text (`#F2F0E9`) | Main Canvas (`#111318`) | **16.29 : 1** | **AAA Pass** | Primary headings, body copy, strong labels. |
+| **Dark** | Primary Text (`#F2F0E9`) | Slate Surface (`#1C2029`)| **14.30 : 1** | **AAA Pass** | Headings & copy on elevated cards. |
+| **Dark** | Secondary Text (`#9AA8B8`) | Main Canvas (`#111318`) | **7.67 : 1** | **AAA Pass** | Secondary body descriptions, captions. |
+| **Dark** | Secondary Text (`#9AA8B8`) | Slate Surface (`#1C2029`)| **6.73 : 1** | **AAA (Large) / AA** | Card secondary descriptions. |
+| **Dark** | Tertiary Text (`#8190A3`) | Slate Surface (`#1C2029`)| **5.01 : 1** | **AA Pass** | Subtle metadata, dates, breadcrumbs. |
+| **Dark** | Primary Accent (`#7297B5`) | Main Canvas (`#111318`) | **6.03 : 1** | **AA Pass** | Links, focus rings, active nav links. |
+| **Dark** | Primary Accent (`#7297B5`) | Slate Surface (`#1C2029`)| **5.29 : 1** | **AA Pass** | Card action links, badges. |
+| **Dark** | Button Text (`#111318`) | Primary Button (`#7297B5`)| **6.03 : 1** | **AA Pass** | Dark charcoal text on steel-blue CTAs. |
+| **Dark** | Muted Teal (`#6D9C88`) | Main Canvas (`#111318`) | **5.98 : 1** | **AA Pass** | Secondary accents, tags. |
+| **Dark** | Soft Amber (`#D3AD72`) | Main Canvas (`#111318`) | **8.84 : 1** | **AAA Pass** | Star ratings, highlight tags, milestones. |
 
 ---
 
 ## 3. Semantic CSS Design Tokens Reference (`css/tokens.css`)
 
-All colors are abstracted into semantic tokens so components never use hardcoded color values:
-
 ```css
 /* Light Theme Tokens */
+:root,
 [data-theme="light"] {
-  --bg: #F4F1E8;            /* Warm Ivory Canvas */
-  --bg2: #ECE7DA;           /* Toned Ivory Surface */
-  --bg3: #E1DAC8;           /* Inset Pill / Chip */
-  --sf: #FAF8F3;            /* Elevated Editorial Card Surface */
-  --sf2: #FFFFFF;           /* Crisp White Layer */
-  --fg: #171C1B;            /* Deep Ink Primary Text */
-  --fg2: #4B5550;           /* Deepened Sage Secondary Text */
-  --fg3: #64706A;           /* Medium Sage Caption Text */
-  --brand: #33594F;         /* Forest Teal */
-  --brandh: #26433B;        /* Forest Teal Hover */
-  --brandbg: rgba(71, 117, 104, 0.10);
-  --brand-border: rgba(71, 117, 104, 0.22);
-  --acc: #8C6524;           /* Accessible Amber Text */
-  --acc-display: #D5A65A;   /* Decorative Amber Stars/Icons */
-  --accbg: rgba(213, 166, 90, 0.14);
-  --acc-border: rgba(213, 166, 90, 0.30);
-  --bd: rgba(23, 28, 27, 0.08);
-  --bd2: rgba(23, 28, 27, 0.16);
-  --shbr: 0 4px 16px rgba(51, 89, 79, 0.14);
+  --bg: #F5F3ED;            /* Main canvas */
+  --bg2: #EBE8DF;           /* Subdued canvas / alternating sections */
+  --bg3: #E2DDD1;           /* Recessed insets, pills, and dividers */
+  --sf: #FFFFFF;            /* Pure white elevated cards */
+  --sf2: #FAF8F5;           /* Raised layer / dropdown surface */
+  --fg: #242934;            /* Primary Text (13.13:1 on Canvas) */
+  --fg2: #555D69;           /* Secondary Cool Gray Text (6.00:1) */
+  --fg3: #626B79;           /* Subtle Metadata / Captions (4.85:1) */
+  --fgi: #FFFFFF;           /* Inverted Typography */
+  --bd: rgba(36, 41, 52, 0.09);
+  --bd2: rgba(36, 41, 52, 0.18);
+  --brand: #345C7A;         /* Primary Accent (6.40:1 on Canvas) */
+  --brandh: #26465E;        /* Accent Hover */
+  --btn-primary-fg: #FFFFFF;/* Button Text on Accent (7.10:1) */
+  --teal: #2C5847;          /* Secondary Accent */
+  --acc: #A7793E;           /* Supporting Highlight */
+  --acc-text: #875F2B;      /* Accessible Highlight Text */
 }
 
 /* Dark Theme Tokens */
 [data-theme="dark"] {
-  --bg: #171C1B;            /* Deep Ink Canvas */
-  --bg2: #1E2523;           /* Elevated Ink Layer */
-  --bg3: #27312E;           /* Tertiary Inset Layer */
-  --sf: #1F2624;            /* Card Surface */
-  --sf2: #283330;           /* Active / Raised Card */
-  --fg: #F4F1E8;            /* Warm Ivory Primary Text */
-  --fg2: #A3ACA7;           /* Soft Sage Secondary Text */
-  --fg3: #89938D;           /* Soft Sage Metadata */
-  --brand: #74A799;         /* Lighter Forest Teal */
-  --brandh: #97C0B5;        /* Sage-Teal Hover */
-  --brandbg: rgba(116, 167, 153, 0.14);
-  --brand-border: rgba(116, 167, 153, 0.26);
-  --acc: #D5A65A;           /* Muted Amber */
-  --acc-display: #D5A65A;
-  --accbg: rgba(213, 166, 90, 0.14);
-  --acc-border: rgba(213, 166, 90, 0.28);
-  --bd: rgba(244, 241, 232, 0.08);
-  --bd2: rgba(244, 241, 232, 0.16);
-  --shbr: 0 4px 18px rgba(116, 167, 153, 0.18);
+  --bg: #111318;            /* Deep Charcoal Main Canvas */
+  --bg2: #161922;           /* Subdued canvas */
+  --bg3: #14171F;           /* Recessed insets / pills */
+  --sf: #1C2029;            /* Slate Surface cards */
+  --sf2: #242A36;           /* Raised card / hover state */
+  --fg: #F2F0E9;            /* Warm Ivory Primary Text (16.29:1) */
+  --fg2: #9AA8B8;           /* Readable Cool Slate Gray (7.67:1) */
+  --fg3: #8190A3;           /* Subtle Metadata / Captions (5.01:1) */
+  --fgi: #111318;           /* Inverted Typography */
+  --bd: rgba(154, 168, 184, 0.11);
+  --bd2: rgba(154, 168, 184, 0.20);
+  --brand: #7297B5;         /* Steel Blue Primary Accent (6.03:1) */
+  --brandh: #8CAECB;        /* Steel Blue Hover */
+  --btn-primary-fg: #111318;/* Button Text on Accent (6.03:1) */
+  --teal: #6D9C88;          /* Muted Teal Secondary Accent */
+  --acc: #D3AD72;           /* Soft Amber Highlight (8.84:1) */
+  --acc-text: #D3AD72;
 }
 ```
 

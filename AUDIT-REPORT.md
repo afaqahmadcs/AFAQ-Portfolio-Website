@@ -65,7 +65,7 @@ AFAQ-Portfolio-Website/
 
 ## 4. Protected Features That Must Continue Working
 
-- [x] **Theme Switching:** Instant dark/light mode toggle via `#theme-btn`, persisted across page refreshes via `localStorage.getItem('aa-theme')` with OS preference fallback.
+- [x] **Theme Switching:** Dual-theme system (Dark: Deep Charcoal `#111318` / Slate Surface `#1C2029` / Steel Blue `#7297B5`; Light: Warm Canvas `#F5F3ED` / White Cards `#FFFFFF` / Dark Steel Blue `#345C7A`) with synchronous anti-flash head scripts, `aria-pressed` / `aria-label` dynamic states, layout-safe transitions, and OS preference respect.
 - [x] **Navigation & Scroll Spy:** Responsive sticky header with scroll-direction detection (`nav-up`), active link indicators, and focus-trapped mobile drawer.
 - [x] **Contact Form Pipeline:** Client-side field validation with automated fallback to `mailto:afaqahmad.contact@gmail.com` ensuring zero lost messages when EmailJS is unconfigured.
 - [x] **Client Review System:** Supabase client submission modal with honeypot rejection and safe DOM rendering (`textContent` only, zero `innerHTML`) to prevent XSS.

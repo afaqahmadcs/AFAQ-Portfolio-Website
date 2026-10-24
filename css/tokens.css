@@ -11,7 +11,8 @@
      - Cool Slate Gray: #9AA8B8 (Readable secondary text in dark theme)
    ================================================================ */
 
-:root {
+:root,
+[data-theme="light"] {
   /* ── 1. Brand Primitives ────────────────────────────────────────── */
   --c-charcoal: #111318;
   --c-charcoal-950: #0B0D10;
@@ -30,14 +31,14 @@
   --c-steel: #7297B5;
   --c-steel-800: #1E3952;
   --c-steel-700: #2C4F70;
-  --c-steel-600: #3E658C;
+  --c-steel-600: #345C7A;
   --c-steel-500: #7297B5;
   --c-steel-400: #8CAECB;
   --c-steel-300: #A8C4DC;
 
   --c-teal: #6D9C88;
   --c-teal-800: #224336;
-  --c-teal-700: #2E5646;
+  --c-teal-700: #2C5847;
   --c-teal-600: #42705D;
   --c-teal-500: #6D9C88;
   --c-teal-400: #82B09C;
@@ -45,70 +46,74 @@
 
   --c-amber: #D3AD72;
   --c-amber-800: #6B4D1A;
-  --c-amber-700: #8C6524;
-  --c-amber-600: #B28334;
+  --c-amber-700: #875F2B;
+  --c-amber-600: #A7793E;
   --c-amber-500: #D3AD72;
   --c-amber-400: #E0BE8B;
 
   --c-slate: #9AA8B8;
-  --c-slate-800: #2D3748;
-  --c-slate-700: #475569;
-  --c-slate-600: #5B6B82;
+  --c-slate-800: #242934;
+  --c-slate-700: #555D69;
+  --c-slate-600: #626B79;
   --c-slate-500: #9AA8B8;
   --c-slate-400: #B8C4D2;
 
-  /* ── 2. Light Theme Semantics (Warm Ivory & Steel Blue — WCAG AAA/AA) ─ */
-  --bg: #F2F0E9;            /* Warm Ivory Primary Canvas */
-  --bg2: #E7E4DC;           /* Toned Warm Ivory Surface */
-  --bg3: #DDD9CF;           /* Inset Ivory Pill/Divider */
-  --sf: #FAF8F3;            /* Elevated Editorial Card Surface */
-  --sf2: #FFFFFF;           /* Crisp White Raised Layer */
+  /* ── 2. Light Theme Semantics (Clean Warm Canvas & High Contrast) ─ */
+  --bg: #F5F3ED;            /* Light theme canvas */
+  --bg2: #EBE8DF;           /* Subdued canvas / alternating sections */
+  --bg3: #E2DDD1;           /* Recessed insets, pills, and dividers */
+  --sf: #FFFFFF;            /* Pure white elevated cards */
+  --sf2: #FAF8F5;           /* Raised layer / dropdown surface */
 
-  --fg: #111318;            /* Deep Charcoal: 16.29:1 contrast against Ivory (AAA) */
-  --fg2: #475569;           /* Cool Slate Gray: 6.65:1 contrast (AAA) */
-  --fg3: #5B6B82;           /* Medium Slate: 4.76:1 contrast (AA) */
-  --fgi: #FAF8F3;           /* Inverted Typography */
+  --fg: #242934;            /* Primary Text: 13.13:1 on Canvas, 14.57:1 on White Card (AAA) */
+  --fg2: #555D69;           /* Secondary Cool Gray Text: 6.00:1 on Canvas, 6.65:1 on Card (AAA Large / AA) */
+  --fg3: #626B79;           /* Subtle Metadata / Captions: 4.85:1 on Canvas, 5.39:1 on Card (AA) */
+  --fgi: #FFFFFF;           /* Inverted Typography */
 
-  --bd: rgba(17, 19, 24, 0.08);
-  --bd2: rgba(17, 19, 24, 0.16);
-  --bd3: rgba(17, 19, 24, 0.04);
+  --bd: rgba(36, 41, 52, 0.09);    /* Clean, non-distracting card border */
+  --bd2: rgba(36, 41, 52, 0.18);   /* Hover state border */
+  --bd3: rgba(36, 41, 52, 0.05);   /* Divider border */
 
-  --brand: #2C4F70;         /* Deep Steel Blue: 7.49:1 contrast on Ivory (AAA) */
-  --brandh: #1E3952;        /* Deeper Steel Blue Hover */
-  --brand-deep: #192D40;    /* Dark Steel Accent */
-  --brandbg: rgba(44, 79, 112, 0.10);
-  --brand-border: rgba(44, 79, 112, 0.22);
-  --btn-primary-fg: #FFFFFF;/* High contrast white button text on deep steel: 8.54:1 (AAA) */
+  --brand: #345C7A;         /* Primary Accent: 6.40:1 on Canvas, 7.10:1 on Card (AAA) */
+  --brandh: #26465E;        /* Accent Hover: 8.93:1 on Canvas, 9.91:1 on Card (AAA) */
+  --brand-deep: #1C3549;    /* Deeper Steel Accent */
+  --brandbg: rgba(52, 92, 122, 0.09);
+  --brand-border: rgba(52, 92, 122, 0.22);
+  --btn-primary-fg: #FFFFFF;/* White Button Text on Steel Blue: 7.10:1 (AAA) */
 
-  --teal: #2E5646;          /* Deep Muted Teal for secondary accents: 7.26:1 (AAA) */
-  --tealbg: rgba(46, 86, 70, 0.10);
-  --teal-border: rgba(46, 86, 70, 0.24);
+  --teal: #2C5847;          /* Secondary Muted Teal: 7.30:1 on Canvas, 8.10:1 on Card (AAA) */
+  --tealbg: rgba(44, 88, 71, 0.09);
+  --teal-border: rgba(44, 88, 71, 0.22);
 
-  --acc: #8C6524;           /* Accessible Amber for Text: 4.60:1 contrast (AA) */
-  --acc-display: #D3AD72;   /* Soft Amber for Decorative Stars/Badges */
-  --accbg: rgba(211, 173, 114, 0.14);
-  --acc-border: rgba(211, 173, 114, 0.28);
+  --acc: #A7793E;           /* Supporting Highlight (Stars, Badges, Borders) */
+  --acc-text: #875F2B;      /* Accessible Highlight Text: 5.11:1 on Canvas, 5.67:1 on Card (AA) */
+  --acc-display: #A7793E;
+  --accbg: rgba(167, 121, 62, 0.11);
+  --acc-border: rgba(167, 121, 62, 0.25);
 
-  --glass: rgba(242, 240, 233, 0.92);
-  --glassb: rgba(17, 19, 24, 0.08);
+  --glass: rgba(245, 243, 237, 0.90);
+  --glassb: rgba(36, 41, 52, 0.08);
   --glassf: blur(14px);
 
-  --sh1: rgba(17, 19, 24, 0.04);
-  --sh2: rgba(17, 19, 24, 0.07);
-  --sh3: rgba(17, 19, 24, 0.12);
-  --shbr: 0 4px 16px rgba(44, 79, 112, 0.14);
-  --shbrl: 0 8px 24px rgba(44, 79, 112, 0.20);
+  --sh1: rgba(36, 41, 52, 0.04);
+  --sh2: rgba(36, 41, 52, 0.08);
+  --sh3: rgba(36, 41, 52, 0.14);
+  --shbr: 0 4px 16px rgba(52, 92, 122, 0.16);
+  --shbrl: 0 8px 24px rgba(52, 92, 122, 0.24);
 
-  --selbg: #DCE5EE;
-  --selfg: #111318;
-  --sbt: #DDD9CF;
-  --sbth: #C8D1DC;
-  --sbhv: #2C4F70;
+  --selbg: #D8E2EC;
+  --selfg: #242934;
+  --sbt: #E2DDD1;
+  --sbth: #D2D9E2;
+  --sbhv: #345C7A;
 
   --spotlight-x: 50%;
   --spotlight-y: 50%;
   --spotlight-opacity: 0;
-  --spotlight-color: rgba(44, 79, 112, 0.04);
+  --spotlight-color: rgba(52, 92, 122, 0.04);
+
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px #345C7A;
+  --focusoff: 0 0 0 2px var(--bg), 0 0 0 4px #345C7A;
 
   /* ── 3. Spacing System ──────────────────────────────────────────── */
   --s1: 4px;
@@ -197,12 +202,13 @@
   --eio: cubic-bezier(0.45, 0, 0.55, 1);
 
   --navh: 68px;
-  --focus: 0 0 0 2px var(--bg), 0 0 0 4px #2C4F70;
-  --focusoff: 0 0 0 2px var(--bg), 0 0 0 4px #2C4F70;
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px #345C7A;
+  --focusoff: 0 0 0 2px var(--bg), 0 0 0 4px #345C7A;
 }
 
 /* ══════════════════════════════════════════════════════════════════
    DARK THEME (Balanced Charcoal, Slate Surface & Steel Blue)
+   WCAG AAA / AA Tested
    ================================================================ */
 [data-theme="dark"] {
   /* Surface Hierarchy (Deep Charcoal Canvas -> Slate Surface -> Raised) */
@@ -215,17 +221,17 @@
   /* Typography Hierarchy */
   --fg: #F2F0E9;            /* Warm Ivory primary text: 16.29:1 on #111318, 14.30:1 on #1C2029 (AAA) */
   --fg2: #9AA8B8;           /* Readable Cool Slate Gray: 7.67:1 on #111318, 6.73:1 on #1C2029 (AAA) */
-  --fg3: #8190A3;           /* Subtle metadata / tertiary labels: 5.01:1 on #1C2029 (WCAG AA) */
+  --fg3: #8190A3;           /* Subtle metadata / tertiary labels: 5.71:1 on #111318, 5.01:1 on #1C2029 (WCAG AA) */
   --fgi: #111318;           /* Inverted Typography */
 
   /* Subtle Cool Slate Neutral Borders */
-  --bd: rgba(154, 168, 184, 0.10);
-  --bd2: rgba(154, 168, 184, 0.18);
+  --bd: rgba(154, 168, 184, 0.11);
+  --bd2: rgba(154, 168, 184, 0.20);
   --bd3: rgba(154, 168, 184, 0.05);
 
   /* Primary Accent: Steel Blue */
   --brand: #7297B5;         /* Steel Blue primary accent: 6.03:1 on #111318, 5.29:1 on #1C2029 (AA) */
-  --brandh: #8CAECB;        /* Steel Blue hover */
+  --brandh: #8CAECB;        /* Steel Blue hover: 7.99:1 on #111318 (AAA) */
   --brand-deep: #1E3952;    /* Darker Steel Accent */
   --brandbg: rgba(114, 151, 181, 0.12);
   --brand-border: rgba(114, 151, 181, 0.25);
@@ -238,6 +244,7 @@
 
   /* Rare Highlight: Soft Amber */
   --acc: #D3AD72;           /* Soft Amber for occasional emphasis/stars: 8.84:1 (AAA) */
+  --acc-text: #D3AD72;
   --acc-display: #D3AD72;
   --accbg: rgba(211, 173, 114, 0.12);
   --acc-border: rgba(211, 173, 114, 0.25);
@@ -275,8 +282,8 @@
     --fg2: #9AA8B8;
     --fg3: #8190A3;
     --fgi: #111318;
-    --bd: rgba(154, 168, 184, 0.10);
-    --bd2: rgba(154, 168, 184, 0.18);
+    --bd: rgba(154, 168, 184, 0.11);
+    --bd2: rgba(154, 168, 184, 0.20);
     --bd3: rgba(154, 168, 184, 0.05);
     --brand: #7297B5;
     --brandh: #8CAECB;
@@ -288,6 +295,7 @@
     --tealbg: rgba(109, 156, 136, 0.12);
     --teal-border: rgba(109, 156, 136, 0.25);
     --acc: #D3AD72;
+    --acc-text: #D3AD72;
     --acc-display: #D3AD72;
     --accbg: rgba(211, 173, 114, 0.12);
     --acc-border: rgba(211, 173, 114, 0.25);

@@ -63,32 +63,44 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
 
   const savedTheme = localStorage.getItem('aa-theme');
   const osPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  applyTheme(savedTheme || osPreference);
+  applyTheme(savedTheme || osPreference, false);
 
-  function applyTheme(theme) {
+  function applyTheme(theme, persist = false) {
     html.setAttribute('data-theme', theme);
-    localStorage.setItem('aa-theme', theme);
+    if (persist) {
+      try {
+        localStorage.setItem('aa-theme', theme);
+      } catch (e) {}
+    }
+    const isDark = theme === 'dark';
     if (sun && moon) {
-      sun.style.display  = theme === 'dark' ? 'none'  : 'block';
-      moon.style.display = theme === 'dark' ? 'block' : 'none';
+      sun.style.display  = isDark ? 'none'  : 'block';
+      moon.style.display = isDark ? 'block' : 'none';
     }
     if (btn) {
-      btn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+      btn.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+      btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+      btn.setAttribute('title', `Switch to ${isDark ? 'light' : 'dark'} mode`);
     }
   }
 
-  on(btn, 'click', () => {
-    const current = html.getAttribute('data-theme') || 'light';
-    html.classList.add('theme-transitioning');
-    setTimeout(() => html.classList.remove('theme-transitioning'), 300);
-    applyTheme(current === 'dark' ? 'light' : 'dark');
-  });
+  if (btn) {
+    on(btn, 'click', () => {
+      const current = html.getAttribute('data-theme') || 'light';
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      html.classList.add('theme-transitioning');
+      setTimeout(() => html.classList.remove('theme-transitioning'), 260);
+      applyTheme(nextTheme, true);
+    });
+  }
 
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (!localStorage.getItem('aa-theme')) {
-      applyTheme(e.matches ? 'dark' : 'light');
-    }
-  });
+  try {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!localStorage.getItem('aa-theme')) {
+        applyTheme(e.matches ? 'dark' : 'light', false);
+      }
+    });
+  } catch (e) {}
 })();
 
 /* ================================================================
