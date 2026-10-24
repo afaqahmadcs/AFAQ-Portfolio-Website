@@ -77,30 +77,33 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 .nav-links a.active{color:var(--brand);font-weight:var(--ws)}
 .nav-links a.active::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--brand)}
 .nav-actions{display:flex;align-items:center;gap:var(--s2);flex-shrink:0}
-.nav-icon{width:34px;height:34px;border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;color:var(--fg2);border:1px solid var(--bd);transition:color var(--tf),background var(--tf),border-color var(--tf)}
+.nav-icon{width:34px;height:34px;border-radius:var(--rsm);display:flex;align-items:center;justify-content:center;color:var(--fg2);border:1px solid var(--bd);transition:color var(--tf),background var(--tf),border-color var(--tf);cursor:pointer;background:transparent}
+.nav-icon:hover{color:var(--fg);background:var(--bg2);border-color:var(--bd2)}
 .nav-icon svg{width:16px;height:16px}
 .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;font-size:var(--xs);font-weight:var(--ws);color:var(--btn-primary-fg);background:var(--brand);border-radius:var(--rfull);box-shadow:var(--shbr);transition:background var(--tf),transform var(--tf),box-shadow var(--tf);white-space:nowrap;border:none;cursor:pointer}
 .nav-cta svg{width:13px;height:13px}
 .nav-cta:hover{background:var(--brandh);color:var(--btn-primary-fg);transform:translateY(-1px);box-shadow:var(--shbrl)}
-.nav-burger{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px;width:40px;height:40px;border-radius:var(--rsm);border:1px solid var(--bd);background:transparent;cursor:pointer;transition:background var(--tf)}
-.nav-burger span{display:block;width:16px;height:1.5px;background:var(--fg);border-radius:2px;transition:transform var(--tn) var(--esp),opacity var(--tn)}
-.nav-burger:hover{background:var(--bg2)}
-.nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-burger{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px;width:40px;height:40px;border-radius:var(--rsm);border:1px solid var(--bd);background:transparent;cursor:pointer;transition:background var(--tf),border-color var(--tf)}
+.nav-burger span{display:block;width:18px;height:2px;background:var(--fg);border-radius:2px;transition:transform var(--tn) var(--esp),opacity var(--tn)}
+.nav-burger:hover{background:var(--bg2);border-color:var(--bd2)}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-@media(max-width:1024px){.nav-links li:nth-child(n+6){display:none}}
-@media(max-width:768px){.nav-links{display:none!important}.nav-cta{display:none!important}.nav-burger{display:flex!important}}
-@media(max-width:480px){.nav-logo-name{display:none}#navbar{width:calc(100% - 24px);padding:0 var(--s4)}}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1100px){.nav-links li:nth-child(n+7){display:none}}
+@media(max-width:900px){.nav-links{display:none!important}.nav-cta{display:none!important}.nav-burger{display:flex!important}}
+@media(max-width:480px){.nav-logo-name{display:none}#navbar{width:calc(100% - 20px);padding:0 var(--s3);top:10px}}
+@media(max-width:360px){#navbar{width:calc(100% - 16px);padding:0 8px;gap:6px}.nav-icon{width:32px;height:32px}.nav-burger{width:36px;height:36px}}
 
 /* ── Mobile Menu ────────────────────────────────────────────────── */
-#mmenu{position:fixed;inset:0;z-index:300;background:var(--glass);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);display:flex;flex-direction:column;padding:var(--s6);transform:translateX(100%);transition:transform var(--ts) var(--esp);visibility:hidden}
+#mmenu{position:fixed;inset:0;z-index:300;background:var(--bg);background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);display:flex;flex-direction:column;padding:var(--s6);transform:translateX(100%);transition:transform var(--ts) var(--esp);visibility:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
 #mmenu.open{transform:translateX(0);visibility:visible}
-.mm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s10)}
-.mm-close{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:var(--rsm);background:var(--bg3);color:var(--fg)}
-.mm-links{display:flex;flex-direction:column;gap:4px;flex:1}
-.mm-links a{font-size:var(--xl);font-weight:var(--ws);color:var(--fg2);padding:var(--s3) var(--s4);border-radius:var(--rmd);transition:color var(--tf),background var(--tf)}
+.mm-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s8);flex-shrink:0}
+.mm-close{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:var(--rsm);background:var(--bg3);border:1px solid var(--bd);color:var(--fg);cursor:pointer;transition:background var(--tf),color var(--tf),border-color var(--tf)}
+.mm-close:hover{background:var(--bg2);color:var(--brand);border-color:var(--brand)}
+.mm-links{display:flex;flex-direction:column;gap:6px;flex:1;min-height:min-content}
+.mm-links a{font-size:var(--lg);font-weight:var(--ws);color:var(--fg2);padding:12px var(--s4);min-height:48px;display:flex;align-items:center;border-radius:var(--rmd);transition:color var(--tf),background var(--tf);text-decoration:none}
 .mm-links a:hover,.mm-links a.active{color:var(--brand);background:var(--brandbg)}
-.mm-foot{display:flex;align-items:center;gap:var(--s4);padding-top:var(--s6);border-top:1px solid var(--bd)}
+.mm-foot{display:flex;align-items:center;gap:var(--s4);padding-top:var(--s6);border-top:1px solid var(--bd);flex-shrink:0;margin-top:var(--s4)}
 
 /* ── Bento Grid Hero ────────────────────────────────────────────── */
 .hero{position:relative;overflow:hidden;padding-top:calc(var(--navh) + var(--s6));padding-bottom:var(--s16)}

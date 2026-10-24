@@ -29,9 +29,29 @@
   <div class="nav-actions">
     <button class="nav-icon" id="theme-btn" type="button" aria-label="Toggle theme" aria-pressed="false"><svg id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg id="ic-moon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
     <a href="contact.html" class="nav-cta">Let's Talk</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 </header>
+<div id="mmenu" role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="true">
+  <div class="mm-head">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="mmlg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#7297B5"/><stop offset="1" stop-color="#111318"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#mmlg)"/><path d="M6 30 L13 10 L17 21 L9 21 Z" fill="#F2F0E9" opacity="0.95"/><path d="M13 10 L20 30 L17 30 L11 16 Z" fill="#F2F0E9" opacity="0.72"/><path d="M20 30 L27 10 L31 21 L23 21 Z" fill="#F2F0E9" opacity="0.95"/><path d="M27 10 L34 30 L31 30 L25 16 Z" fill="#F2F0E9" opacity="0.72"/></svg>
+      <span class="nav-logo-name">Afaq Ahmad</span>
+    </a>
+    <button class="mm-close" id="mm-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <nav class="mm-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+  <div class="mm-foot">
+    <a href="contact.html" class="btn btn--primary btn--sm">Let's Talk</a>
+  </div>
+</div>
 
 <main id="main">
 <div class="nf" style="flex-direction:column">
