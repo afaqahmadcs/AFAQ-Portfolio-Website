@@ -255,15 +255,19 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 .tb-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--fg)}
 
 /* ── Services ───────────────────────────────────────────────────── */
-.svc-grid{display:grid;gap:var(--s4);grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr))}
-.svc-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rxl);padding:var(--s8);position:relative;overflow:hidden;cursor:pointer;transition:transform var(--ts) var(--esp),box-shadow var(--ts),border-color var(--tf)}
-.svc-card:hover{transform:translateY(-8px);box-shadow:var(--shxl);border-color:var(--brand)}
-.svc-icon{font-size:1.8rem;width:52px;height:52px;background:var(--brandbg);border-radius:var(--rlg);display:flex;align-items:center;justify-content:center;margin-bottom:var(--s5);transition:transform var(--ts) var(--esp)}
-.svc-icon svg{width:26px;height:26px;color:var(--brand)}
-.svc-card:hover .svc-icon{transform:rotate(-8deg) scale(1.1)}
-.svc-title{font-size:var(--xl);font-weight:var(--wb);color:var(--fg);margin-bottom:var(--s3)}
-.svc-desc{font-size:var(--sm);color:var(--fg2);line-height:var(--lhr);margin-bottom:var(--s5)}
-.svc-link{font-size:var(--sm);font-weight:var(--ws);color:var(--brand);display:flex;align-items:center;gap:4px;transition:gap var(--tf)}
+.svc-grid{display:grid;gap:var(--s6);grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.svc-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rxl);padding:var(--s8);position:relative;overflow:hidden;transition:transform var(--ts) var(--esp),box-shadow var(--ts),border-color var(--tf);display:flex;flex-direction:column}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shxl);border-color:var(--brand)}
+.svc-icon{width:46px;height:46px;background:var(--brandbg);border:1px solid var(--brand-border);border-radius:var(--rlg);display:flex;align-items:center;justify-content:center;margin-bottom:var(--s4);transition:transform var(--ts) var(--esp);color:var(--brand);flex-shrink:0}
+.svc-icon svg{width:22px;height:22px}
+.svc-card:hover .svc-icon{transform:rotate(-6deg) scale(1.08)}
+.svc-title{font-size:var(--lg);font-weight:var(--wb);color:var(--fg);margin-bottom:2px}
+.svc-tagline{font-size:11px;font-weight:var(--wb);color:var(--brand);text-transform:uppercase;letter-spacing:var(--lsw);margin-bottom:var(--s3);display:block}
+.svc-desc{font-size:var(--sm);color:var(--fg2);line-height:var(--lhr);margin-bottom:var(--s4);flex:1}
+.svc-deliverables{display:flex;flex-direction:column;gap:6px;padding:var(--s3) var(--s4);background:var(--bg2);border:1px solid var(--bd3);border-radius:var(--rmd);margin-bottom:var(--s5);font-size:12px;color:var(--fg2)}
+.svc-deliv-item{display:flex;align-items:center;gap:6px;font-size:11px;line-height:1.4}
+.svc-deliv-item svg{width:12px;height:12px;color:var(--brand);flex-shrink:0}
+.svc-link{font-size:var(--xs);font-weight:var(--wb);color:var(--brand);display:inline-flex;align-items:center;gap:4px;transition:gap var(--tf);text-transform:uppercase;letter-spacing:var(--lsw);margin-top:auto}
 .svc-card:hover .svc-link{gap:8px}
 
 /* ── Working Principles ────────────────────────────────────────── */

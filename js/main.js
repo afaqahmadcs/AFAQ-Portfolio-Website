@@ -862,4 +862,57 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
   }
 })();
 
+/* ================================================================
+   14. TECH STACK FILTER TABS (index.html)
+   Filters technical skill badges by category: All / Comfortable / Backend / Tools / Exploration
+   ================================================================ */
+(function initTechStackTabs() {
+  const tabs = $$('.tech-tab');
+  const badges = $$('.tech-badge');
+  if (!tabs.length || !badges.length) return;
+
+  tabs.forEach(tab => {
+    on(tab, 'click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('on');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('on');
+      tab.setAttribute('aria-selected', 'true');
+
+      const cat = tab.dataset.cat || 'all';
+      badges.forEach(badge => {
+        if (cat === 'all' || badge.dataset.cat === cat) {
+          badge.classList.remove('hide');
+        } else {
+          badge.classList.add('hide');
+        }
+      });
+    });
+  });
+})();
+
+/* ================================================================
+   15. PRE-FILL CONTACT SUBJECT FROM SERVICE QUERY PARAM
+   ================================================================ */
+(function initContactServiceParam() {
+  const subjectInput = $('#cf-subject');
+  if (!subjectInput) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const service = params.get('service');
+  if (!service) return;
+
+  const map = {
+    'responsive-website': 'Responsive Website Development',
+    'design-to-code': 'Design-to-Code Implementation (Figma)',
+    'layout-fixes': 'Layout Refactoring & Mobile Polish',
+    'product-showcase': 'Business Product Showcase Catalog'
+  };
+
+  if (map[service]) {
+    subjectInput.value = map[service];
+  }
+})();
+
 
