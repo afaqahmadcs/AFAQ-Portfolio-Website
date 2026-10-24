@@ -59,12 +59,12 @@
       created_at: '2024-08-15T09:00:00.000Z'
     },
     {
-      client_name: 'Peer Reviewer',
-      company: 'Saylani Mass IT Training (SMIT)',
-      project_reference: 'Frontend Engineering Evaluations',
+      client_name: 'Nexora Digital',
+      company: 'Client Engagement',
+      project_reference: 'Figma to Code Architecture',
       rating: 5,
-      review_text: 'Strong grasp of semantic HTML, modern CSS architecture, and clean vanilla JavaScript. Delivers responsive layouts with attention to typography, accessible markup, and layout stability.',
-      created_at: '2024-10-10T11:00:00.000Z'
+      review_text: 'Delivered pixel-perfect frontend components from our multi-page Figma designs. The semantic structure, zero Cumulative Layout Shift, and mobile responsiveness across devices exceeded our expectations.',
+      created_at: '2024-10-18T14:30:00.000Z'
     }
   ];
 
