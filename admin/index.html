@@ -57,9 +57,6 @@
           <button id="admin-signout-btn" class="admin-btn admin-btn-secondary admin-btn-sm" type="button">
             Sign Out
           </button>
-          <button id="admin-disconnect-btn" class="admin-btn admin-btn-ghost admin-btn-sm" type="button" title="Remove stored Supabase keys from this browser" style="display: none;">
-            Clear Keys
-          </button>
         </div>
       </div>
     </div>
@@ -67,28 +64,6 @@
 
   <!-- Main Content Area -->
   <main id="admin-main" class="admin-main" tabindex="-1">
-    <!-- Configuration Missing Banner -->
-    <div id="admin-config-alert" class="admin-alert admin-alert-warning" role="alert" style="display: none;">
-      <div class="admin-alert-icon" aria-hidden="true">⚠️</div>
-      <div class="admin-alert-content" style="width:100%">
-        <h2 class="admin-alert-title">Supabase Credentials Required</h2>
-        <p>Live frontend configuration was not detected from <code>js/supabase-config.js</code> (protected from public Git tracking). To connect this console on Vercel without publishing keys to GitHub, enter your Supabase project credentials below.</p>
-        
-        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;background:var(--sf);padding:14px;border-radius:var(--rmd);border:1px solid var(--bd)">
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <input type="url" id="admin-connect-url" placeholder="Project URL (https://xxxx.supabase.co)" class="admin-input" style="flex:1;min-width:240px;font-size:12px;padding:8px 12px" />
-            <input type="password" id="admin-connect-key" placeholder="Publishable anon key (eyJhbGci...)" class="admin-input" style="flex:2;min-width:240px;font-size:12px;padding:8px 12px" />
-            <button type="button" id="admin-connect-btn" class="admin-btn admin-btn-primary admin-btn-sm" style="white-space:nowrap;padding:8px 16px">
-              Save in Browser &amp; Connect
-            </button>
-          </div>
-          <p class="text-xs text-muted" style="margin:0;font-size:11px;color:var(--fg3)">
-            🔒 <strong>Private Browser Storage:</strong> Saved strictly into your personal browser's <code>localStorage</code>. Zero credentials are committed to GitHub or exposed publicly.
-          </p>
-        </div>
-      </div>
-    </div>
-
     <!-- Notification Toast / Banner -->
     <div id="admin-notification" class="admin-notification" role="status" aria-live="polite" style="display: none;">
       <span id="admin-notif-message"></span>
@@ -138,10 +113,6 @@
           <p class="text-xs text-muted">
             Security boundary is strictly enforced by PostgreSQL Row Level Security (RLS). Direct API calls by non-admin accounts or anonymous visitors are denied.
           </p>
-          <div id="admin-storage-status" style="margin-top:10px;font-size:12px;display:none;align-items:center;justify-content:center;gap:8px;">
-            <span style="color:var(--pr);font-weight:500;">✓ Connected via browser storage</span>
-            <button type="button" id="admin-clear-storage-btn" class="admin-btn admin-btn-ghost admin-btn-sm" style="padding:2px 8px;font-size:11px;">Reset</button>
-          </div>
         </div>
       </div>
     </section>
