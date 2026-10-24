@@ -183,35 +183,29 @@
 <section class="hero bento-hero" id="hero">
   <div class="hero-bg">
     <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-blob" aria-hidden="true"></div>
-    <div class="hero-blob" aria-hidden="true"></div>
   </div>
   <div class="container">
     <div class="bento-grid">
-      <!-- 1. Dominant Intro Card (8 cols) -->
+      <!-- 1. Dominant Hero Intro Card (8 cols) -->
       <article class="bento-card bento-card--intro" aria-label="Introduction">
         <div>
           <div class="bento-card-header">
             <span class="bento-eyebrow">
               <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              Peshawar, Pakistan · Web Developer &amp; CS Student
+              Peshawar, Pakistan
             </span>
-            <span class="bento-badge">
-              <span class="status-dot"></span>
-              Available for freelance &amp; junior roles
-            </span>
+            <span class="bento-tag bento-tag--brand">Web Developer &amp; CS Student</span>
           </div>
           <h1 class="bento-headline">
-            I build websites that <span class="grad-txt">make sense</span> for the people using them.
+            I build websites with purpose.
           </h1>
           <p class="bento-narrative">
-            I'm Afaq Ahmad, a Computer Science student at Superior College and web developer training at SMIT in Peshawar. I specialize in responsive, accessible interfaces built with clean vanilla HTML, CSS, and modern JavaScript—focusing on speed, clarity, and practical business utility as I expand into backend development.
+            I'm Afaq Ahmad, a Computer Science student and web developer from Peshawar, Pakistan. I focus on building responsive, clean, and accessible websites using vanilla HTML, CSS, and modern JavaScript, with an emphasis on clarity and practical utility as I expand into backend development.
           </p>
         </div>
         <div class="bento-actions">
-          <a href="projects.html" class="btn btn--primary btn--md">View my work →</a>
-          <a href="contact.html" class="btn btn--secondary btn--md">Get in touch</a>
-          <a href="resume.html" class="btn btn--ghost btn--md">View Résumé</a>
+          <a href="projects.html" class="btn btn--primary btn--md">Explore my work →</a>
+          <a href="contact.html" class="btn btn--secondary btn--md">Contact me</a>
           <a href="https://github.com/afaqahmadcs" target="_blank" rel="noopener noreferrer" class="bento-badge" aria-label="GitHub profile">
             <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
             GitHub
@@ -223,10 +217,10 @@
         </div>
       </article>
 
-      <!-- 2. Portrait / Identity Card (4 cols) -->
+      <!-- 2. Genuine Portrait Card (4 cols) -->
       <article class="bento-card bento-card--portrait" aria-label="Afaq Ahmad photograph">
         <img
-          src="./assets/images/Frot page.png"
+          src="assets/images/Frot page.png"
           alt="Afaq Ahmad — Web Developer &amp; CS Student in Peshawar"
           class="bento-portrait-img"
           width="420"
@@ -236,156 +230,130 @@
           decoding="async"
         />
         <div class="bento-portrait-overlay">
-          <span class="bento-portrait-name">Afaq Ahmad</span>
-          <span class="bento-portrait-title">Frontend Builder · SMIT Backend Trainee</span>
+          <div class="bento-portrait-meta">
+            <span class="bento-portrait-name">Afaq Ahmad</span>
+            <span class="bento-portrait-title">Web Developer &amp; CS Student</span>
+          </div>
+          <div class="bento-portrait-clock" title="Local Peshawar Time (Asia/Karachi)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span id="bento-local-time">--:--:--</span>
+            <span class="sr-only" id="bento-local-date">Peshawar PKT</span>
+          </div>
         </div>
       </article>
 
-      <!-- 3. Location & Live Time Card (4 cols) -->
-      <article class="bento-card bento-card--time" aria-label="Current local time in Peshawar, Pakistan">
+      <!-- ════ BENTO INFORMATION AREA (Exactly 4 Purposeful Elements) ════ -->
+
+      <!-- Element 1: Current Focus (6 cols) -->
+      <article class="bento-card bento-card--focus" aria-label="Current technical focus">
         <div class="bento-card-header">
           <span class="bento-eyebrow">
-            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Peshawar, Pakistan
+            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Current Focus
           </span>
-          <span class="bento-live-badge">
-            <span class="bento-pulse-dot" aria-hidden="true"></span>
-            Live Local Time
-          </span>
+          <span class="bento-tag bento-tag--learning">SMIT Training</span>
         </div>
-        <div class="bento-time-display">
-          <span class="bento-time-val" id="bento-local-time">--:--:-- --</span>
-          <span class="bento-time-meta" id="bento-local-date">Peshawar, PK · Asia/Karachi (UTC+5)</span>
-        </div>
-        <p class="bento-card-note">
-          Working in Pakistan Standard Time (Asia/Karachi). Tabular-clock updates with zero layout shift.
+        <h2 class="bento-card-title">Backend Development — Currently Learning at SMIT</h2>
+        <p class="bento-card-text">
+          Active coursework at Saylani Mass IT Training (SMIT) Peshawar covering Node.js, Express, MongoDB fundamentals, and RESTful API architectures to connect frontend interfaces with real servers and databases.
         </p>
+        <div class="bento-focus-badges">
+          <span class="bento-tag">Node.js</span>
+          <span class="bento-tag">Express</span>
+          <span class="bento-tag">MongoDB Basics</span>
+          <span class="bento-tag">RESTful APIs</span>
+        </div>
       </article>
 
-      <!-- 4. Current Focus Card (4 cols) -->
-      <article class="bento-card bento-card--focus" aria-label="Current technical focus and learning">
+      <!-- Element 2: Journey (6 cols) -->
+      <article class="bento-card bento-card--journey" aria-label="Learning journey">
         <div class="bento-card-header">
-          <span class="bento-eyebrow">Active Direction</span>
-          <span class="bento-badge">Q4 2026</span>
+          <span class="bento-eyebrow">
+            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Learning Journey
+          </span>
+          <span class="bento-tag bento-tag--brand">Verified Progress</span>
         </div>
-        <h2 class="bento-card-title">Current Focus</h2>
-        <ul class="bento-focus-list">
-          <li class="bento-focus-item">
-            <span class="bento-marker" aria-hidden="true"></span>
-            <div class="bento-focus-text">
-              <strong>Backend Fundamentals:</strong> Learning Node.js, Express, MongoDB, and RESTful APIs at SMIT.
-            </div>
-          </li>
-          <li class="bento-focus-item">
-            <span class="bento-marker" aria-hidden="true"></span>
-            <div class="bento-focus-text">
-              <strong>Frontend Craft:</strong> Strengthening semantic HTML, CSS Grid architectures, and DOM-driven JavaScript.
-            </div>
-          </li>
-          <li class="bento-focus-item">
-            <span class="bento-marker" aria-hidden="true"></span>
-            <div class="bento-focus-text">
-              <strong>Real-World Application:</strong> Building and shipping practical website solutions for real clients and users.
-            </div>
-          </li>
-        </ul>
-      </article>
-
-      <!-- 5. Academic & Practical Context Card (4 cols) -->
-      <article class="bento-card bento-card--personal" aria-label="Education and academic context">
-        <div class="bento-card-header">
-          <span class="bento-eyebrow">Education &amp; Training</span>
-          <span class="bento-badge">Peshawar</span>
-        </div>
-        <h2 class="bento-card-title">Theory &amp; Code</h2>
-        <p class="bento-prose">
-          Balancing FSc Computer Science studies with structured evening web development training at SMIT. My objective is to connect fundamental computer science concepts with the practical discipline of writing clean, shippable web software.
-        </p>
-        <div class="bento-edu-meta">
-          <div class="bento-edu-line">
-            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
-            <span><strong>FSc Computer Science:</strong> Superior College (2025–Present)</span>
+        <h2 class="bento-card-title">Structured Milestone Progress</h2>
+        <div class="bento-journey-steps">
+          <div class="bento-journey-step bento-journey-step--done">
+            <span class="bento-step-status">Completed</span>
+            <strong>Web Designing:</strong>
+            <span>HTML5, semantic structuring, and modern CSS3 (Grid &amp; Flexbox layouts).</span>
           </div>
-          <div class="bento-edu-line">
+          <div class="bento-journey-step bento-journey-step--done">
+            <span class="bento-step-status">Completed</span>
+            <strong>JavaScript Coursework:</strong>
+            <span>DOM manipulation, ESNext features, asynchronous requests, and event architectures.</span>
+          </div>
+          <div class="bento-journey-step bento-journey-step--active">
+            <span class="bento-step-status bento-step-status--learning">In Progress</span>
+            <strong>Backend Development:</strong>
+            <span>Server routing, HTTP methods, and backend application logic at SMIT.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Element 3: Tools and Skills (6 cols) -->
+      <article class="bento-card bento-card--skills" aria-label="Tools and skills">
+        <div class="bento-card-header">
+          <span class="bento-eyebrow">
             <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            <span><strong>Web &amp; App Development:</strong> SMIT Peshawar (2026–Present)</span>
-          </div>
+            Tools &amp; Skills
+          </span>
+          <span class="bento-tag bento-tag--brand">Demonstrated Code</span>
         </div>
-      </article>
-
-      <!-- 6. Build Principles Card (6 cols) -->
-      <article class="bento-card bento-card--principles" aria-label="Build principles and standards">
-        <div class="bento-card-header">
-          <span class="bento-eyebrow">Standards &amp; Approach</span>
-          <span class="bento-badge">How I Approach a Build</span>
-        </div>
-        <h2 class="bento-card-title">What I Pay Attention To</h2>
-        <div class="bento-principles-grid">
-          <div class="bento-principle-item">
-            <div class="bento-principle-head">
-              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              <span>Responsive by Default</span>
-            </div>
-            <p class="bento-principle-desc">Layouts designed to adapt gracefully from 360px phones to wide desktop viewports without broken overflow.</p>
-          </div>
-          <div class="bento-principle-item">
-            <div class="bento-principle-head">
-              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-              <span>Accessible &amp; Clear</span>
-            </div>
-            <p class="bento-principle-desc">Semantic HTML markup, deliberate color contrast, and keyboard navigation as standard practice.</p>
-          </div>
-          <div class="bento-principle-item">
-            <div class="bento-principle-head">
-              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <span>Performance First</span>
-            </div>
-            <p class="bento-principle-desc">Clean vanilla HTML, CSS, and JS implementations without heavy framework overhead or unnecessary assets.</p>
-          </div>
-          <div class="bento-principle-item">
-            <div class="bento-principle-head">
-              <svg class="bento-principle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-              <span>Honest Communication</span>
-            </div>
-            <p class="bento-principle-desc">Transparent discussions on project scope, delivery timelines, and technical boundaries.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- 7. Tech Stack Card (6 cols) -->
-      <article class="bento-card bento-card--stack" aria-label="Technical stack and learning trajectory">
-        <div class="bento-card-header">
-          <span class="bento-eyebrow">Technical Grounding</span>
-          <span class="bento-badge">Demonstrated vs Learning</span>
-        </div>
-        <h2 class="bento-card-title">Tech Stack &amp; Trajectory</h2>
-        <div class="bento-stack-groups">
-          <div class="bento-stack-group">
-            <span class="bento-stack-label">Building with (Demonstrated)</span>
-            <div class="bento-stack-tags">
+        <h2 class="bento-card-title">Supported by Real Projects</h2>
+        <p class="bento-card-text">
+          Technologies applied in working client and practice code—zero unsupported claims:
+        </p>
+        <div class="bento-skills-grid">
+          <div class="bento-skill-group">
+            <span class="bento-skill-cat">Frontend Core</span>
+            <div class="bento-skill-tags">
               <span class="bento-tag bento-tag--brand">HTML5</span>
-              <span class="bento-tag bento-tag--brand">CSS3 (Grid / Flexbox)</span>
+              <span class="bento-tag bento-tag--brand">CSS3 (Grid/Flex)</span>
               <span class="bento-tag bento-tag--brand">JavaScript (ES6+)</span>
-              <span class="bento-tag bento-tag--brand">Responsive UI</span>
+              <span class="bento-tag">Responsive UI</span>
+            </div>
+          </div>
+          <div class="bento-skill-group">
+            <span class="bento-skill-cat">Workflow &amp; Tooling</span>
+            <div class="bento-skill-tags">
               <span class="bento-tag">Git &amp; GitHub</span>
+              <span class="bento-tag">VS Code</span>
               <span class="bento-tag">Chrome DevTools</span>
             </div>
           </div>
-          <div class="bento-stack-group">
-            <span class="bento-stack-label">Learning now (SMIT Coursework)</span>
-            <div class="bento-stack-tags">
-              <span class="bento-tag bento-tag--learning">Node.js</span>
-              <span class="bento-tag bento-tag--learning">Express.js</span>
-              <span class="bento-tag bento-tag--learning">MongoDB Basics</span>
-              <span class="bento-tag bento-tag--learning">RESTful APIs</span>
-            </div>
+        </div>
+      </article>
+
+      <!-- Element 4: Working Principles (6 cols) -->
+      <article class="bento-card bento-card--principles" aria-label="Working principles">
+        <div class="bento-card-header">
+          <span class="bento-eyebrow">
+            <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Working Principles
+          </span>
+          <span class="bento-tag bento-tag--brand">Core Standards</span>
+        </div>
+        <h2 class="bento-card-title">Practical Engineering Standards</h2>
+        <div class="bento-principles-grid">
+          <div class="bento-principle-item">
+            <strong>Responsive Layouts:</strong>
+            <span>Fluid adaptation across mobile (360px+), tablet, and desktop viewports without broken overflow.</span>
           </div>
-          <div class="bento-stack-group">
-            <span class="bento-stack-label">Exploring &amp; Next</span>
-            <div class="bento-stack-tags">
-              <span class="bento-tag">Practical AI API Integration</span>
-              <span class="bento-tag">Modern Web Tooling</span>
-            </div>
+          <div class="bento-principle-item">
+            <strong>Clear Communication:</strong>
+            <span>Transparent scope agreement, realistic milestone schedules, and regular progress updates.</span>
+          </div>
+          <div class="bento-principle-item">
+            <strong>Careful Testing:</strong>
+            <span>Cross-browser validation, keyboard navigation, and verified color contrast.</span>
+          </div>
+          <div class="bento-principle-item">
+            <strong>Clean Craftsmanship:</strong>
+            <span>Lightweight vanilla code delivering fast load times without unnecessary dependencies.</span>
           </div>
         </div>
       </article>

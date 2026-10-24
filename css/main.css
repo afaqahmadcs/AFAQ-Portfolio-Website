@@ -131,50 +131,39 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 /* Card 2: Portrait Visual (4 cols) */
 .bento-card--portrait{grid-column:span 4;padding:0;border-radius:var(--rxl);overflow:hidden;position:relative;background:var(--bg2);min-height:360px}
 .bento-portrait-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.bento-portrait-overlay{position:absolute;bottom:0;inset-inline:0;padding:var(--s5);background:linear-gradient(to top,rgba(15,23,42,.92) 0%,rgba(15,23,42,.4) 65%,transparent 100%);color:#fff;display:flex;flex-direction:column;gap:2px}
+.bento-portrait-overlay{position:absolute;bottom:0;inset-inline:0;padding:var(--s5);background:linear-gradient(to top,rgba(15,23,42,.92) 0%,rgba(15,23,42,.4) 65%,transparent 100%);color:#fff;display:flex;flex-direction:column;gap:4px}
+.bento-portrait-meta{display:flex;flex-direction:column;gap:2px}
 .bento-portrait-name{font-size:var(--base);font-weight:var(--wb);color:#fff}
 .bento-portrait-title{font-size:var(--xs);color:rgba(255,255,255,.8);font-weight:var(--wm)}
+.bento-portrait-clock{display:inline-flex;align-items:center;gap:6px;font-family:var(--ffm);font-size:11px;color:rgba(255,255,255,.9);background:rgba(23,28,27,.6);padding:3px 10px;border-radius:var(--rfull);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(6px);margin-top:4px;width:fit-content}
 
-/* Card 3: Location & Live Local Time (4 cols) */
-.bento-card--time{grid-column:span 4;justify-content:space-between}
-.bento-time-display{padding-block:var(--s4)}
-.bento-time-val{font-family:var(--ffm);font-size:clamp(1.75rem,2.4vw,2.3rem);font-weight:var(--wb);color:var(--fg);line-height:1;font-variant-numeric:tabular-nums;display:block;margin-bottom:var(--s2);letter-spacing:-.03em}
-.bento-time-meta{font-family:var(--ffm);font-size:var(--xs);color:var(--fg3);font-weight:var(--wm);display:block}
-.bento-card-note{font-size:var(--xs);color:var(--fg3);line-height:var(--lhn);margin:0}
-
-.bento-live-badge{display:inline-flex;align-items:center;gap:var(--s2);font-size:var(--xs);font-weight:var(--ws);color:var(--acc);background:var(--accbg);padding:3px 10px;border-radius:var(--rfull);border:1px solid rgba(16,185,129,.25)}
-.bento-pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:bentoPulse 2s ease-in-out infinite}
-@keyframes bentoPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
-
-/* Card 4: Current Focus (4 cols) */
-.bento-card--focus{grid-column:span 4}
+/* Element 1: Current Focus (6 cols) */
+.bento-card--focus{grid-column:span 6}
 .bento-card-title{font-size:var(--lg);font-weight:var(--wb);color:var(--fg);margin-bottom:var(--s3)}
-.bento-focus-list{display:flex;flex-direction:column;gap:var(--s3);margin:0;padding:0;list-style:none}
-.bento-focus-item{display:flex;align-items:flex-start;gap:var(--s3)}
-.bento-marker{width:6px;height:6px;border-radius:50%;background:var(--brand);margin-top:7px;flex-shrink:0}
-.bento-focus-text{font-size:var(--sm);color:var(--fg2);line-height:var(--lhn)}
-.bento-focus-text strong{color:var(--fg);font-weight:var(--ws)}
+.bento-card-text{font-size:var(--sm);color:var(--fg2);line-height:var(--lhr);margin-bottom:var(--s4)}
+.bento-focus-badges{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:auto}
 
-/* Card 5: Academic Context (4 cols) */
-.bento-card--personal{grid-column:span 4}
-.bento-prose{font-size:var(--sm);color:var(--fg2);line-height:var(--lhr);margin-bottom:var(--s4)}
-.bento-edu-meta{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s3);border-top:1px solid var(--bd3)}
-.bento-edu-line{font-size:var(--xs);color:var(--fg3);display:flex;align-items:center;gap:var(--s2)}
-.bento-edu-line strong{color:var(--fg2);font-weight:var(--wm)}
+/* Element 2: Journey Milestones (6 cols) */
+.bento-card--journey{grid-column:span 6}
+.bento-journey-steps{display:flex;flex-direction:column;gap:var(--s3);margin-top:var(--s2)}
+.bento-journey-step{display:flex;flex-direction:column;gap:3px;padding:var(--s3) var(--s4);background:var(--bg2);border:1px solid var(--bd3);border-radius:var(--rmd);font-size:var(--xs);color:var(--fg2);line-height:var(--lhn)}
+.bento-journey-step strong{color:var(--fg);font-size:var(--sm)}
+.bento-step-status{display:inline-flex;align-items:center;gap:4px;font-family:var(--ffm);font-size:10px;font-weight:var(--wb);text-transform:uppercase;color:var(--brand);margin-bottom:2px}
+.bento-step-status--learning{color:var(--acc)}
 
-/* Card 6: Build Principles (6 cols) */
+/* Element 3: Tools & Verified Skills (6 cols) */
+.bento-card--skills{grid-column:span 6}
+.bento-skills-grid{display:flex;flex-direction:column;gap:var(--s3);margin-top:var(--s2)}
+.bento-skill-group{display:flex;flex-direction:column;gap:var(--s2)}
+.bento-skill-cat{font-size:11px;font-weight:var(--ws);color:var(--fg3);text-transform:uppercase;letter-spacing:var(--lsw);font-family:var(--ffm)}
+.bento-skill-tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
+
+/* Element 4: Working Principles (6 cols) */
 .bento-card--principles{grid-column:span 6}
 .bento-principles-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s2)}
-.bento-principle-item{display:flex;flex-direction:column;gap:4px;padding:var(--s4);background:var(--bg2);border:1px solid var(--bd3);border-radius:var(--rmd)}
-.bento-principle-head{display:flex;align-items:center;gap:var(--s2);font-size:var(--sm);font-weight:var(--ws);color:var(--fg)}
-.bento-principle-desc{font-size:var(--xs);color:var(--fg2);line-height:var(--lhn)}
+.bento-principle-item{display:flex;flex-direction:column;gap:4px;padding:var(--s4);background:var(--bg2);border:1px solid var(--bd3);border-radius:var(--rmd);font-size:var(--xs);color:var(--fg2);line-height:var(--lhn)}
+.bento-principle-item strong{color:var(--fg);font-size:var(--sm);font-weight:var(--ws)}
 
-/* Card 7: Tech Stack (6 cols) */
-.bento-card--stack{grid-column:span 6}
-.bento-stack-groups{display:flex;flex-direction:column;gap:var(--s3);margin-top:var(--s2)}
-.bento-stack-group{display:flex;flex-direction:column;gap:var(--s2)}
-.bento-stack-label{font-size:var(--xs);font-weight:var(--ws);color:var(--fg3);text-transform:uppercase;letter-spacing:var(--lsw)}
-.bento-stack-tags{display:flex;flex-wrap:wrap;gap:var(--s2)}
 .bento-tag{font-size:var(--xs);font-weight:var(--wm);padding:4px 11px;border-radius:var(--rfull);background:var(--bg2);color:var(--fg2);border:1px solid var(--bd)}
 .bento-tag--brand{background:var(--brandbg);color:var(--brand);border-color:var(--brand-border);font-weight:var(--ws)}
 .bento-tag--learning{background:var(--accbg);color:var(--acc);border-color:var(--acc-border)}
@@ -183,12 +172,11 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 @media(max-width:1024px){
   .bento-grid{grid-template-columns:repeat(2,1fr)}
   .bento-card--intro{grid-column:span 2}
-  .bento-card--portrait{grid-column:span 1;min-height:320px}
-  .bento-card--time{grid-column:span 1}
+  .bento-card--portrait{grid-column:span 2;min-height:300px}
   .bento-card--focus{grid-column:span 1}
-  .bento-card--personal{grid-column:span 1}
-  .bento-card--principles{grid-column:span 2}
-  .bento-card--stack{grid-column:span 2}
+  .bento-card--journey{grid-column:span 1}
+  .bento-card--skills{grid-column:span 1}
+  .bento-card--principles{grid-column:span 1}
 }
 
 @media(max-width:768px){
@@ -196,11 +184,10 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
   .bento-grid{grid-template-columns:1fr;gap:var(--s4)}
   .bento-card--intro,
   .bento-card--portrait,
-  .bento-card--time,
   .bento-card--focus,
-  .bento-card--personal,
-  .bento-card--principles,
-  .bento-card--stack{grid-column:span 1}
+  .bento-card--journey,
+  .bento-card--skills,
+  .bento-card--principles{grid-column:span 1}
   .bento-card--intro{padding:var(--s6)}
   .bento-principles-grid{grid-template-columns:1fr}
 }
