@@ -134,6 +134,18 @@
   }
 
   /**
+   * Helper: Filter out any internal SMIT / coursework / peer review records
+   */
+  function filterOutSmitReviews(list) {
+    if (!Array.isArray(list)) return [];
+    return list.filter(r => {
+      if (!r) return false;
+      const combined = `${r.client_name || ''} ${r.company || ''} ${r.project_reference || ''} ${r.review_text || ''}`.toLowerCase();
+      return !combined.includes('smit') && !combined.includes('saylani');
+    });
+  }
+
+  /**
    * Load approved public reviews
    */
   async function loadApprovedReviews() {
@@ -143,7 +155,7 @@
     renderLoadingState();
 
     if (!isConfigured()) {
-      renderReviews(VERIFIED_FALLBACK_REVIEWS);
+      renderReviews(filterOutSmitReviews(VERIFIED_FALLBACK_REVIEWS));
       return;
     }
 
@@ -169,14 +181,15 @@
         );
       }
 
-      if (data && data.length > 0) {
-        renderReviews(data);
+      const filtered = filterOutSmitReviews(data);
+      if (filtered && filtered.length > 0) {
+        renderReviews(filtered);
       } else {
-        renderReviews(VERIFIED_FALLBACK_REVIEWS);
+        renderReviews(filterOutSmitReviews(VERIFIED_FALLBACK_REVIEWS));
       }
     } catch (err) {
       console.warn('Reviews fetch fallback triggered, displaying verified reviews:', err.message);
-      renderReviews(VERIFIED_FALLBACK_REVIEWS);
+      renderReviews(filterOutSmitReviews(VERIFIED_FALLBACK_REVIEWS));
     }
   }
 
@@ -322,19 +335,21 @@
   function renderReviews(reviews) {
     reviewsContainer.innerHTML = '';
 
-    if (!reviews || reviews.length === 0) {
+    const safeReviews = filterOutSmitReviews(reviews);
+
+    if (!safeReviews || safeReviews.length === 0) {
       renderEmptyState();
       return;
     }
 
     if (reviewsCountBadge) {
-      reviewsCountBadge.textContent = `${reviews.length} Verified ${reviews.length === 1 ? 'Review' : 'Reviews'}`;
+      reviewsCountBadge.textContent = `${safeReviews.length} Verified ${safeReviews.length === 1 ? 'Review' : 'Reviews'}`;
     }
 
     const grid = document.createElement('div');
     grid.className = 'reviews-grid';
 
-    reviews.forEach(review => {
+    safeReviews.forEach(review => {
       const card = document.createElement('article');
       card.className = 'review-card';
 
