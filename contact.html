@@ -101,6 +101,142 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════════
+     INTERACTIVE PROJECT SCOPE & TIMELINE ESTIMATOR
+════════════════════════════════════════════════════ -->
+<section class="section scope-estimator-section" id="estimator" aria-labelledby="estimator-h">
+  <div class="container">
+    <div class="section__hd reveal up">
+      <div class="section__tag">Interactive Estimator</div>
+      <h2 class="section__title" id="estimator-h">Project Scope &amp; Timeline Calculator</h2>
+      <p class="section__sub">Select your project requirements below to see an instant delivery timeline estimate and generate a 1-click inquiry brief.</p>
+    </div>
+
+    <div class="estimator-card spotlight-card reveal up">
+      <div class="estimator-grid">
+        <!-- Configuration Controls -->
+        <div class="estimator-controls">
+          <!-- Step 1: Project Type -->
+          <div class="estimator-group">
+            <span class="estimator-step-label">1. Select Project Type</span>
+            <div class="estimator-options" role="radiogroup" aria-label="Project Type" id="est-type-group">
+              <button type="button" class="est-option is-active" data-type="landing" data-name="High-Converting Landing Page" data-days="3">
+                <span class="est-opt-icon">🚀</span>
+                <span class="est-opt-title">Landing Page / One-Pager</span>
+                <span class="est-opt-sub">Modern animations, hero bento &amp; fluid layout</span>
+              </button>
+              <button type="button" class="est-option" data-type="business" data-name="Business / Showcase Website" data-days="5">
+                <span class="est-opt-icon">🏢</span>
+                <span class="est-opt-title">Business Website</span>
+                <span class="est-opt-sub">Multi-page corporate presence &amp; services</span>
+              </button>
+              <button type="button" class="est-option" data-type="catalog" data-name="Product / Gemstone Catalog" data-days="6">
+                <span class="est-opt-icon">💎</span>
+                <span class="est-opt-title">Product / E-Catalog</span>
+                <span class="est-opt-sub">Filterable catalog, WhatsApp direct ordering</span>
+              </button>
+              <button type="button" class="est-option" data-type="figma" data-name="Figma to Clean Code Conversion" data-days="4">
+                <span class="est-opt-icon">🎨</span>
+                <span class="est-opt-title">Figma / Design to Code</span>
+                <span class="est-opt-sub">100% pixel-perfect vanilla HTML/CSS conversion</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Scale / Number of Pages -->
+          <div class="estimator-group">
+            <span class="estimator-step-label">2. Page Scope</span>
+            <div class="estimator-pills" id="est-pages-group">
+              <button type="button" class="est-pill is-active" data-pages="1–3 Pages" data-add-days="0">1–3 Pages</button>
+              <button type="button" class="est-pill" data-pages="4–7 Pages" data-add-days="2">4–7 Pages</button>
+              <button type="button" class="est-pill" data-pages="8+ Pages / Full Platform" data-add-days="4">8+ Pages</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Key Capabilities & Add-ons -->
+          <div class="estimator-group">
+            <span class="estimator-step-label">3. Included Capabilities &amp; Add-ons</span>
+            <div class="estimator-checkboxes" id="est-features-group">
+              <label class="est-check-label">
+                <input type="checkbox" class="est-check" value="WhatsApp Direct Routing" checked />
+                <span class="est-check-custom"></span>
+                <span>WhatsApp 1-Click Routing</span>
+              </label>
+              <label class="est-check-label">
+                <input type="checkbox" class="est-check" value="100/100 Core Web Vitals Optimization" checked />
+                <span class="est-check-custom"></span>
+                <span>100/100 Core Web Vitals &amp; Speed</span>
+              </label>
+              <label class="est-check-label">
+                <input type="checkbox" class="est-check" value="SEO &amp; OpenGraph Metadata" checked />
+                <span class="est-check-custom"></span>
+                <span>SEO &amp; OpenGraph Setup</span>
+              </label>
+              <label class="est-check-label">
+                <input type="checkbox" class="est-check" value="Dual Theme Light/Dark Mode" />
+                <span class="est-check-custom"></span>
+                <span>Dual Theme (Light &amp; Dark)</span>
+              </label>
+              <label class="est-check-label">
+                <input type="checkbox" class="est-check" value="Interactive Custom Micro-Animations" />
+                <span class="est-check-custom"></span>
+                <span>Custom Micro-Animations</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-Time Estimate Summary & 1-Click Action -->
+        <div class="estimator-summary">
+          <div class="est-summary-card">
+            <div class="est-summary-head">
+              <span class="est-summary-eyebrow">Project Summary</span>
+              <span class="est-summary-badge" id="est-badge-type">Landing Page</span>
+            </div>
+
+            <div class="est-summary-body">
+              <div class="est-metric-row">
+                <span class="est-metric-label">Estimated Delivery:</span>
+                <span class="est-metric-val" id="est-display-timeline">3–5 Business Days</span>
+              </div>
+              <div class="est-metric-row">
+                <span class="est-metric-label">Code Architecture:</span>
+                <span class="est-metric-val">Zero-Bloat Vanilla (HTML5, CSS3, ES6+)</span>
+              </div>
+              <div class="est-metric-row">
+                <span class="est-metric-label">Communication:</span>
+                <span class="est-metric-val">Direct 1-on-1 · Daily Staging Link</span>
+              </div>
+              <div class="est-metric-row">
+                <span class="est-metric-label">Code Ownership:</span>
+                <span class="est-metric-val">100% Full GitHub Repo Transfer</span>
+              </div>
+            </div>
+
+            <div class="est-selected-features">
+              <span class="est-features-head">Selected Scope:</span>
+              <ul class="est-features-list" id="est-features-list">
+                <!-- Dynamically populated via JS -->
+              </ul>
+            </div>
+
+            <div class="est-actions">
+              <a href="#" class="btn btn--primary btn--full" id="est-whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                Send Brief to Afaq on WhatsApp
+              </a>
+              <button type="button" class="btn btn--secondary btn--full" id="est-autofill-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                Auto-fill Contact Form Below
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="form" aria-labelledby="contact-h">
 <div class="container">
 <h2 class="sr-only" id="contact-h">Contact Options and Form</h2>
