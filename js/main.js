@@ -1219,7 +1219,7 @@ const isFinePointer = window.matchMedia('(pointer: fine)').matches;
   if (!window.matchMedia('(pointer: fine)').matches) return;
 
   function setupCards() {
-    const targetSelector = '.bento-card, .svc-card, .principle-card, .note-card, .journey-story-card, .cwv-score-card';
+    const targetSelector = '.bento-card:not(.bento-card--portrait), .svc-card, .principle-card, .note-card, .journey-story-card, .cwv-score-card';
     const cards = document.querySelectorAll(targetSelector);
     if (!cards.length) return;
 

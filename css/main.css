@@ -130,16 +130,16 @@ h1,h2,h3,h4,h5,h6{font-family:var(--ff-display, var(--ff));line-height:var(--lht
 .bento-narrative{font-size:var(--lg);color:var(--fg2);line-height:var(--lhr);max-width:620px;margin-bottom:var(--s8)}
 .bento-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3)}
 
-/* Card 2: Portrait Visual (4 cols) */
-.bento-card--portrait{grid-column:span 4;padding:0;border-radius:var(--rxl);overflow:hidden;position:relative;background:var(--bg2);min-height:360px}
-.bento-portrait-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform var(--dur-normal) var(--ease-out)}
-.bento-card--portrait:hover .bento-portrait-img{transform:scale(1.04)}
-.bento-portrait-top-badge{position:absolute;top:var(--s4);left:var(--s4);z-index:2;display:inline-flex;align-items:center;gap:6px;background:rgba(17,19,24,.75);border:1px solid rgba(242,240,233,.2);backdrop-filter:blur(8px);padding:4px 12px;border-radius:var(--rfull);font-size:11px;font-weight:var(--ws);color:#F2F0E9}
-.bento-portrait-overlay{position:absolute;bottom:0;inset-inline:0;padding:var(--s5);background:linear-gradient(to top,rgba(17,19,24,.94) 0%,rgba(17,19,24,.45) 65%,transparent 100%);color:#fff;display:flex;flex-direction:column;gap:4px}
+/* Card 2: Portrait Visual (4 cols) - Exact 1:1 Match with User Design */
+.bento-card--portrait{grid-column:span 4;padding:0 !important;border-radius:var(--rxl);overflow:hidden;position:relative;background:#0d0f14;border:1px solid var(--bd);min-height:420px;display:block}
+.bento-portrait-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block;transition:transform var(--dur-normal) var(--ease-out)}
+.bento-card--portrait:hover .bento-portrait-img{transform:scale(1.03)}
+.bento-portrait-top-badge{position:absolute !important;top:18px !important;left:18px !important;z-index:10 !important;display:inline-flex;align-items:center;gap:6px;background:rgba(15,17,23,.72);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:6px 14px;border-radius:9999px;font-size:12px;font-weight:500;color:#fff;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.bento-portrait-overlay{position:absolute !important;bottom:0 !important;inset-inline:0 !important;z-index:10 !important;padding:40px 22px 22px;background:linear-gradient(180deg,transparent 0%,rgba(10,12,16,.45) 35%,rgba(10,12,16,.9) 80%,rgba(10,12,16,.98) 100%);display:flex;flex-direction:column;gap:4px;pointer-events:auto}
 .bento-portrait-meta{display:flex;flex-direction:column;gap:2px}
-.bento-portrait-name{font-size:var(--base);font-weight:var(--wb);color:#F2F0E9}
-.bento-portrait-title{font-size:var(--xs);color:#9AA8B8;font-weight:var(--wm)}
-.bento-portrait-clock{display:inline-flex;align-items:center;gap:6px;font-family:var(--ffm);font-size:11px;color:#F2F0E9;background:rgba(17,19,24,.75);padding:3px 10px;border-radius:var(--rfull);border:1px solid rgba(242,240,233,.2);backdrop-filter:blur(6px);margin-top:4px;width:fit-content}
+.bento-portrait-name{font-size:clamp(1.35rem,2vw,1.6rem);font-weight:700;letter-spacing:-.015em;color:#fff;line-height:1.2}
+.bento-portrait-title{font-size:.88rem;color:#94a3b8;font-weight:500}
+.bento-portrait-clock{display:inline-flex;align-items:center;gap:7px;font-family:var(--ffm),monospace;font-size:12px;font-weight:600;color:#fff;background:rgba(15,17,23,.75);padding:5px 12px;border-radius:9999px;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);margin-top:6px;width:fit-content;letter-spacing:.03em;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 
 /* Element 1: Current Focus (6 cols) */
 .bento-card--focus{grid-column:span 6}
@@ -2164,13 +2164,11 @@ footer{background:var(--bg2);border-top:1px solid var(--bd);padding-block:var(--
     rgba(114, 151, 181, 0.16),
     transparent 50%
   );
+  pointer-events: none;
+  z-index: 0;
 }
 .spotlight-card:hover::before {
   opacity: 1;
-}
-.spotlight-card > * {
-  position: relative;
-  z-index: 2;
 }
 
 /* ── Code Copy Button for Terminal ─────────────────────────────────── */
