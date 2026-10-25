@@ -45,7 +45,7 @@
           <span>Portfolio</span>
         </a>
         <span class="admin-divider" aria-hidden="true">/</span>
-        <h1 class="admin-title">Review Moderation</h1>
+        <h1 class="admin-title">Admin Console</h1>
         <span id="env-badge" class="badge-env" aria-label="Environment: Supabase Protected">Supabase RLS</span>
       </div>
 
@@ -151,85 +151,184 @@ ON CONFLICT (user_id) DO NOTHING;</code></pre>
 
     <!-- View 4: Protected Moderation Dashboard -->
     <section id="view-dashboard" class="admin-section-dashboard" style="display: none;" aria-labelledby="dashboard-heading">
-      <header class="dashboard-header">
-        <div>
-          <h2 id="dashboard-heading" class="dashboard-title">Review Management Console</h2>
-          <p class="dashboard-subtitle">Moderate submitted client testimonials. Only approved reviews appear publicly on the portfolio.</p>
-        </div>
-        <div class="dashboard-controls">
-          <button id="admin-refresh-btn" class="admin-btn admin-btn-secondary admin-btn-sm" type="button" title="Reload queue from database">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-            </svg>
-            <span>Refresh</span>
-          </button>
-        </div>
-      </header>
+      <!-- Top Level Section Switcher -->
+      <nav class="admin-nav-switcher" role="tablist" aria-label="Dashboard sections">
+        <button id="nav-btn-inquiries" class="admin-nav-tab is-active" role="tab" aria-selected="true" aria-controls="panel-inquiries" data-section="inquiries">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Client Inquiries</span>
+          <span id="badge-nav-inquiries" class="admin-nav-badge admin-nav-badge--unread">0</span>
+        </button>
+        <button id="nav-btn-reviews" class="admin-nav-tab" role="tab" aria-selected="false" aria-controls="panel-reviews" data-section="reviews">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Client Reviews</span>
+          <span id="badge-nav-reviews" class="admin-nav-badge">0</span>
+        </button>
+      </nav>
 
-      <!-- Dashboard Metric Counters -->
-      <div class="admin-metrics-grid" role="region" aria-label="Review metrics summary">
-        <div class="metric-card metric-pending">
-          <span class="metric-label">Pending Review</span>
-          <span id="metric-pending-count" class="metric-value">0</span>
-          <span class="metric-sub">Requires moderation</span>
+      <!-- PANEL 1: CLIENT INQUIRIES & MESSAGES -->
+      <div id="panel-inquiries" class="dashboard-panel" role="tabpanel" aria-labelledby="nav-btn-inquiries">
+        <header class="dashboard-header">
+          <div>
+            <h2 class="dashboard-title">Client Inquiries &amp; Messages</h2>
+            <p class="dashboard-subtitle">Manage inquiries from your Contact form. Reply directly via Email or WhatsApp with 1 click.</p>
+          </div>
+          <div class="dashboard-controls">
+            <button id="inquiries-refresh-btn" class="admin-btn admin-btn-secondary admin-btn-sm" type="button" title="Reload inquiries from database">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+              <span>Refresh</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Inquiries Metric Counters -->
+        <div class="admin-metrics-grid" role="region" aria-label="Inquiries metrics summary">
+          <div class="metric-card metric-pending">
+            <span class="metric-label">Unread Messages</span>
+            <span id="metric-inq-unread" class="metric-value">0</span>
+            <span class="metric-sub">Requires response</span>
+          </div>
+          <div class="metric-card metric-approved">
+            <span class="metric-label">Replied</span>
+            <span id="metric-inq-replied" class="metric-value">0</span>
+            <span class="metric-sub">Response sent</span>
+          </div>
+          <div class="metric-card metric-rejected">
+            <span class="metric-label">Archived</span>
+            <span id="metric-inq-archived" class="metric-value">0</span>
+            <span class="metric-sub">Closed leads</span>
+          </div>
+          <div class="metric-card metric-total">
+            <span class="metric-label">Total Inquiries</span>
+            <span id="metric-inq-total" class="metric-value">0</span>
+            <span class="metric-sub">All-time records</span>
+          </div>
         </div>
-        <div class="metric-card metric-approved">
-          <span class="metric-label">Approved (Public)</span>
-          <span id="metric-approved-count" class="metric-value">0</span>
-          <span class="metric-sub">Live on portfolio</span>
+
+        <!-- Inquiries Filter Toolbar -->
+        <div class="queue-toolbar">
+          <nav class="queue-tabs" role="tablist" aria-label="Inquiry status filters">
+            <button id="tab-inq-all" class="queue-tab is-active" role="tab" aria-selected="true" data-inq-filter="all">
+              All Inquiries <span id="badge-inq-all" class="tab-badge">0</span>
+            </button>
+            <button id="tab-inq-unread" class="queue-tab" role="tab" aria-selected="false" data-inq-filter="unread">
+              Unread <span id="badge-inq-unread" class="tab-badge">0</span>
+            </button>
+            <button id="tab-inq-progress" class="queue-tab" role="tab" aria-selected="false" data-inq-filter="in_progress">
+              In Progress <span id="badge-inq-progress" class="tab-badge">0</span>
+            </button>
+            <button id="tab-inq-replied" class="queue-tab" role="tab" aria-selected="false" data-inq-filter="replied">
+              Replied <span id="badge-inq-replied" class="tab-badge">0</span>
+            </button>
+            <button id="tab-inq-archived" class="queue-tab" role="tab" aria-selected="false" data-inq-filter="archived">
+              Archived <span id="badge-inq-archived" class="tab-badge">0</span>
+            </button>
+          </nav>
+
+          <div class="queue-search">
+            <label for="inquiries-search-input" class="sr-only">Search inquiries</label>
+            <input type="search" id="inquiries-search-input" placeholder="Search by name, email, subject, or message..." class="admin-search-input">
+          </div>
         </div>
-        <div class="metric-card metric-rejected">
-          <span class="metric-label">Rejected</span>
-          <span id="metric-rejected-count" class="metric-value">0</span>
-          <span class="metric-sub">Hidden from visitors</span>
-        </div>
-        <div class="metric-card metric-total">
-          <span class="metric-label">Total Submissions</span>
-          <span id="metric-total-count" class="metric-value">0</span>
-          <span class="metric-sub">Lifetime records</span>
+
+        <!-- Inquiries Cards Container -->
+        <div id="inquiries-panel" class="queue-panel">
+          <div id="inquiries-loading" class="queue-state-loading" style="display: none;">
+            <div class="admin-spinner" aria-hidden="true"></div>
+            <p>Fetching inquiries from database...</p>
+          </div>
+          <div id="inquiries-empty" class="queue-state-empty" style="display: none;">
+            <div class="queue-empty-icon" aria-hidden="true">📬</div>
+            <h3 id="inquiries-empty-title" class="queue-empty-title">No inquiries found</h3>
+            <p id="inquiries-empty-desc" class="queue-empty-desc">There are no client inquiries matching this filter.</p>
+          </div>
+          <div id="inquiries-list" class="inquiries-list" role="list"></div>
         </div>
       </div>
 
-      <!-- Moderation Filter Tabs -->
-      <div class="queue-toolbar">
-        <nav class="queue-tabs" role="tablist" aria-label="Review status filters">
-          <button id="tab-pending" class="queue-tab is-active" role="tab" aria-selected="true" aria-controls="queue-panel" data-filter="pending">
-            Pending Queue <span id="badge-tab-pending" class="tab-badge">0</span>
-          </button>
-          <button id="tab-approved" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="approved">
-            Approved <span id="badge-tab-approved" class="tab-badge">0</span>
-          </button>
-          <button id="tab-rejected" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="rejected">
-            Rejected <span id="badge-tab-rejected" class="tab-badge">0</span>
-          </button>
-          <button id="tab-all" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="all">
-            All Records <span id="badge-tab-all" class="tab-badge">0</span>
-          </button>
-        </nav>
+      <!-- PANEL 2: CLIENT REVIEWS (EXISTING) -->
+      <div id="panel-reviews" class="dashboard-panel" style="display: none;" role="tabpanel" aria-labelledby="nav-btn-reviews">
+        <header class="dashboard-header">
+          <div>
+            <h2 id="dashboard-heading" class="dashboard-title">Review Management Console</h2>
+            <p class="dashboard-subtitle">Moderate submitted client testimonials. Only approved reviews appear publicly on the portfolio.</p>
+          </div>
+          <div class="dashboard-controls">
+            <button id="admin-refresh-btn" class="admin-btn admin-btn-secondary admin-btn-sm" type="button" title="Reload queue from database">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+              <span>Refresh</span>
+            </button>
+          </div>
+        </header>
 
-        <div class="queue-search">
-          <label for="queue-search-input" class="sr-only">Search reviews</label>
-          <input type="search" id="queue-search-input" placeholder="Search by name, company, or text..." class="admin-search-input">
+        <!-- Dashboard Metric Counters -->
+        <div class="admin-metrics-grid" role="region" aria-label="Review metrics summary">
+          <div class="metric-card metric-pending">
+            <span class="metric-label">Pending Review</span>
+            <span id="metric-pending-count" class="metric-value">0</span>
+            <span class="metric-sub">Requires moderation</span>
+          </div>
+          <div class="metric-card metric-approved">
+            <span class="metric-label">Approved (Public)</span>
+            <span id="metric-approved-count" class="metric-value">0</span>
+            <span class="metric-sub">Live on portfolio</span>
+          </div>
+          <div class="metric-card metric-rejected">
+            <span class="metric-label">Rejected</span>
+            <span id="metric-rejected-count" class="metric-value">0</span>
+            <span class="metric-sub">Hidden from visitors</span>
+          </div>
+          <div class="metric-card metric-total">
+            <span class="metric-label">Total Submissions</span>
+            <span id="metric-total-count" class="metric-value">0</span>
+            <span class="metric-sub">Lifetime records</span>
+          </div>
         </div>
-      </div>
 
-      <!-- Review Cards Queue Panel -->
-      <div id="queue-panel" class="queue-panel" role="tabpanel" aria-labelledby="tab-pending">
-        <!-- Loading State -->
-        <div id="queue-loading" class="queue-state-loading" style="display: none;">
-          <div class="admin-spinner" aria-hidden="true"></div>
-          <p>Fetching review queue from Supabase...</p>
+        <!-- Moderation Filter Tabs -->
+        <div class="queue-toolbar">
+          <nav class="queue-tabs" role="tablist" aria-label="Review status filters">
+            <button id="tab-pending" class="queue-tab is-active" role="tab" aria-selected="true" aria-controls="queue-panel" data-filter="pending">
+              Pending Queue <span id="badge-tab-pending" class="tab-badge">0</span>
+            </button>
+            <button id="tab-approved" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="approved">
+              Approved <span id="badge-tab-approved" class="tab-badge">0</span>
+            </button>
+            <button id="tab-rejected" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="rejected">
+              Rejected <span id="badge-tab-rejected" class="tab-badge">0</span>
+            </button>
+            <button id="tab-all" class="queue-tab" role="tab" aria-selected="false" aria-controls="queue-panel" data-filter="all">
+              All Records <span id="badge-tab-all" class="tab-badge">0</span>
+            </button>
+          </nav>
+
+          <div class="queue-search">
+            <label for="queue-search-input" class="sr-only">Search reviews</label>
+            <input type="search" id="queue-search-input" placeholder="Search by name, company, or text..." class="admin-search-input">
+          </div>
         </div>
 
-        <!-- Empty State -->
-        <div id="queue-empty" class="queue-state-empty" style="display: none;">
-          <div class="queue-empty-icon" aria-hidden="true">📭</div>
-          <h3 id="queue-empty-title" class="queue-empty-title">Queue is empty</h3>
-          <p id="queue-empty-desc" class="queue-empty-desc">There are currently no reviews matching this filter.</p>
-        </div>
+        <!-- Review Cards Queue Panel -->
+        <div id="queue-panel" class="queue-panel" role="tabpanel" aria-labelledby="tab-pending">
+          <!-- Loading State -->
+          <div id="queue-loading" class="queue-state-loading" style="display: none;">
+            <div class="admin-spinner" aria-hidden="true"></div>
+            <p>Fetching review queue from Supabase...</p>
+          </div>
 
-        <!-- Review Cards List Container -->
-        <div id="queue-list" class="queue-list" role="list"></div>
+          <!-- Empty State -->
+          <div id="queue-empty" class="queue-state-empty" style="display: none;">
+            <div class="queue-empty-icon" aria-hidden="true">📭</div>
+            <h3 id="queue-empty-title" class="queue-empty-title">Queue is empty</h3>
+            <p id="queue-empty-desc" class="queue-empty-desc">There are currently no reviews matching this filter.</p>
+          </div>
+
+          <!-- Review Cards List Container -->
+          <div id="queue-list" class="queue-list" role="list"></div>
+        </div>
       </div>
     </section>
   </main>
